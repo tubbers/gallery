@@ -2,1246 +2,516 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sky dome — solved image viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wade Tubman — Astrophotography</title>
+<meta name="description" content="Deep-sky astrophotography from Sydney and the dark skies of New South Wales.">
+<meta property="og:title" content="Wade Tubman — Astrophotography">
+<meta property="og:description" content="Deep-sky astrophotography from Sydney and the dark skies of New South Wales.">
+<meta property="og:type" content="website">
+<link rel="icon" href="logo-light-on-dark.png">
 <style>
-  :root{--ink:#ff9a76;--ink-dim:#a8543c;--hot:#ffcf6b;--edge:#43170f;--panel:#0d0301;
-    --panel2:#120402;--pick:#7fffd4;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
-  *{box-sizing:border-box}
-  html,body{margin:0;height:100%;background:#000;color:var(--ink);overflow:hidden;
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-  #app{display:flex;height:100%}
-  aside{flex:0 0 316px;background:var(--panel2);border-right:1px solid var(--edge);
-    padding:14px;display:flex;flex-direction:column;gap:11px;overflow-y:auto}
-  h1{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);font-weight:600;margin:0}
-  .fld{display:flex;flex-direction:column;gap:5px}
-  label{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
-  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:20px}
-  input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--edge)}
-  input[type=range]::-moz-range-track{height:3px;background:var(--edge)}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;margin-top:-6px;
-    border-radius:50%;background:var(--hot);border:2px solid #000}
-  input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--hot);border:2px solid #000}
-  input[type=range]:focus-visible{outline:2px solid var(--pick);outline-offset:2px}
-  .seg{display:flex;gap:4px}
-  .seg button,.tour button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--edge);
-    border-radius:2px;padding:6px;font-size:11px;cursor:pointer}
-  .seg button{flex:1}
-  .seg button.on{color:#000;background:var(--hot);border-color:var(--hot);font-weight:600}
-  button:focus-visible{outline:2px solid var(--pick);outline-offset:1px}
-  .tour{display:flex;gap:4px}
-  .tour button{flex:1;font-family:var(--mono);letter-spacing:.05em}
-  .tour button.on{color:#000;background:var(--pick);border-color:var(--pick);font-weight:600}
-  .note{font-family:var(--mono);font-size:10px;color:var(--ink-dim);line-height:1.55;white-space:pre-line}
-  .val{color:var(--hot)}
-  hr{border:0;border-top:1px solid var(--edge);margin:2px 0}
-  #list{border:1px solid var(--edge);border-radius:2px;background:var(--panel);
-    max-height:230px;overflow-y:auto;display:flex;flex-direction:column}
-  #list div{font-family:var(--mono);font-size:10.5px;padding:5px 8px;cursor:pointer;
-    display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(67,23,15,.55);color:var(--ink)}
-  #list div:last-child{border-bottom:0}
-  #list div:hover{background:rgba(255,207,107,.09)}
-  #list div.on{background:rgba(127,255,212,.14);color:var(--pick)}
-  #list div span{color:var(--ink-dim);white-space:nowrap}
-  #list div.on span{color:var(--pick)}
-  #sel{font-family:var(--mono);font-size:10.5px;line-height:1.6;color:var(--ink-dim);
-    border:1px solid var(--edge);border-radius:2px;padding:8px;background:var(--panel);min-height:84px}
-  #sel b{color:var(--pick);font-weight:600;font-size:11.5px;letter-spacing:.03em}
-  #sel .v{color:var(--ink)}
-  #sel .warn{color:var(--hot)}
-  main{flex:1 1 auto;position:relative;min-width:0}
-  #gl,#ov{position:absolute;inset:0;width:100%;height:100%}
-  #gl{cursor:grab}#gl.drag{cursor:grabbing}
-  #msg{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:5;max-width:74%;
-    word-break:break-word;
-    background:rgba(18,4,2,.94);border:1px solid var(--edge);border-radius:3px;padding:9px 13px;
-    font-family:var(--mono);font-size:11px;color:var(--hot);line-height:1.55;display:none}
+/* ============================================================
+   PALETTE
+   dark  = skydome's ember-on-black
+   light = the processing tracker's parchment + amber
+   ============================================================ */
+:root{
+  --bg:#060201; --panel:#0f0402; --panel2:#150603; --edge:#43170f;
+  --ink:#ffb694; --dim:#a8543c; --hot:#ffcf6b; --pick:#7fffd4;
+  --shadow:rgba(0,0,0,.7);
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,sans-serif;
+  --logo:url("logo-light-on-dark.png");
+}
+html[data-theme="light"]{
+  --bg:#ede5d2; --panel:#f8f4ea; --panel2:#f2ebdc; --edge:#d3c2a4;
+  --ink:#2b2119; --dim:#7a6a56; --hot:#b45309; --pick:#0f766e;
+  --shadow:rgba(60,45,25,.22);
+  --logo:url("logo-dark-on-light.png");
+}
 
-  /* ---- mobile: canvas full screen, a thin bar at the bottom, rest in a sheet ---- */
-  #gyro{display:none}
-  h1 #ver{color:var(--ink-dim);letter-spacing:.08em}
-  #fabs{display:flex;position:absolute;right:10px;top:12px;z-index:6;
-    flex-direction:column;gap:9px}
-  #nav{display:flex;position:absolute;left:50%;transform:translateX(-50%);
-    bottom:16px;z-index:6;gap:14px}
-  #nowpill{display:block;position:absolute;left:50%;transform:translateX(-50%);
-    bottom:78px;z-index:6;max-width:70%;
-    font-family:var(--mono);font-size:12px;color:var(--pick);text-align:center;
-    background:rgba(13,3,1,.8);border:1px solid var(--edge);border-radius:14px;
-    padding:5px 13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  #nowpill span{color:var(--ink-dim)}
-  #fGyro{display:none}                           /* no gyro on a desktop */
-  body.mobile #fGyro{display:flex}
-  #app{display:block}
-  main{position:absolute;inset:0}
-  aside{display:none;position:fixed;left:0;top:0;bottom:0;z-index:20;width:352px;
-    max-width:92vw;overflow-y:auto;border-right:1px solid var(--edge);
-    background:rgba(18,4,2,.97)}
-  body.sheet aside{display:flex}
-  .fab{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;
-    justify-content:center;font-size:19px;line-height:1;color:var(--ink);
-    background:rgba(13,3,1,.82);border:1px solid var(--edge);cursor:pointer;
-    -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);padding:0}
-  .fab.on{color:#000;background:var(--pick);border-color:var(--pick)}
-  .fab.warm{color:#000;background:var(--hot);border-color:var(--hot)}
-  body.mobile #fGyro,body.mobile #fSet{display:flex}
-  #close{display:block;width:100%;font:inherit;font-family:var(--mono);
-    font-size:12px;color:#000;background:var(--hot);border:0;border-radius:2px;
-    padding:11px;cursor:pointer;font-weight:600}
-  #list{max-height:34vh}
-  #compass{display:none;flex-direction:column;gap:11px}
-  body.mobile #compass{display:flex}
-  body.mobile #gyro{display:block;width:100%;font:inherit;font-size:12px;
-    font-family:var(--mono);color:var(--ink);background:var(--panel);
-    border:1px solid var(--edge);border-radius:2px;padding:11px 6px;cursor:pointer}
-  body.mobile #gyro.live{color:#000;background:var(--pick);border-color:var(--pick);font-weight:600}
-  body.mobile #gyro.locked{color:#000;background:var(--hot);border-color:var(--hot);font-weight:600}
-  #now{display:none;font-family:var(--mono);font-size:12px;color:var(--pick);
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 1px}
-  #now b{font-weight:600}#now span{color:var(--ink-dim)}
-  body.mobile aside{left:0;right:0;top:auto;bottom:0;width:auto;max-width:none;
-    border-right:0;border-top:1px solid var(--edge);max-height:88vh}
-  body.mobile #nav{bottom:calc(14px + env(safe-area-inset-bottom))}
-  body.mobile #nav .fab{width:52px;height:52px;font-size:17px}
-  body.mobile #nowpill{bottom:calc(76px + env(safe-area-inset-bottom));max-width:82vw}
-  body.mobile .tour button{padding:11px 6px;font-size:12px}
-  body.mobile.sheet aside{max-height:86vh;overflow-y:auto}
-  body.mobile.sheet #panelTop,body.mobile.sheet #panelBottom{display:flex;
-    flex-direction:column;gap:11px}
-  body.mobile.sheet #list{max-height:34vh}
-  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--pick); outline-offset:2px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- masthead ---------- */
+header{
+  padding:clamp(38px,7vw,84px) 24px clamp(20px,3vw,32px);
+  text-align:center; border-bottom:1px solid var(--edge);
+}
+#logo{
+  width:min(430px,72vw); height:calc(min(430px,72vw) * 0.349);
+  margin:0 auto; background:var(--logo) center/contain no-repeat;
+}
+#tagline{
+  margin:18px auto 0; max-width:56ch;
+  color:var(--dim); font-size:15px;
+}
+#tally{
+  margin-top:14px; font-family:var(--mono); font-size:12px;
+  letter-spacing:.05em; color:var(--dim);
+}
+#tally b{color:var(--hot); font-weight:600}
+
+/* ---------- controls ---------- */
+#bar{
+  position:sticky; top:0; z-index:40;
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  padding:11px 20px; background:var(--panel);
+  border-bottom:1px solid var(--edge);
+}
+#q{
+  flex:1 1 200px; min-width:150px; padding:8px 12px;
+  background:var(--bg); color:var(--ink);
+  border:1px solid var(--edge); border-radius:3px; font-size:14px;
+}
+#q::placeholder{color:var(--dim)}
+#sort{
+  padding:8px 10px; background:var(--bg); color:var(--ink);
+  border:1px solid var(--edge); border-radius:3px; font-size:14px;
+}
+#theme{
+  padding:8px 13px; border:1px solid var(--edge); border-radius:3px;
+  font-size:13px; letter-spacing:.03em; background:var(--bg);
+}
+#theme:hover{border-color:var(--hot); color:var(--hot)}
+
+/* ---------- justified grid ---------- */
+main{padding:20px}
+#grid{display:flex; flex-wrap:wrap; gap:9px; max-width:2000px; margin:0 auto}
+#grid::after{content:""; flex-grow:1e6}   /* keeps the last row left-aligned */
+figure{
+  position:relative; margin:0; height:250px;
+  overflow:hidden; background:var(--panel2); cursor:pointer;
+  border-radius:2px;
+}
+figure img{
+  display:block; width:100%; height:100%; object-fit:cover;
+  transition:transform .35s ease, filter .35s ease;
+}
+figure:hover img,figure:focus-within img{transform:scale(1.035); filter:brightness(1.08)}
+figcaption{
+  position:absolute; inset:auto 0 0 0; padding:26px 12px 9px;
+  background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,.45) 55%,transparent);
+  color:#fff; pointer-events:none;
+}
+.cap-name{font-size:14px; font-weight:600; line-height:1.25}
+.cap-meta{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.04em;
+  color:rgba(255,255,255,.72); margin-top:3px;
+}
+@media (max-width:760px){ figure{height:180px} main{padding:12px} }
+
+/* ---------- lightbox ---------- */
+#lb{
+  position:fixed; inset:0; z-index:100; display:none;
+  background:var(--bg);
+}
+#lb.on{display:grid; grid-template-columns:1fr 372px}
+#stage{
+  position:relative; display:grid; place-items:center;
+  padding:22px; min-width:0; background:#000;
+}
+html[data-theme="light"] #stage{background:#111}
+#stage img{max-width:100%; max-height:100%; object-fit:contain; display:block}
+#moonlayer{
+  position:absolute; pointer-events:none; opacity:.92;
+  display:none; filter:drop-shadow(0 0 14px rgba(0,0,0,.85));
+}
+#moonlayer.on{display:block}
+
+#info{
+  padding:26px 26px 60px; overflow-y:auto;
+  background:var(--panel); border-left:1px solid var(--edge);
+}
+#info h2{margin:0; font-size:24px; line-height:1.2; font-weight:600}
+#codes{
+  font-family:var(--mono); font-size:12px; color:var(--dim);
+  margin-top:6px; letter-spacing:.04em;
+}
+#blurb{margin:20px 0 0; font-size:14.5px; line-height:1.68; max-width:46ch}
+#blurb.placeholder{color:var(--dim); font-style:italic}
+
+dl{display:grid; grid-template-columns:auto 1fr; gap:7px 16px; margin:24px 0 0; font-size:13px}
+dt{color:var(--dim)}
+dd{margin:0; font-family:var(--mono); font-size:12.5px}
+
+#acts{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px}
+#acts a,#acts button{
+  padding:8px 13px; border:1px solid var(--edge); border-radius:3px;
+  font-size:13px; text-decoration:none; background:var(--bg);
+}
+#acts a:hover,#acts button:hover{border-color:var(--hot); color:var(--hot)}
+#acts button.on{background:var(--hot); border-color:var(--hot); color:var(--bg); font-weight:600}
+
+#close,#prev,#next{
+  position:fixed; z-index:110; width:44px; height:44px;
+  display:grid; place-items:center; font-size:22px; line-height:1;
+  background:rgba(0,0,0,.55); color:#fff; border-radius:50%;
+}
+#close{top:14px; left:14px}
+#prev{top:50%; left:14px; transform:translateY(-50%)}
+#next{top:50%; left:auto; right:calc(372px + 14px); transform:translateY(-50%)}
+#close:hover,#prev:hover,#next:hover{background:var(--hot); color:#000}
+
+@media (max-width:900px){
+  #lb.on{grid-template-columns:1fr; grid-template-rows:52vh 1fr}
+  #info{border-left:0; border-top:1px solid var(--edge); padding:20px 20px 50px}
+  #next{right:14px}
+  #prev,#next{top:26vh}
+}
+
+footer{
+  padding:44px 24px 60px; text-align:center;
+  border-top:1px solid var(--edge); color:var(--dim); font-size:13px;
+}
+footer a{color:var(--hot); text-decoration:none}
+footer a:hover{text-decoration:underline}
+#status{padding:60px 24px; text-align:center; color:var(--dim); font-family:var(--mono); font-size:13px}
 </style>
 </head>
 <body>
-<div id="app">
-  <aside>
-    <h1>Sky dome · <span id="ver"></span></h1>
-    <div id="panelTop">
-    <div class="note">Drag to look, pinch or scroll to zoom. Tap an image to fly to it.
-      Arrow keys step targets, Esc clears.</div>
-    <hr>
-    <div id="list"></div>
-    </div>
 
-    <div id="now"></div>
-    <div class="tour">
-      <button id="prev" title="Previous target">&#9666; prev</button>
-      <button id="play" title="Auto-advance">&#9656; tour</button>
-      <button id="next" title="Next target">next &#9656;</button>
-    </div>
+<header>
+  <div id="logo" role="img" aria-label="Wade Tubman Astrophotography"></div>
+  <p id="tagline">Deep-sky imaging from a Bortle&nbsp;7 backyard in Sydney, and from the dark skies of New South Wales.</p>
+  <p id="tally"></p>
+</header>
 
-    <button id="gyro">&#9678;  point at the sky</button>
+<div id="bar">
+  <input id="q" type="search" placeholder="Search by name, catalogue or constellation" aria-label="Search images">
+  <select id="sort" aria-label="Sort images">
+    <option value="featured">Sky order (by RA)</option>
+    <option value="name">Name A–Z</option>
+    <option value="distance">Distance — nearest first</option>
+    <option value="distancef">Distance — furthest first</option>
+    <option value="fov">Field of view — widest first</option>
+  </select>
+  <button id="theme" type="button">Light</button>
+</div>
 
-    <div id="panelBottom">
-    <hr>
-    <div id="sel">No image selected.</div>
+<main><div id="grid"></div></main>
+<p id="status">Loading the catalogue…</p>
 
-    <hr>
-    <div class="fld"><label>Move speed <span class="val" id="spdV">1.0&times;</span></label>
-      <input type="range" id="spd" min="25" max="300" value="100" step="5"></div>
-    <div id="compass">
-      <div class="fld"><label>Screen rotation <span class="val" id="srV">0&deg;</span></label>
-        <div class="seg"><button id="srLevel">level horizon</button>
-          <button id="srNudge">rotate 90&deg;</button></div>
-        <div class="note">If the horizon runs vertically or the view is upside down, hold the
-          device the way you normally would and tap level horizon. Measured once and remembered.</div></div>
-      <div class="fld"><label>Magnetic declination <span class="val" id="declV">12.7&deg;</span></label>
-        <input type="range" id="decl" min="0" max="30" value="12.7" step="0.1"></div>
-      <div class="fld"><label>Compass offset <span class="val" id="tweakV">0&deg;</span></label>
-        <input type="range" id="tweak" min="-40" max="40" value="0" step="0.5"></div>
-      <div class="fld"><label>Steadiness <span class="val" id="smoothV">60</span></label>
-        <input type="range" id="smooth" min="0" max="100" value="60" step="1"></div>
-      <div class="note" id="gyroStat">Declination turns magnetic north into true north (12.7&deg; for Sydney).
-        Compass offset corrects your phone&rsquo;s own error &mdash; nudge it until a bright star lines up.</div>
-      <hr>
-    </div>
-    <div class="fld"><label>Sidereal rotation (LST) <span class="val" id="lstV">80&deg;</span></label>
-      <input type="range" id="lst" min="0" max="360" value="80" step="1"></div>
-    <div class="fld"><label>Latitude <span class="val" id="latV">-33.8&deg;</span></label>
-      <input type="range" id="lat" min="-89" max="89" value="-33.8" step="0.1"></div>
-    <div class="fld"><label>When you pick a target</label>
-      <div class="seg"><button id="skFollow" class="on">spin sky to it</button><button id="skHold">keep sky put</button></div>
-      <div class="note">Spin sky moves the LST so the target sits high overhead. Keep sky put leaves the
-        sky where it is, so a target that's below the horizon stays below it.</div></div>
+<footer>
+  <p>Images © Wade Tubman. All rights reserved.</p>
+  <p>
+    <a href="https://tubbers.github.io/skydome/">Sky dome</a> ·
+    <a href="https://app.astrobin.com/u/tubbers">AstroBin</a> ·
+    <a href="https://telescopius.com/profile/tubbers">Telescopius</a> ·
+    <a href="https://astrophotomarket.com/en/author/wade-tubman">Free FITS data</a>
+  </p>
+</footer>
 
-    <hr>
-    <div class="fld"><label>Image opacity <span class="val" id="opaV">100%</span></label>
-      <input type="range" id="opa" min="10" max="100" value="100" step="5"></div>
-    <div class="fld"><label>Backdrop</label>
-      <div class="seg"><button id="dOn" class="on">on</button><button id="dOff">off</button></div></div>
-    <div class="fld"><label>Star names</label>
-      <div class="seg"><button id="lOn" class="on">on</button><button id="lOff">off</button></div></div>
-    <div class="fld"><label>RA/Dec grid</label>
-      <div class="seg"><button id="gOff" class="on">off</button><button id="gOn">on</button></div></div>
-    <div class="fld"><label>Debug overlay</label>
-      <div class="seg"><button id="dbgOff" class="on">off</button><button id="dbgOn">on</button></div></div>
-    <div class="fld"><label>Horizon</label>
-      <div class="seg"><button id="hOn" class="on">on</button><button id="hOff">off</button></div></div>
-
-    <div class="note" id="cal">look &mdash;</div>
-    <button id="close">done</button>
-    </div>
-  </aside>
-  <main>
-    <canvas id="gl"></canvas>
-    <canvas id="ov"></canvas>
-    <div id="fabs">
-      <button class="fab" id="fGyro" title="Point at the sky">&#9678;</button>
-      <button class="fab" id="fMoon" title="Moon for scale">&#9789;</button>
-      <button class="fab" id="fFull" title="Full screen">&#9974;</button>
-      <button class="fab" id="fSet" title="Settings">&#9881;</button>
-    </div>
-    <div id="nowpill">&mdash;</div>
-    <div id="nav">
-      <button class="fab" id="fPrev" title="Previous">&#9666;</button>
-      <button class="fab" id="fTour" title="Tour">&#9656;</button>
-      <button class="fab" id="fNext" title="Next">&#9656;</button>
-    </div>
-    <div id="msg"></div>
-  </main>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image detail">
+  <div id="stage">
+    <img id="lbimg" alt="">
+    <img id="moonlayer" src="moon.png" alt="The full Moon at the same scale">
+  </div>
+  <div id="info">
+    <h2 id="lbname"></h2>
+    <p id="codes"></p>
+    <p id="blurb"></p>
+    <dl id="facts"></dl>
+    <div id="acts"></div>
+  </div>
+  <button id="close" type="button" aria-label="Close">✕</button>
+  <button id="prev" type="button" aria-label="Previous image">‹</button>
+  <button id="next" type="button" aria-label="Next image">›</button>
 </div>
 
 <script>
-"use strict";
-const VERSION="1.3.0";
-const D=Math.PI/180,R2D=180/Math.PI,$=id=>document.getElementById(id);
-const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const MQ=matchMedia("(max-width: 760px), (pointer: coarse)");
-function applyMode(){
-  document.body.classList.toggle("mobile",MQ.matches);
-  if(!MQ.matches) document.body.classList.remove("sheet");
-  render();
+/* ==========================================================================
+   CONFIG — the only bits you'd ever need to change
+   ========================================================================== */
+const SKYDOME   = "https://tubbers.github.io/skydome/";  // where the images live
+const MOON_DEG  = 0.518;                                  // Moon's apparent diameter
+
+/* ==========================================================================
+   DATA LOADING
+   Three files, only the first is required:
+     1. skydome/manifest.json  — images + plate solve + distance   (remote)
+     2. targets.json           — your planning list, for constellation + type
+     3. gallery.json           — per-image blurbs, gear, hours     (optional)
+   ========================================================================== */
+let IMAGES = [], VIEW = [], CUR = -1;
+
+const url = p => SKYDOME + p.split("/").map(encodeURIComponent).join("/");
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const num  = s => { const n = parseFloat(String(s ?? "").replace(/,/g,"")); return isFinite(n) ? n : null; };
+
+// angular separation between two sky positions, in degrees
+function sep(ra1,de1,ra2,de2){
+  const R = Math.PI/180;
+  const v = Math.sin(de1*R)*Math.sin(de2*R)
+          + Math.cos(de1*R)*Math.cos(de2*R)*Math.cos((ra1-ra2)*R);
+  return Math.acos(Math.max(-1,Math.min(1,v)))/R;
 }
-MQ.addEventListener?.("change",applyMode);
 
-/* backdrop calibration, measured against sky.jpg */
-const SKY={file:"sky.jpg", mode:0 /*celestial*/, raOffset:180, flip:-1};
+async function grab(u){
+  try{ const r = await fetch(u,{cache:"no-store"}); return r.ok ? await r.json() : null; }
+  catch(e){ return null; }
+}
 
-const FALLBACK={images:[{
-  file:"Rho_Mosaic_PI_sig2.jpg", thumb:"Rho_Mosaic_PI_sig2_thumb.jpg",
-  label:"Rho Ophiuchi", solved:true,
-  corners:[[248.6075,-22.2537],[243.8592,-22.6710],[244.3180,-27.9817],[249.2782,-27.5513]],
-  ra_deg:246.5125, dec_deg:-25.1339, fov_w_deg:4.4182, fov_h_deg:5.3386,
-  pixscale_arcsec:4.3709, width_px:3639, height_px:4397}]};
+async function boot(){
+  const [man,targets,extra] = await Promise.all([
+    grab(SKYDOME+"manifest.json"),
+    grab("targets.json"),
+    grab("gallery.json")
+  ]);
 
-const STARS=[
- ["Sirius",101.287,-16.716,-1.46],["Canopus",95.988,-52.696,-0.74],["Rigil Kent",219.902,-60.834,-0.27],
- ["Arcturus",213.915,19.182,-0.05],["Vega",279.234,38.784,0.03],["Capella",79.172,45.998,0.08],
- ["Rigel",78.634,-8.202,0.13],["Procyon",114.825,5.225,0.34],["Achernar",24.429,-57.237,0.46],
- ["Betelgeuse",88.793,7.407,0.50],["Hadar",210.956,-60.373,0.61],["Altair",297.696,8.868,0.77],
- ["Acrux",186.650,-63.099,0.77],["Aldebaran",68.980,16.509,0.85],["Spica",201.298,-11.161,0.98],
- ["Antares",247.352,-26.432,1.09],["Pollux",116.329,28.026,1.14],["Fomalhaut",344.413,-29.622,1.16],
- ["Deneb",310.358,45.280,1.25],["Mimosa",191.930,-59.689,1.25],["Regulus",152.093,11.967,1.35],
- ["Adhara",104.656,-28.972,1.50],["Shaula",263.402,-37.104,1.62],["Gacrux",187.791,-57.113,1.63],
- ["Miaplacidus",138.300,-69.717,1.67],["Alnilam",84.053,-1.202,1.69],["Alnair",332.058,-46.961,1.74],
- ["Peacock",306.412,-56.735,1.94]
-];
-
-const S={look:{az:180,alt:45}, fov:100, lat:-33.8, lst:80,
-         opacity:1, backdrop:true, starNames:true, grid:false, horizon:true,
-         followSky:true, speed:1, sel:null, playing:false,
-         // gyro / real-sky mode
-         gyro:false, decl:12.7, tweak:0, smooth:60, debug:false, north:null, levelled:false,
-         lat0:-33.80071, lon:151.20855,
-         q:null, qT:0, M:null, src:null, srcRank:0, gyroEvents:0, absolute:false, seen:{},
-         fovBeforeLock:null, screenAdd:0, moon:false};
-let IMAGES=[], RAW=[], TOUR=[], playTimer=null, anim=null;
-
-/* ---------- vector maths ---------- */
-const eqVec=(ra,dec)=>{const r=ra*D,d=dec*D;
-  return [Math.cos(d)*Math.cos(r),Math.cos(d)*Math.sin(r),Math.sin(d)];};
-const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
-const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
-const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];
-const norm=v=>{const m=Math.hypot(v[0],v[1],v[2]);return [v[0]/m,v[1]/m,v[2]/m];};
-const lerp3=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
-
-/* equatorial -> horizontal, column-major mat3. Verified against altazL to machine precision. */
-function eqToHor(lat,lst){
-  const sL=Math.sin(lst*D),cL=Math.cos(lst*D),sp=Math.sin(lat*D),cp=Math.cos(lat*D);
-  // rows of the equatorial -> horizontal rotation
-  let r0=[-sL,cL,0], r1=[-cL*sp,-sL*sp,cp], r2=[cL*cp,sL*cp,sp];
-  if(S.gyro){
-    // The phone's heading is magnetic and imperfect, so rotate the SKY in azimuth
-    // by -(declination + offset) to match it, exactly as SkyTrack does.
-    const dl=(S.decl+S.tweak)*D, c=Math.cos(dl), sn=Math.sin(dl);
-    const a=r0.map((v,i)=>c*v-sn*r1[i]);
-    const b=r0.map((v,i)=>sn*v+c*r1[i]);
-    r0=a; r1=b;
+  if(!man || !man.images){
+    document.getElementById("status").textContent =
+      "Couldn't reach the skydome catalogue. Check that " + SKYDOME + "manifest.json is published.";
+    return;
   }
-  return new Float32Array([r0[0],r1[0],r2[0], r0[1],r1[1],r2[1], r0[2],r1[2],r2[2]]);
-}
-const applyM=(M,v)=>[M[0]*v[0]+M[3]*v[1]+M[6]*v[2],
-                     M[1]*v[0]+M[4]*v[1]+M[7]*v[2],
-                     M[2]*v[0]+M[5]*v[1]+M[8]*v[2]];
 
-/* Handedness of the corner quad. Calibrated on the Rho solve, which is verified
-   north-up / east-left and gives a positive value. Negative means the frame is mirrored. */
-const handedness=(cvs,c)=>dot(cross(sub(cvs[1],cvs[0]),sub(cvs[3],cvs[0])),c);
+  const byLabel = {};
+  (Array.isArray(extra) ? extra : (extra && extra.images) || []).forEach(e => { if(e.label) byLabel[e.label] = e; });
 
-/* ---------- WebGL ---------- */
-const cv=$("gl"), gl=cv.getContext("webgl",{alpha:false,antialias:true});
-const ov=$("ov"), octx=ov.getContext("2d");
+  IMAGES = man.images.filter(i => i.solved !== false).map(im => {
+    const ov = byLabel[im.label] || {};
 
-const BG_VS=`attribute vec2 aPos; void main(){ gl_Position=vec4(aPos,0.0,1.0); }`;
-const BG_FS=`
-precision highp float;
-uniform vec3 uF,uR,uU; uniform float uFOC; uniform vec2 uRes;
-uniform float uLat,uLST,uRaOff,uFlip; uniform int uMode; uniform sampler2D uTex;
-const float PI=3.14159265358979, D2R=PI/180.0, R2D=180.0/PI;
-void radec(float altd,float azd,out float ra,out float dec){
-  float a=altd*D2R, A=azd*D2R, phi=uLat*D2R;
-  dec=asin(clamp(sin(a)*sin(phi)+cos(a)*cos(phi)*cos(A),-1.0,1.0));
-  float sinH=-sin(A)*cos(a)/cos(dec);
-  float cosH=(sin(a)-sin(phi)*sin(dec))/(cos(phi)*cos(dec));
-  float H=atan(sinH,cosH)*R2D;
-  ra=mod(uLST-H,360.0); if(ra<0.0)ra+=360.0; dec*=R2D;
-}
-void toGal(float ra,float dec,out float l,out float b){
-  float aN=192.8595*D2R,dN=27.1283*D2R,lN=122.9320;
-  float r=ra*D2R,d=dec*D2R;
-  b=asin(sin(d)*sin(dN)+cos(d)*cos(dN)*cos(r-aN))*R2D;
-  float y=cos(d)*sin(r-aN), x=sin(d)*cos(dN)-cos(d)*sin(dN)*cos(r-aN);
-  l=lN-atan(y,x)*R2D; l=mod(l,360.0); if(l<0.0)l+=360.0;
-}
-void main(){
-  float sx=(gl_FragCoord.x-uRes.x*0.5)/uFOC, sy=(gl_FragCoord.y-uRes.y*0.5)/uFOC;
-  vec3 ray=normalize(uF+sx*uR+sy*uU);
-  float alt=asin(clamp(ray.z,-1.0,1.0))*R2D;
-  float az=atan(ray.x,ray.y)*R2D; if(az<0.0)az+=360.0;
-  float ra,dec; radec(alt,az,ra,dec);
-  float lon=ra, lat=dec;
-  if(uMode==1){ toGal(ra,dec,lon,lat); }
-  vec2 uv=vec2(fract((uFlip*lon+uRaOff)/360.0), clamp((90.0-lat)/180.0,0.0,1.0));
-  gl_FragColor=vec4(texture2D(uTex,uv).rgb,1.0);   // no horizon fade: images live below it too
-}`;
-
-const IM_VS=`
-attribute vec3 aP; attribute vec2 aUV;
-uniform mat3 uM; uniform vec3 uF,uR,uU; uniform float uFOC; uniform vec2 uRes;
-varying vec2 vUV;
-void main(){
-  vec3 p=uM*aP;
-  gl_Position=vec4(dot(p,uR)*uFOC/(uRes.x*0.5), dot(p,uU)*uFOC/(uRes.y*0.5), 0.0, dot(p,uF));
-  vUV=aUV;
-}`;
-const IM_FS=`
-precision mediump float;
-uniform sampler2D uTex; uniform float uAlpha,uFeather;
-varying vec2 vUV;
-void main(){
-  float f=uFeather;
-  float a=smoothstep(0.0,f,vUV.x)*smoothstep(0.0,f,1.0-vUV.x)
-         *smoothstep(0.0,f,vUV.y)*smoothstep(0.0,f,1.0-vUV.y)*uAlpha;
-  gl_FragColor=vec4(texture2D(uTex,vUV).rgb*a,a);   // premultiplied
-}`;
-
-function compile(t,src){const s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);
-  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s;}
-function link(vs,fs){const p=gl.createProgram();
-  gl.attachShader(p,compile(gl.VERTEX_SHADER,vs));gl.attachShader(p,compile(gl.FRAGMENT_SHADER,fs));
-  gl.linkProgram(p);
-  if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(p));return p;}
-const uniforms=(p,ns)=>ns.reduce((o,n)=>(o[n]=gl.getUniformLocation(p,n),o),{});
-
-let bgProg,bgU,bgBuf,bgTex,bgReady=false,imProg,imU,imAttr;
-
-function initGL(){
-  bgProg=link(BG_VS,BG_FS);
-  bgU=uniforms(bgProg,["uF","uR","uU","uFOC","uRes","uLat","uLST","uRaOff","uFlip","uMode","uTex"]);
-  bgBuf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,bgBuf);
-  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-  imProg=link(IM_VS,IM_FS);
-  imU=uniforms(imProg,["uM","uF","uR","uU","uFOC","uRes","uTex","uAlpha","uFeather"]);
-  imAttr={p:gl.getAttribLocation(imProg,"aP"), uv:gl.getAttribLocation(imProg,"aUV")};
-  bgTex=mkTex([6,4,3,255]);
-  gl.disable(gl.DEPTH_TEST);
-}
-function mkTex(rgba){
-  const t=gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D,t);
-  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(rgba));
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
-  return t;
-}
-function upload(tex,img){
-  gl.bindTexture(gl.TEXTURE_2D,tex);
-  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);   // JPEG row 0 is the top; matches corners TL,TR,BR,BL
-  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
-}
-
-/* ---------- mesh ---------- */
-const NSUB=8;
-function buildMesh(im){
-  const [TL,TR,BR,BL]=im.cornerVecs;
-  const P=[],UV=[],IDX=[];
-  for(let j=0;j<=NSUB;j++){
-    const t=j/NSUB, L=norm(lerp3(TL,BL,t)), R=norm(lerp3(TR,BR,t));
-    for(let i=0;i<=NSUB;i++){
-      const s=i/NSUB, v=norm(lerp3(L,R,s));
-      P.push(v[0],v[1],v[2]); UV.push(s,t);
+    // match against the planning list by sky position — no name-wrangling needed
+    let cat = null;
+    if(Array.isArray(targets)){
+      let best = null;
+      for(const t of targets){
+        if(t.ra == null || t.dec == null) continue;
+        const d = sep(im.ra_deg, im.dec_deg, t.ra, t.dec);
+        if(!best || d < best.d) best = {d, t};
+      }
+      const tol = Math.max(im.fov_w_deg, im.fov_h_deg) * 0.75;
+      if(best && best.d <= tol) cat = best.t;
     }
-  }
-  for(let j=0;j<NSUB;j++)for(let i=0;i<NSUB;i++){
-    const a=j*(NSUB+1)+i;
-    IDX.push(a,a+1,a+NSUB+1, a+1,a+NSUB+2,a+NSUB+1);
-  }
-  im.buf={p:gl.createBuffer(),uv:gl.createBuffer(),i:gl.createBuffer()};
-  gl.bindBuffer(gl.ARRAY_BUFFER,im.buf.p);  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(P),gl.STATIC_DRAW);
-  gl.bindBuffer(gl.ARRAY_BUFFER,im.buf.uv); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(UV),gl.STATIC_DRAW);
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,im.buf.i);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(IDX),gl.STATIC_DRAW);
-  im.count=IDX.length;
-}
 
-/* Compact distance for on-screen labels: "460 ly", "200k ly", "11.4M ly". */
-function shortLy(v){
-  if(!v) return "";
-  const n=parseFloat(String(v).replace(/[, ]/g,""));
-  if(!isFinite(n)||n<=0) return "";
-  if(n>=1e6) return (n/1e6).toFixed(n>=1e7?0:1).replace(/\.0$/,"")+"M ly";
-  if(n>=1e4) return Math.round(n/1e3)+"k ly";
-  return Math.round(n).toLocaleString("en-AU")+" ly";
-}
-
-/* ---------- manifest ---------- */
-function prepare(list){
-  RAW=list;
-  IMAGES=list.filter(e=>e.solved!==false && e.hidden!==true && e.corners)
-    .map(e=>{
-      const cvs=e.corners.map(c=>eqVec(c[0],c[1]));
-      const c=norm(cvs.reduce((a,v)=>[a[0]+v[0],a[1]+v[1],a[2]+v[2]],[0,0,0]));
-      return {...e, cornerVecs:cvs, cVec:c,
-        area:(e.fov_w_deg||1)*(e.fov_h_deg||1),
-        half:Math.max(...cvs.map(v=>Math.acos(Math.max(-1,Math.min(1,dot(c,v))))*R2D)),
-        mirrored: handedness(cvs,c)<0,
-        distShort: shortLy(e.distance_ly),
-        tex:mkTex([0,0,0,0]), texReady:false, hires:false,
-        label:e.label||e.file.replace(/\.(jpe?g|png)$/i,"")};
-    });
-  IMAGES.forEach(im=>{buildMesh(im); loadTex(im, im.thumb||im.file, false);});
-  IMAGES.sort((a,b)=>b.area-a.area);   // widest field first, so tighter framings land on top
-  buildTour();
-  buildList();
-}
-const listOrder=()=>[...IMAGES].sort((a,b)=>a.ra_deg-b.ra_deg);
-
-/* Greedy nearest-neighbour route. Sorting by RA alone whips you between
-   declinations - dec -71 to dec +9 on adjacent steps - so instead start at the
-   westernmost image and always hop to the closest one not yet visited. */
-function buildTour(){
-  const rest=listOrder();
-  TOUR=rest.length?[rest.shift()]:[];
-  while(rest.length){
-    const cur=TOUR[TOUR.length-1];
-    let bi=0,bd=Infinity;
-    for(let i=0;i<rest.length;i++){
-      const d=1-dot(cur.cVec,rest[i].cVec);   // monotone in angular distance
-      if(d<bd){bd=d;bi=i;}
-    }
-    TOUR.push(rest.splice(bi,1)[0]);
-  }
-}
-
-function buildList(){
-  const el=$("list"); el.innerHTML="";
-  for(const im of listOrder()){
-    const d=document.createElement("div");
-    const nm=document.createElement("em"); nm.style.fontStyle="normal"; nm.textContent=im.label;
-    const sp=document.createElement("span");
-    sp.textContent=`${im.fov_w_deg.toFixed(1)}\u00d7${im.fov_h_deg.toFixed(1)}\u00b0${im.mirrored?" \u21c4":""}`;
-    d.append(nm,sp);
-    d.onclick=()=>{selectImage(im);frameImage(im);};
-    im.row=d; el.appendChild(d);
-  }
-}
-const syncList=()=>{
-  for(const im of IMAGES) if(im.row) im.row.classList.toggle("on",S.sel===im);
-  // the list reads by RA but the tour walks a nearest-neighbour route, so keep
-  // the current row scrolled into view or you lose track of where you are
-  if(S.sel&&S.sel.row) S.sel.row.scrollIntoView({block:"nearest"});
-};
-
-function loadTex(im,src,hires){
-  const img=new Image();
-  img.onload=()=>{upload(im.tex,img);im.texReady=true;if(hires)im.hires=true;render();};
-  img.onerror=()=>note(`Can't load ${src} — put the images next to this file and serve the folder over http.`);
-  img.src=src;
-}
-const note=t=>{const m=$("msg");m.textContent=t;m.style.display="block";};
-
-async function loadManifest(){
-  try{
-    const r=await fetch("manifest.json",{cache:"no-store"});
-    if(!r.ok) throw new Error(r.status);
-    prepare((await r.json()).images||[]);
-  }catch(e){
-    prepare(FALLBACK.images);
-    note("No manifest.json here \u2014 showing the built-in Rho Ophiuchi entry only.");
-  }
-  if(IMAGES.length===0 && RAW.length>0){
-    const bad=RAW.filter(e=>e.solved===false);
-    note(`manifest.json has ${RAW.length} entr${RAW.length===1?"y":"ies"} but nothing solved yet`
-      +(bad.length?` \u2014 ${bad.length} failed: ${bad.slice(0,3).map(e=>e.label||e.file).join(", ")}`
-        +(bad.length>3?" \u2026":""):"")
-      +". Re-run solve_dso.py, then reload.");
-  }
-  render();
-}
-
-/* ---------- camera ---------- */
-function basis(){
-  if(S.gyro==="live"){ const b=gyroBasis(); if(b) return b; }
-  const az=S.look.az*D,al=S.look.alt*D;
-  return{f:[Math.cos(al)*Math.sin(az),Math.cos(al)*Math.cos(az),Math.sin(al)],
-         r:[Math.cos(az),-Math.sin(az),0],
-         u:[-Math.sin(al)*Math.sin(az),-Math.sin(al)*Math.cos(az),Math.cos(al)]};}
-
-/* ---------- debug overlay: sensor state on screen, no settings panel needed ---------- */
-const MISSING=new Set();
-function drawDebug(w,h,B){
-  const mono=getComputedStyle(document.body).getPropertyValue("--mono");
-  const L=[];
-  const n=(v,d=0)=>v==null?"-":(+v).toFixed(d);
-  L.push(`skydome v${VERSION}  ${IMAGES.length} images  fov ${S.fov.toFixed(1)}\u00b0`);
-  L.push(`gl ${gl?"ok":"NONE"}  backdrop ${bgReady?"ok":"no"}  moon ${moonState}`);
-  L.push(`gyro ${S.gyro||"off"}  src ${S.src||"-"}  n=${S.gyroEvents}  ${S.absolute?"absolute":"relative"}`);
-  for(const [k,v] of Object.entries(S.seen))
-    L.push(`  ${k===S.src?"\u25b8":" "}${k} az ${n(v.az)}  (${v.n})`);
-  if(S.raw) L.push(`alpha ${n(S.raw.a)} beta ${n(S.raw.b)} gamma ${n(S.raw.g)}`
-                   +(S.raw.c!=null?` compass ${n(S.raw.c)}`:""));
-  const sa=(screen.orientation&&screen.orientation.angle)||0;
-  L.push(`screen ${sa}\u00b0 ${(screen.orientation&&screen.orientation.type)||"?"}`
-         +`  add ${S.screenAdd}  using ${screenAngle()}\u00b0`);
-  L.push(`win ${innerWidth}x${innerHeight}  dpr ${(devicePixelRatio||1).toFixed(1)}`);
-  const az=((Math.atan2(B.f[0],B.f[1])*R2D)%360+360)%360;
-  const alt=Math.asin(Math.max(-1,Math.min(1,B.f[2])))*R2D;
-  L.push(`look az ${n(az)} alt ${n(alt)}`);
-  // A correct camera has screen-up pointing skyward and screen-right level. If
-  // right has a big vertical component the view is ROLLED - which is what a
-  // vertical horizon line means.
-  const rollDeg=Math.atan2(B.r[2], B.u[2])*R2D;
-  L.push(`up.z ${B.u[2].toFixed(2)}  right.z ${B.r[2].toFixed(2)}  roll ${n(rollDeg)}\u00b0`
-         +(Math.abs(B.r[2])>0.5?"  <- ROLLED":""));
-  L.push(`north ${S.north==null?"not locked (point near horizon)":Math.round(S.north)+"\u00b0"}`);
-  L.push(`decl ${S.decl} tweak ${S.tweak}  lat ${n(S.lat,2)} lon ${n(S.lon,2)} lst ${n(S.lst)}`);
-  if(MISSING.size) L.push(`missing files: ${MISSING.size} \u2014 ${[...MISSING][0]}`);
-
-  octx.font="11px "+mono; octx.textAlign="left"; octx.textBaseline="top";
-  const lh=14, pad=6;
-  const wide=Math.max(...L.map(t=>octx.measureText(t).width));
-  octx.fillStyle="rgba(0,0,0,.72)";
-  octx.fillRect(8,8,wide+pad*2,L.length*lh+pad*2);
-  octx.strokeStyle="rgba(255,154,118,.35)";octx.lineWidth=1;
-  octx.strokeRect(8,8,wide+pad*2,L.length*lh+pad*2);
-  L.forEach((t,i)=>{
-    octx.fillStyle=/ROLLED|NONE|missing/.test(t)?"#ffcf6b":"rgba(255,154,118,.92)";
-    octx.fillText(t,8+pad,8+pad+i*lh);
+    return {
+      ...im,
+      slug:      slug(im.label),
+      thumbUrl:  url(im.thumb),
+      fullUrl:   url(im.file),
+      ratio:     (im.width_px && im.height_px) ? im.width_px/im.height_px : 1.5,
+      // overrides win, then the coordinate match, then nothing
+      constellation: ov.constellation ?? cat?.constellation ?? null,
+      objectType:    ov.type          ?? cat?.type          ?? null,
+      catCode:       ov.code          ?? cat?.name          ?? null,
+      distLy:        ov.distance_ly   ?? im.distance_ly     ?? null,
+      distNote:      ov.distance_note ?? im.distance_note   ?? null,
+      blurb:         ov.blurb         ?? null,
+      scope:         ov.scope         ?? null,
+      camera:        ov.camera        ?? null,
+      filters:       ov.filters       ?? null,
+      location:      ov.location      ?? null,
+      bortle:        ov.bortle        ?? null,
+      hours:         ov.hours         ?? null,
+      nights:        ov.nights        ?? null,
+      captured:      ov.captured      ?? null,
+      astrobin:      ov.astrobin      ?? null,
+      telescopius:   ov.telescopius   ?? null,
+      fits:          ov.fits          ?? null
+    };
   });
+
+  document.getElementById("status").remove();
+
+  const withHrs = IMAGES.filter(i => i.hours);
+  const total   = withHrs.reduce((a,i) => a + i.hours, 0);
+  document.getElementById("tally").innerHTML =
+    `<b>${IMAGES.length}</b> images` + (total ? ` · <b>${Math.round(total)}</b> hours of exposure` : "");
+
+  render();
+  openFromHash();
 }
 
-/* ---------- moon, drawn at true angular size for scale ---------- */
-const MOON_DEG=0.518;                 // mean apparent diameter, 31.1 arcmin
-let moonImg=null, moonState="none";   // none | loading | ok | missing
-function loadMoon(){
-  if(moonState!=="none")return;
-  moonState="loading";
-  const i=new Image();
-  i.onload=()=>{moonImg=i;moonState="ok";render();};
-  i.onerror=()=>{moonState="missing";render();};   // fall back to a plain disc
-  i.src="moon.png";
-}
-function drawMoon(w,h,FOC){
-  const r=FOC*Math.tan(MOON_DEG/2*D);
-  const x=w/2, y=h/2;
-  if(moonState==="ok"&&moonImg){
-    octx.save(); octx.globalAlpha=0.92;
-    octx.drawImage(moonImg,x-r,y-r,r*2,r*2);
-    octx.restore();
-  }else{
-    octx.beginPath();octx.arc(x,y,r,0,7);
-    octx.fillStyle="rgba(230,230,225,.16)";octx.fill();
-    octx.strokeStyle="rgba(240,240,235,.75)";octx.lineWidth=1.3;octx.stroke();
-  }
-  octx.beginPath();octx.arc(x,y,r,0,7);
-  octx.strokeStyle="rgba(240,240,235,.5)";octx.lineWidth=1;octx.setLineDash([3,3]);
-  octx.stroke();octx.setLineDash([]);
-  const mono=getComputedStyle(document.body).getPropertyValue("--mono");
-  octx.fillStyle="rgba(240,240,235,.8)";octx.font="11px "+mono;
-  octx.textAlign="center";octx.textBaseline="top";
-  octx.fillText("Moon \u00b7 0.52\u00b0", x, y+r+5);
-}
-
-/* ---------- render ---------- */
-function fitOv(){const DPR=Math.min(devicePixelRatio||1,2),r=ov.getBoundingClientRect();
-  ov.width=Math.max(1,Math.round(r.width*DPR));ov.height=Math.max(1,Math.round(r.height*DPR));
-  octx.setTransform(DPR,0,0,DPR,0,0);return{w:r.width,h:r.height};}
-
+/* ==========================================================================
+   GRID
+   ========================================================================== */
 function render(){
-  const DPR=Math.min(devicePixelRatio||1,2),r=cv.getBoundingClientRect();
-  const W=Math.max(1,Math.round(r.width*DPR)),H=Math.max(1,Math.round(r.height*DPR));
-  if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;}
-  const B=basis(), FOC=(H/2)/Math.tan(S.fov/2*D);
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const s = document.getElementById("sort").value;
 
-  // render() can be called before initGL() (layout runs first now) or after a GL
-  // failure. The 2D overlay still works in both cases, so draw what we can.
-  const glReady=!!(gl&&imProg&&bgProg);
-  if(glReady){
-  gl.viewport(0,0,W,H);
-  gl.clearColor(0.02,0.01,0.005,1); gl.clear(gl.COLOR_BUFFER_BIT);
-  if(bgReady&&S.backdrop){
-    gl.disable(gl.BLEND); gl.useProgram(bgProg);
-    gl.bindBuffer(gl.ARRAY_BUFFER,bgBuf);
-    const a=gl.getAttribLocation(bgProg,"aPos");
-    gl.enableVertexAttribArray(a); gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);
-    gl.uniform3fv(bgU.uF,B.f);gl.uniform3fv(bgU.uR,B.r);gl.uniform3fv(bgU.uU,B.u);
-    gl.uniform1f(bgU.uFOC,FOC);gl.uniform2f(bgU.uRes,W,H);
-    gl.uniform1f(bgU.uLat,S.lat);gl.uniform1f(bgU.uLST,S.lst);
-    gl.uniform1f(bgU.uRaOff,SKY.raOffset);gl.uniform1f(bgU.uFlip,SKY.flip);gl.uniform1i(bgU.uMode,SKY.mode);
-    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,bgTex);gl.uniform1i(bgU.uTex,0);
-    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-    gl.disableVertexAttribArray(a);
-  }
+  VIEW = IMAGES.filter(i => !q || [i.label,i.catCode,i.constellation,i.objectType]
+    .filter(Boolean).join(" ").toLowerCase().includes(q));
 
-  const M=eqToHor(S.lat,S.lst);
-  gl.enable(gl.BLEND); gl.blendEquation(gl.FUNC_ADD); gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
-  gl.useProgram(imProg);
-  gl.uniformMatrix3fv(imU.uM,false,M);
-  gl.uniform3fv(imU.uF,B.f);gl.uniform3fv(imU.uR,B.r);gl.uniform3fv(imU.uU,B.u);
-  gl.uniform1f(imU.uFOC,FOC);gl.uniform2f(imU.uRes,W,H);gl.uniform1i(imU.uTex,0);
-  gl.uniform1f(imU.uFeather,0.03);
-  gl.enableVertexAttribArray(imAttr.p); gl.enableVertexAttribArray(imAttr.uv);
-  const cullCos=Math.cos(Math.min(179,S.fov*0.75+12)*D);
-  for(const im of IMAGES){
-    if(!im.texReady) continue;
-    if(dot(applyM(M,im.cVec),B.f)<cullCos) continue;
-    gl.uniform1f(imU.uAlpha, S.opacity*(S.sel? (S.sel===im?1:0.15) : 1));
-    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,im.tex);
-    gl.bindBuffer(gl.ARRAY_BUFFER,im.buf.p);  gl.vertexAttribPointer(imAttr.p,3,gl.FLOAT,false,0,0);
-    gl.bindBuffer(gl.ARRAY_BUFFER,im.buf.uv); gl.vertexAttribPointer(imAttr.uv,2,gl.FLOAT,false,0,0);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,im.buf.i);
-    gl.drawElements(gl.TRIANGLES,im.count,gl.UNSIGNED_SHORT,0);
-  }
-  gl.disableVertexAttribArray(imAttr.p); gl.disableVertexAttribArray(imAttr.uv);
-  gl.disable(gl.BLEND);
-  }
+  const D = i => num(i.distLy) ?? Infinity;
+  ({
+    featured:  () => VIEW.sort((a,b) => a.ra_deg - b.ra_deg),
+    name:      () => VIEW.sort((a,b) => a.label.localeCompare(b.label)),
+    distance:  () => VIEW.sort((a,b) => D(a) - D(b)),
+    distancef: () => VIEW.sort((a,b) => D(b) - D(a)),
+    fov:       () => VIEW.sort((a,b) => (b.fov_w_deg*b.fov_h_deg) - (a.fov_w_deg*a.fov_h_deg))
+  })[s]();
 
-  const {w,h}=fitOv();
-  drawOverlay(w,h,B,(h/2)/Math.tan(S.fov/2*D),eqToHor(S.lat,S.lst));
-  $("ver").textContent="v"+VERSION;
-  $("cal").textContent=`look az ${Math.round(S.look.az)}\u00b0 alt ${Math.round(S.look.alt)}\u00b0`
-    +` \u00b7 fov ${S.fov.toFixed(1)}\u00b0 \u00b7 ${IMAGES.length} image${IMAGES.length===1?"":"s"}`;
+  const g = document.getElementById("grid");
+  g.innerHTML = "";
+  VIEW.forEach((im,ix) => {
+    const f = document.createElement("figure");
+    f.style.flex = `${im.ratio} 1 ${im.ratio*250}px`;
+    f.tabIndex = 0;
+    f.setAttribute("role","button");
+    f.setAttribute("aria-label",`Open ${im.label}`);
+
+    const img = document.createElement("img");
+    img.src = im.thumbUrl; img.alt = im.label; img.loading = "lazy"; img.decoding = "async";
+
+    const cap  = document.createElement("figcaption");
+    const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.label;
+    const meta = document.createElement("div"); meta.className = "cap-meta";
+    meta.textContent = [im.constellation, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
+    cap.append(nm, meta);
+
+    f.append(img, cap);
+    f.onclick   = () => open(ix);
+    f.onkeydown = e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(ix); } };
+    g.appendChild(f);
+  });
+
+  if(!VIEW.length) g.innerHTML = '<p style="color:var(--dim);padding:40px">Nothing matches that search.</p>';
 }
 
-function drawOverlay(w,h,B,FOC,M){
-  octx.clearRect(0,0,w,h);
-  const proj=v=>{const z=dot(v,B.f); if(z<=0.05)return null;
-    return [w/2+dot(v,B.r)/z*FOC, h/2-dot(v,B.u)/z*FOC];};
-  const mono=getComputedStyle(document.body).getPropertyValue("--mono");
-  const vec=(az,alt)=>{const a=az*D,e=alt*D;return[Math.cos(e)*Math.sin(a),Math.cos(e)*Math.cos(a),Math.sin(e)];};
-  const pEq=(ra,dec)=>proj(applyM(M,eqVec(ra,dec)));
-  const polyline=(pts,style,lw)=>{octx.strokeStyle=style;octx.lineWidth=lw;
-    octx.beginPath();let st=false;
-    for(const p of pts){if(!p){st=false;continue;}
-      if(!st){octx.moveTo(p[0],p[1]);st=true;}else octx.lineTo(p[0],p[1]);}
-    octx.stroke();};
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+const lb = document.getElementById("lb");
+let moonOn = false;
 
-  if(S.grid){
-    for(let ra=0;ra<360;ra+=30){const pts=[];
-      for(let d=-88;d<=88;d+=2)pts.push(pEq(ra,d));
-      polyline(pts,"rgba(255,154,118,.20)",1);}
-    for(let dec=-75;dec<=75;dec+=15){const pts=[];
-      for(let ra=0;ra<=360;ra+=3)pts.push(pEq(ra,dec));
-      polyline(pts,dec===0?"rgba(255,207,107,.34)":"rgba(255,154,118,.20)",dec===0?1.4:1);}
-    for(const [nm,dec] of [["NCP",90],["SCP",-90]]){
-      const p=pEq(0,dec); if(!p)continue;
-      octx.strokeStyle="#ffcf6b";octx.lineWidth=1.4;
-      octx.beginPath();octx.moveTo(p[0]-7,p[1]);octx.lineTo(p[0]+7,p[1]);
-      octx.moveTo(p[0],p[1]-7);octx.lineTo(p[0],p[1]+7);octx.stroke();
-      octx.fillStyle="#ffcf6b";octx.font="11px "+mono;octx.textAlign="left";octx.textBaseline="middle";
-      octx.fillText(nm,p[0]+10,p[1]);}
-  }
+function open(ix){
+  CUR = ix;
+  const im = VIEW[ix];
 
-  if(S.starNames) for(const [nm,ra,dec,mag] of STARS){
-    const p=proj(applyM(M,eqVec(ra,dec))); if(!p)continue;
-    octx.beginPath();octx.arc(p[0],p[1],Math.max(2,4.4-mag*0.7),0,7);
-    octx.strokeStyle="rgba(127,255,212,.5)";octx.lineWidth=1.2;octx.stroke();
-    octx.fillStyle="rgba(127,255,212,.55)";octx.font="10px "+mono;
-    octx.textAlign="left";octx.textBaseline="middle";octx.fillText(nm,p[0]+7,p[1]);
-  }
+  document.getElementById("lbimg").src = im.fullUrl;
+  document.getElementById("lbimg").alt = im.label;
+  document.getElementById("lbname").textContent = im.label;
+  document.getElementById("codes").textContent =
+    [im.catCode, im.objectType, im.constellation].filter(Boolean).join("  ·  ");
 
-  for(const im of IMAGES) im.hit=null;
-  for(const im of IMAGES){
-    const pts=im.cornerVecs.map(v=>proj(applyM(M,v)));
-    const c=proj(applyM(M,im.cVec)); if(!c)continue;
-    const on=(S.sel===im), clipped=pts.some(p=>!p);
-    if((on||!im.texReady)&&!clipped){
-      octx.beginPath();octx.moveTo(pts[0][0],pts[0][1]);
-      for(let i=1;i<4;i++)octx.lineTo(pts[i][0],pts[i][1]);
-      octx.closePath();
-      octx.strokeStyle=on?"#7fffd4":"rgba(255,154,118,.35)";
-      octx.lineWidth=on?1.8:1;octx.setLineDash(im.texReady?[]:[4,4]);octx.stroke();octx.setLineDash([]);
-    }
-    const span=clipped?999:Math.hypot(pts[0][0]-pts[2][0],pts[0][1]-pts[2][1]);
-    if(span<26&&!on){
-      octx.beginPath();octx.arc(c[0],c[1],4,0,7);
-      octx.strokeStyle="rgba(255,207,107,.7)";octx.lineWidth=1.2;octx.stroke();
-    }
-    octx.fillStyle=on?"#7fffd4":"rgba(255,207,107,.75)";
-    octx.font=(on?12:11)+"px "+mono;octx.textAlign="center";octx.textBaseline="top";
-    const ly=c[1]+(span<26?7:span/2+4);
-    octx.fillText(im.label,c[0],ly);
-    let tw=octx.measureText(im.label).width, hgt=(on?12:11);
-    if(im.distShort){                       // distance sits under the name, dimmer
-      octx.font="10px "+mono;
-      octx.fillStyle=on?"rgba(127,255,212,.8)":"rgba(255,154,118,.62)";
-      octx.fillText(im.distShort,c[0],ly+hgt+1);
-      tw=Math.max(tw,octx.measureText(im.distShort).width);
-      hgt+=12;
-    }
-    // remember where the text landed so it can be tapped - at arm's length a 0.6 deg
-    // image is only a few pixels wide, but its name is a comfortable target
-    im.hit=[c[0]-tw/2-8, ly-6, c[0]+tw/2+8, ly+hgt+6];
-  }
+  const b = document.getElementById("blurb");
+  b.textContent = im.blurb || "A description of this object is still to be written.";
+  b.classList.toggle("placeholder", !im.blurb);
 
-  if(S.moon) drawMoon(w,h,FOC);
-  if(S.debug) drawDebug(w,h,B);
+  const rows = [
+    ["Distance",    im.distLy ? im.distLy + " light-years" : null],
+    ["",            im.distNote],
+    ["Framing",     `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}`],
+    ["Telescope",   im.scope],
+    ["Camera",      im.camera],
+    ["Filters",     im.filters],
+    ["From",        im.location ? im.location + (im.bortle ? ` (Bortle ${im.bortle})` : "") : null],
+    ["Exposure",    im.hours ? `${im.hours} hours over ${im.nights || "?"} nights` : null],
+    ["Captured",    im.captured]
+  ].filter(r => r[1]);
 
-  if(S.horizon){
-    const pts=[];for(let az=0;az<=360;az+=2)pts.push(proj(vec(az,0)));
-    polyline(pts,"rgba(255,176,102,.45)",1.4);
-    const CARD=["N","NE","E","SE","S","SW","W","NW"];
-    octx.textAlign="center";octx.textBaseline="top";
-    for(let az=0;az<360;az+=45){const p=proj(vec(az,0));if(!p)continue;
-      const card=az%90===0;
-      octx.strokeStyle="#ffb066";octx.lineWidth=card?2:1.2;
-      octx.beginPath();octx.moveTo(p[0],p[1]-6);octx.lineTo(p[0],p[1]+4);octx.stroke();
-      octx.fillStyle=card?"#ffcf6b":"#c9603a";octx.font=(card?13:11)+"px "+mono;
-      octx.fillText(CARD[az/45],p[0],p[1]+7);}
+  document.getElementById("facts").innerHTML =
+    rows.map(([k,v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+
+  const links = [
+    ["See where it is",  SKYDOME],
+    ["AstroBin",         im.astrobin],
+    ["Telescopius",      im.telescopius],
+    ["Download the data", im.fits]
+  ].filter(l => l[1]);
+
+  document.getElementById("acts").innerHTML =
+    `<button type="button" id="moonbtn">Compare to the Moon</button>` +
+    links.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${t}</a>`).join("");
+  document.getElementById("moonbtn").onclick = toggleMoon;
+
+  moonOn = false;
+  document.getElementById("moonlayer").classList.remove("on");
+
+  lb.classList.add("on");
+  document.body.style.overflow = "hidden";
+  history.replaceState(null,"","#" + im.slug);
+  document.getElementById("close").focus();
+}
+
+function fmtDeg(d){
+  return d >= 1 ? d.toFixed(2) + "°" : Math.round(d*60) + "′";
+}
+function esc(s){
+  return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+}
+
+/* Scale the Moon against the actual plate-solved field, then draw it on the image. */
+function toggleMoon(){
+  moonOn = !moonOn;
+  const im    = VIEW[CUR];
+  const layer = document.getElementById("moonlayer");
+  const btn   = document.getElementById("moonbtn");
+  const shown = document.getElementById("lbimg");
+
+  btn.classList.toggle("on", moonOn);
+  layer.classList.toggle("on", moonOn);
+  if(!moonOn) return;
+
+  const w = shown.clientWidth * (MOON_DEG / im.fov_w_deg);
+  layer.style.width = Math.max(w, 3) + "px";
+  layer.style.height = "auto";
+
+  // tuck it into the bottom-left of the frame, unless the Moon is bigger than the field
+  const r = shown.getBoundingClientRect(), s = document.getElementById("stage").getBoundingClientRect();
+  if(w < shown.clientWidth * 0.8){
+    layer.style.left = (r.left - s.left + 16) + "px";
+    layer.style.top  = (r.bottom - s.top - w - 16) + "px";
+    layer.style.transform = "none";
+  }else{
+    layer.style.left = "50%"; layer.style.top = "50%";
+    layer.style.transform = "translate(-50%,-50%)";
   }
 }
 
-/* ---------- picking + selection ---------- */
-function pick(clientX,clientY){
-  const r=cv.getBoundingClientRect();
-  // a tap on the label counts as a tap on the image
-  const lx=clientX-r.left, ly=clientY-r.top;
-  let byLabel=null;
-  for(const im of IMAGES){
-    const b=im.hit;
-    if(b && lx>=b[0] && lx<=b[2] && ly>=b[1] && ly<=b[3] &&
-       (!byLabel || im.area<byLabel.area)) byLabel=im;
-  }
-  if(byLabel) return byLabel;
-  const FOC=(r.height/2)/Math.tan(S.fov/2*D), B=basis();
-  const sx=(clientX-r.left)-r.width/2, sy=r.height/2-(clientY-r.top);
-  const ray=norm([B.f[0]+sx/FOC*B.r[0]+sy/FOC*B.u[0],
-                  B.f[1]+sx/FOC*B.r[1]+sy/FOC*B.u[1],
-                  B.f[2]+sx/FOC*B.r[2]+sy/FOC*B.u[2]]);
-  const M=eqToHor(S.lat,S.lst); let best=null;
-  for(const im of IMAGES){
-    const d=Math.acos(Math.max(-1,Math.min(1,dot(ray,applyM(M,im.cVec)))))*R2D;
-    const reach=Math.max(im.half, S.fov*0.015);   // small targets still need a thumb-sized target
-    if(d<reach && (!best||im.area<best.area)) best=im;
-  }
-  return best;
+function shut(){
+  lb.classList.remove("on");
+  document.body.style.overflow = "";
+  history.replaceState(null,"",location.pathname);
 }
-function selectImage(im){
-  S.sel=im; syncList();
-  const box=$("sel"), now=$("now");
-  if(!im){box.innerHTML="No image selected.";now.textContent="\u2014";
-          $("nowpill").textContent="\u2014";render();return;}
-  $("nowpill").innerHTML=`${im.label} <span>`
-    +(im.distShort||`${im.fov_w_deg.toFixed(2)}\u00d7${im.fov_h_deg.toFixed(2)}\u00b0`)
-    +`</span>`;
-  now.innerHTML=`<b>${im.label}</b> <span>${im.fov_w_deg.toFixed(2)}\u00d7${im.fov_h_deg.toFixed(2)}\u00b0</span>`;
-  const hh=im.ra_deg/15, dd=Math.abs(im.dec_deg);
-  box.innerHTML=`<b>${im.label}</b>`
-   +(im.distance_ly?`  <span class="v">${im.distance_ly} ly</span>`:"")+"<br>"
-   +(im.distance_note?`<span style="opacity:.7">${im.distance_note}</span><br>`:"")
-   +`centre <span class="v">${Math.floor(hh)}h ${((hh%1)*60).toFixed(1)}m &nbsp; `
-   +`${im.dec_deg<0?"\u2212":"+"}${Math.floor(dd)}\u00b0 ${((dd%1)*60).toFixed(0)}\u2032</span><br>`
-   +`field <span class="v">${im.fov_w_deg.toFixed(2)}\u00b0 \u00d7 ${im.fov_h_deg.toFixed(2)}\u00b0</span><br>`
-   +`scale <span class="v">${im.pixscale_arcsec?im.pixscale_arcsec.toFixed(2)+"\u2033/px":"\u2014"}</span> \u00b7 `
-   +`<span class="v">${im.width_px}\u00d7${im.height_px}</span><br>`
-   +`frame <span class="${im.mirrored?"warn":"v"}">${im.mirrored?"mirrored (east right)":"east left, standard"}</span><br>`
-   +`<span class="v">${im.hires?"full resolution":"thumbnail"}</span>`;
-  if(!im.hires && im.thumb) loadTex(im,im.file,true);
-  render();
-}
-/* Where a target actually sits on screen. Everything now goes through eqToHor, so
-   the declination/offset rotation applied in gyro mode is included exactly once.
-   The old altazL() helper did not know about it, which put every target - and every
-   star label - out by (declination + offset) whenever the gyro was on. */
-function azaltOf(v,lat,lst){
-  const h=applyM(eqToHor(lat,lst),v);
-  return{az:((Math.atan2(h[0],h[1])*R2D)%360+360)%360,
-         alt:Math.asin(Math.max(-1,Math.min(1,h[2])))*R2D};
-}
-function frameImage(im){
-  // fov is the VERTICAL field, so a wide image has to be divided by the window
-  // aspect before comparing. 1.4x leaves a little margin around the frame.
-  const aspect=Math.max(0.2,cv.clientWidth/Math.max(1,cv.clientHeight));
-  const need=Math.max(im.fov_h_deg, im.fov_w_deg/aspect);
-  const targetFov=Math.max(0.15,Math.min(120,need*1.4));
-  const lst=(S.followSky && !S.gyro)? im.ra_deg : S.lst;
-  const q=azaltOf(im.cVec,S.lat,lst);
-  const to={lst, az:q.az, alt:Math.max(-88,Math.min(88,q.alt)), fov:targetFov};
-  const setLstUI=()=>{$("lst").value=Math.round(S.lst);$("lstV").textContent=Math.round(S.lst)+"\u00b0";};
-  if(REDUCED){S.lst=to.lst;S.fov=to.fov;S.look.az=to.az;S.look.alt=to.alt;setLstUI();render();return;}
-  const from={lst:S.lst,az:S.look.az,alt:S.look.alt,fov:S.fov}, t0=performance.now();
-  const dAz=((to.az-from.az+540)%360)-180, dL=((to.lst-from.lst+540)%360)-180;
+const step = d => { if(VIEW.length) open((CUR + d + VIEW.length) % VIEW.length); };
 
-  // How far the view actually travels across the sky. A long hop deserves a pull-back
-  // to ~22 deg at the midpoint so you can see where you're going; a nudge to a
-  // neighbouring target does not, and swooping there would just be motion sickness.
-  const hv=(az,alt)=>{const a=az*D,e2=alt*D;
-    return[Math.cos(e2)*Math.sin(a),Math.cos(e2)*Math.cos(a),Math.sin(e2)];};
-  const sep=Math.acos(Math.max(-1,Math.min(1,dot(hv(from.az,from.alt),hv(to.az,to.alt)))))*R2D;
-  const VIA=30;
-  const bump=(sep>5||Math.abs(dL)>5)
-    ? Math.max(0, Math.log(VIA)-(Math.log(from.fov)+Math.log(to.fov))/2) : 0;
-  const dur=(bump>0?2200:700)/S.speed;
-
-  if(anim) cancelAnimationFrame(anim);
-  const stepFn=t=>{
-    const k=Math.min(1,(t-t0)/dur), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
-    S.lst=((from.lst+dL*e)%360+360)%360;
-    S.look.az=((from.az+dAz*e)%360+360)%360;
-    S.look.alt=from.alt+(to.alt-from.alt)*e;
-    S.fov=Math.exp((1-e)*Math.log(from.fov)+e*Math.log(to.fov)+bump*Math.sin(Math.PI*e));
-    setLstUI(); render();
-    if(k<1) anim=requestAnimationFrame(stepFn);
-  };
-  anim=requestAnimationFrame(stepFn);
-}
-function step(dir){
-  const order=TOUR; if(!order.length)return;
-  const i=S.sel?order.indexOf(S.sel):-1;
-  const im=order[((i+dir)%order.length+order.length)%order.length];
-  selectImage(im); frameImage(im);
-}
-
-/* ---------- controls ---------- */
-$("lst").oninput=e=>{S.lst=+e.target.value;$("lstV").textContent=S.lst+"\u00b0";render();};
-$("lat").oninput=e=>{S.lat=+e.target.value;$("latV").textContent=S.lat.toFixed(1)+"\u00b0";render();};
-$("opa").oninput=e=>{S.opacity=+e.target.value/100;$("opaV").textContent=e.target.value+"%";render();};
-$("spd").oninput=e=>{S.speed=+e.target.value/100;$("spdV").textContent=S.speed.toFixed(2).replace(/0$/,"")+"\u00d7";};
-const seg=(a,b,fn)=>{$(a).onclick=()=>{fn(true);$(a).classList.add("on");$(b).classList.remove("on");render();};
-                     $(b).onclick=()=>{fn(false);$(b).classList.add("on");$(a).classList.remove("on");render();};};
-seg("dOn","dOff",v=>S.backdrop=v);
-seg("lOn","lOff",v=>S.starNames=v);
-seg("gOff","gOn",v=>S.grid=!v);
-seg("hOn","hOff",v=>S.horizon=v);
-seg("dbgOff","dbgOn",v=>S.debug=!v);
-seg("skFollow","skHold",v=>S.followSky=v);
-
-$("prev").onclick=()=>step(-1);
-$("next").onclick=()=>step(1);
-$("fSet").onclick=()=>document.body.classList.toggle("sheet");
-$("close").onclick=()=>document.body.classList.remove("sheet");
-$("fGyro").onclick=()=>$("gyro").click();
-$("fPrev").onclick=()=>step(-1);
-$("fNext").onclick=()=>step(1);
-$("fTour").onclick=()=>$("play").click();
-$("fMoon").onclick=()=>{
-  S.moon=!S.moon; $("fMoon").classList.toggle("on",S.moon);
-  if(S.moon) loadMoon();
-  if(S.moon&&moonState==="missing") note("moon.png not found \u2014 showing a plain disc at 0.52\u00b0.");
-  render();
-};
-$("fFull").onclick=toggleFull;
-if(!canFullscreen()) $("fFull").style.display="none";
-$("srLevel").onclick=levelHorizon;
-$("srNudge").onclick=()=>{
-  S.screenAdd=((S.screenAdd+90+180)%360)-180;
-  try{ localStorage.setItem("skydome.screenAdd",S.screenAdd); }catch(e){}
-  showScreenAdd(); render();
-};
-const _sa=localStorage_get("skydome.screenAdd"); if(_sa!=null) S.screenAdd=+_sa;
-showScreenAdd();
-$("play").onclick=()=>{
-  S.playing=!S.playing;
-  $("play").classList.toggle("on",S.playing);
-  $("play").textContent=S.playing?"\u25a0 stop":"\u25b8 tour";
-  $("fTour").classList.toggle("on",S.playing);
-  $("fTour").innerHTML=S.playing?"&#9632;":"&#9656;";
-  if(playTimer)clearInterval(playTimer);
-  if(S.playing){step(1);playTimer=setInterval(()=>step(1),7000);}
-};
-
-
-/* ================= gyro / real-sky mode =========================================
-   Orientation handling ported from SkyTrack v3.8, which had already been debugged
-   against real devices. The key trick: rather than converting to az/alt, replace
-   the whole camera basis with the device rotation matrix, so tilting the phone
-   sideways rolls the sky correctly too. */
-function canFullscreen(){
-  const el=document.documentElement;
-  return !!(el.requestFullscreen||el.webkitRequestFullscreen);
-}
-const RANK={deviceorientationabsolute:4,AbsoluteOrientationSensor:3,
-            deviceorientation:2,RelativeOrientationSensor:1};
-let sensorObj=null, gyroAttached=false, gyroRAF=null, clockTimer=null;
-
-function eulerQuat(a,b,g){            // W3C ZXY device orientation -> quaternion
-  const A=a*D/2,B=b*D/2,G=g*D/2;
-  const cX=Math.cos(B),cY=Math.cos(G),cZ=Math.cos(A),
-        sX=Math.sin(B),sY=Math.sin(G),sZ=Math.sin(A);
-  return[sX*cY*cZ-cX*sY*sZ, cX*sY*cZ+sX*cY*sZ, cX*cY*sZ+sX*sY*cZ, cX*cY*cZ-sX*sY*sZ];
-}
-function fromQuat(q){                 // [x,y,z,w] device -> world (ENU)
-  const[x,y,z,w]=q;
-  return[1-2*(y*y+z*z), 2*(x*y-z*w),   2*(x*z+y*w),
-         2*(x*y+z*w),   1-2*(x*x+z*z), 2*(y*z-x*w),
-         2*(x*z-y*w),   2*(y*z+x*w),   1-2*(x*x+y*y)];
-}
-function qslerp(a,b,t){
-  let d=a[0]*b[0]+a[1]*b[1]+a[2]*b[2]+a[3]*b[3], bb=b;
-  if(d<0){bb=[-b[0],-b[1],-b[2],-b[3]];d=-d;}
-  if(d>0.9995){
-    const r=a.map((v,i)=>v+t*(bb[i]-v)), n=Math.hypot(r[0],r[1],r[2],r[3]);
-    return r.map(v=>v/n);
-  }
-  const th=Math.acos(d),sn=Math.sin(th),w1=Math.sin((1-t)*th)/sn,w2=Math.sin(t*th)/sn;
-  return a.map((v,i)=>v*w1+bb[i]*w2);
-}
-function pushQuat(q,now){             // adaptive low-pass: steady when still, quick when panning
-  if(!S.q){S.q=q;S.qT=now;S.M=fromQuat(q);return;}
-  const dt=Math.max(0.004,Math.min(0.2,(now-S.qT)/1000));
-  S.qT=now;
-  const d=Math.abs(S.q[0]*q[0]+S.q[1]*q[1]+S.q[2]*q[2]+S.q[3]*q[3]);
-  // The speed term widens the filter when you pan. Cap it: no hand sweep exceeds
-  // 300 deg/s, so anything above that is a bad reading rather than real motion, and
-  // letting it through would open the filter exactly when it is needed most.
-  const degs=Math.min(300, 2*Math.acos(Math.min(1,d))*R2D/dt);
-  const fc=8*Math.exp(-0.033*S.smooth)+(0.055-S.smooth/100*0.035)*degs;
-  const tau=1/(2*Math.PI*fc);
-  S.q=qslerp(S.q,q,1/(1+tau/dt));
-  S.M=fromQuat(S.q);
-}
-/* On a Pixel, deviceorientationabsolute (compass-referenced) and deviceorientation
-   (relative, no compass) BOTH fire, with headings that differ by a fixed amount.
-   Feeding both into one filter makes the view flip between two positions several
-   times a second - which looks like jitter but is really two streams disagreeing,
-   so smoothing can never fix it. Lock onto exactly one source and ignore the rest. */
-function claimSrc(src){
-  const r=RANK[src]||0;
-  if(!S.src){ S.src=src; S.srcRank=r; S.q=null; return true; }
-  if(src===S.src) return true;
-  if(r>S.srcRank){ S.srcRank=r; S.src=src; S.q=null; return true; }  // strict promotion only
-  return false;
-}
-function traceSrc(src,q){             // record every source, even the ones we ignore
-  const M=fromQuat(q), f=[-M[2],-M[5],-M[8]];
-  const prev=S.seen[src];
-  S.seen[src]={n:(prev?prev.n:0)+1,
-               az:((Math.atan2(f[0],f[1])*R2D)%360+360)%360};
-}
-function onOri(e,src){
-  if(S.gyro!=="live")return;
-  if(e.alpha==null&&e.webkitCompassHeading==null)return;
-  let alpha=e.alpha;
-  const hdg=e.webkitCompassHeading;
-  if(typeof hdg==="number"&&!isNaN(hdg)){
-    /* iOS webkitCompassHeading is absolute but it FLIPS BY 180 as the device tilts
-       past roughly 45 degrees - measured on an iPhone: compass 50 -> 231 while
-       alpha/beta/gamma moved smoothly (4->359, 117->139, 4->1). Substituting it for
-       alpha on every event fed that flip straight into the view.
-       Instead: keep the device's own smooth alpha, and use the compass only to learn
-       a constant north offset, sampled only when the device is pointing near the
-       horizon where the heading is trustworthy. */
-    const M0=fromQuat(eulerQuat(alpha,e.beta||0,e.gamma||0));
-    const altRaw=Math.asin(Math.max(-1,Math.min(1,-M0[8])))*R2D;
-    const cand=(((360-hdg)-alpha)%360+360)%360;
-    if(Math.abs(altRaw)<40){
-      if(S.north==null) S.north=cand;                        // first trustworthy fix
-      else{
-        const d=((cand-S.north+540)%360)-180;
-        if(Math.abs(d)<30) S.north=(S.north+d*0.05+360)%360;  // slow drift correction
-      }
-    }
-    alpha = (S.north!=null) ? alpha+S.north : 360-hdg;        // fall back until locked
-  }
-  const q=eulerQuat(alpha,e.beta||0,e.gamma||0);
-  traceSrc(src,q);
-  if(!claimSrc(src))return;
-  S.gyroEvents++;
-  S.absolute = (typeof e.webkitCompassHeading==="number"&&!isNaN(e.webkitCompassHeading))
-               || !!e.absolute || src==="deviceorientationabsolute";
-  S.raw={a:e.alpha,b:e.beta,g:e.gamma,
-         c:(typeof e.webkitCompassHeading==="number")?e.webkitCompassHeading:null};
-  pushQuat(q,performance.now());
-}
-function startGenericSensor(){
-  const Abs=window.AbsoluteOrientationSensor, Rel=window.RelativeOrientationSensor;
-  const Ctor=Abs||Rel; if(!Ctor)return;
-  try{
-    sensorObj=new Ctor({frequency:30,referenceFrame:"device"});
-    sensorObj.addEventListener("reading",()=>{
-      if(S.gyro!=="live")return;
-      const nm=Abs?"AbsoluteOrientationSensor":"RelativeOrientationSensor";
-      traceSrc(nm,Array.from(sensorObj.quaternion));
-      if(!claimSrc(nm))return;
-      S.gyroEvents++; S.absolute=!!Abs;
-      pushQuat(Array.from(sensorObj.quaternion),performance.now());
-    });
-    sensorObj.addEventListener("error",ev=>note((ev.error&&ev.error.name)||"sensor error"));
-    sensorObj.start();
-  }catch(err){ note(err.name+": "+err.message); }
-}
-function attachGyro(){
-  if(gyroAttached)return; gyroAttached=true;
-  addEventListener("deviceorientationabsolute",e=>onOri(e,"deviceorientationabsolute"),true);
-  addEventListener("deviceorientation",e=>onOri(e,"deviceorientation"),true);
-  // only reach for the Sensor API if the events haven't given us a compass reference
-  setTimeout(()=>{ if(S.gyro && S.srcRank<4) startGenericSensor(); },1200);
-}
-/* An iPad's natural frame is landscape while an iPhone's is portrait, so the same
-   screen.orientation.angle means different things on each and the sky comes out
-   rotated 90 degrees. Detect it from the aspect at the reported angle, and keep a
-   manual override because the detection cannot be verified on every device. */
-/* Screen frame vs device frame.
-   The on-screen roll works out as  roll = th + phi , where phi is the device's own
-   roll about the view axis. So the right th is -phi, and th = angle + k with a single
-   constant k per device: 0 where the natural orientation is portrait, -90 on an iPad
-   where screen.orientation.angle is landscape-referenced but iOS still reports
-   deviceorientation in a portrait frame. Solved from three iPad readings, k = -90 fits
-   both portrait and landscape; a -angle form does not fit either.
-   Rather than ask anyone to work that out, levelHorizon() measures it. */
-function screenAngle(){
-  const a=(screen.orientation&&screen.orientation.angle)||0;
-  return a + S.screenAdd;
-}
-function localStorage_get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
-function currentRoll(){
-  const b=(S.gyro==="live")?gyroBasis():null;
-  return b ? Math.atan2(b.r[2],b.u[2])*R2D : null;
-}
-function levelHorizon(){
-  const roll=currentRoll();
-  if(roll==null){ note("Turn the gyro on and hold the device normally, then level again."); return; }
-  S.screenAdd=Math.round((S.screenAdd-roll)/90)*90;
-  while(S.screenAdd>180) S.screenAdd-=360;
-  while(S.screenAdd<-180) S.screenAdd+=360;
-  try{ localStorage.setItem("skydome.screenAdd",S.screenAdd); }catch(e){}
-  showScreenAdd(); render();
-}
-function showScreenAdd(){
-  $("srV").textContent=(S.screenAdd>0?"+":"")+S.screenAdd+"\u00b0";
-}
-function gyroBasis(){
-  const M=S.M; if(!M)return null;
-  const th=screenAngle()*D;
-  const ap=v=>[M[0]*v[0]+M[1]*v[1]+M[2]*v[2],
-               M[3]*v[0]+M[4]*v[1]+M[5]*v[2],
-               M[6]*v[0]+M[7]*v[1]+M[8]*v[2]];
-  return{f:ap([0,0,-1]),r:ap([Math.cos(th),Math.sin(th),0]),u:ap([-Math.sin(th),Math.cos(th),0])};
-}
-
-/* Local sidereal time from the wall clock. Without this, pointing the phone at
-   Orion would show whatever the LST slider happened to be left on. */
-function lstNow(){
-  const JD=Date.now()/86400000+2440587.5;
-  const gmst=(18.697374558+24.06570982441908*(JD-2451545.0))%24;
-  return (((gmst*15+S.lon)%360)+360)%360;
-}
-function syncClock(){
-  S.lst=lstNow();
-  $("lst").value=Math.round(S.lst); $("lstV").textContent=Math.round(S.lst)+"\u00b0";
-}
-function gyroStatus(){
-  if(!S.gyro){ $("gyroStat").textContent=
-    "Declination turns magnetic north into true north (12.7\u00b0 for Sydney). Compass offset "+
-    "corrects your phone's own error \u2014 nudge it until a bright star lines up."; return; }
-  const hh=Math.floor(S.lst/15), mm=((S.lst/15)%1*60).toFixed(0);
-  const srcs=Object.entries(S.seen).map(([k,v])=>
-    `${k===S.src?"\u25b8":"\u00b7"}${k.replace("deviceorientation","dev.ori").slice(0,13)} ${v.az.toFixed(0)}\u00b0`
-  ).join("  ");
-  $("gyroStat").textContent=
-    `using ${S.src||"\u2014"} \u00b7 ${S.gyroEvents} readings \u00b7 `+
-    `${S.absolute?"absolute (compass)":"relative (will drift)"}\n`+
-    `${srcs}\n`+
-    `LST ${hh}h ${mm}m \u00b7 lat ${S.lat.toFixed(2)}\u00b0 lon ${S.lon.toFixed(2)}\u00b0\n`+
-    (S.raw?`alpha ${(S.raw.a??0).toFixed(0)} beta ${(S.raw.b??0).toFixed(0)} `+
-           `gamma ${(S.raw.g??0).toFixed(0)}`+
-           (S.raw.c!=null?` compass ${S.raw.c.toFixed(0)}`:"")+"\n"+
-           `screen ${(screen.orientation&&screen.orientation.angle)||0}\u00b0 `+
-           `${(screen.orientation&&screen.orientation.type)||"?"} \u2192 using ${screenAngle()}\u00b0`+
-           (()=>{const b=gyroBasis(); if(!b)return "";
-             return `\nlooking az ${((Math.atan2(b.f[0],b.f[1])*R2D)%360+360)%360|0}\u00b0 `+
-                    `alt ${Math.asin(Math.max(-1,Math.min(1,b.f[2])))*R2D|0}\u00b0`;})()
-         :"");
-}
-function setGyroButton(){
-  const f=$("fGyro");
-  f.classList.toggle("on",S.gyro==="live");
-  f.classList.toggle("warm",S.gyro==="locked");
-  const b=$("gyro");
-  b.classList.toggle("live",S.gyro==="live");
-  b.classList.toggle("locked",S.gyro==="locked");
-  b.textContent = S.gyro==="live"   ? "\u25c9  live \u2014 tap a target"
-                : S.gyro==="locked" ? "\u25a3  locked \u2014 tap to resume"
-                :                     "\u25ce  point at the sky";
-  $("lst").disabled = !!S.gyro;
-  $("lat").disabled = !!S.gyro;
-}
-function gyroLoop(){
-  if(S.gyro!=="live"){gyroRAF=null;return;}
-  render(); gyroStatus();
-  gyroRAF=requestAnimationFrame(gyroLoop);
-}
-function goLive(){
-  // coming back from a locked close-up, hand back the field of view you were scanning at
-  if(S.gyro==="locked" && S.fovBeforeLock!=null){ S.fov=S.fovBeforeLock; S.fovBeforeLock=null; }
-  S.gyro="live"; S.playing&&$("play").click();
-  syncClock();
-  if(!clockTimer) clockTimer=setInterval(()=>{ if(S.gyro) syncClock(); },20000);
-  setGyroButton();
-  if(!gyroRAF) gyroRAF=requestAnimationFrame(gyroLoop);
-  // An iPad reports screen.orientation.angle against a landscape natural frame while
-  // iOS still reports orientation in a portrait one, so the view starts rolled 90.
-  // Measure it rather than asking anyone to guess.
-  if(!S.levelled && !localStorage_get("skydome.screenAdd")) setTimeout(()=>{
-    const roll=currentRoll();
-    if(S.gyro==="live" && roll!=null && Math.abs(roll)>30){ levelHorizon(); note(
-      `Horizon was ${Math.round(roll)}\u00b0 off - levelled automatically. `+
-      `Settings has a manual control if it needs nudging.`); }
-    S.levelled=true;
-  },2500);
-}
-function lockGyro(){
-  S.fovBeforeLock=S.fov;
-  const b=gyroBasis();
-  if(b){ S.look.alt=Math.asin(Math.max(-1,Math.min(1,b.f[2])))*R2D;
-         S.look.az=((Math.atan2(b.f[0],b.f[1])*R2D)%360+360)%360; }
-  S.gyro="locked"; setGyroButton();
-}
-function stopGyro(){
-  S.gyro=false; S.north=null; setGyroButton();
-  if(sensorObj){ try{sensorObj.stop();}catch(e){} sensorObj=null; }
-  gyroAttached=false; S.srcRank=0; S.src=null; S.q=null; S.M=null;
-  gyroStatus(); render();
-}
-function enableGyro(){
-  const go=()=>{
-    attachGyro(); goLive();
-    if(navigator.geolocation) navigator.geolocation.getCurrentPosition(
-      pos=>{ S.lat=pos.coords.latitude; S.lon=pos.coords.longitude;
-             $("lat").value=S.lat.toFixed(1); $("latV").textContent=S.lat.toFixed(1)+"\u00b0";
-             syncClock(); },
-      ()=>{}, {timeout:6000, maximumAge:600000});
-    setTimeout(()=>{ if(S.gyro==="live"&&!S.gyroEvents)
-      note("No orientation readings. Needs https, and on iPhone: Settings \u203a Apps \u203a Safari "+
-           "\u203a Motion & Orientation Access."); },2500);
-  };
-  if(window.DeviceOrientationEvent&&DeviceOrientationEvent.requestPermission){
-    DeviceOrientationEvent.requestPermission()
-      .then(r=>{ r==="granted" ? go() : note("Motion permission denied."); })
-      .catch(err=>note(err.name+": "+err.message));
-  } else go();
-}
-function toggleFull(){
-  const el=document.documentElement, d=document;
-  const isFull=d.fullscreenElement||d.webkitFullscreenElement;
-  const fn=isFull ? (d.exitFullscreen||d.webkitExitFullscreen)
-                  : (el.requestFullscreen||el.webkitRequestFullscreen);
-  if(fn) try{ fn.call(isFull?d:el); }catch(e){ note("Full screen unavailable here."); }
-  setTimeout(render,300);
-}
-$("gyro").onclick=()=>{
-  if(!S.gyro) enableGyro();
-  else if(S.gyro==="locked") goLive();
-  else stopGyro();
-};
-$("decl").oninput=e=>{S.decl=+e.target.value;$("declV").textContent=S.decl.toFixed(1)+"\u00b0";render();};
-$("tweak").oninput=e=>{S.tweak=+e.target.value;$("tweakV").textContent=S.tweak.toFixed(1)+"\u00b0";render();};
-$("smooth").oninput=e=>{S.smooth=+e.target.value;$("smoothV").textContent=S.smooth;};
-
-/* Pointer events cover mouse, touch and pen in one path: one finger looks around,
-   two fingers pinch to zoom, a tap that barely moves is a selection. */
-ov.style.pointerEvents="none";
-cv.style.touchAction="none";
-const ptrs=new Map();
-let dragging=false, moved=0, pinchD0=0, pinchF0=0;
-
-cv.addEventListener("pointerdown",e=>{
-  cv.setPointerCapture(e.pointerId);
-  ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
-  if(ptrs.size===1){dragging=true;moved=0;cv.classList.add("drag");}
-  if(ptrs.size===2){
-    const [a,b]=[...ptrs.values()];
-    pinchD0=Math.hypot(a.x-b.x,a.y-b.y); pinchF0=S.fov; dragging=false;
-  }
+document.getElementById("close").onclick = shut;
+document.getElementById("prev").onclick  = () => step(-1);
+document.getElementById("next").onclick  = () => step(1);
+addEventListener("keydown", e => {
+  if(!lb.classList.contains("on")) return;
+  if(e.key === "Escape")     shut();
+  if(e.key === "ArrowLeft")  step(-1);
+  if(e.key === "ArrowRight") step(1);
 });
-cv.addEventListener("pointermove",e=>{
-  const p=ptrs.get(e.pointerId); if(!p)return;
-  const dx=e.clientX-p.x, dy=e.clientY-p.y;
-  p.x=e.clientX; p.y=e.clientY;
-  if(ptrs.size>=2){
-    const [a,b]=[...ptrs.values()];
-    const d=Math.hypot(a.x-b.x,a.y-b.y);
-    if(pinchD0>0&&d>0) S.fov=Math.max(0.1,Math.min(120,pinchF0*pinchD0/d));
-    render(); return;
-  }
-  if(!dragging)return;
-  moved+=Math.abs(dx)+Math.abs(dy);
-  const k=S.fov/cv.clientHeight;
-  S.look.az=((S.look.az-dx*k)%360+360)%360;
-  S.look.alt=Math.max(-89,Math.min(89,S.look.alt+dy*k));
-  render();
-});
-function endPointer(e){
-  const wasTap = dragging && ptrs.size===1 && moved<8;
-  ptrs.delete(e.pointerId);
-  if(ptrs.size<2) pinchD0=0;
-  if(ptrs.size===0){
-    dragging=false; cv.classList.remove("drag");
-    if(wasTap){
-      const im=pick(e.clientX,e.clientY);
-      if(S.gyro==="live"){
-        if(im){ lockGyro(); selectImage(im); frameImage(im); }   // freeze, then zoom in
-        return;
-      }
-      if(S.gyro==="locked" && !im){ goLive(); return; }          // tap empty sky to resume
-      selectImage(im);
-      if(im && !e.shiftKey) frameImage(im);
-    }
-  }
+addEventListener("resize", () => { if(moonOn){ moonOn = false; toggleMoon(); } });
+
+function openFromHash(){
+  const h = location.hash.slice(1);
+  if(!h) return;
+  const ix = VIEW.findIndex(i => i.slug === h);
+  if(ix >= 0) open(ix);
 }
-cv.addEventListener("pointerup",endPointer);
-cv.addEventListener("pointercancel",endPointer);
-cv.addEventListener("dblclick",e=>e.preventDefault());
-cv.addEventListener("wheel",e=>{e.preventDefault();
-  S.fov=Math.max(0.1,Math.min(120,S.fov*(e.deltaY>0?1.08:1/1.08)));render();},{passive:false});
-addEventListener("resize",render);
-screen.orientation&&screen.orientation.addEventListener("change",()=>setTimeout(render,120));
-addEventListener("keydown",e=>{
-  if(e.target.tagName==="INPUT")return;
-  if(e.key==="Escape"){ if(S.gyro==="locked") goLive(); else selectImage(null); }
-  else if(e.key==="ArrowRight")step(1);
-  else if(e.key==="ArrowLeft")step(-1);
-});
 
-/* ---------- boot ---------- */
-// Layout and data first: neither needs WebGL, and burying them inside the try block
-// meant a single graphics failure took the whole interface down with it.
-if(MQ.matches){ S.speed=0.5; $("spd").value=50; $("spdV").textContent="0.5\u00d7"; }
-applyMode();
+/* ==========================================================================
+   THEME — follow the operating system first, remember a manual choice after
+   ========================================================================== */
+const btnTheme = document.getElementById("theme");
+function setTheme(t){
+  document.documentElement.dataset.theme = t;
+  btnTheme.textContent = t === "light" ? "Dark" : "Light";
+  btnTheme.setAttribute("aria-label", `Switch to ${t === "light" ? "dark" : "light"} theme`);
+}
+setTheme(localStorage.getItem("theme")
+  || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+btnTheme.onclick = () => {
+  const t = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  localStorage.setItem("theme", t);
+  setTheme(t);
+};
 
-try{
-  if(!gl) throw new Error("no WebGL context");
-  initGL();
-  const sky=new Image();
-  sky.onload=()=>{upload(bgTex,sky);bgReady=true;render();};
-  sky.onerror=()=>{note(`${SKY.file} not found \u2014 put an equirectangular all-sky JPG here and serve the folder over http. Images and overlay still work.`);render();};
-  sky.src=SKY.file;
-}catch(err){ note("WebGL unavailable: "+err.message); }
-
-loadManifest();
-try{ render(); }catch(err){ note("Draw failed: "+err.message); }
+document.getElementById("q").oninput     = render;
+document.getElementById("sort").onchange = render;
+boot();
 </script>
 </body>
 </html>
