@@ -1,0 +1,612 @@
+[
+ {
+  "label": "NGC 55 Whale / Pearls",
+  "hours": 11.7,
+  "nights": 2,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "OSC broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-08-12 to 2026-08-13",
+  "amp_name": "String of Pearls Galaxy NGC 55",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "NGC 253 Sculptor Galaxy",
+  "hours": 10.3,
+  "nights": 2,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "OSC broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-08-11 to 2026-08-12",
+  "amp_name": "Sculptor Galaxy NGC 253 Silver Dollar",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "NGC 253 Sculptor (wide field)",
+  "_check": [
+   "AstrophotoMarket match uncertain: 'Sculptor Galaxy NGC 253 Silver Dollar'"
+  ],
+  "hours": 10.3,
+  "nights": 2,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "OSC broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-08-11 to 2026-08-12",
+  "amp_name": "Sculptor Galaxy NGC 253 Silver Dollar",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "NGC 292 Small Magellanic Cloud",
+  "_check": [
+   "no session data matched",
+   "AstrophotoMarket match uncertain: 'Small Magellanic Cloud with Ha nebula'"
+  ],
+  "amp_name": "Small Magellanic Cloud with Ha nebula",
+  "downloads": 33,
+  "reprocessed": 1,
+  "favourites": 1
+ },
+ {
+  "label": "NGC 346 (SMC)",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "SMC core, NGC 346 region (HOO)",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "Comet 220P McNaught",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "NGC 1365 Great Barred Spiral",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "IC 2118 Witch Head",
+  "_check": [
+   "no session data matched",
+   "AstrophotoMarket match uncertain: 'Witch Head Nebula NGC 1909'"
+  ],
+  "amp_name": "Witch Head Nebula NGC 1909",
+  "downloads": 116,
+  "reprocessed": 4,
+  "favourites": 2
+ },
+ {
+  "label": "NGC 2018 (LMC)",
+  "hours": 14.8,
+  "nights": 5,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2025-12-04 to 2026-04-14",
+  "amp_name": "NGC 2018 Large Magellan Cloud",
+  "downloads": 75,
+  "reprocessed": 4,
+  "favourites": 3
+ },
+ {
+  "label": "NGC 2070 Tarantula Nebula",
+  "_check": [
+   "no session data matched"
+  ],
+  "amp_name": "Tarantula Nebula NGC 2070",
+  "downloads": 110,
+  "reprocessed": 5,
+  "favourites": 2
+ },
+ {
+  "label": "NGC 2264 Cone Nebula",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "Sh2-308 Dolphin Head",
+  "_check": [
+   "no session data matched"
+  ],
+  "amp_name": "SH2-308 Dolphin Head nebula",
+  "downloads": 51,
+  "reprocessed": 1,
+  "favourites": 1
+ },
+ {
+  "label": "IC 2177 Seagull Nebula",
+  "hours": 13.6,
+  "nights": 6,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "SHO",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-01-27 to 2026-03-11"
+ },
+ {
+  "label": "NGC 2359 Thor's Helmet",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "NGC 2467 Skull and Crossbones",
+  "hours": 18.8,
+  "nights": 4,
+  "scope": "ASKAR 91F",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-02-17 to 2026-03-11",
+  "amp_name": "NGC 2467 Skull and Crossbones Nebula",
+  "downloads": 38,
+  "reprocessed": 2,
+  "favourites": 3
+ },
+ {
+  "label": "Vela Supernova Remnant",
+  "hours": 34.0,
+  "nights": 10,
+  "scope": "Pentax 135mm",
+  "camera": "ASI1600MM",
+  "filters": "Ha/OIII",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 7,
+  "captured": "2026-01-28 to 2026-04-16"
+ },
+ {
+  "label": "NGC 3293 Gem Cluster",
+  "hours": 20.7,
+  "nights": 3,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-05-06 to 2026-05-09"
+ },
+ {
+  "label": "NGC 3324 Gabriela Mistral",
+  "hours": 32.4,
+  "nights": 5,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-05-05 to 2026-06-03",
+  "amp_name": "NGC 3324 Gabriela Mistral Nebula",
+  "downloads": 68,
+  "reprocessed": 3,
+  "favourites": 3
+ },
+ {
+  "label": "NGC 3372 Carina Nebula",
+  "_check": [
+   "2 rigs used on this object — hours may span more than this image"
+  ],
+  "hours": 51.9,
+  "nights": 18,
+  "scope": "RedCat 61",
+  "camera": "ASI2600MC",
+  "filters": "Ha/OIII/SII (ALP-T + SV227)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-04-13 to 2026-08-08"
+ },
+ {
+  "label": "IC 2631 Chamaeleon Complex",
+  "hours": 13.8,
+  "nights": 2,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "LRGB",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-03-14 to 2026-03-15"
+ },
+ {
+  "label": "NGC 3572 Gum 37 Southern Tadpoles",
+  "hours": 12.0,
+  "nights": 3,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-04-14 to 2026-04-16",
+  "amp_name": "Gum 37 NGC 3572 Southern Tadpoles",
+  "downloads": 68,
+  "reprocessed": 7,
+  "favourites": 4
+ },
+ {
+  "label": "NGC 3572 / Gum 37",
+  "hours": 12.0,
+  "nights": 3,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-04-14 to 2026-04-16",
+  "amp_name": "Gum 37 NGC 3572 Southern Tadpoles",
+  "downloads": 68,
+  "reprocessed": 7,
+  "favourites": 4
+ },
+ {
+  "label": "NGC 3576 Statue of Liberty",
+  "_check": [
+   "no session data matched"
+  ],
+  "amp_name": "Statue of Liberty Nebula NGC 3576",
+  "downloads": 120,
+  "reprocessed": 4,
+  "favourites": 4
+ },
+ {
+  "label": "IC 2944 Running Chicken",
+  "_check": [
+   "AstrophotoMarket match uncertain: 'IC2944 Running Chicken'"
+  ],
+  "hours": 29.9,
+  "nights": 8,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "SHO",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 7,
+  "captured": "2026-02-17 to 2026-04-29",
+  "amp_name": "IC2944 Running Chicken",
+  "downloads": 29,
+  "reprocessed": 6,
+  "favourites": 2
+ },
+ {
+  "label": "NGC 4038 Antennae Galaxies",
+  "hours": 14.6,
+  "nights": 3,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 4,
+  "captured": "2025-12-18 to 2026-03-15",
+  "amp_name": "NGC 4038 Antennae colliding galaxies",
+  "downloads": 87,
+  "reprocessed": 3,
+  "favourites": 6
+ },
+ {
+  "label": "Sandqvist 149 Dark Doodad",
+  "_check": [
+   "no session data matched",
+   "AstrophotoMarket match uncertain: 'SANDQVIST 17 The Dark Wolf Fenrir'"
+  ],
+  "amp_name": "SANDQVIST 17 The Dark Wolf Fenrir",
+  "downloads": 76,
+  "reprocessed": 4,
+  "favourites": 3
+ },
+ {
+  "label": "M104 Sombrero Galaxy",
+  "hours": 7,
+  "nights": 1,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-04-24 to 2026-04-24",
+  "amp_name": "M104 Sombrero Galaxy",
+  "downloads": 58,
+  "reprocessed": 1,
+  "favourites": 3
+ },
+ {
+  "label": "NGC 5128 Centaurus A",
+  "hours": 15.4,
+  "nights": 5,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-03-14 to 2026-04-28",
+  "amp_name": "NGC 5128 Centaurus A with Ha",
+  "downloads": 70,
+  "reprocessed": 5,
+  "favourites": 4
+ },
+ {
+  "label": "M83 Southern Pinwheel",
+  "hours": 8.5,
+  "nights": 1,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Wiruna",
+  "bortle": 2,
+  "captured": "2026-04-18 to 2026-04-18",
+  "amp_name": "M83 Southern Pinwheel Galaxy",
+  "downloads": 70,
+  "reprocessed": 3,
+  "favourites": 5
+ },
+ {
+  "label": "NGC 5367 / CG 12",
+  "hours": 9.5,
+  "nights": 2,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "LRGB",
+  "location": "Wiruna",
+  "bortle": 2,
+  "captured": "2026-04-18 to 2026-04-19",
+  "amp_name": "NGC 5367 Cometary Globule CG 12",
+  "downloads": 20,
+  "reprocessed": 0,
+  "favourites": 3
+ },
+ {
+  "label": "Barnard 228 Dark Wolf",
+  "_check": [
+   "no session data matched",
+   "AstrophotoMarket match uncertain: 'SANDQVIST 17 The Dark Wolf Fenrir'"
+  ],
+  "amp_name": "SANDQVIST 17 The Dark Wolf Fenrir",
+  "downloads": 76,
+  "reprocessed": 4,
+  "favourites": 3
+ },
+ {
+  "label": "LDN 1688 Rho Ophiuchi Complex",
+  "_check": [
+   "AstrophotoMarket match uncertain: 'Rho Ophiuchi Mosaic'"
+  ],
+  "hours": 9.2,
+  "nights": 3,
+  "scope": "RedCat 61",
+  "camera": "ASI2600MM",
+  "filters": "RGB (mono)",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-08-11 to 2026-08-13",
+  "amp_name": "Rho Ophiuchi Mosaic",
+  "downloads": 25,
+  "reprocessed": 3,
+  "favourites": 1
+ },
+ {
+  "label": "NGC 6164 Dragon's Egg",
+  "hours": 17.7,
+  "nights": 5,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-04-12 to 2026-04-16",
+  "amp_name": "NGC 6164 The Dragon's Egg",
+  "downloads": 57,
+  "reprocessed": 3,
+  "favourites": 4
+ },
+ {
+  "label": "LDN 43 Cosmic Bat",
+  "hours": 6.5,
+  "nights": 1,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-06-20 to 2026-06-20"
+ },
+ {
+  "label": "NGC 6188 Fighting Dragons (SHO)",
+  "_check": [
+   "2 rigs used on this object — hours may span more than this image"
+  ],
+  "hours": 48.2,
+  "nights": 9,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "Ha/OIII",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 7,
+  "captured": "2026-03-24 to 2026-06-23",
+  "amp_name": "NGC 6188 Fighting Dragons of Ara SHO",
+  "downloads": 83,
+  "reprocessed": 6,
+  "favourites": 2
+ },
+ {
+  "label": "NGC 6188 Fighting Dragons (HOO)",
+  "_check": [
+   "2 rigs used on this object — hours may span more than this image"
+  ],
+  "hours": 48.2,
+  "nights": 9,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "Ha/OIII",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 7,
+  "captured": "2026-03-24 to 2026-06-23",
+  "amp_name": "NGC 6188 Fighting Dragons of Ara SHO",
+  "downloads": 83,
+  "reprocessed": 6,
+  "favourites": 2
+ },
+ {
+  "label": "SL 17 Fenrir (Sandqvist 17)",
+  "_check": [
+   "no session data matched"
+  ],
+  "amp_name": "SANDQVIST 17 The Dark Wolf Fenrir",
+  "downloads": 76,
+  "reprocessed": 4,
+  "favourites": 3
+ },
+ {
+  "label": "IC 4628 Prawn Nebula",
+  "hours": 51.6,
+  "nights": 13,
+  "scope": "200PDS",
+  "camera": "ASI1600MM",
+  "filters": "Ha/OIII/SII (mono)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-07-11 to 2026-08-08",
+  "amp_name": "IC 4628 Prawn nebula in SHO",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "NGC 6357 Lobster Nebula",
+  "hours": 23.0,
+  "nights": 4,
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-06-23 to 2026-07-04",
+  "amp_name": "Lobster War and Peace Nebula NGC 6357",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "M20 Trifid Nebula",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "M8 Lagoon Nebula",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "NGC 6559 Chinese Dragon",
+  "hours": 1.8,
+  "nights": 1,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-05-09 to 2026-05-09",
+  "amp_name": "The Chinese Dragon Nebula NGC 6559",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "NGC 6726 Anteater / R CrA",
+  "_check": [
+   "no session data matched"
+  ],
+  "amp_name": "NGC 6726 CrA Reflection Anteater",
+  "downloads": 57,
+  "reprocessed": 4,
+  "favourites": 3
+ },
+ {
+  "label": "NGC 6729 Corona Australis",
+  "_check": [
+   "no session data matched"
+  ]
+ },
+ {
+  "label": "NGC 6744 Pavo Galaxy",
+  "hours": 12.7,
+  "nights": 3,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-04-25 to 2026-06-20"
+ },
+ {
+  "label": "Eagle Ray Nebula",
+  "hours": 34.9,
+  "nights": 5,
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "Broadband",
+  "location": "Wheeny Creek + Wiruna/Wheeny",
+  "bortle": 4,
+  "captured": "2026-06-20 to 2026-08-13",
+  "amp_name": "SH2-63 Eagle Ray Dust Nebula",
+  "downloads": 0,
+  "reprocessed": 0,
+  "favourites": 0
+ },
+ {
+  "label": "NGC 6960 Veil Nebula",
+  "hours": 49.2,
+  "nights": 14,
+  "scope": "RedCat 61",
+  "camera": "ASI2600MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-05-30 to 2026-08-08"
+ },
+ {
+  "label": "NGC 7293 Helix Nebula",
+  "hours": 20.2,
+  "nights": 7,
+  "scope": "200PDS",
+  "camera": "ASI1600MM",
+  "filters": "Ha/OIII (mono)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-07-13 to 2026-08-08",
+  "amp_name": "C63 NGC 7293 Helix Eye of God",
+  "downloads": 85,
+  "reprocessed": 5,
+  "favourites": 3
+ },
+ {
+  "label": "NGC 7582 Grus Quartet",
+  "hours": 9.1,
+  "nights": 3,
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "OSC broadband",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-08-11 to 2026-08-13"
+ }
+]

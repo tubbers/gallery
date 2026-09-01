@@ -43,22 +43,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- masthead ---------- */
 header{
-  padding:clamp(38px,7vw,84px) 24px clamp(20px,3vw,32px);
-  text-align:center; border-bottom:1px solid var(--edge);
+  position:relative; height:min(52vh,470px); min-height:290px;
+  display:grid; place-items:center; overflow:hidden;
+  background:#000; border-bottom:1px solid var(--edge);
 }
+#heroimg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:0; transition:opacity 1.1s ease;
+}
+#heroimg.in{opacity:1}
+#scrim{
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,.62),rgba(0,0,0,.30) 46%,rgba(0,0,0,.74));
+}
+#herotext{position:relative; text-align:center; padding:0 24px}
 #logo{
-  width:min(430px,72vw); height:calc(min(430px,72vw) * 0.349);
-  margin:0 auto; background:var(--logo) center/contain no-repeat;
+  width:min(360px,66vw); height:calc(min(360px,66vw) * 0.349);
+  margin:0 auto;
+  background:url("logo-light-on-dark.png") center/contain no-repeat;
 }
 #tagline{
-  margin:18px auto 0; max-width:56ch;
-  color:var(--dim); font-size:15px;
+  margin:14px auto 0; max-width:50ch;
+  color:rgba(255,255,255,.80); font-size:14.5px;
+  text-shadow:0 1px 12px rgba(0,0,0,.9);
 }
 #tally{
-  margin-top:14px; font-family:var(--mono); font-size:12px;
-  letter-spacing:.05em; color:var(--dim);
+  margin-top:9px; font-family:var(--mono); font-size:11.5px;
+  letter-spacing:.05em; color:rgba(255,255,255,.60);
 }
-#tally b{color:var(--hot); font-weight:600}
+#tally b{color:#ffcf6b; font-weight:600}
+#herocap{
+  position:absolute; right:13px; bottom:10px; z-index:2;
+  font-family:var(--mono); font-size:10px; letter-spacing:.05em;
+  color:rgba(255,255,255,.5); text-decoration:none;
+}
+#herocap:hover{color:#ffcf6b}
+@media (max-width:640px){ header{height:38vh; min-height:230px} }
 
 /* ---------- controls ---------- */
 #bar{
@@ -67,12 +87,28 @@ header{
   padding:11px 20px; background:var(--panel);
   border-bottom:1px solid var(--edge);
 }
+#chips{display:flex; flex-wrap:wrap; gap:6px; flex:1 1 auto}
+.chip{
+  padding:6px 13px; border:1px solid var(--edge); border-radius:999px;
+  font-size:13px; background:var(--bg); white-space:nowrap;
+}
+.chip:hover{border-color:var(--hot)}
+.chip.on{background:var(--hot); border-color:var(--hot); color:var(--bg); font-weight:600}
+.chip .n{opacity:.55; font-size:11px; margin-left:5px}
+#seek{padding:7px 11px; border:1px solid var(--edge); border-radius:3px; background:var(--bg); font-size:14px}
+#seek:hover{border-color:var(--hot); color:var(--hot)}
 #q{
-  flex:1 1 200px; min-width:150px; padding:8px 12px;
+  display:none; width:100%; order:9; padding:8px 12px;
   background:var(--bg); color:var(--ink);
   border:1px solid var(--edge); border-radius:3px; font-size:14px;
 }
+#q.open{display:block}
 #q::placeholder{color:var(--dim)}
+#dir{
+  padding:8px 11px; border:1px solid var(--edge); border-radius:3px;
+  background:var(--bg); font-size:14px; min-width:36px;
+}
+#dir:hover{border-color:var(--hot); color:var(--hot)}
 #sort{
   padding:8px 10px; background:var(--bg); color:var(--ink);
   border:1px solid var(--edge); border-radius:3px; font-size:14px;
@@ -106,7 +142,15 @@ figcaption{
 .cap-meta{
   font-family:var(--mono); font-size:10.5px; letter-spacing:.04em;
   color:rgba(255,255,255,.72); margin-top:3px;
+  display:flex; gap:9px; align-items:center;
 }
+.cap-meta .likes{color:#ffcf6b}
+#reach{
+  margin-top:24px; padding:15px 16px; border:1px solid var(--edge);
+  border-radius:3px; background:var(--bg); font-size:13.5px; line-height:1.6;
+}
+#reach:empty{display:none}
+#reach b{color:var(--hot); font-family:var(--mono); font-size:15px}
 @media (max-width:760px){ figure{height:180px} main{padding:12px} }
 
 /* ---------- lightbox ---------- */
@@ -120,12 +164,13 @@ figcaption{
   padding:22px; min-width:0; background:#000;
 }
 html[data-theme="light"] #stage{background:#111}
-#stage img{max-width:100%; max-height:100%; object-fit:contain; display:block}
-#moonlayer{
+#stage #lbimg{max-width:100%; max-height:100%; object-fit:contain; display:block}
+#stage #moonlayer{
   position:absolute; pointer-events:none; opacity:.92;
-  display:none; filter:drop-shadow(0 0 14px rgba(0,0,0,.85));
+  display:none; max-width:none; max-height:none;
+  filter:drop-shadow(0 0 14px rgba(0,0,0,.85));
 }
-#moonlayer.on{display:block}
+#stage #moonlayer.on{display:block}
 
 #info{
   padding:26px 26px 60px; overflow-y:auto;
@@ -180,21 +225,30 @@ footer a:hover{text-decoration:underline}
 <body>
 
 <header>
-  <div id="logo" role="img" aria-label="Wade Tubman Astrophotography"></div>
-  <p id="tagline">Deep-sky imaging from a Bortle&nbsp;7 backyard in Sydney, and from the dark skies of New South Wales.</p>
-  <p id="tally"></p>
+  <img id="heroimg" alt="" aria-hidden="true">
+  <div id="scrim"></div>
+  <div id="herotext">
+    <div id="logo" role="img" aria-label="Wade Tubman Astrophotography"></div>
+    <p id="tagline">Deep-sky imaging from a Bortle&nbsp;7 backyard in Sydney, and from the dark skies of New South Wales.</p>
+    <p id="tally"></p>
+  </div>
+  <a id="herocap" href="#"></a>
 </header>
 
 <div id="bar">
-  <input id="q" type="search" placeholder="Search by name, catalogue or constellation" aria-label="Search images">
-  <select id="sort" aria-label="Sort images">
-    <option value="featured">Sky order (by RA)</option>
-    <option value="name">Name A–Z</option>
-    <option value="distance">Distance — nearest first</option>
-    <option value="distancef">Distance — furthest first</option>
-    <option value="fov">Field of view — widest first</option>
+  <div id="chips"></div>
+  <button id="seek" type="button" aria-label="Search" title="Search">⌕</button>
+  <select id="sort" aria-label="Sort by">
+    <option value="ra">Sky position</option>
+    <option value="name">Name</option>
+    <option value="distance">Distance</option>
+    <option value="fov">Field of view</option>
+    <option value="hours">Exposure</option>
+    <option value="likes">Popularity</option>
   </select>
+  <button id="dir" type="button" aria-label="Reverse sort order">↑</button>
   <button id="theme" type="button">Light</button>
+  <input id="q" type="search" placeholder="Search by name, catalogue or constellation" aria-label="Search images">
 </div>
 
 <main><div id="grid"></div></main>
@@ -219,6 +273,7 @@ footer a:hover{text-decoration:underline}
     <h2 id="lbname"></h2>
     <p id="codes"></p>
     <p id="blurb"></p>
+    <div id="reach"></div>
     <dl id="facts"></dl>
     <div id="acts"></div>
   </div>
@@ -246,6 +301,20 @@ let IMAGES = [], VIEW = [], CUR = -1;
 const url = p => SKYDOME + p.split("/").map(encodeURIComponent).join("/");
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const num  = s => { const n = parseFloat(String(s ?? "").replace(/,/g,"")); return isFinite(n) ? n : null; };
+
+// Roll the catalogue's granular types up into something a visitor can use.
+const BUCKETS = {
+  "Nebulae":     ["Emission Nebula","HII Region"],
+  "Galaxies":    ["Spiral Galaxy","Peculiar Galaxy","Galaxy","Group of Galaxies"],
+  "Dust & dark": ["Reflection Nebula","Dark Nebula","Dense Core","Star Forming Region"],
+  "Clusters":    ["Open Cluster","Globular Cluster"],
+  "Remnants":    ["Supernova Remnant","Planetary Nebula"]
+};
+function bucket(t){
+  if(!t) return null;
+  for(const [name,list] of Object.entries(BUCKETS)) if(list.includes(t)) return name;
+  return null;
+}
 
 // angular separation between two sky positions, in degrees
 function sep(ra1,de1,ra2,de2){
@@ -315,7 +384,12 @@ async function boot(){
       captured:      ov.captured      ?? null,
       astrobin:      ov.astrobin      ?? null,
       telescopius:   ov.telescopius   ?? null,
-      fits:          ov.fits          ?? null
+      fits:          ov.fits          ?? null,
+      downloads:     ov.downloads      ?? 0,
+      favourites:    (ov.favourites ?? 0) + (ov.astrobin_likes ?? 0) + (ov.telescopius_likes ?? 0),
+      reprocessed:   ov.reprocessed    ?? 0,
+      featured:      ov.featured === true,
+      group:         bucket(ov.type ?? cat?.type ?? null)
     };
   });
 
@@ -326,28 +400,76 @@ async function boot(){
   document.getElementById("tally").innerHTML =
     `<b>${IMAGES.length}</b> images` + (total ? ` · <b>${Math.round(total)}</b> hours of exposure` : "");
 
+  hero();
+  chips();
   render();
   openFromHash();
+}
+
+/* Pick the banner: anything flagged `featured` in gallery.json, else the
+   widest field on the list, which reads best cropped to a letterbox. */
+function hero(){
+  const picks = IMAGES.filter(i => i.featured);
+  const im = picks.length
+    ? picks[Math.floor(Math.random()*picks.length)]
+    : [...IMAGES].sort((a,b) => (b.fov_w_deg*b.fov_h_deg)-(a.fov_w_deg*a.fov_h_deg))[0];
+  if(!im) return;
+  const el = document.getElementById("heroimg");
+  el.src = im.fullUrl;
+  el.onload = () => el.classList.add("in");
+  const cap = document.getElementById("herocap");
+  cap.textContent = im.label;
+  cap.href = "#" + im.slug;
+  cap.onclick = e => { e.preventDefault(); const ix = VIEW.findIndex(v => v.slug === im.slug); if(ix >= 0) open(ix); };
+}
+
+function chips(){
+  const counts = {};
+  IMAGES.forEach(i => { if(i.group) counts[i.group] = (counts[i.group]||0)+1; });
+  const box = document.getElementById("chips");
+  box.innerHTML = "";
+  Object.keys(BUCKETS).filter(n => counts[n]).forEach(name => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip";
+    b.setAttribute("aria-pressed","false");
+    b.innerHTML = `${name}<span class="n">${counts[name]}</span>`;
+    b.onclick = () => {
+      PICKED.has(name) ? PICKED.delete(name) : PICKED.add(name);
+      b.classList.toggle("on", PICKED.has(name));
+      b.setAttribute("aria-pressed", PICKED.has(name));
+      render();
+    };
+    box.appendChild(b);
+  });
 }
 
 /* ==========================================================================
    GRID
    ========================================================================== */
+let PICKED = new Set(), ASC = true;
+
 function render(){
   const q = document.getElementById("q").value.trim().toLowerCase();
   const s = document.getElementById("sort").value;
 
-  VIEW = IMAGES.filter(i => !q || [i.label,i.catCode,i.constellation,i.objectType]
-    .filter(Boolean).join(" ").toLowerCase().includes(q));
+  VIEW = IMAGES.filter(i =>
+    (!PICKED.size || PICKED.has(i.group)) &&
+    (!q || [i.label,i.catCode,i.constellation,i.objectType]
+      .filter(Boolean).join(" ").toLowerCase().includes(q)));
 
   const D = i => num(i.distLy) ?? Infinity;
-  ({
-    featured:  () => VIEW.sort((a,b) => a.ra_deg - b.ra_deg),
-    name:      () => VIEW.sort((a,b) => a.label.localeCompare(b.label)),
-    distance:  () => VIEW.sort((a,b) => D(a) - D(b)),
-    distancef: () => VIEW.sort((a,b) => D(b) - D(a)),
-    fov:       () => VIEW.sort((a,b) => (b.fov_w_deg*b.fov_h_deg) - (a.fov_w_deg*a.fov_h_deg))
-  })[s]();
+  const key = {
+    ra:       i => i.ra_deg,
+    distance: i => D(i),
+    fov:      i => i.fov_w_deg * i.fov_h_deg,
+    hours:    i => i.hours || 0,
+    likes:    i => i.favourites + i.downloads
+  }[s];
+
+  VIEW.sort((a,b) => s === "name"
+    ? a.label.localeCompare(b.label)
+    : key(a) - key(b));
+  if(!ASC) VIEW.reverse();
 
   const g = document.getElementById("grid");
   g.innerHTML = "";
@@ -364,7 +486,14 @@ function render(){
     const cap  = document.createElement("figcaption");
     const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.label;
     const meta = document.createElement("div"); meta.className = "cap-meta";
-    meta.textContent = [im.constellation, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
+    const bits = [im.constellation, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
+    meta.append(document.createTextNode(bits));
+    const score = im.favourites + im.downloads;
+    if(score){
+      const k = document.createElement("span");
+      k.className = "likes"; k.textContent = "\u2665 " + score;
+      meta.appendChild(k);
+    }
     cap.append(nm, meta);
 
     f.append(img, cap);
@@ -410,6 +539,13 @@ function open(ix){
 
   document.getElementById("facts").innerHTML =
     rows.map(([k,v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+
+  const say = [];
+  if(im.downloads)   say.push(`<b>${im.downloads}</b> people have downloaded this data to process themselves`);
+  if(im.reprocessed) say.push(`<b>${im.reprocessed}</b> have published their own version of it`);
+  if(im.favourites)  say.push(`<b>${im.favourites}</b> favourites across AstroBin, Telescopius and AstrophotoMarket`);
+  document.getElementById("reach").innerHTML =
+    say.length ? say.join(".<br>") + "." : "";
 
   const links = [
     ["See where it is",  SKYDOME],
@@ -511,6 +647,18 @@ btnTheme.onclick = () => {
 
 document.getElementById("q").oninput     = render;
 document.getElementById("sort").onchange = render;
+
+document.getElementById("seek").onclick = () => {
+  const box = document.getElementById("q");
+  box.classList.toggle("open");
+  if(box.classList.contains("open")) box.focus();
+  else { box.value = ""; render(); }
+};
+document.getElementById("dir").onclick = e => {
+  ASC = !ASC;
+  e.currentTarget.textContent = ASC ? "\u2191" : "\u2193";
+  render();
+};
 boot();
 </script>
 </body>
