@@ -89,12 +89,13 @@
  {
   "label": "NGC 1365 Great Barred Spiral",
   "_check": [
-   "rig from plate scale; no session log entry, so hours/site/date missing",
    "image rescaled 2.11x from native, so the rig match is less certain"
   ],
   "blurb": "One of the finest barred spirals known, in the Fornax Cluster. The straight bar running through its centre is a gravitational structure that funnels gas inward, feeding both a burst of star formation and the supermassive black hole at the core. That black hole is an active one, and NGC 1365 is a standard reference object for studying how bars drive galaxy evolution.",
   "scope": "200PDS",
-  "camera": "ASI585MC"
+  "camera": "ASI585MC",
+  "location": "Parkes",
+  "bortle": 2
  },
  {
   "label": "IC 2118 Witch Head",
@@ -584,7 +585,8 @@
   "astrobin_likes": 19,
   "telescopius_likes": 7,
   "amp_id": 363,
-  "amp_slug": "sandqvist-17-the-dark-wolf-fenrir"
+  "amp_slug": "sandqvist-17-the-dark-wolf-fenrir",
+  "featured": true
  },
  {
   "label": "IC 4628 Prawn Nebula",
@@ -668,9 +670,6 @@
  },
  {
   "label": "NGC 6729 Corona Australis",
-  "_check": [
-   "rig from plate scale; no session log entry, so hours/site/date missing"
-  ],
   "blurb": "A wider view of the Corona Australis cloud, taking in the reflection nebulosity around R CrA together with the dust filaments trailing away from it. The globular cluster NGC 6723 in the same field lies far beyond the cloud, at around 28,000 light-years.",
   "scope": "RedCat 51",
   "camera": "ASI1600MM",
@@ -678,7 +677,9 @@
   "reprocessed": 3,
   "favourites": 1,
   "amp_id": 162,
-  "amp_slug": "r-cra-nebula-ngc-6726"
+  "amp_slug": "r-cra-nebula-ngc-6726",
+  "location": "Parkes",
+  "bortle": 2
  },
  {
   "label": "NGC 6744 Pavo Galaxy",

@@ -197,12 +197,13 @@ a.stat:hover{color:var(--pick)}
   position:absolute; right:14px; top:14px; z-index:5;
   display:flex; gap:8px;
 }
-#tools button{
+#tools button, #tools a{
   width:38px; height:38px; border-radius:50%;
   display:grid; place-items:center; font-size:16px;
   background:rgba(0,0,0,.55); color:#fff; border:1px solid rgba(255,255,255,.16);
 }
-#tools button:hover{background:var(--hot); color:#000; border-color:var(--hot)}
+#tools a{text-decoration:none}
+#tools button:hover, #tools a:hover{background:var(--hot); color:#000; border-color:var(--hot)}
 #tools button.on{background:var(--hot); color:#000; border-color:var(--hot)}
 html[data-theme="light"] #stage{background:#111}
 #stage #lbimg{
@@ -268,6 +269,9 @@ dd{margin:0; font-family:var(--mono); font-size:12.5px}
 
 @media (max-width:900px){
   #lb.on{grid-template-columns:1fr; grid-template-rows:52vh minmax(0,1fr)}
+  #lb.solo{grid-template-rows:minmax(0,1fr)}
+  #lb.solo #stage{padding:0}
+  #lb.solo #viewport{inset:0}
   #info{border-left:0; border-top:1px solid var(--edge); padding:20px 20px 50px}
   #next{right:14px}
   #prev,#next{top:26vh}
@@ -317,14 +321,14 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.5 · built with Claude
+    v0.6 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
     <a href="https://tubbers.github.io/skydome/" target="_blank" rel="noopener">Sky dome</a> ·
     <a href="https://app.astrobin.com/u/tubbers" target="_blank" rel="noopener">AstroBin</a> ·
     <a href="https://telescopius.com/profile/tubbers" target="_blank" rel="noopener">Telescopius</a> ·
-    <a href="https://astrophotomarket.com/en/image-data-set-catalog?image_search_filter%5Bauthor%5D%5B%5D=642" target="_blank" rel="noopener">Free FITS data</a>
+    <a href="https://astrophotomarket.com/en/image-data-set-catalog?image_search_filter%5Bauthor%5D%5B%5D=642" target="_blank" rel="noopener">AstrophotoMarket</a>
   </p>
 </footer>
 
@@ -337,7 +341,7 @@ footer a:hover{text-decoration:underline}
     <div id="tools">
       <button id="tfull" type="button" title="Full screen" aria-label="Full screen">&#9974;</button>
       <button id="tmoon" type="button" title="Compare with the Moon" aria-label="Compare with the Moon">&#9790;</button>
-      <button id="tdome" type="button" title="See where it is in the sky" aria-label="See where it is in the sky">&#9673;</button>
+      <a id="tdome" href="#" target="_blank" rel="noopener" title="See where it is in the sky" aria-label="See where it is in the sky">&#9673;</a>
     </div>
     <p id="zoomhint">scroll to zoom</p>
   </div>
@@ -373,6 +377,19 @@ let IMAGES = [], VIEW = [], CUR = -1;
 const url = p => SKYDOME + p.split("/").map(encodeURIComponent).join("/");
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const num  = s => { const n = parseFloat(String(s ?? "").replace(/,/g,"")); return isFinite(n) ? n : null; };
+
+// Presentation only — gallery.json keeps the raw values.
+const OPTICS = {
+  "200PDS":       "200PDS Newtonian \u2014 950mm",
+  "ASKAR 91F":    "Askar 91F \u2014 610mm",
+  "RedCat 61":    "RedCat 61 \u2014 300mm",
+  "RedCat 51":    "RedCat 51 \u2014 250mm",
+  "Pentax 135mm": "Pentax 135mm \u2014 135mm"
+};
+const showScope  = s => s ? (OPTICS[s] || s) : null;
+const showCamera = c => c ? (/1600MM|2600MM/.test(c) ? c + " (mono)" : c) : null;
+const showFilter = f => !f ? null
+  : /^(osc )?broadband$/i.test(f.trim()) ? "None" : f;
 
 // Roll the catalogue's granular types up into something a visitor can use.
 const BUCKETS = {
@@ -612,9 +629,9 @@ function open(ix){
     ["Distance",    im.distLy ? im.distLy + " light-years" : null],
     ["Discovered",  im.foundBy],
     ["Framing",     `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}`],
-    ["Telescope",   im.scope],
-    ["Camera",      im.camera],
-    ["Filters",     im.filters],
+    ["Telescope",   showScope(im.scope)],
+    ["Camera",      showCamera(im.camera)],
+    ["Filters",     showFilter(im.filters)],
     ["From",        im.location ? im.location + (im.bortle ? ` (Bortle ${im.bortle})` : "") : null],
     ["Exposure",    im.hours ? `${im.hours} hours over ${im.nights || "?"} nights` : null],
     ["Captured",    im.captured]
@@ -639,11 +656,15 @@ function open(ix){
 
   const links = [
     ["AstroBin",    im.astrobin],
-    ["Telescopius", im.telescopius]
+    ["Telescopius", im.telescopius],
+    ["See where it is", SKYDOME + "?target=" + im.slug]
   ].filter(l => l[1]);
 
+  const AUTHOR = "https://astrophotomarket.com/en/author/wade-tubman";
   const menu = [
-    [im.fits, "The raw data", "Calibrated FITS frames, free on AstrophotoMarket"],
+    [im.fits || AUTHOR, "The raw data",
+     im.fits ? "Calibrated FITS frames, free on AstrophotoMarket"
+             : "Browse my free datasets on AstrophotoMarket"],
     [im.wallpaper || im.fullUrl, "Wallpaper", "3840 \u00d7 2160 JPEG for your desktop"]
   ].filter(m => m[0]);
 
@@ -658,15 +679,22 @@ function open(ix){
   gb.onclick = e => { e.stopPropagation(); gm.classList.toggle("on"); };
   document.addEventListener("click", () => gm.classList.remove("on"), {once:true});
 
-  document.getElementById("tdome").onclick = () =>
-    window.open(SKYDOME + "?target=" + im.slug, "_blank", "noopener");
+  document.getElementById("tdome").href = SKYDOME + "?target=" + im.slug;
 
-  moonOn = false;
-  document.getElementById("moonlayer").classList.remove("on");
-  document.getElementById("tmoon").classList.remove("on");
+  // the Moon stays on as you step through targets, and rescales each time
+  document.getElementById("moonlayer").classList.toggle("on", moonOn);
+  document.getElementById("tmoon").classList.toggle("on", moonOn);
   lb.classList.remove("solo");
   resetZoom();
-  document.getElementById("lbimg").onload = () => { if(moonOn) drawMoon(); };
+  const shownEl = document.getElementById("lbimg");
+  shownEl.onload = () => { if(moonOn) drawMoon(); };
+  if(moonOn && shownEl.naturalWidth) drawMoon();
+
+  // warm the neighbours so stepping left and right is instant
+  [1,-1].forEach(d => {
+    const n = VIEW[(ix + d + VIEW.length) % VIEW.length];
+    if(n) new Image().src = n.fullUrl;
+  });
 
   lb.classList.add("on");
   document.body.style.overflow = "hidden";
@@ -715,37 +743,65 @@ vp.addEventListener("wheel", e => {
    version only armed it above 1x, which is why panning did nothing. A gesture
    that finishes within a few pixels is treated as a click instead. */
 vp.addEventListener("dragstart", e => e.preventDefault());
+
+/* Track every active pointer so two fingers can pinch. One pointer pans,
+   two pinch about their midpoint, and a press that never moves is a tap. */
+const pointers = new Map();
+let pinch = null;
+
 vp.addEventListener("pointerdown", e => {
   e.preventDefault();                       // stop the native image drag
-  drag = {x:e.clientX, y:e.clientY, px:PX, py:PY, moved:false};
+  pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
   try{ vp.setPointerCapture(e.pointerId); }catch(err){}
+
+  if(pointers.size === 2){
+    const [a,b] = [...pointers.values()];
+    pinch = {d: Math.hypot(a.x-b.x, a.y-b.y) || 1, z: Z};
+    drag = null;
+  }else if(pointers.size === 1){
+    drag = {x:e.clientX, y:e.clientY, px:PX, py:PY, moved:false};
+  }
 });
+
 vp.addEventListener("pointermove", e => {
+  if(!pointers.has(e.pointerId)) return;
+  pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+
+  if(pinch && pointers.size === 2){
+    const [a,b] = [...pointers.values()];
+    zoomAt((a.x+b.x)/2, (a.y+b.y)/2, pinch.z * (Math.hypot(a.x-b.x, a.y-b.y) / pinch.d));
+    return;
+  }
   if(!drag) return;
-  if(Math.hypot(e.clientX-drag.x, e.clientY-drag.y) > 4) drag.moved = true;
+  if(Math.hypot(e.clientX-drag.x, e.clientY-drag.y) > 6) drag.moved = true;
   if(Z <= 1 || !drag.moved) return;
   vp.classList.add("dragging");
   PX = drag.px + (e.clientX - drag.x);
   PY = drag.py + (e.clientY - drag.y);
   applyZoom(true);
 });
-vp.addEventListener("pointerup", () => {
-  if(drag && !drag.moved) toggleSolo();     // a plain click maximises the photo
-  drag = null; vp.classList.remove("dragging");
-});
-vp.addEventListener("pointercancel", () => { drag = null; vp.classList.remove("dragging"); });
+
+function release(e){
+  pointers.delete(e.pointerId);
+  if(pointers.size < 2) pinch = null;
+  if(pointers.size) return;
+  if(drag && !drag.moved) Z > 1 ? resetZoom() : toggleSolo();
+  drag = null;
+  vp.classList.remove("dragging");
+}
+vp.addEventListener("pointerup", release);
+vp.addEventListener("pointercancel", release);
 
 /* Collapse the info panel so the photo has the whole window. Distinct from
-   browser full screen, which is the ⛶ button. */
+   browser full screen, which is the button. */
 function toggleSolo(){
   lb.classList.toggle("solo");
   resetZoom();
-  if(moonOn) requestAnimationFrame(drawMoon);
+  requestAnimationFrame(() => { if(moonOn) drawMoon(); });
 }
 
 function goFullscreen(){
-  const on = document.fullscreenElement;
-  (on ? document.exitFullscreen() : lb.requestFullscreen()).catch(()=>{});
+  (document.fullscreenElement ? document.exitFullscreen() : lb.requestFullscreen()).catch(()=>{});
 }
 
 function fmtDeg(d){
@@ -781,6 +837,9 @@ function drawMoon(){
 
 function shut(){
   if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+  moonOn = false;
+  document.getElementById("moonlayer").classList.remove("on");
+  document.getElementById("tmoon").classList.remove("on");
   lb.classList.remove("on","solo");
   resetZoom();
   document.body.style.overflow = "";
