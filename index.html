@@ -321,7 +321,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.8 · built with Claude
+    v0.9 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -904,7 +904,12 @@ btnTheme.onclick = () => {
 };
 
 document.getElementById("q").oninput     = render;
-document.getElementById("sort").onchange = render;
+const DESC_FIRST = new Set(["likes"]);
+document.getElementById("sort").onchange = e => {
+  ASC = !DESC_FIRST.has(e.target.value);
+  document.getElementById("dir").textContent = ASC ? "\u2191" : "\u2193";
+  render();
+};
 
 document.getElementById("seek").onclick = () => {
   const box = document.getElementById("q");
