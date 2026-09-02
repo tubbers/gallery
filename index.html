@@ -49,7 +49,8 @@ header{
 }
 #heroimg{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; opacity:0; transition:opacity 1.1s ease;
+  object-fit:cover; object-position:50% 50%;
+  opacity:0; transition:opacity 1.1s ease;
 }
 #heroimg.in{opacity:1}
 #scrim{
@@ -163,7 +164,10 @@ a.stat:hover{color:var(--pick)}
   position:fixed; inset:0; z-index:100; display:none;
   background:var(--bg);
 }
-#lb.on{display:grid; grid-template-columns:1fr 372px}
+#lb.on{display:grid; grid-template-columns:1fr 372px; grid-template-rows:minmax(0,1fr)}
+#lb.solo{grid-template-columns:1fr}
+#lb.solo #info{display:none}
+#lb.solo #next{right:14px}
 #stage{
   position:relative; display:block; overflow:hidden;
   padding:22px; min-width:0; min-height:0; background:#000;
@@ -173,6 +177,8 @@ a.stat:hover{color:var(--pick)}
   position:absolute; inset:22px; overflow:hidden;
   display:grid; place-items:center; cursor:zoom-in;
 }
+#viewport{cursor:zoom-in}
+#lb.solo #viewport{cursor:zoom-out}
 #viewport.zoomed{cursor:grab}
 #viewport.dragging{cursor:grabbing}
 #pan{
@@ -182,10 +188,22 @@ a.stat:hover{color:var(--pick)}
 }
 #pan.live{transition:none}
 #zoomhint{
-  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
-  z-index:3; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em;
-  color:rgba(255,255,255,.42); pointer-events:none;
+  position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
+  z-index:3; font-family:var(--mono); font-size:10px; letter-spacing:.05em;
+  color:rgba(255,255,255,.34); pointer-events:none;
+  transition:opacity .3s;
 }
+#tools{
+  position:absolute; right:14px; top:14px; z-index:5;
+  display:flex; gap:8px;
+}
+#tools button{
+  width:38px; height:38px; border-radius:50%;
+  display:grid; place-items:center; font-size:16px;
+  background:rgba(0,0,0,.55); color:#fff; border:1px solid rgba(255,255,255,.16);
+}
+#tools button:hover{background:var(--hot); color:#000; border-color:var(--hot)}
+#tools button.on{background:var(--hot); color:#000; border-color:var(--hot)}
 html[data-theme="light"] #stage{background:#111}
 #stage #lbimg{
   display:block; width:100%; height:100%;
@@ -221,7 +239,21 @@ dd{margin:0; font-family:var(--mono); font-size:12.5px}
   font-size:13px; text-decoration:none; background:var(--bg);
 }
 #acts a:hover,#acts button:hover{border-color:var(--hot); color:var(--hot)}
-#acts button.on{background:var(--hot); border-color:var(--hot); color:var(--bg); font-weight:600}
+#acts .ext{opacity:.5; font-size:11px; margin-left:5px}
+#grab{position:relative}
+#grabmenu{
+  position:absolute; left:0; top:calc(100% + 6px); z-index:20; min-width:250px;
+  background:var(--panel2); border:1px solid var(--edge); border-radius:4px;
+  box-shadow:0 12px 34px var(--shadow); overflow:hidden; display:none;
+}
+#grabmenu.on{display:block}
+#grabmenu a{
+  display:block; padding:11px 14px; text-decoration:none; font-size:13px;
+  border-bottom:1px solid var(--edge);
+}
+#grabmenu a:last-child{border-bottom:0}
+#grabmenu a:hover{background:var(--bg); color:var(--hot)}
+#grabmenu .sub{display:block; font-size:11.5px; color:var(--dim); margin-top:2px}
 
 #close,#prev,#next{
   position:fixed; z-index:110; width:44px; height:44px;
@@ -234,7 +266,7 @@ dd{margin:0; font-family:var(--mono); font-size:12.5px}
 #close:hover,#prev:hover,#next:hover{background:var(--hot); color:#000}
 
 @media (max-width:900px){
-  #lb.on{grid-template-columns:1fr; grid-template-rows:52vh 1fr}
+  #lb.on{grid-template-columns:1fr; grid-template-rows:52vh minmax(0,1fr)}
   #info{border-left:0; border-top:1px solid var(--edge); padding:20px 20px 50px}
   #next{right:14px}
   #prev,#next{top:26vh}
@@ -283,11 +315,12 @@ footer a:hover{text-decoration:underline}
 
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
+  <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
-    <a href="https://tubbers.github.io/skydome/">Sky dome</a> ·
-    <a href="https://app.astrobin.com/u/tubbers">AstroBin</a> ·
-    <a href="https://telescopius.com/profile/tubbers">Telescopius</a> ·
-    <a href="https://astrophotomarket.com/en/author/wade-tubman">Free FITS data</a>
+    <a href="https://tubbers.github.io/skydome/" target="_blank" rel="noopener">Sky dome</a> ·
+    <a href="https://app.astrobin.com/u/tubbers" target="_blank" rel="noopener">AstroBin</a> ·
+    <a href="https://telescopius.com/profile/tubbers" target="_blank" rel="noopener">Telescopius</a> ·
+    <a href="https://astrophotomarket.com/en/image-data-set-catalog?image_search_filter%5Bauthor%5D%5B%5D=642" target="_blank" rel="noopener">Free FITS data</a>
   </p>
 </footer>
 
@@ -297,7 +330,12 @@ footer a:hover{text-decoration:underline}
       <div id="pan"><img id="lbimg" alt=""></div>
       <img id="moonlayer" src="moon.png" alt="The full Moon at the same scale">
     </div>
-    <p id="zoomhint">click to zoom · drag to pan · scroll to scale</p>
+    <div id="tools">
+      <button id="tfull" type="button" title="Full screen" aria-label="Full screen">&#9974;</button>
+      <button id="tmoon" type="button" title="Compare with the Moon" aria-label="Compare with the Moon">&#9790;</button>
+      <button id="tdome" type="button" title="See where it is in the sky" aria-label="See where it is in the sky">&#9673;</button>
+    </div>
+    <p id="zoomhint">scroll to zoom</p>
   </div>
   <div id="info">
     <h2 id="lbname"></h2>
@@ -337,7 +375,6 @@ const BUCKETS = {
   "Nebulae":     ["Emission Nebula","HII Region"],
   "Galaxies":    ["Spiral Galaxy","Peculiar Galaxy","Galaxy","Group of Galaxies"],
   "Dust & dark": ["Reflection Nebula","Dark Nebula","Dense Core","Star Forming Region"],
-  "Clusters":    ["Open Cluster","Globular Cluster"],
   "Remnants":    ["Supernova Remnant","Planetary Nebula"]
 };
 function bucket(t){
@@ -393,17 +430,20 @@ async function boot(){
 
     return {
       ...im,
-      slug:      slug(im.label),
+      slug:      im.slug || slug(im.label),
       thumbUrl:  url(im.thumb),
       fullUrl:   url(im.file),
       ratio:     (im.width_px && im.height_px) ? im.width_px/im.height_px : 1.5,
       // overrides win, then the coordinate match, then nothing
-      constellation: ov.constellation ?? cat?.constellation ?? null,
+      // Facts come from the manifest — skydome is the single source of truth.
+      // gallery.json only carries editorial prose and things the manifest can't know.
+      constellation: im.constellation ?? cat?.constellation ?? null,
       objectType:    ov.type          ?? cat?.type          ?? null,
       catCode:       ov.code          ?? cat?.name          ?? null,
-      distLy:        ov.distance_ly   ?? im.distance_ly     ?? null,
-      distNote:      ov.distance_note ?? im.distance_note   ?? null,
-      blurb:         ov.blurb         ?? null,
+      distLy:        im.distance_ly   ?? null,
+      distNote:      im.distance_note ?? null,
+      foundBy:       im.discovered_by ?? null,
+      blurb:         ov.blurb         ?? im.description     ?? null,
       scope:         ov.scope         ?? null,
       camera:        ov.camera        ?? null,
       filters:       ov.filters       ?? null,
@@ -414,7 +454,13 @@ async function boot(){
       captured:      ov.captured      ?? null,
       astrobin:      ov.astrobin      ?? null,
       telescopius:   ov.telescopius   ?? null,
-      fits:          ov.fits          ?? null,
+      fits:          ov.amp_id && ov.amp_slug
+                       ? `https://astrophotomarket.com/en/image-details/${ov.amp_id}/${ov.amp_slug}`
+                       : (ov.fits ?? null),
+      showcase:      ov.amp_id
+                       ? `https://astrophotomarket.com/en/showcase-gallery?dataset=${ov.amp_id}`
+                       : null,
+      wallpaper:     ov.wallpaper     ?? null,
       downloads:     ov.downloads      ?? 0,
       favourites:    (ov.favourites ?? 0) + (ov.astrobin_likes ?? 0) + (ov.telescopius_likes ?? 0),
       reprocessed:   ov.reprocessed    ?? 0,
@@ -440,9 +486,12 @@ async function boot(){
    widest field on the list, which reads best cropped to a letterbox. */
 function hero(){
   const picks = IMAGES.filter(i => i.featured);
-  const im = picks.length
-    ? picks[Math.floor(Math.random()*picks.length)]
-    : [...IMAGES].sort((a,b) => (b.fov_w_deg*b.fov_h_deg)-(a.fov_w_deg*a.fov_h_deg))[0];
+  // A banner is a wide letterbox, so a portrait frame loses most of itself to
+  // the crop. Prefer landscape, then widest field.
+  const pool = picks.length ? picks : IMAGES.filter(i => i.ratio >= 1.3);
+  const im = pool.length
+    ? [...pool].sort((a,b) => (b.fov_w_deg*b.fov_h_deg)-(a.fov_w_deg*a.fov_h_deg))[0]
+    : IMAGES[0];
   if(!im) return;
   const el = document.getElementById("heroimg");
   el.src = im.fullUrl;
@@ -557,7 +606,7 @@ function open(ix){
 
   const rows = [
     ["Distance",    im.distLy ? im.distLy + " light-years" : null],
-    ["",            im.distNote],
+    ["Discovered",  im.foundBy],
     ["Framing",     `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}`],
     ["Telescope",   im.scope],
     ["Camera",      im.camera],
@@ -580,24 +629,38 @@ function open(ix){
     stat("\u21e3", im.downloads, "downloads",
          "People who have taken this dataset to process themselves. The raw files are free \u2014 click to grab them.",
          im.fits || "https://astrophotomarket.com/en/author/wade-tubman") +
-    stat("\u21bb", im.reprocessed, "reworks",
+    stat("\u21bb", im.reprocessed, "community edits",
          "Other astrophotographers who have published their own processing of this data",
-         im.fits ? im.fits.replace("/image-details/","/showcase-gallery?dataset=").replace(/\/$/,"") : null);
+         im.showcase);
 
   const links = [
-    ["See where it is",  SKYDOME + "?target=" + im.slug],
-    ["AstroBin",         im.astrobin],
-    ["Telescopius",      im.telescopius],
-    ["Free FITS data",   im.fits]
+    ["AstroBin",    im.astrobin],
+    ["Telescopius", im.telescopius]
   ].filter(l => l[1]);
 
+  const menu = [
+    [im.fits, "The raw data", "Calibrated FITS frames, free on AstrophotoMarket"],
+    [im.wallpaper || im.fullUrl, "Wallpaper", "3840 \u00d7 2160 JPEG for your desktop"]
+  ].filter(m => m[0]);
+
   document.getElementById("acts").innerHTML =
-    `<button type="button" id="moonbtn">Compare to the Moon</button>` +
-    links.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${t}</a>`).join("");
-  document.getElementById("moonbtn").onclick = toggleMoon;
+    `<span id="grab"><button type="button" id="grabbtn">Download &#9662;</button>` +
+    `<div id="grabmenu">` + menu.map(([u,t,s]) =>
+      `<a href="${u}" target="_blank" rel="noopener" ${u===im.fullUrl?'download':''}>${t}<span class="sub">${s}</span></a>`
+    ).join("") + `</div></span>` +
+    links.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${t}<span class="ext">&#8599;</span></a>`).join("");
+
+  const gb = document.getElementById("grabbtn"), gm = document.getElementById("grabmenu");
+  gb.onclick = e => { e.stopPropagation(); gm.classList.toggle("on"); };
+  document.addEventListener("click", () => gm.classList.remove("on"), {once:true});
+
+  document.getElementById("tdome").onclick = () =>
+    window.open(SKYDOME + "?target=" + im.slug, "_blank", "noopener");
 
   moonOn = false;
   document.getElementById("moonlayer").classList.remove("on");
+  document.getElementById("tmoon").classList.remove("on");
+  lb.classList.remove("solo");
   resetZoom();
   document.getElementById("lbimg").onload = () => { if(moonOn) drawMoon(); };
 
@@ -622,6 +685,10 @@ function applyZoom(live){
   document.getElementById("zoomhint").style.opacity = Z > 1 ? 0 : "";
 }
 function resetZoom(){ Z = 1; PX = PY = 0; applyZoom(); }
+addEventListener("fullscreenchange", () => {
+  document.getElementById("tfull").classList.toggle("on", !!document.fullscreenElement);
+  if(moonOn) requestAnimationFrame(drawMoon);
+});
 
 function zoomAt(cx, cy, next){
   next = Math.min(6, Math.max(1, next));
@@ -640,25 +707,39 @@ vp.addEventListener("wheel", e => {
   zoomAt(e.clientX, e.clientY, Z * (e.deltaY < 0 ? 1.16 : 1/1.16));
 }, {passive:false});
 
+/* Every pointerdown starts a potential drag, whatever the zoom level — the old
+   version only armed it above 1x, which is why panning did nothing. A gesture
+   that finishes within a few pixels is treated as a click instead. */
 vp.addEventListener("pointerdown", e => {
-  if(Z <= 1) return;
-  drag = {x:e.clientX, y:e.clientY, px:PX, py:PY};
+  drag = {x:e.clientX, y:e.clientY, px:PX, py:PY, moved:false};
   vp.setPointerCapture(e.pointerId);
-  vp.classList.add("dragging");
 });
 vp.addEventListener("pointermove", e => {
   if(!drag) return;
+  if(Math.hypot(e.clientX-drag.x, e.clientY-drag.y) > 4) drag.moved = true;
+  if(Z <= 1 || !drag.moved) return;
+  vp.classList.add("dragging");
   PX = drag.px + (e.clientX - drag.x);
   PY = drag.py + (e.clientY - drag.y);
   applyZoom(true);
 });
-vp.addEventListener("pointerup", e => {
-  if(drag && Math.hypot(e.clientX-drag.x, e.clientY-drag.y) < 4) toggleZoom(e);
-  else if(!drag) toggleZoom(e);
+vp.addEventListener("pointerup", () => {
+  if(drag && !drag.moved) toggleSolo();     // a plain click maximises the photo
   drag = null; vp.classList.remove("dragging");
 });
-function toggleZoom(e){
-  Z > 1 ? resetZoom() : zoomAt(e.clientX, e.clientY, 2.6);
+vp.addEventListener("pointercancel", () => { drag = null; vp.classList.remove("dragging"); });
+
+/* Collapse the info panel so the photo has the whole window. Distinct from
+   browser full screen, which is the ⛶ button. */
+function toggleSolo(){
+  lb.classList.toggle("solo");
+  resetZoom();
+  if(moonOn) requestAnimationFrame(drawMoon);
+}
+
+function goFullscreen(){
+  const on = document.fullscreenElement;
+  (on ? document.exitFullscreen() : lb.requestFullscreen()).catch(()=>{});
 }
 
 function fmtDeg(d){
@@ -671,17 +752,12 @@ function esc(s){
 /* Scale the Moon against the actual plate-solved field, then draw it on the image. */
 function toggleMoon(){
   moonOn = !moonOn;
-  const im    = VIEW[CUR];
-  const layer = document.getElementById("moonlayer");
-  const btn   = document.getElementById("moonbtn");
-  const shown = document.getElementById("lbimg");
-
-  btn.classList.toggle("on", moonOn);
-  layer.classList.toggle("on", moonOn);
-  if(!moonOn) return;
-
-  drawMoon();
+  document.getElementById("tmoon").classList.toggle("on", moonOn);
+  document.getElementById("moonlayer").classList.toggle("on", moonOn);
+  if(moonOn) drawMoon();
 }
+document.getElementById("tmoon").onclick = toggleMoon;
+document.getElementById("tfull").onclick = goFullscreen;
 
 /* object-fit:contain letterboxes the photo inside the element, so the
    drawn width is not the element width — work out the real one first. */
@@ -709,7 +785,13 @@ document.getElementById("prev").onclick  = () => step(-1);
 document.getElementById("next").onclick  = () => step(1);
 addEventListener("keydown", e => {
   if(!lb.classList.contains("on")) return;
-  if(e.key === "Escape")     { if(Z > 1) resetZoom(); else shut(); }
+  if(e.key === "Escape"){
+    if(Z > 1) resetZoom();
+    else if(lb.classList.contains("solo")) toggleSolo();
+    else shut();
+  }
+  if(e.key === "f") goFullscreen();
+  if(e.key === "m") toggleMoon();
   if(e.key === "ArrowLeft")  step(-1);
   if(e.key === "ArrowRight") step(1);
 });
@@ -731,8 +813,9 @@ function setTheme(t){
   btnTheme.textContent = t === "light" ? "Dark" : "Light";
   btnTheme.setAttribute("aria-label", `Switch to ${t === "light" ? "dark" : "light"} theme`);
 }
-setTheme(localStorage.getItem("theme")
-  || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+// Dark unless the visitor has explicitly asked for light — photographs read
+// badly on a pale background, so the OS preference does not get a vote here.
+setTheme(localStorage.getItem("theme") || "dark");
 btnTheme.onclick = () => {
   const t = document.documentElement.dataset.theme === "light" ? "dark" : "light";
   localStorage.setItem("theme", t);
