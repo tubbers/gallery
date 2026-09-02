@@ -166,7 +166,8 @@
   "favourites": 1,
   "telescopius_likes": 5,
   "amp_id": 161,
-  "amp_slug": "sh2-308-dolphin-head-nebula-with-focus-on-oiii"
+  "amp_slug": "sh2-308-dolphin-head-nebula-with-focus-on-oiii",
+  "type": "Supernova Remnant"
  },
  {
   "label": "IC 2177 Seagull Nebula",
@@ -193,7 +194,8 @@
   "favourites": 2,
   "telescopius_likes": 8,
   "amp_id": 164,
-  "amp_slug": "ngc2361-thors-helmet-in-ha-oiii-dual-narrowband"
+  "amp_slug": "ngc2361-thors-helmet-in-ha-oiii-dual-narrowband",
+  "type": "Supernova Remnant"
  },
  {
   "label": "NGC 2467 Skull and Crossbones",
@@ -520,7 +522,8 @@
   "favourites": 4,
   "telescopius_likes": 5,
   "amp_id": 290,
-  "amp_slug": "ngc-6164-the-dragon-s-egg"
+  "amp_slug": "ngc-6164-the-dragon-s-egg",
+  "type": "Supernova Remnant"
  },
  {
   "label": "LDN 43 Cosmic Bat",
