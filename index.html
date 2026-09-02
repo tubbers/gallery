@@ -182,7 +182,7 @@ a.stat:hover{color:var(--pick)}
 #viewport.zoomed{cursor:grab}
 #viewport.dragging{cursor:grabbing}
 #pan{
-  position:relative; width:100%; height:100%;
+  position:absolute; inset:0;
   transform-origin:0 0; will-change:transform;
   transition:transform .22s cubic-bezier(.22,.7,.3,1);
 }
@@ -208,6 +208,7 @@ html[data-theme="light"] #stage{background:#111}
 #stage #lbimg{
   display:block; width:100%; height:100%;
   object-fit:contain; object-position:center;
+  -webkit-user-drag:none; user-select:none; -webkit-user-select:none;
 }
 #stage #moonlayer{
   position:absolute; left:50%; top:50%; translate:-50% -50%;
@@ -315,6 +316,9 @@ footer a:hover{text-decoration:underline}
 
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
+  <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
+    v0.5 · built with Claude
+  </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
     <a href="https://tubbers.github.io/skydome/" target="_blank" rel="noopener">Sky dome</a> ·
@@ -327,7 +331,7 @@ footer a:hover{text-decoration:underline}
 <div id="lb" role="dialog" aria-modal="true" aria-label="Image detail">
   <div id="stage">
     <div id="viewport">
-      <div id="pan"><img id="lbimg" alt=""></div>
+      <div id="pan"><img id="lbimg" alt="" draggable="false"></div>
       <img id="moonlayer" src="moon.png" alt="The full Moon at the same scale">
     </div>
     <div id="tools">
@@ -710,9 +714,11 @@ vp.addEventListener("wheel", e => {
 /* Every pointerdown starts a potential drag, whatever the zoom level — the old
    version only armed it above 1x, which is why panning did nothing. A gesture
    that finishes within a few pixels is treated as a click instead. */
+vp.addEventListener("dragstart", e => e.preventDefault());
 vp.addEventListener("pointerdown", e => {
+  e.preventDefault();                       // stop the native image drag
   drag = {x:e.clientX, y:e.clientY, px:PX, py:PY, moved:false};
-  vp.setPointerCapture(e.pointerId);
+  try{ vp.setPointerCapture(e.pointerId); }catch(err){}
 });
 vp.addEventListener("pointermove", e => {
   if(!drag) return;
@@ -774,7 +780,9 @@ function drawMoon(){
 }
 
 function shut(){
-  lb.classList.remove("on");
+  if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+  lb.classList.remove("on","solo");
+  resetZoom();
   document.body.style.overflow = "";
   history.replaceState(null,"",location.pathname);
 }
