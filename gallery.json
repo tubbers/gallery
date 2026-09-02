@@ -1,6 +1,7 @@
 [
  {
   "label": "NGC 55 Whale / Pearls",
+  "blurb": "A barred irregular galaxy in Sculptor, seen almost exactly edge-on. It belongs to the Sculptor Group, one of the nearest galaxy groups to our own. The bright knots strung along its disc are giant HII regions — clouds of hydrogen lit up by clusters of hot young stars — which is where the 'string of pearls' name comes from. Its lopsided shape is typical of a galaxy that never settled into clean spiral arms.",
   "hours": 11.7,
   "nights": 2,
   "scope": "200PDS",
@@ -8,14 +9,11 @@
   "filters": "OSC broadband",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-08-12 to 2026-08-13",
-  "amp_name": "String of Pearls Galaxy NGC 55",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-08-12 to 2026-08-13"
  },
  {
   "label": "NGC 253 Sculptor Galaxy",
+  "blurb": "A starburst spiral in Sculptor, and one of the brightest galaxies in the sky after the Andromeda Galaxy. Its core is forming stars at a furious rate, and the dust thrown off by that activity is what produces the heavy dark lanes cutting across the disc. Winds driven by supernovae are blowing gas out of the centre in a superwind that reaches thousands of light-years above the plane.",
   "hours": 10.3,
   "nights": 2,
   "scope": "200PDS",
@@ -23,78 +21,75 @@
   "filters": "OSC broadband",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-08-11 to 2026-08-12",
-  "amp_name": "Sculptor Galaxy NGC 253 Silver Dollar",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-08-11 to 2026-08-12"
  },
  {
   "label": "NGC 253 Sculptor (wide field)",
-  "_check": [
-   "AstrophotoMarket match uncertain: 'Sculptor Galaxy NGC 253 Silver Dollar'"
-  ],
-  "hours": 10.3,
-  "nights": 2,
-  "scope": "200PDS",
-  "camera": "ASI585MC",
-  "filters": "OSC broadband",
+  "blurb": "The same starburst galaxy framed wide enough to include NGC 288, a loose globular cluster that sits in the same line of sight but is only about 29,000 light-years away — inside our own galaxy, and hundreds of times closer than NGC 253 behind it. The pairing is a useful reminder that the sky is a projection: two objects can appear side by side and share nothing at all.",
+  "hours": 12.7,
+  "nights": 3,
+  "scope": "RedCat 61",
+  "camera": "ASI2600MM",
+  "filters": "RGB (mono)",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-08-11 to 2026-08-12",
-  "amp_name": "Sculptor Galaxy NGC 253 Silver Dollar",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-08-11 to 2026-08-13"
  },
  {
   "label": "NGC 292 Small Magellanic Cloud",
   "_check": [
-   "no session data matched",
-   "AstrophotoMarket match uncertain: 'Small Magellanic Cloud with Ha nebula'"
+   "no session log entry — gear and hours need filling in by hand"
   ],
-  "amp_name": "Small Magellanic Cloud with Ha nebula",
+  "blurb": "A dwarf irregular galaxy orbiting the Milky Way, and one of the most distant objects visible to the unaided eye. Its stars are noticeably poorer in heavy elements than ours, which makes it a natural laboratory for studying star formation under conditions closer to the early universe. Tidal interaction with the Large Magellanic Cloud has stretched it into its ragged, elongated shape.",
   "downloads": 33,
   "reprocessed": 1,
-  "favourites": 1
+  "favourites": 1,
+  "telescopius_likes": 6
  },
  {
   "label": "NGC 346 (SMC)",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "The largest star-forming region in the Small Magellanic Cloud. At its heart is a cluster of extremely massive young stars whose ultraviolet radiation is carving out the surrounding gas and triggering further collapse along the cavity walls. Because the SMC is metal-poor, NGC 346 is one of the closest analogues astronomers have to the star factories of the early universe.",
+  "downloads": 79,
+  "reprocessed": 2,
+  "favourites": 3
  },
  {
   "label": "SMC core, NGC 346 region (HOO)",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "A narrowband view of the Small Magellanic Cloud's central regions, isolating the light of hydrogen and oxygen. Stripping away the broadband starlight reveals the ionised gas structure directly — the shells, filaments and bubbles blown by generations of massive stars living and dying inside a galaxy 200,000 light-years away."
  },
  {
   "label": "Comet 220P McNaught",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "A short-period comet discovered by Robert McNaught at Siding Spring in New South Wales. Comets like this spend most of their orbit as inert ice and dust; the green glow around the nucleus is diatomic carbon fluorescing in sunlight, a molecule that only survives close to the Sun. Unlike everything else in this collection, it moves visibly against the stars from night to night."
  },
  {
   "label": "NGC 1365 Great Barred Spiral",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "One of the finest barred spirals known, in the Fornax Cluster. The straight bar running through its centre is a gravitational structure that funnels gas inward, feeding both a burst of star formation and the supermassive black hole at the core. That black hole is an active one, and NGC 1365 is a standard reference object for studying how bars drive galaxy evolution."
  },
  {
   "label": "IC 2118 Witch Head",
   "_check": [
-   "no session data matched",
-   "AstrophotoMarket match uncertain: 'Witch Head Nebula NGC 1909'"
+   "no session log entry — gear and hours need filling in by hand"
   ],
-  "amp_name": "Witch Head Nebula NGC 1909",
+  "blurb": "A reflection nebula in Eridanus, glowing not by its own light but by scattering the light of Rigel, the brilliant blue supergiant just outside the frame. Fine dust grains scatter blue light more efficiently than red — the same physics that makes the daytime sky blue — which is why the nebula takes on its cold colour. It is an ancient supernova remnant being lit from outside.",
   "downloads": 116,
   "reprocessed": 4,
   "favourites": 2
  },
  {
   "label": "NGC 2018 (LMC)",
+  "blurb": "A star-forming complex inside the Large Magellanic Cloud, a satellite galaxy of the Milky Way. Everything in this frame lies outside our own galaxy. The red hydrogen emission comes from gas ionised by young massive stars, while the sharply defined blue-green bubble nearby is a shell of oxygen blown outward by the fierce wind of a single Wolf-Rayet star nearing the end of its life.",
   "hours": 14.8,
   "nights": 5,
   "scope": "200PDS",
@@ -103,17 +98,17 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2025-12-04 to 2026-04-14",
-  "amp_name": "NGC 2018 Large Magellan Cloud",
   "downloads": 75,
   "reprocessed": 4,
-  "favourites": 3
+  "favourites": 3,
+  "telescopius_likes": 5
  },
  {
   "label": "NGC 2070 Tarantula Nebula",
   "_check": [
-   "no session data matched"
+   "no session log entry — gear and hours need filling in by hand"
   ],
-  "amp_name": "Tarantula Nebula NGC 2070",
+  "blurb": "The most active star-forming region known in the Local Group, sitting in the Large Magellanic Cloud. If it were as close to us as the Orion Nebula it would cast shadows on the ground. At its centre is R136, a compact cluster containing several of the most massive stars ever measured — some over a hundred times the mass of the Sun, burning through their fuel in only a few million years.",
   "downloads": 110,
   "reprocessed": 5,
   "favourites": 2
@@ -121,21 +116,24 @@
  {
   "label": "NGC 2264 Cone Nebula",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "A star-forming region in Monoceros containing both the Cone Nebula and the Christmas Tree Cluster. The cone itself is a pillar of dense, cold molecular gas roughly seven light-years long, resisting erosion by the ultraviolet radiation of the hot star above it. Pillars like this are the last dense remnants of a much larger cloud that has already been blown apart."
  },
  {
   "label": "Sh2-308 Dolphin Head",
   "_check": [
-   "no session data matched"
+   "no session log entry — gear and hours need filling in by hand"
   ],
-  "amp_name": "SH2-308 Dolphin Head nebula",
+  "blurb": "A bubble of gas blown by EZ Canis Majoris, a Wolf-Rayet star shedding its outer layers at enormous speed. The shell glows almost entirely in doubly ionised oxygen, which gives it an unusually pure blue-green colour and makes it a demanding target — the hydrogen emission that usually dominates is comparatively weak here. The whole structure is only about 70,000 years old.",
   "downloads": 51,
   "reprocessed": 1,
-  "favourites": 1
+  "favourites": 1,
+  "telescopius_likes": 5
  },
  {
   "label": "IC 2177 Seagull Nebula",
+  "blurb": "A large emission complex straddling the Monoceros–Canis Major border. The bright 'head' is Sharpless 2-292, a shell of gas ionised by the hot star HD 53367, while the sweeping wings are the fainter arcs of Sharpless 2-296. It spans several degrees of sky, which makes it a wide-field target — most telescopes simply cannot fit it in one frame.",
   "hours": 13.6,
   "nights": 6,
   "scope": "RedCat 61",
@@ -148,11 +146,17 @@
  {
   "label": "NGC 2359 Thor's Helmet",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "An emission nebula in Canis Major shaped by WR 7, a Wolf-Rayet star in the brief, violent phase that precedes a supernova. The star's wind has swept the surrounding gas into a bubble, and the 'wings' are where that bubble has broken out into a neighbouring molecular cloud. The star is expected to explode within a few hundred thousand years.",
+  "downloads": 80,
+  "reprocessed": 3,
+  "favourites": 2,
+  "telescopius_likes": 8
  },
  {
   "label": "NGC 2467 Skull and Crossbones",
+  "blurb": "An emission region in Puppis that is really several unrelated clusters and clouds along the same line of sight. The bright oxygen bubble is carved by HD 64315, among the hottest stars catalogued. Dark dust pillars silhouetted against the glow are dense molecular knots being eroded from outside while stars form within them.",
   "hours": 18.8,
   "nights": 4,
   "scope": "ASKAR 91F",
@@ -161,13 +165,13 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2026-02-17 to 2026-03-11",
-  "amp_name": "NGC 2467 Skull and Crossbones Nebula",
   "downloads": 38,
   "reprocessed": 2,
   "favourites": 3
  },
  {
   "label": "Vela Supernova Remnant",
+  "blurb": "The expanding debris of a star that exploded roughly 11,000 years ago, only 800 light-years away — one of the closest supernova remnants to Earth. The cyan filaments are oxygen glowing as the shock front continues to slam into surrounding gas. At the centre lies the Vela Pulsar, a neutron star the size of a city spinning eleven times a second. The remnant spans about eight degrees of sky.",
   "hours": 34.0,
   "nights": 10,
   "scope": "Pentax 135mm",
@@ -175,10 +179,12 @@
   "filters": "Ha/OIII",
   "location": "Willoughby + Wheeny Creek",
   "bortle": 7,
-  "captured": "2026-01-28 to 2026-04-16"
+  "captured": "2026-01-28 to 2026-04-16",
+  "telescopius_likes": 5
  },
  {
   "label": "NGC 3293 Gem Cluster",
+  "blurb": "A young open cluster in Carina, perhaps ten million years old — infant by stellar standards. The contrast between its hot blue main-sequence stars and one prominent red supergiant is a direct illustration of how stellar evolution depends on mass: all these stars formed together, but the most massive has already burned through its core hydrogen and swollen up.",
   "hours": 20.7,
   "nights": 3,
   "scope": "200PDS",
@@ -186,10 +192,15 @@
   "filters": "Ha/OIII (ALP-T)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-05-06 to 2026-05-09"
+  "captured": "2026-05-06 to 2026-05-09",
+  "downloads": 37,
+  "reprocessed": 3,
+  "favourites": 4,
+  "telescopius_likes": 4
  },
  {
   "label": "NGC 3324 Gabriela Mistral",
+  "blurb": "A star-forming region on the northwest edge of the Carina Nebula, named for the profile resembling the Chilean poet. The sharp wall running through the frame is an ionisation front — the boundary where ultraviolet light from the young cluster is eating into the cold molecular cloud behind it. JWST's first-release 'Cosmic Cliffs' image shows a small section of this same wall.",
   "hours": 32.4,
   "nights": 5,
   "scope": "200PDS",
@@ -198,27 +209,33 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2026-05-05 to 2026-06-03",
-  "amp_name": "NGC 3324 Gabriela Mistral Nebula",
   "downloads": 68,
   "reprocessed": 3,
-  "favourites": 3
+  "favourites": 3,
+  "telescopius_likes": 7
  },
  {
   "label": "NGC 3372 Carina Nebula",
   "_check": [
-   "2 rigs used on this object — hours may span more than this image"
+   "2 rigs shot this object; matched RedCat 61 + ASI2600MC on field size — confirm"
   ],
-  "hours": 51.9,
-  "nights": 18,
+  "blurb": "One of the largest and brightest nebulae in the sky, four times the size of the Orion Nebula and far more luminous. It contains Eta Carinae, an unstable supergiant system that erupted in the 1840s to briefly become the second-brightest star in the sky, and which is expected to end as a supernova. The dark Keyhole and the surrounding dust pillars mark where the cloud has not yet been blown apart.",
+  "hours": 37.9,
+  "nights": 14,
   "scope": "RedCat 61",
   "camera": "ASI2600MC",
   "filters": "Ha/OIII/SII (ALP-T + SV227)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-04-13 to 2026-08-08"
+  "captured": "2026-05-30 to 2026-08-08",
+  "downloads": 119,
+  "reprocessed": 6,
+  "favourites": 3,
+  "astrobin_likes": 107
  },
  {
   "label": "IC 2631 Chamaeleon Complex",
+  "blurb": "A reflection nebula in one of the nearest star-forming regions to the Sun, the Chamaeleon I cloud. The bluish glow is starlight scattered off dust around the young star HD 97300. Surrounding it are dark Bok globules — small, dense, cold clouds that are among the best candidates for stars caught in the act of forming.",
   "hours": 13.8,
   "nights": 2,
   "scope": "RedCat 61",
@@ -230,6 +247,7 @@
  },
  {
   "label": "NGC 3572 Gum 37 Southern Tadpoles",
+  "blurb": "A star-forming region in Carina where the 'tadpoles' are elongated clouds of cold gas being eroded by ultraviolet radiation from the embedded cluster. Each one shields a dense head that may still be forming stars inside, with a tail streaming away from the radiation source — the same mechanism that produced the Pillars of Creation, on a smaller and more chaotic scale.",
   "hours": 12.0,
   "nights": 3,
   "scope": "200PDS",
@@ -238,41 +256,40 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2026-04-14 to 2026-04-16",
-  "amp_name": "Gum 37 NGC 3572 Southern Tadpoles",
   "downloads": 68,
   "reprocessed": 7,
   "favourites": 4
  },
  {
   "label": "NGC 3572 / Gum 37",
-  "hours": 12.0,
-  "nights": 3,
-  "scope": "200PDS",
-  "camera": "ASI585MC",
-  "filters": "Ha/OIII (ALP-T)",
+  "blurb": "A wider framing of the Gum 37 complex in Carina, taking in more of the surrounding ionised hydrogen. Seeing the tadpole clouds in this broader context makes their orientation obvious: they all point away from the young cluster whose radiation is sculpting them.",
+  "hours": 29.4,
+  "nights": 6,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "SHO",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-04-14 to 2026-04-16",
-  "amp_name": "Gum 37 NGC 3572 Southern Tadpoles",
-  "downloads": 68,
-  "reprocessed": 7,
-  "favourites": 4
+  "captured": "2026-05-06 to 2026-06-23"
  },
  {
   "label": "NGC 3576 Statue of Liberty",
-  "_check": [
-   "no session data matched"
-  ],
-  "amp_name": "Statue of Liberty Nebula NGC 3576",
+  "blurb": "An emission nebula in Carina whose looping filaments give it its nickname. Those loops are gas being pushed outward by stellar winds from a young embedded cluster, curling back where they meet denser material. It sits in front of the larger NGC 3603 complex but is several thousand light-years closer.",
+  "hours": 29.4,
+  "nights": 6,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "SHO",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-05-06 to 2026-06-23",
   "downloads": 120,
   "reprocessed": 4,
   "favourites": 4
  },
  {
   "label": "IC 2944 Running Chicken",
-  "_check": [
-   "AstrophotoMarket match uncertain: 'IC2944 Running Chicken'"
-  ],
+  "blurb": "A bright emission nebula in Centaurus surrounding the young cluster Collinder 249. Its most studied features are Thackeray's Globules — small, dark, dense clouds silhouetted against the glowing gas, catalogued by A. D. Thackeray in 1950. They are being steadily eroded by radiation, and it remains unsettled whether they will collapse into stars or simply evaporate.",
   "hours": 29.9,
   "nights": 8,
   "scope": "RedCat 61",
@@ -281,13 +298,13 @@
   "location": "Willoughby + Wheeny Creek",
   "bortle": 7,
   "captured": "2026-02-17 to 2026-04-29",
-  "amp_name": "IC2944 Running Chicken",
   "downloads": 29,
   "reprocessed": 6,
   "favourites": 2
  },
  {
   "label": "NGC 4038 Antennae Galaxies",
+  "blurb": "Two spiral galaxies in Corvus caught mid-collision. The long curving streamers are tidal tails, stars and gas flung out by the gravitational encounter, and they give the pair its name. Where the two gas discs are ploughing into each other, the compression has triggered one of the most intense bursts of star formation in the nearby universe.",
   "hours": 14.6,
   "nights": 3,
   "scope": "200PDS",
@@ -296,24 +313,25 @@
   "location": "Willoughby + Wheeny Creek",
   "bortle": 4,
   "captured": "2025-12-18 to 2026-03-15",
-  "amp_name": "NGC 4038 Antennae colliding galaxies",
   "downloads": 87,
   "reprocessed": 3,
   "favourites": 6
  },
  {
   "label": "Sandqvist 149 Dark Doodad",
-  "_check": [
-   "no session data matched",
-   "AstrophotoMarket match uncertain: 'SANDQVIST 17 The Dark Wolf Fenrir'"
-  ],
-  "amp_name": "SANDQVIST 17 The Dark Wolf Fenrir",
-  "downloads": 76,
-  "reprocessed": 4,
-  "favourites": 3
+  "blurb": "A remarkably straight dark nebula in Musca, some three degrees long. It is a filament of cold molecular gas dense enough to block the light of the stars behind it entirely. Filaments like this are now thought to be the fundamental structures from which star formation proceeds, shaped by turbulence and magnetic fields in the interstellar medium.",
+  "hours": 10.8,
+  "nights": 3,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "LRGB",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "captured": "2026-04-24 to 2026-04-26"
  },
  {
   "label": "M104 Sombrero Galaxy",
+  "blurb": "A galaxy in Virgo notable for its enormous central bulge and the knife-sharp dust lane crossing it. The dust lane is a ring seen almost exactly edge-on. Its unusually rich swarm of globular clusters, together with the size of the bulge, has made its classification a long-running question — it sits awkwardly between a spiral and an elliptical.",
   "hours": 7,
   "nights": 1,
   "scope": "200PDS",
@@ -322,13 +340,13 @@
   "location": "Wheeny Creek",
   "bortle": 4,
   "captured": "2026-04-24 to 2026-04-24",
-  "amp_name": "M104 Sombrero Galaxy",
   "downloads": 58,
   "reprocessed": 1,
   "favourites": 3
  },
  {
   "label": "NGC 5128 Centaurus A",
+  "blurb": "The nearest active galaxy to Earth, and one of the brightest radio sources in the sky. The thick dust band across its middle is the wreckage of a spiral galaxy swallowed a few hundred million years ago. A supermassive black hole at the centre drives jets that extend far beyond the visible galaxy, and the collision triggered a wave of star formation still visible along the lane.",
   "hours": 15.4,
   "nights": 5,
   "scope": "200PDS",
@@ -337,13 +355,14 @@
   "location": "Willoughby + Wheeny Creek",
   "bortle": 4,
   "captured": "2026-03-14 to 2026-04-28",
-  "amp_name": "NGC 5128 Centaurus A with Ha",
   "downloads": 70,
   "reprocessed": 5,
-  "favourites": 4
+  "favourites": 4,
+  "telescopius_likes": 6
  },
  {
   "label": "M83 Southern Pinwheel",
+  "blurb": "A grand-design spiral in Hydra, seen close to face-on. The yellow core is dominated by older stars; the arms are blue with hot young ones and studded with pink HII regions where new stars are being born. M83 has produced an unusually high number of observed supernovae, which is consistent with how vigorously it is still forming stars.",
   "hours": 8.5,
   "nights": 1,
   "scope": "200PDS",
@@ -352,13 +371,13 @@
   "location": "Wiruna",
   "bortle": 2,
   "captured": "2026-04-18 to 2026-04-18",
-  "amp_name": "M83 Southern Pinwheel Galaxy",
   "downloads": 70,
   "reprocessed": 3,
   "favourites": 5
  },
  {
   "label": "NGC 5367 / CG 12",
+  "blurb": "A cometary globule in Centaurus — a dense head of dust with a long tail streaming behind it. The tail is not motion but sculpture: radiation and winds from the Centaurus OB2 association have eroded the cloud into this shape over millions of years. Two young stars embedded in the head light the surrounding dust by reflection.",
   "hours": 9.5,
   "nights": 2,
   "scope": "RedCat 61",
@@ -367,27 +386,26 @@
   "location": "Wiruna",
   "bortle": 2,
   "captured": "2026-04-18 to 2026-04-19",
-  "amp_name": "NGC 5367 Cometary Globule CG 12",
   "downloads": 20,
   "reprocessed": 0,
-  "favourites": 3
+  "favourites": 3,
+  "telescopius_likes": 5
  },
  {
   "label": "Barnard 228 Dark Wolf",
-  "_check": [
-   "no session data matched",
-   "AstrophotoMarket match uncertain: 'SANDQVIST 17 The Dark Wolf Fenrir'"
-  ],
-  "amp_name": "SANDQVIST 17 The Dark Wolf Fenrir",
-  "downloads": 76,
-  "reprocessed": 4,
-  "favourites": 3
+  "blurb": "A dark nebula in the Lupus molecular cloud, one of the closest star-forming regions to the Sun at around 500 light-years. There is no emission here — the structure is defined entirely by what it hides, dust dense enough to extinguish the starlight behind it. Regions like Lupus are where the earliest stages of star formation can be studied at close range.",
+  "hours": 14.5,
+  "nights": 4,
+  "scope": "RedCat 61",
+  "camera": "ASI1600MM",
+  "filters": "LRGB",
+  "location": "Wheeny Creek + Wiruna",
+  "bortle": 4,
+  "captured": "2026-04-19 to 2026-06-20"
  },
  {
   "label": "LDN 1688 Rho Ophiuchi Complex",
-  "_check": [
-   "AstrophotoMarket match uncertain: 'Rho Ophiuchi Mosaic'"
-  ],
+  "blurb": "One of the nearest star-forming regions to the Sun, and one of the most colourful areas of sky. Three processes are visible at once: blue reflection where dust scatters starlight, red emission where hydrogen is ionised, and gold-brown where thick dust both reflects and reddens what passes through it. The globular cluster M4 sits in the same field, far beyond it.",
   "hours": 9.2,
   "nights": 3,
   "scope": "RedCat 61",
@@ -396,13 +414,14 @@
   "location": "Wheeny Creek",
   "bortle": 4,
   "captured": "2026-08-11 to 2026-08-13",
-  "amp_name": "Rho Ophiuchi Mosaic",
   "downloads": 25,
   "reprocessed": 3,
-  "favourites": 1
+  "favourites": 1,
+  "fits": "https://astrophotomarket.com/en/image-details/420/"
  },
  {
   "label": "NGC 6164 Dragon's Egg",
+  "blurb": "A bipolar emission nebula in Norma, ejected by the single massive star HD 148937. The symmetric lobes are material thrown off by the star and shaped by its magnetic field — an unusually clean example of a stellar wind bubble. HD 148937 is now known to be a merger product, which may explain both the magnetism and the ejection.",
   "hours": 17.7,
   "nights": 5,
   "scope": "200PDS",
@@ -411,13 +430,14 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2026-04-12 to 2026-04-16",
-  "amp_name": "NGC 6164 The Dragon's Egg",
   "downloads": 57,
   "reprocessed": 3,
-  "favourites": 4
+  "favourites": 4,
+  "telescopius_likes": 5
  },
  {
   "label": "LDN 43 Cosmic Bat",
+  "blurb": "A dark molecular cloud in Ophiuchus with a young star buried inside it. The faint glow escaping the densest part is light from that protostar leaking out through a cavity it has cleared in the surrounding dust. It is a snapshot of the moment a star begins to break out of the cloud that formed it.",
   "hours": 6.5,
   "nights": 1,
   "scope": "200PDS",
@@ -430,17 +450,17 @@
  {
   "label": "NGC 6188 Fighting Dragons (SHO)",
   "_check": [
-   "2 rigs used on this object — hours may span more than this image"
+   "2 rigs shot this object; matched RedCat 61 + ASI1600MM on field size — confirm"
   ],
-  "hours": 48.2,
-  "nights": 9,
+  "blurb": "An emission nebula in Ara, sculpted by the young association Ara OB1. The dark ridges that give the nebula its name are dense dust lanes at the edge of a molecular cloud, backlit by the ionised gas beyond. Mapped here in sulphur, hydrogen and oxygen, so the colours trace ionisation and chemistry rather than what the eye would see.",
+  "hours": 18.4,
+  "nights": 6,
   "scope": "RedCat 61",
   "camera": "ASI1600MM",
   "filters": "Ha/OIII",
   "location": "Willoughby + Wheeny Creek",
   "bortle": 7,
-  "captured": "2026-03-24 to 2026-06-23",
-  "amp_name": "NGC 6188 Fighting Dragons of Ara SHO",
+  "captured": "2026-03-24 to 2026-04-28",
   "downloads": 83,
   "reprocessed": 6,
   "favourites": 2
@@ -448,33 +468,42 @@
  {
   "label": "NGC 6188 Fighting Dragons (HOO)",
   "_check": [
-   "2 rigs used on this object — hours may span more than this image"
+   "2 rigs shot this object; matched RedCat 61 + ASI1600MM on field size — confirm"
   ],
-  "hours": 48.2,
-  "nights": 9,
+  "blurb": "The same region in Ara rendered in hydrogen and oxygen only. The two-line palette separates the dense hydrogen ridges from the hotter, more diffuse oxygen and gives a cleaner read of the shock front where radiation from the young stars is eating into the molecular cloud.",
+  "hours": 18.4,
+  "nights": 6,
   "scope": "RedCat 61",
   "camera": "ASI1600MM",
   "filters": "Ha/OIII",
   "location": "Willoughby + Wheeny Creek",
   "bortle": 7,
-  "captured": "2026-03-24 to 2026-06-23",
-  "amp_name": "NGC 6188 Fighting Dragons of Ara SHO",
-  "downloads": 83,
-  "reprocessed": 6,
-  "favourites": 2
+  "captured": "2026-03-24 to 2026-04-28",
+  "downloads": 69,
+  "reprocessed": 1,
+  "favourites": 6
  },
  {
   "label": "SL 17 Fenrir (Sandqvist 17)",
-  "_check": [
-   "no session data matched"
-  ],
-  "amp_name": "SANDQVIST 17 The Dark Wolf Fenrir",
+  "blurb": "A dark nebula in Scorpius silhouetted against the emission nebula RCW 113. The wolf shape is cold dust dense enough to block everything behind it, and it is only visible because there happens to be a bright hydrogen cloud directly behind to backlight it. Without that backdrop it would be an unremarkable void.",
+  "hours": 19.3,
+  "nights": 3,
+  "scope": "200PDS",
+  "camera": "ASI1600MM",
+  "filters": "Ha + RGB stars",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-07-02 to 2026-07-04",
   "downloads": 76,
   "reprocessed": 4,
-  "favourites": 3
+  "favourites": 3,
+  "fits": "https://astrophotomarket.com/en/image-details/363/",
+  "astrobin_likes": 19,
+  "telescopius_likes": 7
  },
  {
   "label": "IC 4628 Prawn Nebula",
+  "blurb": "A large emission nebula in Scorpius, ionised by the young cluster Trumpler 24 and nearby massive stars. It is faint for its size and unusually rich in the emission structures that narrowband imaging reveals — filaments, rims and shells produced where radiation is pushing into the surrounding molecular cloud.",
   "hours": 51.6,
   "nights": 13,
   "scope": "200PDS",
@@ -482,14 +511,11 @@
   "filters": "Ha/OIII/SII (mono)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-07-11 to 2026-08-08",
-  "amp_name": "IC 4628 Prawn nebula in SHO",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-07-11 to 2026-08-08"
  },
  {
   "label": "NGC 6357 Lobster Nebula",
+  "blurb": "A star-forming region in Scorpius containing Pismis 24, a cluster with some of the most massive stars known in the Galaxy. Radiation from those stars has hollowed out cathedral-like cavities in the gas. The alternative name, the War and Peace Nebula, comes from an infrared survey in which parts of it appeared as a skull and others as a dove.",
   "hours": 23.0,
   "nights": 4,
   "scope": "ASKAR 91F",
@@ -497,45 +523,55 @@
   "filters": "Ha/OIII (ALP-T)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-06-23 to 2026-07-04",
-  "amp_name": "Lobster War and Peace Nebula NGC 6357",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-06-23 to 2026-07-04"
  },
  {
   "label": "M20 Trifid Nebula",
-  "_check": [
-   "no session data matched"
-  ]
+  "blurb": "An unusual object that displays three types of nebula at once: red emission where hydrogen is ionised by a central massive star, blue reflection where dust scatters starlight, and dark absorption where dust lanes cut the emission into the three lobes that give it its name. Star formation is still under way in the dense regions between the lanes.",
+  "hours": 9.6,
+  "nights": 2,
+  "scope": "200PDS",
+  "camera": "ASI1600MM",
+  "filters": "Ha + RGB",
+  "location": "Willoughby + Wheeny Creek",
+  "bortle": 7,
+  "captured": "2026-07-11 to 2026-07-12"
  },
  {
   "label": "M8 Lagoon Nebula",
-  "_check": [
-   "no session data matched"
-  ]
+  "blurb": "A giant star-forming cloud in Sagittarius, one of only two such nebulae visible to the unaided eye from mid-northern latitudes. The bright core contains the Hourglass, a region of intense ionisation next to the hot star Herschel 36. Dark Bok globules scattered across the face are cold collapsing clouds, each a possible star in the making.",
+  "hours": 14.3,
+  "nights": 3,
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "captured": "2026-07-11 to 2026-07-13"
  },
  {
   "label": "NGC 6559 Chinese Dragon",
-  "hours": 1.8,
-  "nights": 1,
-  "scope": "200PDS",
+  "blurb": "A mixed emission and reflection region east of the Lagoon Nebula in Sagittarius, part of the same complex of gas and young stars. Red hydrogen emission, blue reflection off dust, and dark absorption lanes all appear in one frame, weaving into the sinuous shape that gives the region its name.",
+  "hours": 36.9,
+  "nights": 8,
+  "scope": "ASKAR 91F",
   "camera": "ASI585MC",
   "filters": "Ha/OIII (ALP-T)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-05-09 to 2026-05-09",
-  "amp_name": "The Chinese Dragon Nebula NGC 6559",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-07-30 to 2026-08-07"
  },
  {
   "label": "NGC 6726 Anteater / R CrA",
-  "_check": [
-   "no session data matched"
-  ],
-  "amp_name": "NGC 6726 CrA Reflection Anteater",
+  "blurb": "The Corona Australis molecular cloud, one of the closest star-forming regions to the Sun at roughly 430 light-years. There is almost no hydrogen emission here — the blue is dust scattering light from young stars, and the dark lanes are the dense cloud itself. R Coronae Australis, the variable star embedded in it, is still accreting material.",
+  "hours": 6.6,
+  "nights": 2,
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband",
+  "location": "Wheeny Creek + Wiruna",
+  "bortle": 4,
+  "captured": "2026-04-19 to 2026-04-24",
   "downloads": 57,
   "reprocessed": 4,
   "favourites": 3
@@ -543,11 +579,16 @@
  {
   "label": "NGC 6729 Corona Australis",
   "_check": [
-   "no session data matched"
-  ]
+   "no session log entry — gear and hours need filling in by hand"
+  ],
+  "blurb": "A wider view of the Corona Australis cloud, taking in the reflection nebulosity around R CrA together with the dust filaments trailing away from it. The globular cluster NGC 6723 in the same field lies far beyond the cloud, at around 28,000 light-years.",
+  "downloads": 78,
+  "reprocessed": 3,
+  "favourites": 1
  },
  {
   "label": "NGC 6744 Pavo Galaxy",
+  "blurb": "An intermediate barred spiral in Pavo often described as a close structural analogue of the Milky Way, though larger. Its arms are loosely wound and flecked with pink star-forming regions, and a small distorted companion galaxy nearby recalls the relationship between our own galaxy and the Magellanic Clouds.",
   "hours": 12.7,
   "nights": 3,
   "scope": "200PDS",
@@ -559,6 +600,7 @@
  },
  {
   "label": "Eagle Ray Nebula",
+  "blurb": "A faint dust and emission region in Sagittarius, catalogued as Sharpless 2-63. Most of what is visible here is not glowing gas but interstellar dust reflecting and absorbing light against the crowded star fields toward the galactic centre — a target that rewards dark skies and long integration rather than narrowband filters.",
   "hours": 34.9,
   "nights": 5,
   "scope": "ASKAR 91F",
@@ -566,14 +608,11 @@
   "filters": "Broadband",
   "location": "Wheeny Creek + Wiruna/Wheeny",
   "bortle": 4,
-  "captured": "2026-06-20 to 2026-08-13",
-  "amp_name": "SH2-63 Eagle Ray Dust Nebula",
-  "downloads": 0,
-  "reprocessed": 0,
-  "favourites": 0
+  "captured": "2026-06-20 to 2026-08-13"
  },
  {
   "label": "NGC 6960 Veil Nebula",
+  "blurb": "Part of the Cygnus Loop, the remnant of a star that exploded around 10,000 to 20,000 years ago. The delicate filaments are not threads but the edges of a vast expanding shell, seen where the shock front is tangential to our line of sight and the emission piles up. The whole loop covers about six times the width of the full Moon.",
   "hours": 49.2,
   "nights": 14,
   "scope": "RedCat 61",
@@ -585,6 +624,7 @@
  },
  {
   "label": "NGC 7293 Helix Nebula",
+  "blurb": "One of the closest planetary nebulae to Earth, the shed outer layers of a dying Sun-like star. What remains at the centre is a white dwarf, the exposed core, still hot enough to ionise the gas around it. The thousands of cometary knots pointing inward from the inner ring are dense clumps being eroded by that radiation, each larger than our solar system.",
   "hours": 20.2,
   "nights": 7,
   "scope": "200PDS",
@@ -593,13 +633,13 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2026-07-13 to 2026-08-08",
-  "amp_name": "C63 NGC 7293 Helix Eye of God",
   "downloads": 85,
   "reprocessed": 5,
   "favourites": 3
  },
  {
   "label": "NGC 7582 Grus Quartet",
+  "blurb": "A group of four interacting spiral galaxies in Grus. NGC 7582 itself has an active nucleus partly hidden behind dust, and the tidal disturbance in the group's discs is evidence of gravitational encounters. Groups like this are the environments in which most galaxies actually live and evolve.",
   "hours": 9.1,
   "nights": 3,
   "scope": "ASKAR 91F",
