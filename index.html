@@ -321,7 +321,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.7 · built with Claude
+    v0.8 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -384,7 +384,8 @@ const OPTICS = {
   "ASKAR 91F":    "Askar 91F \u2014 610mm",
   "RedCat 61":    "RedCat 61 \u2014 300mm",
   "RedCat 51":    "RedCat 51 \u2014 250mm",
-  "Pentax 135mm": "Pentax 135mm \u2014 135mm"
+  "Pentax 135mm": "Pentax 135mm \u2014 135mm",
+  "Seestar S50":  "Seestar S50 \u2014 250mm"
 };
 const showScope  = s => s ? (OPTICS[s] || s) : null;
 const showCamera = c => c ? (/1600MM|2600MM/.test(c) ? c + " (mono)" : c) : null;
@@ -433,7 +434,9 @@ async function boot(){
   const byLabel = {};
   (Array.isArray(extra) ? extra : (extra && extra.images) || []).forEach(e => { if(e.label) byLabel[e.label] = e; });
 
-  IMAGES = man.images.filter(i => i.solved !== false).map(im => {
+  // Unsolved entries are normally dome-only rejects, but the solar-system
+  // ones are explicitly flagged for the gallery — let those through.
+  IMAGES = man.images.filter(i => i.solved !== false || i.kind === "solar-system").map(im => {
     const ov = byLabel[im.label] || {};
 
     // match against the planning list by sky position — no name-wrangling needed
@@ -455,6 +458,7 @@ async function boot(){
       thumbUrl:  url(im.thumb),
       fullUrl:   url(im.file),
       ratio:     (im.width_px && im.height_px) ? im.width_px/im.height_px : 1.5,
+      hasSky:    im.ra_deg != null && im.fov_w_deg > 0,
       // overrides win, then the coordinate match, then nothing
       // Facts come from the manifest — skydome is the single source of truth.
       // gallery.json only carries editorial prose and things the manifest can't know.
@@ -509,7 +513,7 @@ function hero(){
   const picks = IMAGES.filter(i => i.featured);
   // A banner is a wide letterbox, so a portrait frame loses most of itself to
   // the crop. Prefer landscape, then widest field.
-  const pool = picks.length ? picks : IMAGES.filter(i => i.ratio >= 1.3);
+  const pool = picks.length ? picks : IMAGES.filter(i => i.ratio >= 1.3 && i.hasSky);
   const im = pool.length
     ? [...pool].sort((a,b) => (b.fov_w_deg*b.fov_h_deg)-(a.fov_w_deg*a.fov_h_deg))[0]
     : IMAGES[0];
@@ -559,7 +563,7 @@ function render(){
 
   const D = i => num(i.distLy) ?? Infinity;
   const key = {
-    ra:       i => i.ra_deg,
+    ra:       i => i.hasSky ? i.ra_deg : 1e6,
     distance: i => D(i),
     fov:      i => i.fov_w_deg * i.fov_h_deg,
     hours:    i => i.hours || 0,
@@ -586,7 +590,8 @@ function render(){
     const cap  = document.createElement("figcaption");
     const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.label;
     const meta = document.createElement("div"); meta.className = "cap-meta";
-    const bits = [im.constellation, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
+    const shortCon = im.constellation ? im.constellation.split(" (")[0] : null;
+    const bits = [shortCon, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
     meta.append(document.createTextNode(bits));
     const score = im.favourites + im.downloads;
     if(score){
@@ -628,7 +633,7 @@ function open(ix){
   const rows = [
     ["Distance",    im.distLy ? im.distLy + " light-years" : null],
     ["Discovered",  im.foundBy],
-    ["Framing",     `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}`],
+    ["Framing",     im.hasSky ? `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}` : null],
     ["Telescope",   showScope(im.scope)],
     ["Camera",      showCamera(im.camera)],
     ["Filters",     showFilter(im.filters)],
@@ -657,7 +662,7 @@ function open(ix){
   const links = [
     ["AstroBin",    im.astrobin],
     ["Telescopius", im.telescopius],
-    ["See where it is", SKYDOME + "?target=" + im.slug]
+    ["See where it is", im.hasSky ? SKYDOME + "?target=" + im.slug : null]
   ].filter(l => l[1]);
 
   const AUTHOR = "https://astrophotomarket.com/en/author/wade-tubman";
@@ -679,7 +684,16 @@ function open(ix){
   gb.onclick = e => { e.stopPropagation(); gm.classList.toggle("on"); };
   document.addEventListener("click", () => gm.classList.remove("on"), {once:true});
 
-  document.getElementById("tdome").href = SKYDOME + "?target=" + im.slug;
+  // no sky coordinates means no dome position and nothing to scale the Moon against
+  const dome = document.getElementById("tdome"), moonBtn = document.getElementById("tmoon");
+  dome.href = SKYDOME + "?target=" + im.slug;
+  dome.style.display    = im.hasSky ? "" : "none";
+  moonBtn.style.display = im.hasSky ? "" : "none";
+  if(!im.hasSky && moonOn){
+    moonOn = false;
+    document.getElementById("moonlayer").classList.remove("on");
+    moonBtn.classList.remove("on");
+  }
 
   // the Moon stays on as you step through targets, and rescales each time
   document.getElementById("moonlayer").classList.toggle("on", moonOn);
@@ -824,6 +838,7 @@ document.getElementById("tfull").onclick = goFullscreen;
    drawn width is not the element width — work out the real one first. */
 function drawMoon(){
   const im    = VIEW[CUR];
+  if(!im || !im.hasSky) return;
   const shown = document.getElementById("lbimg");
   const layer = document.getElementById("moonlayer");
   if(!im || !shown.naturalWidth) return;
