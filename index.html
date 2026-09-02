@@ -321,14 +321,14 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.6 · built with Claude
+    v0.7 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
     <a href="https://tubbers.github.io/skydome/" target="_blank" rel="noopener">Sky dome</a> ·
     <a href="https://app.astrobin.com/u/tubbers" target="_blank" rel="noopener">AstroBin</a> ·
     <a href="https://telescopius.com/profile/tubbers" target="_blank" rel="noopener">Telescopius</a> ·
-    <a href="https://astrophotomarket.com/en/image-data-set-catalog?image_search_filter%5Bauthor%5D%5B%5D=642" target="_blank" rel="noopener">AstrophotoMarket</a>
+    <a href="https://astrophotomarket.com/en/author/wade-tubman" target="_blank" rel="noopener">AstrophotoMarket</a>
   </p>
 </footer>
 
@@ -684,7 +684,6 @@ function open(ix){
   // the Moon stays on as you step through targets, and rescales each time
   document.getElementById("moonlayer").classList.toggle("on", moonOn);
   document.getElementById("tmoon").classList.toggle("on", moonOn);
-  lb.classList.remove("solo");
   resetZoom();
   const shownEl = document.getElementById("lbimg");
   shownEl.onload = () => { if(moonOn) drawMoon(); };
