@@ -145,12 +145,17 @@ figcaption{
   display:flex; gap:9px; align-items:center;
 }
 .cap-meta .likes{color:#ffcf6b}
-#reach{
-  margin-top:24px; padding:15px 16px; border:1px solid var(--edge);
-  border-radius:3px; background:var(--bg); font-size:13.5px; line-height:1.6;
-}
+#reach{display:flex; gap:20px; margin-top:20px; flex-wrap:wrap}
 #reach:empty{display:none}
-#reach b{color:var(--hot); font-family:var(--mono); font-size:15px}
+.stat{
+  display:flex; align-items:baseline; gap:6px;
+  font-family:var(--mono); font-size:15px; color:var(--hot);
+  text-decoration:none; cursor:default;
+}
+a.stat{cursor:pointer}
+a.stat:hover{color:var(--pick)}
+.stat .ic{font-size:14px; line-height:1}
+.stat .lb{font-family:var(--sans); font-size:11.5px; color:var(--dim)}
 @media (max-width:760px){ figure{height:180px} main{padding:12px} }
 
 /* ---------- lightbox ---------- */
@@ -160,15 +165,37 @@ figcaption{
 }
 #lb.on{display:grid; grid-template-columns:1fr 372px}
 #stage{
-  position:relative; display:grid; place-items:center;
-  padding:22px; min-width:0; background:#000;
+  position:relative; display:block; overflow:hidden;
+  padding:22px; min-width:0; min-height:0; background:#000;
+  touch-action:none;
+}
+#viewport{
+  position:absolute; inset:22px; overflow:hidden;
+  display:grid; place-items:center; cursor:zoom-in;
+}
+#viewport.zoomed{cursor:grab}
+#viewport.dragging{cursor:grabbing}
+#pan{
+  position:relative; width:100%; height:100%;
+  transform-origin:0 0; will-change:transform;
+  transition:transform .22s cubic-bezier(.22,.7,.3,1);
+}
+#pan.live{transition:none}
+#zoomhint{
+  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+  z-index:3; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em;
+  color:rgba(255,255,255,.42); pointer-events:none;
 }
 html[data-theme="light"] #stage{background:#111}
-#stage #lbimg{max-width:100%; max-height:100%; object-fit:contain; display:block}
+#stage #lbimg{
+  display:block; width:100%; height:100%;
+  object-fit:contain; object-position:center;
+}
 #stage #moonlayer{
-  position:absolute; pointer-events:none; opacity:.92;
-  display:none; max-width:none; max-height:none;
-  filter:drop-shadow(0 0 14px rgba(0,0,0,.85));
+  position:absolute; left:50%; top:50%; translate:-50% -50%;
+  pointer-events:none; opacity:.9; display:none;
+  max-width:none; max-height:none; height:auto;
+  filter:drop-shadow(0 0 20px rgba(0,0,0,.95));
 }
 #stage #moonlayer.on{display:block}
 
@@ -266,8 +293,11 @@ footer a:hover{text-decoration:underline}
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="Image detail">
   <div id="stage">
-    <img id="lbimg" alt="">
-    <img id="moonlayer" src="moon.png" alt="The full Moon at the same scale">
+    <div id="viewport">
+      <div id="pan"><img id="lbimg" alt=""></div>
+      <img id="moonlayer" src="moon.png" alt="The full Moon at the same scale">
+    </div>
+    <p id="zoomhint">click to zoom · drag to pan · scroll to scale</p>
   </div>
   <div id="info">
     <h2 id="lbname"></h2>
@@ -540,18 +570,25 @@ function open(ix){
   document.getElementById("facts").innerHTML =
     rows.map(([k,v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
 
-  const say = [];
-  if(im.downloads)   say.push(`<b>${im.downloads}</b> people have downloaded this data to process themselves`);
-  if(im.reprocessed) say.push(`<b>${im.reprocessed}</b> have published their own version of it`);
-  if(im.favourites)  say.push(`<b>${im.favourites}</b> favourites across AstroBin, Telescopius and AstrophotoMarket`);
+  const stat = (ic,n,label,tip,href) => !n ? "" :
+    `<${href?"a":"span"} class="stat"${href?` href="${href}" target="_blank" rel="noopener"`:""} title="${tip}">`+
+    `<span class="ic">${ic}</span>${n}<span class="lb">${label}</span></${href?"a":"span"}>`;
+
   document.getElementById("reach").innerHTML =
-    say.length ? say.join(".<br>") + "." : "";
+    stat("\u2665", im.favourites, "favourites",
+         "Favourited on AstroBin, Telescopius and AstrophotoMarket") +
+    stat("\u21e3", im.downloads, "downloads",
+         "People who have taken this dataset to process themselves. The raw files are free \u2014 click to grab them.",
+         im.fits || "https://astrophotomarket.com/en/author/wade-tubman") +
+    stat("\u21bb", im.reprocessed, "reworks",
+         "Other astrophotographers who have published their own processing of this data",
+         im.fits ? im.fits.replace("/image-details/","/showcase-gallery?dataset=").replace(/\/$/,"") : null);
 
   const links = [
-    ["See where it is",  SKYDOME],
+    ["See where it is",  SKYDOME + "?target=" + im.slug],
     ["AstroBin",         im.astrobin],
     ["Telescopius",      im.telescopius],
-    ["Download the data", im.fits]
+    ["Free FITS data",   im.fits]
   ].filter(l => l[1]);
 
   document.getElementById("acts").innerHTML =
@@ -561,11 +598,67 @@ function open(ix){
 
   moonOn = false;
   document.getElementById("moonlayer").classList.remove("on");
+  resetZoom();
+  document.getElementById("lbimg").onload = () => { if(moonOn) drawMoon(); };
 
   lb.classList.add("on");
   document.body.style.overflow = "hidden";
   history.replaceState(null,"","#" + im.slug);
   document.getElementById("close").focus();
+}
+
+/* ---- zoom & pan -------------------------------------------------------
+   One transform on a wrapper. Zooming keeps the point under the cursor
+   fixed, which is what makes it feel like a photo viewer rather than a
+   scaling animation. */
+let Z = 1, PX = 0, PY = 0, drag = null;
+const vp  = document.getElementById("viewport");
+const pan = document.getElementById("pan");
+
+function applyZoom(live){
+  pan.classList.toggle("live", !!live);
+  pan.style.transform = `translate(${PX}px,${PY}px) scale(${Z})`;
+  vp.classList.toggle("zoomed", Z > 1);
+  document.getElementById("zoomhint").style.opacity = Z > 1 ? 0 : "";
+}
+function resetZoom(){ Z = 1; PX = PY = 0; applyZoom(); }
+
+function zoomAt(cx, cy, next){
+  next = Math.min(6, Math.max(1, next));
+  const r = vp.getBoundingClientRect();
+  const x = cx - r.left, y = cy - r.top;
+  // keep (x,y) over the same pixel of the image
+  PX = x - (x - PX) * (next / Z);
+  PY = y - (y - PY) * (next / Z);
+  Z = next;
+  if(Z === 1){ PX = PY = 0; }
+  applyZoom(true);
+}
+
+vp.addEventListener("wheel", e => {
+  e.preventDefault();
+  zoomAt(e.clientX, e.clientY, Z * (e.deltaY < 0 ? 1.16 : 1/1.16));
+}, {passive:false});
+
+vp.addEventListener("pointerdown", e => {
+  if(Z <= 1) return;
+  drag = {x:e.clientX, y:e.clientY, px:PX, py:PY};
+  vp.setPointerCapture(e.pointerId);
+  vp.classList.add("dragging");
+});
+vp.addEventListener("pointermove", e => {
+  if(!drag) return;
+  PX = drag.px + (e.clientX - drag.x);
+  PY = drag.py + (e.clientY - drag.y);
+  applyZoom(true);
+});
+vp.addEventListener("pointerup", e => {
+  if(drag && Math.hypot(e.clientX-drag.x, e.clientY-drag.y) < 4) toggleZoom(e);
+  else if(!drag) toggleZoom(e);
+  drag = null; vp.classList.remove("dragging");
+});
+function toggleZoom(e){
+  Z > 1 ? resetZoom() : zoomAt(e.clientX, e.clientY, 2.6);
 }
 
 function fmtDeg(d){
@@ -587,20 +680,21 @@ function toggleMoon(){
   layer.classList.toggle("on", moonOn);
   if(!moonOn) return;
 
-  const w = shown.clientWidth * (MOON_DEG / im.fov_w_deg);
-  layer.style.width = Math.max(w, 3) + "px";
-  layer.style.height = "auto";
+  drawMoon();
+}
 
-  // tuck it into the bottom-left of the frame, unless the Moon is bigger than the field
-  const r = shown.getBoundingClientRect(), s = document.getElementById("stage").getBoundingClientRect();
-  if(w < shown.clientWidth * 0.8){
-    layer.style.left = (r.left - s.left + 16) + "px";
-    layer.style.top  = (r.bottom - s.top - w - 16) + "px";
-    layer.style.transform = "none";
-  }else{
-    layer.style.left = "50%"; layer.style.top = "50%";
-    layer.style.transform = "translate(-50%,-50%)";
-  }
+/* object-fit:contain letterboxes the photo inside the element, so the
+   drawn width is not the element width — work out the real one first. */
+function drawMoon(){
+  const im    = VIEW[CUR];
+  const shown = document.getElementById("lbimg");
+  const layer = document.getElementById("moonlayer");
+  if(!im || !shown.naturalWidth) return;
+
+  const boxW = shown.clientWidth, boxH = shown.clientHeight;
+  const drawnW = Math.min(boxW, boxH * (shown.naturalWidth / shown.naturalHeight));
+
+  layer.style.width = Math.max(drawnW * (MOON_DEG / im.fov_w_deg), 3) + "px";
 }
 
 function shut(){
@@ -615,11 +709,11 @@ document.getElementById("prev").onclick  = () => step(-1);
 document.getElementById("next").onclick  = () => step(1);
 addEventListener("keydown", e => {
   if(!lb.classList.contains("on")) return;
-  if(e.key === "Escape")     shut();
+  if(e.key === "Escape")     { if(Z > 1) resetZoom(); else shut(); }
   if(e.key === "ArrowLeft")  step(-1);
   if(e.key === "ArrowRight") step(1);
 });
-addEventListener("resize", () => { if(moonOn){ moonOn = false; toggleMoon(); } });
+addEventListener("resize", () => { if(moonOn) drawMoon(); });
 
 function openFromHash(){
   const h = location.hash.slice(1);
