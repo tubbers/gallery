@@ -893,24 +893,24 @@
  },
  {
   "label": "The Sun",
-  "blurb": "Our own star, imaged in white light. The visible surface is the photosphere, where the temperature falls to around 5,500°C and the gas becomes transparent enough for light to escape. Darker sunspots mark regions where intense magnetic fields suppress the convection carrying heat up from below, leaving them cooler than their surroundings.",
+  "blurb": "A composite of the International Space Station crossing the face of the Sun. The ISS travels at roughly 28,000 km/h, so the whole transit lasted under a second — each silhouette is a separate frame from a high-speed burst, laid over one another. The ground track from which a transit is visible is only a few kilometres wide, which meant driving out to Kellyville to sit on the centreline. The faint darker patches on the disc are sunspots, where magnetic fields suppress convection and leave the surface cooler.",
   "_check": [
-   "site assumed Willoughby — confirm",
-   "date not recorded"
+   "ISS transit composite — frame count not recorded"
   ],
   "scope": "Seestar S50",
   "camera": "IMX462",
-  "location": "Willoughby"
+  "location": "Kellyville, Sydney",
+  "captured": "2025-01-26"
  },
  {
   "label": "Jupiter",
   "blurb": "The largest planet in the solar system, massive enough that it and the Sun orbit a point just outside the Sun's surface. The banded appearance comes from alternating jet streams in its atmosphere, dragged into belts and zones by rapid rotation — a Jovian day is under ten hours. It has no solid surface; the atmosphere simply becomes denser with depth.",
   "_check": [
-   "site assumed Willoughby — confirm",
-   "date not recorded"
+   "site assumed Willoughby — confirm"
   ],
   "scope": "200PDS",
   "camera": "ASI585MC",
-  "location": "Willoughby"
+  "location": "Willoughby",
+  "captured": "2026-03-20"
  }
 ]
