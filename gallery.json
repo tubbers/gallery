@@ -1,27 +1,42 @@
 [
  {
-  "label": "NGC 55 Whale / Pearls",
-  "blurb": "A barred irregular galaxy in Sculptor, seen almost exactly edge-on. It belongs to the Sculptor Group, one of the nearest galaxy groups to our own. The bright knots strung along its disc are giant HII regions — clouds of hydrogen lit up by clusters of hot young stars — which is where the 'string of pearls' name comes from. Its lopsided shape is typical of a galaxy that never settled into clean spiral arms.",
   "scope": "200PDS",
   "camera": "ASI585MC",
+  "filters": "None",
+  "location": "Wheeny Creek",
+  "bortle": 4,
   "hours": 11.7,
   "nights": 2,
-  "filters": "None",
-  "location": "Wheeny Creek",
-  "bortle": 4,
-  "captured": "2026-08-12 to 2026-08-13"
+  "captured": "2026-08-12 to 2026-08-13",
+  "blurb": "A barred irregular galaxy in Sculptor, seen almost exactly edge-on. It belongs to the Sculptor Group, one of the nearest galaxy groups to our own. The bright knots strung along its disc are giant HII regions — clouds of hydrogen lit up by clusters of hot young stars — which is where the 'string of pearls' name comes from. Its lopsided shape is typical of a galaxy that never settled into clean spiral arms.",
+  "type": "",
+  "label": "NGC 55 Whale / Pearls"
  },
  {
-  "label": "NGC 253 Sculptor Galaxy",
-  "blurb": "A starburst spiral in Sculptor, and one of the brightest galaxies in the sky after the Andromeda Galaxy. Its core is forming stars at a furious rate, and the dust thrown off by that activity is what produces the heavy dark lanes cutting across the disc. Winds driven by supernovae are blowing gas out of the centre in a superwind that reaches thousands of light-years above the plane.",
+  "label": "HD 3680",
   "scope": "200PDS",
   "camera": "ASI585MC",
-  "hours": 10.3,
-  "nights": 2,
+  "filters": "None (unfiltered broadband)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 0.5,
+  "nights": 1,
+  "captured": "2026-09-16",
+  "blurb": "A single star in Phoenix, photographed at a family's request in memory of someone they had lost. Thirty minutes on a suburban Sydney night, pointed at one unremarkable point of light among thousands in the frame. Nothing about the astronomy is notable; it is here because of why it was taken.",
+  "type": "Star"
+ },
+ {
+  "scope": "200PDS",
+  "camera": "ASI585MC",
   "filters": "None",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-08-11 to 2026-08-12"
+  "hours": 10.3,
+  "nights": 2,
+  "captured": "2026-08-11 to 2026-08-12",
+  "blurb": "A starburst spiral in Sculptor, and one of the brightest galaxies in the sky after the Andromeda Galaxy. Its core is forming stars at a furious rate, and the dust thrown off by that activity is what produces the heavy dark lanes cutting across the disc. Winds driven by supernovae are blowing gas out of the centre in a superwind that reaches thousands of light-years above the plane.",
+  "type": "",
+  "label": "NGC 253 Sculptor Galaxy"
  },
  {
   "label": "NGC 253 Sculptor (wide field)",
@@ -89,6 +104,19 @@
   "bortle": 7
  },
  {
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband (OSC)",
+  "location": "Capertee Valley",
+  "bortle": 2,
+  "hours": 9.5,
+  "nights": 2,
+  "captured": "2026-09-11 to 2026-09-12",
+  "blurb": "",
+  "type": "",
+  "label": "NGC 474 Shell Galaxy"
+ },
+ {
   "label": "Comet 220P McNaught",
   "blurb": "A short-period comet discovered by Robert McNaught at Siding Spring in New South Wales. Comets like this spend most of their orbit as inert ice and dust; the green glow around the nucleus is diatomic carbon fluorescing in sunlight, a molecule that only survives close to the Sun. Unlike everything else in this collection, it moves visibly against the stars from night to night.",
   "scope": "200PDS",
@@ -114,6 +142,19 @@
   "nights": 4,
   "captured": "2025-10-12 to 2025-11-12",
   "filters": "LRGB + Ha"
+ },
+ {
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "Broadband (OSC)",
+  "location": "Capertee Valley",
+  "bortle": 2,
+  "hours": 3.3,
+  "nights": 1,
+  "captured": "2026-09-12",
+  "blurb": "",
+  "type": "",
+  "label": "M45 Pleiades"
  },
  {
   "label": "IC 2118 Witch Head",
@@ -600,6 +641,19 @@
   "captured": "2026-04-19 to 2026-06-20"
  },
  {
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Broadband (OSC)",
+  "location": "Capertee Valley",
+  "bortle": 2,
+  "hours": 2.8,
+  "nights": 2,
+  "captured": "2026-09-11 to 2026-09-12",
+  "blurb": "",
+  "type": "",
+  "label": "IC 4601 Blue Reflection"
+ },
+ {
   "label": "LDN 1688 Rho Ophiuchi Complex",
   "_check": [
    "captures had no RedCat 61+ASI2600MC row for this target — hours may include other rigs"
@@ -717,6 +771,19 @@
   "captured": "2026-07-11 to 2026-08-08"
  },
  {
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "Broadband (OSC)",
+  "location": "Capertee Valley",
+  "bortle": 2,
+  "hours": 9.8,
+  "nights": 2,
+  "captured": "2026-09-11 to 2026-09-12",
+  "blurb": "",
+  "type": "",
+  "label": "IC 4633 and the Apus IFN"
+ },
+ {
   "label": "NGC 6334 Cat's Paw Nebula",
   "scope": "RedCat 61",
   "camera": "ASI585MC",
@@ -787,6 +854,19 @@
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2026-07-30 to 2026-08-07"
+ },
+ {
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 18.3,
+  "nights": 8,
+  "captured": "2026-08-31 to 2026-09-10",
+  "blurb": "",
+  "type": "",
+  "label": "Sh2-68 Flaming Skull"
  },
  {
   "label": "NGC 6726 Anteater / R CrA",
