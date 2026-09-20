@@ -112,7 +112,7 @@
   "hours": 9.5,
   "nights": 2,
   "captured": "2026-09-11 to 2026-09-12",
-  "blurb": "",
+  "blurb": "A lenticular galaxy in Pisces wrapped in faint concentric shells of stars. Those shells are the debris of smaller galaxies torn apart and absorbed, their stars still settling into the larger galaxy's gravity hundreds of millions of years later. NGC 474 is one of the clearest nearby examples of a galaxy built by mergers, and the shells are extremely faint - they need long broadband integration and very careful gradient control to show at all.",
   "type": "",
   "label": "NGC 474 Shell Galaxy"
  },
@@ -152,7 +152,7 @@
   "hours": 3.3,
   "nights": 1,
   "captured": "2026-09-12",
-  "blurb": "",
+  "blurb": "An open cluster in Taurus, around 100 million years old and one of the nearest to the Sun. The blue haze around the brightest stars is not gas the cluster was born from but an unrelated dust cloud it happens to be drifting through, scattering starlight the way fog scatters a headlight. Its distance was disputed for two decades until radio interferometry settled it at about 444 light-years.",
   "type": "",
   "label": "M45 Pleiades"
  },
@@ -649,7 +649,7 @@
   "hours": 2.8,
   "nights": 2,
   "captured": "2026-09-11 to 2026-09-12",
-  "blurb": "",
+  "blurb": "A reflection nebula on the northern edge of the Rho Ophiuchi complex, one of the closest star-forming regions to the Sun. There is no emission here - the colour is starlight scattered off dust, and dust scatters blue more efficiently than red, which is why reflection nebulae are cold in tone while emission nebulae are red. Dark lanes threading the field are denser parts of the same cloud blocking the stars behind.",
   "type": "",
   "label": "IC 4601 Blue Reflection"
  },
@@ -779,7 +779,7 @@
   "hours": 9.8,
   "nights": 2,
   "captured": "2026-09-11 to 2026-09-12",
-  "blurb": "",
+  "blurb": "A face-on spiral galaxy in Apus seen through a curtain of integrated flux nebula - dust in our own galaxy's halo, far above the plane, glowing faintly from the combined light of every star in the Milky Way. The two sit at wildly different distances: the dust is a few hundred light-years away, the galaxy around a hundred million. IFN is among the faintest structure amateur equipment can record.",
   "type": "",
   "label": "IC 4633 and the Apus IFN"
  },
@@ -864,7 +864,7 @@
   "hours": 18.3,
   "nights": 8,
   "captured": "2026-08-31 to 2026-09-10",
-  "blurb": "",
+  "blurb": "A planetary nebula in Serpens, the shed envelope of a dying Sun-like star. Its central white dwarf is moving fast enough through the interstellar medium that the nebula is being left behind and distorted, which is why it looks lopsided rather than like a neat ring. It is extremely faint in both hydrogen and oxygen, so it rewards restraint in processing rather than an aggressive stretch.",
   "type": "",
   "label": "Sh2-68 Flaming Skull"
  },
