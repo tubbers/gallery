@@ -307,6 +307,7 @@ footer a:hover{text-decoration:underline}
     <option value="name">Name</option>
     <option value="distance">Distance</option>
     <option value="fov">Field of view</option>
+    <option value="date">Capture date</option>
     <option value="hours">Exposure</option>
     <option value="likes">Popularity</option>
   </select>
@@ -321,7 +322,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.9 · built with Claude
+    v0.10 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -477,6 +478,11 @@ async function boot(){
       hours:         ov.hours         ?? null,
       nights:        ov.nights        ?? null,
       captured:      ov.captured      ?? null,
+      // "2026-09-11 to 2026-09-12" or "2026-09-12" - the first date sorts it
+      capturedAt:    (() => {
+        const d = (ov.captured || "").match(/\d{4}-\d{2}-\d{2}/);
+        return d ? Date.parse(d[0]) : null;
+      })(),
       astrobin:      ov.astrobin      ?? null,
       telescopius:   ov.telescopius   ?? null,
       fits:          ov.amp_id && ov.amp_slug
@@ -567,6 +573,7 @@ function render(){
     distance: i => D(i),
     fov:      i => i.fov_w_deg * i.fov_h_deg,
     hours:    i => i.hours || 0,
+    date:     i => i.capturedAt ?? -Infinity,   // undated sort to one end
     likes:    i => i.favourites + i.downloads
   }[s];
 
@@ -904,7 +911,7 @@ btnTheme.onclick = () => {
 };
 
 document.getElementById("q").oninput     = render;
-const DESC_FIRST = new Set(["likes"]);
+const DESC_FIRST = new Set(["likes", "date"]);   // newest and most popular first
 document.getElementById("sort").onchange = e => {
   ASC = !DESC_FIRST.has(e.target.value);
   document.getElementById("dir").textContent = ASC ? "\u2191" : "\u2193";
