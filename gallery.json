@@ -1019,5 +1019,19 @@
   "nights": 5,
   "captured": "2026-05-30 to 2026-09-20",
   "type": "Nebula"
+ },
+ {
+  "label": "east veil",
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "",
+  "location": "",
+  "bortle": null,
+  "hours": null,
+  "nights": null,
+  "captured": "",
+  "blurb": "",
+  "type": "",
+  "_check": "AUTO STUB - fill in capture details. rig from 1.2697\"/px, confidence camera-unclear. ASKAR 91F confirmed. Aspect 1.50 fits ASI2600MC and ASI2600MM equally - cropped, a mosaic, or twin sensors. Set the camera by hand."
  }
 ]
