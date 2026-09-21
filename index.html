@@ -322,7 +322,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.10 · built with Claude
+    v0.11 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -456,6 +456,7 @@ async function boot(){
     return {
       ...im,
       slug:      im.slug || slug(im.label),
+      name:      ov.name ?? null,        // overrides a junk label from the manifest
       thumbUrl:  url(im.thumb),
       fullUrl:   url(im.file),
       ratio:     (im.width_px && im.height_px) ? im.width_px/im.height_px : 1.5,
@@ -528,7 +529,7 @@ function hero(){
   el.src = im.fullUrl;
   el.onload = () => el.classList.add("in");
   const cap = document.getElementById("herocap");
-  cap.textContent = im.label;
+  cap.textContent = im.name || im.label;
   cap.href = "#" + im.slug;
   cap.onclick = e => { e.preventDefault(); const ix = VIEW.findIndex(v => v.slug === im.slug); if(ix >= 0) open(ix); };
 }
@@ -564,7 +565,7 @@ function render(){
 
   VIEW = IMAGES.filter(i =>
     (!PICKED.size || PICKED.has(i.group)) &&
-    (!q || [i.label,i.catCode,i.constellation,i.objectType]
+    (!q || [i.name,i.label,i.catCode,i.constellation,i.objectType]
       .filter(Boolean).join(" ").toLowerCase().includes(q)));
 
   const D = i => num(i.distLy) ?? Infinity;
@@ -578,7 +579,7 @@ function render(){
   }[s];
 
   VIEW.sort((a,b) => s === "name"
-    ? a.label.localeCompare(b.label)
+    ? (a.name||a.label).localeCompare(b.name||b.label)
     : key(a) - key(b));
   if(!ASC) VIEW.reverse();
 
@@ -592,7 +593,7 @@ function render(){
     f.setAttribute("aria-label",`Open ${im.label}`);
 
     const img = document.createElement("img");
-    img.src = im.thumbUrl; img.alt = im.label; img.loading = "lazy"; img.decoding = "async";
+    img.src = im.thumbUrl; img.alt = im.name || im.label; img.loading = "lazy"; img.decoding = "async";
 
     const cap  = document.createElement("figcaption");
     const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.label;
@@ -628,8 +629,8 @@ function open(ix){
   const im = VIEW[ix];
 
   document.getElementById("lbimg").src = im.fullUrl;
-  document.getElementById("lbimg").alt = im.label;
-  document.getElementById("lbname").textContent = im.label;
+  document.getElementById("lbimg").alt = im.name || im.label;
+  document.getElementById("lbname").textContent = im.name || im.label;
   document.getElementById("codes").textContent =
     [im.catCode, im.objectType, im.constellation].filter(Boolean).join("  ·  ");
 
