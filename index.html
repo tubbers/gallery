@@ -322,7 +322,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.11 · built with Claude
+    v0.12 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -590,13 +590,13 @@ function render(){
     f.style.flex = `${im.ratio} 1 ${im.ratio*250}px`;
     f.tabIndex = 0;
     f.setAttribute("role","button");
-    f.setAttribute("aria-label",`Open ${im.label}`);
+    f.setAttribute("aria-label",`Open ${im.name || im.label}`);
 
     const img = document.createElement("img");
     img.src = im.thumbUrl; img.alt = im.name || im.label; img.loading = "lazy"; img.decoding = "async";
 
     const cap  = document.createElement("figcaption");
-    const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.label;
+    const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.name || im.label;
     const meta = document.createElement("div"); meta.className = "cap-meta";
     const shortCon = im.constellation ? im.constellation.split(" (")[0] : null;
     const bits = [shortCon, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
