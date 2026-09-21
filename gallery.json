@@ -994,22 +994,7 @@
   "captured": "2026-03-20"
  },
  {
-  "label": "The Sun",
-  "blurb": "A white-light view of the Sun's visible surface, the photosphere, showing active regions and sunspots — cooler patches where twisted magnetic field lines suppress the convection that normally carries heat up from below. The mottled texture across the disc is granulation, the tops of convection cells roughly the size of a small country, each one rising and falling over minutes. Sunspot numbers and locations track the Sun's roughly 11-year activity cycle, and the same active regions that produce spots can also trigger flares and coronal mass ejections.",
-  "scope": "Seestar S50",
-  "camera": "IMX462",
-  "type": "Solar"
- },
- {
-  "label": "Jupiter",
-  "blurb": "Jupiter, the largest planet in the Solar System, shown with its characteristic banded cloud structure — alternating light zones and dark belts driven by powerful east-west jet streams in the upper atmosphere. The bands are coloured by trace compounds (ammonia, ammonium hydrosulphide and others) carried up and down by convection at different latitudes. Jupiter's four large Galilean moons — Io, Europa, Ganymede and Callisto — are usually visible as bright points nearby, and were the first objects seen orbiting a body other than Earth, when Galileo spotted them in 1610.",
-  "scope": "200PDS",
-  "camera": "ASI585MC",
-  "type": "Planetary"
- },
- {
-  "label": "NGC 6992 Eastern Veil Nebula",
-  "blurb": "NGC 6992, the Eastern Veil, is one of the brightest sections of the Cygnus Loop — the sprawling supernova remnant left by a massive star that exploded an estimated 10,000 to 20,000 years ago, around 2,100 light-years away. What we see are the delicate, whip-like filaments where the supernova's expanding shock wave is still ploughing into the surrounding interstellar gas, compressing and heating it until it glows in Ha and OIII. The wispy, tangled structure is a direct map of that shock front, still visibly expanding after all this time.",
+  "label": "east veil",
   "scope": "ASKAR 91F",
   "camera": "ASI2600MC",
   "filters": "Ha/OIII (OSC dualband, SVBONY SV220)",
@@ -1018,20 +1003,8 @@
   "hours": 8.4,
   "nights": 5,
   "captured": "2026-05-30 to 2026-09-20",
-  "type": "Nebula"
- },
- {
-  "label": "east veil",
-  "scope": "ASKAR 91F",
-  "camera": "ASI2600MC",
-  "filters": "",
-  "location": "",
-  "bortle": null,
-  "hours": null,
-  "nights": null,
-  "captured": "",
-  "blurb": "",
-  "type": "",
-  "_check": "AUTO STUB - fill in capture details. rig from 1.2697\"/px, confidence camera-unclear. ASKAR 91F confirmed. Aspect 1.50 fits ASI2600MC and ASI2600MM equally - cropped, a mosaic, or twin sensors. Set the camera by hand."
+  "blurb": "The Eastern Veil, one of the brightest sections of the Cygnus Loop - the expanding debris of a star that exploded some 10,000 to 20,000 years ago about 2,400 light-years away. The whip-like filaments are not threads but the edges of a vast shell, seen where the shock front runs tangential to our line of sight and the emission piles up. Red marks hydrogen, blue-green the hotter oxygen immediately behind the shock.",
+  "type": "Supernova Remnant",
+  "name": "NGC 6992 Eastern Veil Nebula"
  }
 ]
