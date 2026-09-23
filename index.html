@@ -303,11 +303,11 @@ footer a:hover{text-decoration:underline}
   <div id="chips"></div>
   <button id="seek" type="button" aria-label="Search" title="Search">⌕</button>
   <select id="sort" aria-label="Sort by">
+    <option value="date">Capture date</option>
     <option value="ra">Sky position</option>
     <option value="name">Name</option>
     <option value="distance">Distance</option>
     <option value="fov">Field of view</option>
-    <option value="date">Capture date</option>
     <option value="hours">Exposure</option>
     <option value="likes">Popularity</option>
   </select>
@@ -322,7 +322,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.12 · built with Claude
+    v0.14 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -378,6 +378,15 @@ let IMAGES = [], VIEW = [], CUR = -1;
 const url = p => SKYDOME + p.split("/").map(encodeURIComponent).join("/");
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const num  = s => { const n = parseFloat(String(s ?? "").replace(/,/g,"")); return isFinite(n) ? n : null; };
+
+/* Light-years are the wrong unit inside the solar system - the Sun would read
+   0.0000158 ly. Under a hundredth of a light-year, switch to light-minutes. */
+function fmtDist(v){
+  const n = num(v);
+  if(n === null) return v ? String(v) : null;
+  if(n < 0.01) return (n * 525600).toFixed(1) + " light-minutes";
+  return n.toLocaleString("en-AU") + " light-years";
+}
 
 // Presentation only — gallery.json keeps the raw values.
 const OPTICS = {
@@ -464,12 +473,15 @@ async function boot(){
       // overrides win, then the coordinate match, then nothing
       // Facts come from the manifest — skydome is the single source of truth.
       // gallery.json only carries editorial prose and things the manifest can't know.
-      constellation: im.constellation ?? cat?.constellation ?? null,
+      // gallery.json wins, then the manifest, then the coordinate match. A new
+      // image solved by solve_async has geometry but no research fields, so
+      // gallery.json is the only place those can come from.
+      constellation: ov.constellation ?? im.constellation ?? cat?.constellation ?? null,
       objectType:    ov.type          ?? cat?.type          ?? null,
       catCode:       ov.code          ?? cat?.name          ?? null,
-      distLy:        im.distance_ly   ?? null,
-      distNote:      im.distance_note ?? null,
-      foundBy:       im.discovered_by ?? null,
+      distLy:        ov.distance_ly   ?? im.distance_ly   ?? null,
+      distNote:      ov.distance_note ?? im.distance_note ?? null,
+      foundBy:       ov.discovered_by ?? im.discovered_by ?? null,
       blurb:         ov.blurb         ?? im.description     ?? null,
       scope:         ov.scope         ?? null,
       camera:        ov.camera        ?? null,
@@ -557,7 +569,7 @@ function chips(){
 /* ==========================================================================
    GRID
    ========================================================================== */
-let PICKED = new Set(), ASC = true;
+let PICKED = new Set(), ASC = false;    // opens on capture date, newest first
 
 function render(){
   const q = document.getElementById("q").value.trim().toLowerCase();
@@ -599,7 +611,9 @@ function render(){
     const nm   = document.createElement("div"); nm.className = "cap-name"; nm.textContent = im.name || im.label;
     const meta = document.createElement("div"); meta.className = "cap-meta";
     const shortCon = im.constellation ? im.constellation.split(" (")[0] : null;
-    const bits = [shortCon, im.distLy ? im.distLy + " ly" : null].filter(Boolean).join("  ·  ");
+    const d = fmtDist(im.distLy);
+    const bits = [shortCon, d ? d.replace(" light-years"," ly").replace(" light-minutes"," lt-min") : null]
+                 .filter(Boolean).join("  ·  ");
     meta.append(document.createTextNode(bits));
     const score = im.favourites + im.downloads;
     if(score){
@@ -639,7 +653,7 @@ function open(ix){
   b.classList.toggle("placeholder", !im.blurb);
 
   const rows = [
-    ["Distance",    im.distLy ? im.distLy + " light-years" : null],
+    ["Distance",    fmtDist(im.distLy)],
     ["Discovered",  im.foundBy],
     ["Framing",     im.hasSky ? `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}` : null],
     ["Telescope",   showScope(im.scope)],
