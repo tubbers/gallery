@@ -10,7 +10,11 @@
   "captured": "2026-08-12 to 2026-08-13",
   "blurb": "A barred irregular galaxy in Sculptor, seen almost exactly edge-on. It belongs to the Sculptor Group, one of the nearest galaxy groups to our own. The bright knots strung along its disc are giant HII regions — clouds of hydrogen lit up by clusters of hot young stars — which is where the 'string of pearls' name comes from. Its lopsided shape is typical of a galaxy that never settled into clean spiral arms.",
   "type": "",
-  "label": "NGC 55 Whale / Pearls"
+  "label": "NGC 55 Whale / Pearls",
+  "distance_ly": "6,200,000",
+  "distance_note": "Tip of the red giant branch; Karachentsev et al. 2003",
+  "constellation": "Sculptor",
+  "discovered_by": "James Dunlop"
  },
  {
   "label": "HD 3680",
@@ -23,7 +27,9 @@
   "nights": 1,
   "captured": "2026-09-16",
   "blurb": "A single star in Phoenix, photographed at a family's request in memory of someone they had lost. Thirty minutes on a suburban Sydney night, pointed at one unremarkable point of light among thousands in the frame. Nothing about the astronomy is notable; it is here because of why it was taken.",
-  "type": "Star"
+  "type": "Star",
+  "distance_ly": "2,118",
+  "constellation": "Phoenix"
  },
  {
   "scope": "200PDS",
@@ -36,7 +42,11 @@
   "captured": "2026-08-11 to 2026-08-12",
   "blurb": "A starburst spiral in Sculptor, and one of the brightest galaxies in the sky after the Andromeda Galaxy. Its core is forming stars at a furious rate, and the dust thrown off by that activity is what produces the heavy dark lanes cutting across the disc. Winds driven by supernovae are blowing gas out of the centre in a superwind that reaches thousands of light-years above the plane.",
   "type": "",
-  "label": "NGC 253 Sculptor Galaxy"
+  "label": "NGC 253 Sculptor Galaxy",
+  "distance_ly": "11,400,000",
+  "distance_note": "Tip of the red giant branch; Radburn-Smith et al. 2011",
+  "constellation": "Sculptor",
+  "discovered_by": "Caroline Herschel"
  },
  {
   "label": "NGC 253 Sculptor (wide field)",
@@ -51,7 +61,11 @@
   "filters": "LRGB",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-08-11 to 2026-08-13"
+  "captured": "2026-08-11 to 2026-08-13",
+  "distance_ly": "11,700,000",
+  "distance_note": "~3.5–3.7 Mpc: Rekola et al. 2005 PNLF 3.34 Mpc; TRGB 3.7–3.94 Mpc (Karachentsev et al. 2003; Anand et al. 2021 3.70 Mpc). Range 3.34–3.94 Mpc; TRGB best regarded",
+  "constellation": "Sculptor",
+  "discovered_by": "Caroline Herschel, 1783. Conventional credit: Caroline Herschel"
  },
  {
   "label": "NGC 292 Small Magellanic Cloud",
@@ -69,7 +83,11 @@
   "captured": "2025-10-10 to 2025-11-19",
   "filters": "Ha/OIII/SII (SHO)",
   "location": "Willoughby",
-  "bortle": 2
+  "bortle": 2,
+  "distance_ly": "203,600",
+  "distance_note": "Graczyk et al. 2020, ApJ 904, 13, D=62.44±0.47(stat)±0.81(syst) kpc (late-type eclipsing binaries)",
+  "constellation": "Tucana",
+  "discovered_by": "Naked-eye object known since antiquity; first European written record by members of Magellan's expedition, 1519. No individual discovery credit"
  },
  {
   "label": "NGC 346 (SMC)",
@@ -89,7 +107,11 @@
   "captured": "2025-10-11 to 2025-11-09",
   "filters": "Ha/SII",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "203,600",
+  "distance_note": "Host galaxy SMC: Graczyk et al. 2020, ApJ 904, 13, 62.44 kpc (eclipsing binaries)",
+  "constellation": "Tucana",
+  "discovered_by": "John Herschel, 1834–36 (Cape of Good Hope survey); catalogued in Dreyer's NGC 1888. Conventional credit: J. Herschel"
  },
  {
   "label": "SMC core, NGC 346 region (HOO)",
@@ -101,7 +123,11 @@
   "captured": "2025-09-30 to 2025-10-11",
   "filters": "Ha/SII",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "203,600",
+  "distance_note": "Host galaxy SMC: Graczyk et al. 2020, ApJ 904, 13, 62.44 kpc (eclipsing binaries)",
+  "constellation": "Tucana",
+  "discovered_by": "John Herschel, 1834–36 (Cape survey); NGC 1888"
  },
  {
   "scope": "200PDS",
@@ -114,7 +140,11 @@
   "captured": "2026-09-11 to 2026-09-12",
   "blurb": "A lenticular galaxy in Pisces wrapped in faint concentric shells of stars. Those shells are the debris of smaller galaxies torn apart and absorbed, their stars still settling into the larger galaxy's gravity hundreds of millions of years later. NGC 474 is one of the clearest nearby examples of a galaxy built by mergers, and the shells are extremely faint - they need long broadband integration and very careful gradient control to show at all.",
   "type": "",
-  "label": "NGC 474 Shell Galaxy"
+  "label": "NGC 474 Shell Galaxy",
+  "distance_ly": "100,000,000",
+  "distance_note": "Surface brightness fluctuation; ~32 Mpc. Estimates range 95-110 Mly",
+  "constellation": "Pisces",
+  "discovered_by": "William Herschel"
  },
  {
   "label": "Comet 220P McNaught",
@@ -126,7 +156,10 @@
   "captured": "2026-08-23 to 2026-08-23",
   "filters": "None",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "0.0000079",
+  "constellation": "Aries",
+  "discovered_by": "Robert H. McNaught, 20 May 2004 (Siding Spring Survey, Uppsala Southern Schmidt Telescope, Siding Spring Observatory, NSW); announced as P/2004 K2 in IAU Circular 8348 (28 May 2004), confirmed by J. Young and A. Gilmore. Conventional credit: McNaught"
  },
  {
   "label": "NGC 1365 Great Barred Spiral",
@@ -141,7 +174,11 @@
   "hours": 12.1,
   "nights": 4,
   "captured": "2025-10-12 to 2025-11-12",
-  "filters": "LRGB + Ha"
+  "filters": "LRGB + Ha",
+  "distance_ly": "59,700,000",
+  "distance_note": "~18.1–18.6 Mpc: Hoyt et al. 2021 TRGB 18.1±0.5 Mpc; Madore et al./Silbermann et al. 1999 Cepheid 18.6±0.6 Mpc (Fornax Cluster). Midpoint ~18.3 Mpc; TRGB and Cepheid determinations agree",
+  "constellation": "Fornax",
+  "discovered_by": "James Dunlop, 1826 (Parramatta, NSW). Conventional credit: Dunlop"
  },
  {
   "scope": "ASKAR 91F",
@@ -154,7 +191,11 @@
   "captured": "2026-09-12",
   "blurb": "An open cluster in Taurus, around 100 million years old and one of the nearest to the Sun. The blue haze around the brightest stars is not gas the cluster was born from but an unrelated dust cloud it happens to be drifting through, scattering starlight the way fog scatters a headlight. Its distance was disputed for two decades until radio interferometry settled it at about 444 light-years.",
   "type": "",
-  "label": "M45 Pleiades"
+  "label": "M45 Pleiades",
+  "distance_ly": "444",
+  "distance_note": "136.2 pc from VLBI parallax; Melis et al. 2014, resolving the long-running disagreement with the Hipparcos value",
+  "constellation": "Taurus",
+  "discovered_by": "Known since antiquity"
  },
  {
   "label": "IC 2118 Witch Head",
@@ -171,7 +212,11 @@
   "captured": "2025-10-18 to 2025-12-18",
   "filters": "LRGB",
   "location": "Wheeny Creek",
-  "bortle": 4
+  "bortle": 4,
+  "distance_ly": "685",
+  "distance_note": "~210 pc (Kun et al. 2001); the illuminating star Rigel/β Orionis lies ~264 pc (Hipparcos/Gaia). Popular ~900 ly is a rough figure",
+  "constellation": "Eridanus",
+  "discovered_by": "William Herschel, 1786 (bright portion = NGC 1909); IC 2118 designation in Dreyer's Index Catalogue 1895. Conventional credit: W. Herschel"
  },
  {
   "label": "NGC 2018 (LMC)",
@@ -189,7 +234,11 @@
   "favourites": 3,
   "telescopius_likes": 5,
   "amp_id": 338,
-  "amp_slug": "ngc-2018-in-large-magellan-cloud-star-forming-complex"
+  "amp_slug": "ngc-2018-in-large-magellan-cloud-star-forming-complex",
+  "distance_ly": "161,700",
+  "distance_note": "Host galaxy LMC: Pietrzyński et al. 2019, Nature 567, 200, 49.59±0.09(stat)±0.54(syst) kpc (eclipsing binaries)",
+  "constellation": "Dorado",
+  "discovered_by": "John Herschel, 1834–36 (Cape survey); NGC 1888"
  },
  {
   "label": "M1 Crab Nebula",
@@ -201,7 +250,11 @@
   "captured": "2025-10-05 to 2025-11-08",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "6,500",
+  "distance_note": "~2.0 kpc, conventional. NOT from the deep-research pass - verify.",
+  "constellation": "Taurus",
+  "discovered_by": "John Bevis, 1731. The supernova itself was recorded by Chinese and Japanese astronomers in 1054"
  },
  {
   "label": "NGC 2070 Tarantula Nebula",
@@ -218,7 +271,11 @@
   "captured": "2025-09-11 to 2025-10-11",
   "filters": "LRGB + Ha",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "161,700",
+  "distance_note": "Host galaxy LMC: Pietrzyński et al. 2019, Nature 567, 200, 49.59 kpc (eclipsing binaries)",
+  "constellation": "Dorado",
+  "discovered_by": "Nicolas-Louis de Lacaille, 1751–52 (Cape; originally catalogued as the 'star' 30 Doradus); NGC number from Dreyer 1888. Conventional credit: Lacaille"
  },
  {
   "label": "IC 434 Horsehead Nebula",
@@ -228,7 +285,11 @@
   "hours": 1.7,
   "nights": 1,
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "1,300",
+  "distance_note": "~400 pc to the L1630 / Orion B cloud (Gaia-era). Popularly quoted as 1,500 ly. NOT from the deep-research pass - verify.",
+  "constellation": "Orion",
+  "discovered_by": "Williamina Fleming, 1888, from a Harvard photographic plate"
  },
  {
   "label": "NGC 2174 Monkey Head Nebula",
@@ -240,7 +301,11 @@
   "captured": "2026-01-27 to 2026-02-04",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "6,400",
+  "distance_note": "~2.0 kpc, conventional. NOT from the deep-research pass - verify.",
+  "constellation": "Orion",
+  "discovered_by": "Karl Christian Bruhns, 1857"
  },
  {
   "label": "NGC 2237 Rosette Nebula",
@@ -252,7 +317,11 @@
   "captured": "2025-11-16 to 2026-02-04",
   "filters": "LRGB + Ha",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "5,200",
+  "distance_note": "~1.6 kpc, conventional. NOT from the deep-research pass - verify.",
+  "constellation": "Monoceros",
+  "discovered_by": "Nebulosity: Lewis Swift, 1865 (NGC 2237). The central cluster NGC 2244 was seen by John Flamsteed around 1690"
  },
  {
   "label": "NGC 2264 Cone Nebula",
@@ -267,7 +336,11 @@
   "captured": "2025-11-19 to 2025-12-02",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "2,350",
+  "distance_note": "~719–738 pc: Maíz Apellániz 2019 (Gaia DR2) 719±16 pc; Kuhn et al. 2019 738 pc (Mon OB1)",
+  "constellation": "Monoceros",
+  "discovered_by": "William Herschel, 1785 (Cone Nebula, H V.27); associated cluster 1784. Conventional credit: W. Herschel"
  },
  {
   "label": "Sh2-308 Dolphin Head",
@@ -286,7 +359,11 @@
   "captured": "2025-10-11 to 2025-12-20",
   "filters": "LRGB + Ha",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "6,200",
+  "distance_note": "Distance to central star WR 6/EZ CMa (HD 50896) uncertain: Rate & Crowther 2020 (Gaia DR2) ~2.27 kpc (~7,400 ly); Gaia DR3 reductions ~1,537 pc (~5,010 ly); older 1,389–1,800 pc (4,530–5,870 ly), Hipparcos-2007 ~1,400 pc. Value shown ~1,900 pc is a midpoint of Gaia-era estimates; genuinely uncertain",
+  "constellation": "Canis Major",
+  "discovered_by": "Stewart Sharpless, 1959 (Sharpless catalogue Sh2-308; = RCW 11, LBN 1052)"
  },
  {
   "label": "IC 2177 Seagull Nebula",
@@ -298,7 +375,11 @@
   "filters": "Ha/OIII/SII (SHO)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-01-27 to 2026-05-05"
+  "captured": "2026-01-27 to 2026-05-05",
+  "distance_ly": "3,650",
+  "distance_note": "~1,120 pc via the ionising Be star HD 53367 (Gaia); commonly cited ~3,800 ly. NOTE: the supplied centre coordinate (Dec −11.11°) falls within Canis Major by IAU (Delporte 1930) boundaries, though the nebula straddles the Monoceros border",
+  "constellation": "Canis Major",
+  "discovered_by": "Isaac Roberts, 1898 (photographic); IC 2177 in Dreyer's Index Catalogue 1910. Conventional credit: Roberts"
  },
  {
   "label": "NGC 2359 Thor's Helmet",
@@ -317,7 +398,11 @@
   "captured": "2025-11-16 to 2025-11-27",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "11,960",
+  "distance_note": "Conventional ~3,670 pc (~11,960 ly). The Gaia DR2 parallax of WR 7/HD 56925 (0.210±0.027 mas) is low-precision (~15% error) and variously interpreted (implying ~4,800 pc); no consensus downward revision. Distance uncertain",
+  "constellation": "Canis Major",
+  "discovered_by": "William Herschel, 1785. Conventional credit: W. Herschel"
  },
  {
   "label": "NGC 2467 Skull and Crossbones",
@@ -334,7 +419,11 @@
   "reprocessed": 2,
   "favourites": 3,
   "amp_id": 314,
-  "amp_slug": "ngc-2467-skull-and-crossbones-nebula"
+  "amp_slug": "ngc-2467-skull-and-crossbones-nebula",
+  "distance_ly": "14,700",
+  "distance_note": "Line-of-sight superposition — no single distance. HII region S311 ionised by O6 star HD 64315 (~4.1 kpc); superposed unrelated clusters Haffner 18 ~4.5 kpc (~14,700 ly) and Haffner 19 ~6.4 kpc (~20,900 ly), Vázquez et al. 2010. Value shown is for the S311/Haffner 18 component",
+  "constellation": "Puppis",
+  "discovered_by": "William Herschel, 1784. Conventional credit: W. Herschel"
  },
  {
   "label": "Vela Supernova Remnant",
@@ -347,7 +436,11 @@
   "location": "Willoughby + Wheeny Creek",
   "bortle": 7,
   "captured": "2026-01-28 to 2026-04-16",
-  "telescopius_likes": 5
+  "telescopius_likes": 5,
+  "distance_ly": "936",
+  "distance_note": "287 pc (~936 ly) from Vela pulsar VLBI parallax 3.5±0.2 mas, Dodson et al. 2003, ApJ 596, 1137; cf. HST optical parallax 294 pc (Caraveo et al. 2001). Supersedes the older kinematic ~500 pc. Popular ~815 ly is too low",
+  "constellation": "Vela",
+  "discovered_by": "Vela pulsar (PSR B0833-45) discovered 1968 by Large, Vaughan & Mills (Molonglo, NSW); the SNR was mapped in 1950s–60s radio surveys. Conventional credit for the pulsar: Large et al. 1968"
  },
  {
   "label": "NGC 2736 Pencil Nebula",
@@ -359,7 +452,11 @@
   "captured": "2026-01-27 to 2026-03-05",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "936",
+  "distance_note": "287 pc, from the Vela pulsar VLBI parallax (Dodson et al.). Same value as the Vela SNR entry - the Pencil is part of it.",
+  "constellation": "Vela",
+  "discovered_by": "John Herschel, 1835 (Cape of Good Hope survey)"
  },
  {
   "label": "NGC 3293 Gem Cluster",
@@ -378,7 +475,11 @@
   "favourites": 4,
   "telescopius_likes": 4,
   "amp_id": 313,
-  "amp_slug": "ngc3293-gem-cluster"
+  "amp_slug": "ngc3293-gem-cluster",
+  "distance_ly": "7,600",
+  "distance_note": "~2,335 pc (~7,600 ly): Dias et al. 2021 (Gaia DR2) 2,334±52 pc; Göppl & Preibisch 2022 (Gaia EDR3) ~2.3 kpc",
+  "constellation": "Carina",
+  "discovered_by": "Nicolas-Louis de Lacaille, 1751 (Cape; Lac). Conventional credit: Lacaille"
  },
  {
   "label": "NGC 3324 Gabriela Mistral",
@@ -396,7 +497,11 @@
   "favourites": 3,
   "telescopius_likes": 7,
   "amp_id": 352,
-  "amp_slug": "ngc-3324-gabriela-mistral-nebula"
+  "amp_slug": "ngc-3324-gabriela-mistral-nebula",
+  "distance_ly": "7,500",
+  "distance_note": "~2.3 kpc (~7,500 ly): Göppl & Preibisch 2022, Gaia EDR3 OB-star sample; adopted by the JWST Early Release Observations 2022. The popular ~9,100 ly (2,800 pc) is outdated",
+  "constellation": "Carina",
+  "discovered_by": "James Dunlop, 1826 (Parramatta, NSW). Conventional credit: Dunlop"
  },
  {
   "label": "NGC 3372 Carina Nebula",
@@ -414,7 +519,11 @@
   "favourites": 3,
   "astrobin_likes": 107,
   "amp_id": 154,
-  "amp_slug": "eta-carinae--carinae-narrowband-with-sii-ha-oiii"
+  "amp_slug": "eta-carinae--carinae-narrowband-with-sii-ha-oiii",
+  "distance_ly": "7,500",
+  "distance_note": "2.3 kpc (Smith 2006, expansion parallax of the η Carinae Homunculus)",
+  "constellation": "Carina",
+  "discovered_by": "Nicolas-Louis de Lacaille, 1751–52 (Cape). Conventional credit: Lacaille"
  },
  {
   "label": "IC 2631 Chamaeleon Complex",
@@ -426,7 +535,11 @@
   "filters": "LRGB",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-03-14 to 2026-03-15"
+  "captured": "2026-03-14 to 2026-03-15",
+  "distance_ly": "629",
+  "distance_note": "192.7±0.4 pc (~629 ly), Gaia DR2 parallaxes to the Chamaeleon I North cloud, 2018; older ~160 pc (Whittet et al. 1997)",
+  "constellation": "Chamaeleon",
+  "discovered_by": "DeLisle Stewart, 1900 (photographic; = Cederblad 112); IC designation in Dreyer's Index Catalogue"
  },
  {
   "label": "Gum 37 Tadpoles and Statue of Liberty (wide)",
@@ -438,7 +551,11 @@
   "captured": "2026-05-06 to 2026-06-23",
   "filters": "Ha/OIII/SII (SHO)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "7,600",
+  "distance_note": "~2.35 kpc for NGC 3572 / Gum 37. NGC 3576 in the same frame is separately given as 9,100 ly, so this wide field spans both.",
+  "constellation": "Carina",
+  "discovered_by": "John Herschel, 1834-38 (Cape of Good Hope survey)"
  },
  {
   "label": "NGC 3572 Gum 37 Southern Tadpoles",
@@ -456,7 +573,11 @@
   "reprocessed": 7,
   "favourites": 4,
   "amp_id": 315,
-  "amp_slug": "gum-37-ngc-3572-southern-tadpoles"
+  "amp_slug": "gum-37-ngc-3572-southern-tadpoles",
+  "distance_ly": "7,600",
+  "distance_note": "~2.0–2.7 kpc: SIMBAD/VizieR ~2.0 kpc; Steppe 1977 (RGU photometry) 2.7 kpc. Midpoint ~2.35 kpc (~7,600 ly); range 6,500–8,800 ly",
+  "constellation": "Carina",
+  "discovered_by": "John Herschel, 1834 (Cape). Conventional credit: J. Herschel"
  },
  {
   "label": "NGC 3572 / Gum 37",
@@ -472,7 +593,11 @@
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-04-14 to 2026-04-16"
+  "captured": "2026-04-14 to 2026-04-16",
+  "distance_ly": "7,600",
+  "distance_note": "~2.0–2.7 kpc: SIMBAD ~2.0 kpc; Steppe 1977 2.7 kpc. Midpoint ~2.35 kpc; range 6,500–8,800 ly",
+  "constellation": "Carina",
+  "discovered_by": "John Herschel, 1834 (Cape). Conventional credit: J. Herschel"
  },
  {
   "label": "NGC 3576 Statue of Liberty",
@@ -492,7 +617,11 @@
   "reprocessed": 4,
   "favourites": 4,
   "amp_id": 163,
-  "amp_slug": "statue-of-liberty-nebula-ngc-3576-in-narrowband"
+  "amp_slug": "statue-of-liberty-nebula-ngc-3576-in-narrowband",
+  "distance_ly": "9,100",
+  "distance_note": "~2.4–3.0 kpc: Persi et al. 1994 ~2.4 kpc; Damineli et al. 2002 ~2.8 kpc. Value ~2.8 kpc (~9,100 ly)",
+  "constellation": "Carina",
+  "discovered_by": "John Herschel, 1834 (Cape). Conventional credit: J. Herschel"
  },
  {
   "label": "NGC 3628 Hamburger Galaxy",
@@ -504,7 +633,11 @@
   "captured": "2026-04-13 to 2026-04-19",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Wheeny Creek",
-  "bortle": 4
+  "bortle": 4,
+  "distance_ly": "35,000,000",
+  "distance_note": "~10.7 Mpc. NOT from the deep-research pass - verify.",
+  "constellation": "Leo",
+  "discovered_by": "William Herschel, 1784"
  },
  {
   "label": "IC 2944 Running Chicken",
@@ -521,7 +654,11 @@
   "reprocessed": 6,
   "favourites": 2,
   "amp_id": 326,
-  "amp_slug": "ic2944-running-chicken"
+  "amp_slug": "ic2944-running-chicken",
+  "distance_ly": "7,600",
+  "distance_note": "~2,331 pc (~7,600 ly), Gaia DR3 (Reipurth et al. 2025) to the OB subgroup; older popular ~6,500 ly (2,000 pc)",
+  "constellation": "Centaurus",
+  "discovered_by": "Nebula (IC 2944/2948): Royal H. Frost, 1904 (Bruce telescope, Arequipa); Thackeray's globules: A. D. Thackeray, 1950. Conventional credit for nebula: Frost"
  },
  {
   "label": "NGC 4038 Antennae Galaxies",
@@ -541,7 +678,11 @@
   "reprocessed": 3,
   "favourites": 6,
   "amp_id": 289,
-  "amp_slug": "ngc-4038-antennae-colliding-galaxies-c60-c61"
+  "amp_slug": "ngc-4038-antennae-colliding-galaxies-c60-c61",
+  "distance_ly": "71,700,000",
+  "distance_note": "22±3 Mpc (Schweizer et al. 2008, AJ 136, 1482, from Type Ia SN 2007sr and a revised TRGB 20.0 Mpc, plus a flow model 22.5 Mpc). This supersedes the short 13.3 Mpc TRGB of Saviane et al. 2008, attributed to a TRGB misidentification. Best regarded: 22 Mpc",
+  "constellation": "Corvus",
+  "discovered_by": "William Herschel, 1785. Conventional credit: W. Herschel"
  },
  {
   "label": "Sandqvist 149 Dark Doodad",
@@ -554,7 +695,11 @@
   "filters": "LRGB",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-04-24 to 2026-04-26"
+  "captured": "2026-04-24 to 2026-04-26",
+  "distance_ly": "538",
+  "distance_note": "Musca molecular cloud from Gaia 3D dust: Zucker et al. 2021 ~171–173 pc; Musca filament ~140–150 pc (Franco 1991; Cox et al. 2016). Range ~140–190 pc; midpoint ~165 pc (~538 ly). Supersedes older ~700 ly figures",
+  "constellation": "Musca",
+  "discovered_by": "Aage Sandqvist, 1977 (Stockholm Observatory; dark-cloud catalogue, from ESO(B) Schmidt plates); nickname 'Dark Doodad' coined by Dennis di Cicco, 1986"
  },
  {
   "label": "M104 Sombrero Galaxy",
@@ -571,7 +716,11 @@
   "reprocessed": 1,
   "favourites": 3,
   "amp_id": 288,
-  "amp_slug": "m104-sombrero-galaxy"
+  "amp_slug": "m104-sombrero-galaxy",
+  "distance_ly": "31,100,000",
+  "distance_note": "9.55±0.13(stat)±0.31(syst) Mpc (McQuinn et al. 2016, AJ 152, 144, HST TRGB); consistent with SBF ~9.1 Mpc",
+  "constellation": "Virgo",
+  "discovered_by": "Pierre Méchain, 1781; added to Messier's catalogue (M104) later. Conventional credit: Méchain"
  },
  {
   "label": "NGC 5128 Centaurus A",
@@ -589,7 +738,11 @@
   "favourites": 4,
   "telescopius_likes": 6,
   "amp_id": 293,
-  "amp_slug": "ngc-5128-centaurus-a-with-ha"
+  "amp_slug": "ngc-5128-centaurus-a-with-ha",
+  "distance_ly": "12,400,000",
+  "distance_note": "3.8±0.1 Mpc (Harris, Rejkuba & Harris 2010, PASA 27, 457 — best-estimate mean of Cepheid, TRGB, PNLF, SBF and Mira methods)",
+  "constellation": "Centaurus",
+  "discovered_by": "James Dunlop, 1826 (Parramatta, NSW). Conventional credit: Dunlop"
  },
  {
   "label": "M83 Southern Pinwheel",
@@ -606,7 +759,11 @@
   "reprocessed": 3,
   "favourites": 5,
   "amp_id": 286,
-  "amp_slug": "m83-southern-pinwheel-galaxy"
+  "amp_slug": "m83-southern-pinwheel-galaxy",
+  "distance_ly": "15,000,000",
+  "distance_note": "~4.5–4.9 Mpc: Thim et al. 2003 Cepheid 4.5 Mpc (μ=28.32); Karachentsev et al. 2007 TRGB ~4.9 Mpc (μ=28.56). Midpoint ~4.6 Mpc",
+  "constellation": "Hydra",
+  "discovered_by": "Nicolas-Louis de Lacaille, 1752 (Cape); added to Messier's catalogue (M83) 1781. Conventional credit: Lacaille"
  },
  {
   "label": "NGC 5367 / CG 12",
@@ -623,7 +780,11 @@
   "favourites": 3,
   "telescopius_likes": 5,
   "amp_id": 335,
-  "amp_slug": "ngc-5367-cometary-globule-dust-nebula-cg-12"
+  "amp_slug": "ngc-5367-cometary-globule-dust-nebula-cg-12",
+  "distance_ly": "2,050",
+  "distance_note": "~630 pc (Williams et al. 1977); alternative ~550 pc (Maheswar et al.). No clean modern Gaia DR3 determination located; range ~550–630 pc. Value shown ~630 pc ≈ 2,050 ly. Amateur ~2,500 ly figures are not well supported",
+  "constellation": "Centaurus",
+  "discovered_by": "John Herschel, 1834 (nebula NGC 5367); the cometary globule CG 12 was catalogued by Hawarden & Brand, 1976. Conventional credit for NGC 5367: J. Herschel"
  },
  {
   "label": "Barnard 228 Dark Wolf",
@@ -638,7 +799,11 @@
   "filters": "LRGB",
   "location": "Wheeny Creek + Wiruna",
   "bortle": 4,
-  "captured": "2026-04-19 to 2026-06-20"
+  "captured": "2026-04-19 to 2026-06-20",
+  "distance_ly": "505",
+  "distance_note": "~155 pc (~505 ly), Lupus 1 cloud: Galli et al. 2020 (Gaia DR2) 150–160 pc; Zucker et al. 2021 ~155 pc. Popular ~500 ly is coincidentally close",
+  "constellation": "Lupus",
+  "discovered_by": "E. E. Barnard (Barnard Catalogue of 349 Dark Objects, published 1927). Conventional credit: Barnard"
  },
  {
   "scope": "200PDS",
@@ -651,7 +816,11 @@
   "captured": "2026-09-11 to 2026-09-12",
   "blurb": "A reflection nebula on the northern edge of the Rho Ophiuchi complex, one of the closest star-forming regions to the Sun. There is no emission here - the colour is starlight scattered off dust, and dust scatters blue more efficiently than red, which is why reflection nebulae are cold in tone while emission nebulae are red. Dark lanes threading the field are denser parts of the same cloud blocking the stars behind.",
   "type": "",
-  "label": "IC 4601 Blue Reflection"
+  "label": "IC 4601 Blue Reflection",
+  "distance_ly": "470",
+  "distance_note": "Part of the Rho Ophiuchi / Upper Scorpius complex; Gaia distances to the association cluster near 140 pc",
+  "constellation": "Scorpius",
+  "discovered_by": "Edward Emerson Barnard"
  },
  {
   "label": "LDN 1688 Rho Ophiuchi Complex",
@@ -671,7 +840,11 @@
   "reprocessed": 3,
   "favourites": 1,
   "amp_id": 420,
-  "amp_slug": "rho-ophiuchi-mosaic"
+  "amp_slug": "rho-ophiuchi-mosaic",
+  "distance_ly": "448",
+  "distance_note": "137.3±1.2 pc (~448 ly), Ortiz-León et al. 2017 (VLBA trigonometric parallaxes); confirmed by Gaia DR2 138.4±2.6 pc (Ortiz-León et al. 2018)",
+  "constellation": "Ophiuchus",
+  "discovered_by": "Beverly T. Lynds, 1962 (Lynds Dark Nebulae catalogue, from POSS plates). Conventional credit: Lynds"
  },
  {
   "label": "NGC 6164 Dragon's Egg",
@@ -690,7 +863,11 @@
   "telescopius_likes": 5,
   "amp_id": 290,
   "amp_slug": "ngc-6164-the-dragon-s-egg",
-  "type": "Supernova Remnant"
+  "type": "Supernova Remnant",
+  "distance_ly": "3,600",
+  "distance_note": "~1.1 kpc (~3,600 ly) to the central star HD 148937 (Gaia DR3 offset-corrected parallax, cited Lim et al. 2024); older estimates 4,000–6,000 ly",
+  "constellation": "Norma",
+  "discovered_by": "John Herschel, 1834 (NGC 6164); the symmetric bipolar structure was recognised by Karl Henize, 1959. Conventional credit for NGC 6164: J. Herschel"
  },
  {
   "label": "LDN 43 Cosmic Bat",
@@ -702,7 +879,11 @@
   "filters": "SII",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-06-20 to 2026-06-20"
+  "captured": "2026-06-20 to 2026-06-20",
+  "distance_ly": "1,400",
+  "distance_note": "~1,400 ly (~430 pc; APOD, Constellation Guide). [UNVERIFIED against a primary source — some studies of associated young stars (RNO 90/91) imply a nearer ~125–140 pc; the two figures are in tension. Constellation confirmed as Ophiuchus from the coordinates]",
+  "constellation": "Ophiuchus",
+  "discovered_by": "Beverly T. Lynds, 1962 (Lynds Dark Nebulae catalogue). Conventional credit: Lynds"
  },
  {
   "label": "NGC 6188 Fighting Dragons (SHO)",
@@ -719,7 +900,11 @@
   "reprocessed": 6,
   "favourites": 2,
   "amp_id": 360,
-  "amp_slug": "ngc-6188-fighting-dragons-of-ara-sho"
+  "amp_slug": "ngc-6188-fighting-dragons-of-ara-sho",
+  "distance_ly": "4,300",
+  "distance_note": "~1.3 kpc (~4,300 ly): Arnal et al. 2003; Ara OB1a ~1,320–1,380 pc (Humphreys). Consistent with popular ~4,000 ly",
+  "constellation": "Ara",
+  "discovered_by": "John Herschel, 1836 (Rim Nebula NGC 6188); the ionising cluster NGC 6193 was recorded by James Dunlop, 1826. Conventional credit for NGC 6188: J. Herschel"
  },
  {
   "label": "NGC 6188 Fighting Dragons (HOO)",
@@ -736,7 +921,11 @@
   "reprocessed": 1,
   "favourites": 6,
   "amp_id": 337,
-  "amp_slug": "ngc-6188-fighting-dragons-of-ara-in-ha-and-oiii"
+  "amp_slug": "ngc-6188-fighting-dragons-of-ara-in-ha-and-oiii",
+  "distance_ly": "4,300",
+  "distance_note": "~1.3 kpc (~4,300 ly): Arnal et al. 2003; Ara OB1a ~1,320–1,380 pc",
+  "constellation": "Ara",
+  "discovered_by": "John Herschel, 1836 (Rim Nebula); cluster NGC 6193 by James Dunlop, 1826. Conventional credit for NGC 6188: J. Herschel"
  },
  {
   "label": "SL 17 Fenrir (Sandqvist 17)",
@@ -756,7 +945,11 @@
   "telescopius_likes": 7,
   "amp_id": 363,
   "amp_slug": "sandqvist-17-the-dark-wolf-fenrir",
-  "featured": true
+  "featured": true,
+  "distance_ly": "5,800",
+  "distance_note": "Distance via associated RCW 113/Gum 55 and Sco OB1: NGC 6231 ~1,640 pc (Sana et al. 2008) to Sco OB1 ~1,910 pc (Humphreys); range 5,300–6,200 ly, midpoint ~1,775 pc. Genuinely uncertain",
+  "constellation": "Scorpius",
+  "discovered_by": "Aage Sandqvist & Kjell Lindroos, 1976 (catalogued in Sandqvist 1977, from ESO(B) Schmidt plates)"
  },
  {
   "label": "IC 4628 Prawn Nebula",
@@ -768,7 +961,11 @@
   "filters": "Ha/OIII/SII (SHO)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-07-11 to 2026-08-08"
+  "captured": "2026-07-11 to 2026-08-08",
+  "distance_ly": "5,350",
+  "distance_note": "~1,640 pc (~5,350 ly) via NGC 6231/Sco OB1 (Sana et al. 2008); popular ~6,000 ly",
+  "constellation": "Scorpius",
+  "discovered_by": "E. E. Barnard, ~1900 (photographic); IC designation in Dreyer's Index Catalogue. Conventional credit: Barnard"
  },
  {
   "scope": "ASKAR 91F",
@@ -781,7 +978,11 @@
   "captured": "2026-09-11 to 2026-09-12",
   "blurb": "A face-on spiral galaxy in Apus seen through a curtain of integrated flux nebula - dust in our own galaxy's halo, far above the plane, glowing faintly from the combined light of every star in the Milky Way. The two sit at wildly different distances: the dust is a few hundred light-years away, the galaxy around a hundred million. IFN is among the faintest structure amateur equipment can record.",
   "type": "",
-  "label": "IC 4633 and the Apus IFN"
+  "label": "IC 4633 and the Apus IFN",
+  "distance_ly": "100,000,000",
+  "distance_note": "IC 4633 itself; the integrated flux nebula in front of it lies only a few hundred light-years away, inside our own galaxy",
+  "constellation": "Apus",
+  "discovered_by": "DeLisle Stewart"
  },
  {
   "label": "NGC 6334 Cat's Paw Nebula",
@@ -793,7 +994,11 @@
   "captured": "2026-07-02 to 2026-07-12",
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "4,400",
+  "distance_note": "1.34 kpc from VLBI water-maser parallax, Chibueze et al. 2014. Older literature commonly says 5,500 ly. NOT from the deep-research pass - verify.",
+  "constellation": "Scorpius",
+  "discovered_by": "John Herschel, 1837 (Cape of Good Hope survey)"
  },
  {
   "label": "NGC 6357 Lobster Nebula",
@@ -805,7 +1010,11 @@
   "filters": "None",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-06-23 to 2026-07-04"
+  "captured": "2026-06-23 to 2026-07-04",
+  "distance_ly": "5,500",
+  "distance_note": "~1.7 kpc (~5,500 ly), professional Gaia/spectroscopic value (SIMBAD 1,800±140 pc; Russeil, Reid). The popular ~8,000 ly (2.4 kpc) is overstated",
+  "constellation": "Scorpius",
+  "discovered_by": "John Herschel, 1837 (Cape). Conventional credit: J. Herschel"
  },
  {
   "label": "M20 Trifid Nebula",
@@ -817,7 +1026,11 @@
   "filters": "LRGB + Ha",
   "location": "Willoughby + Wheeny Creek",
   "bortle": 7,
-  "captured": "2026-07-11 to 2026-07-12"
+  "captured": "2026-07-11 to 2026-07-12",
+  "distance_ly": "3,850",
+  "distance_note": "~1,180 pc (~3,850 ly), Kuhn et al. 2019/2021 (Gaia); older estimates 1.67 kpc and the 4,100–5,200 ly range are now superseded by Gaia astrometry",
+  "constellation": "Sagittarius",
+  "discovered_by": "Charles Messier, 1764 (catalogued as M20; = NGC 6514). Conventional credit: Messier"
  },
  {
   "label": "M8 Lagoon Nebula",
@@ -829,7 +1042,11 @@
   "filters": "LRGB + Ha",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2025-09-06 to 2025-09-16"
+  "captured": "2025-09-06 to 2025-09-16",
+  "distance_ly": "4,080",
+  "distance_note": "~1,250 pc (~4,080 ly), Damiani et al. 2017 (Gaia distance to the embedded cluster NGC 6530); consistent with the current guess",
+  "constellation": "Sagittarius",
+  "discovered_by": "Cluster NGC 6530 noted by John Flamsteed c.1680; nebula recorded by Giovanni Hodierna before 1654 and catalogued by Charles Messier, 1764 (M8). Conventional credit: Messier"
  },
  {
   "label": "M8 Lagoon to NGC 6559 Chinese Dragon (wide)",
@@ -841,7 +1058,11 @@
   "captured": "2026-07-11 to 2026-07-13",
   "filters": "None",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": "4,080",
+  "distance_note": "~1,250 pc, Damiani et al. 2017 (Gaia). Matches the separate M8 and NGC 6559 entries - one physical complex.",
+  "constellation": "Sagittarius",
+  "discovered_by": "M8: Giovanni Battista Hodierna, before 1654. NGC 6559: John Herschel, 1837"
  },
  {
   "label": "NGC 6559 Chinese Dragon",
@@ -853,7 +1074,11 @@
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-07-30 to 2026-08-07"
+  "captured": "2026-07-30 to 2026-08-07",
+  "distance_ly": "4,080",
+  "distance_note": "~1,250 pc (~4,080 ly), physically part of the M8/Lagoon complex (Gaia); popular ~5,000 ly. Range 4,100–5,000 ly",
+  "constellation": "Sagittarius",
+  "discovered_by": "John Herschel, 1837 (Cape). Conventional credit: J. Herschel"
  },
  {
   "scope": "200PDS",
@@ -866,7 +1091,11 @@
   "captured": "2026-08-31 to 2026-09-10",
   "blurb": "A planetary nebula in Serpens, the shed envelope of a dying Sun-like star. Its central white dwarf is moving fast enough through the interstellar medium that the nebula is being left behind and distorted, which is why it looks lopsided rather than like a neat ring. It is extremely faint in both hydrogen and oxygen, so it rewards restraint in processing rather than an aggressive stretch.",
   "type": "",
-  "label": "Sh2-68 Flaming Skull"
+  "label": "Sh2-68 Flaming Skull",
+  "distance_ly": "1,500",
+  "distance_note": "PN G030.6+06.2. Distance poorly constrained; published values span roughly 1,000-2,300 ly",
+  "constellation": "Serpens",
+  "discovered_by": "Stewart Sharpless"
  },
  {
   "label": "NGC 6726 Anteater / R CrA",
@@ -883,7 +1112,11 @@
   "reprocessed": 4,
   "favourites": 3,
   "amp_id": 283,
-  "amp_slug": "ngc-6726-cra-reflection-anteater"
+  "amp_slug": "ngc-6726-cra-reflection-anteater",
+  "distance_ly": "486",
+  "distance_note": "149 pc (~486 ly), Galli et al. 2020 (Gaia DR2); Zucker et al. 2020 151 pc. Supersedes the older ~130 pc (425 ly) kinematic value",
+  "constellation": "Corona Australis",
+  "discovered_by": "Johann F. J. Schmidt, 1861 (NGC 6726/6727). Conventional credit: Schmidt"
  },
  {
   "label": "NGC 6729 Corona Australis",
@@ -900,7 +1133,11 @@
   "hours": 4.3,
   "nights": 4,
   "captured": "2025-10-15 to 2025-10-26",
-  "filters": "LRGB + Ha"
+  "filters": "LRGB + Ha",
+  "distance_ly": "486",
+  "distance_note": "149 pc (~486 ly), Galli et al. 2020 (Gaia DR2); Zucker et al. 2020 151 pc",
+  "constellation": "Corona Australis",
+  "discovered_by": "Johann F. J. Schmidt, 1861 (variable nebula); independently noted by Albert Marth, 1864. Conventional credit: Schmidt"
  },
  {
   "label": "NGC 6744 Pavo Galaxy",
@@ -912,7 +1149,11 @@
   "filters": "Broadband",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-04-25 to 2026-06-20"
+  "captured": "2026-04-25 to 2026-06-20",
+  "distance_ly": "29,400,000",
+  "distance_note": "9.01±0.38 Mpc (Anand et al. 2021, PHANGS-HST TRGB); NED redshift-independent mean ~7.2 Mpc. TRGB best regarded",
+  "constellation": "Pavo",
+  "discovered_by": "James Dunlop, 1826 (Parramatta, NSW). Conventional credit: Dunlop"
  },
  {
   "label": "Eagle Ray Nebula",
@@ -925,7 +1166,11 @@
   "filters": "None",
   "location": "Wheeny Creek + Wiruna/Wheeny",
   "bortle": 4,
-  "captured": "2026-06-20 to 2026-08-13"
+  "captured": "2026-06-20 to 2026-08-13",
+  "distance_ly": "700",
+  "distance_note": "Tentative ~215 pc (~700 ly) from association with a high-latitude molecular cloud in the Aquila Rift (Magnani et al. 1985). [UNVERIFIED — the identification with Sh2-63/LBN 82 and this distance could not be confirmed against a primary catalogue entry this session; treat as provisional]",
+  "constellation": "Sagittarius",
+  "discovered_by": "Stewart Sharpless, 1959 (Sharpless catalogue, as Sh2-63/LBN 82). [Identification UNVERIFIED]"
  },
  {
   "label": "NGC 6960 Veil Nebula",
@@ -937,7 +1182,11 @@
   "filters": "Ha/OIII (dual narrowband)",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2026-05-30 to 2026-08-08"
+  "captured": "2026-05-30 to 2026-08-08",
+  "distance_ly": "2,360",
+  "distance_note": "725±15 pc (~2,360 ly), Fesen et al. 2021, MNRAS 507, 244 (Gaia EDR3 parallaxes of stars in/behind the Cygnus Loop). Verified",
+  "constellation": "Cygnus",
+  "discovered_by": "William Herschel, 1784. Conventional credit: W. Herschel"
  },
  {
   "label": "NGC 7293 Helix Nebula",
@@ -957,7 +1206,11 @@
   "reprocessed": 5,
   "favourites": 3,
   "amp_id": 165,
-  "amp_slug": "c63-ngc-7293-helix-eye-of-god-planetary-nebula-in-3nm-dual-narrowband"
+  "amp_slug": "c63-ngc-7293-helix-eye-of-god-planetary-nebula-in-3nm-dual-narrowband",
+  "distance_ly": "655",
+  "distance_note": "~200 pc (655±13 ly), Gaia EDR3 parallax (~5.01 mas) of the central white dwarf WD 2226-210 (Gaia Collaboration 2021)",
+  "constellation": "Aquarius",
+  "discovered_by": "Karl Ludwig Harding, before 1824. Conventional credit: Harding"
  },
  {
   "label": "NGC 7582 Grus Quartet",
@@ -972,7 +1225,11 @@
   "captured": "2026-08-11 to 2026-08-13",
   "_check": [
    "superseded by the 2026 reprocess - delete ngc2782 grus.jpg from masters if you agree"
-  ]
+  ],
+  "distance_ly": "66,500,000",
+  "distance_note": "~20.6 Mpc for NGC 7582 (Grus Quartet flow-model distances span 18.3–22.5 Mpc); redshift-independent ~21 Mpc. Midpoint ~20.4 Mpc",
+  "constellation": "Grus",
+  "discovered_by": "James Dunlop, 1826 (Parramatta, NSW; discovered together with NGC 7552). Conventional credit: Dunlop"
  },
  {
   "label": "The Sun",
@@ -983,7 +1240,9 @@
   "scope": "Seestar S50",
   "camera": "IMX462",
   "location": "Kellyville, Sydney",
-  "captured": "2025-01-26"
+  "captured": "2025-01-26",
+  "distance_ly": "0.0000158",
+  "constellation": null
  },
  {
   "label": "Jupiter",
@@ -994,7 +1253,9 @@
   "scope": "200PDS",
   "camera": "ASI585MC",
   "location": "Willoughby",
-  "captured": "2026-03-20"
+  "captured": "2026-03-20",
+  "distance_ly": "0.000077",
+  "constellation": null
  },
  {
   "label": "east veil",
@@ -1008,7 +1269,9 @@
   "captured": "2026-05-30 to 2026-09-20",
   "blurb": "The Eastern Veil, one of the brightest sections of the Cygnus Loop - the expanding debris of a star that exploded some 10,000 to 20,000 years ago about 2,400 light-years away. The whip-like filaments are not threads but the edges of a vast shell, seen where the shock front runs tangential to our line of sight and the emission piles up. Red marks hydrogen, blue-green the hotter oxygen immediately behind the shock.",
   "type": "Supernova Remnant",
-  "name": "NGC 6992 Eastern Veil Nebula"
+  "name": "NGC 6992 Eastern Veil Nebula",
+  "distance_ly": "2,400",
+  "constellation": "Cygnus"
  },
  {
   "label": "zeta 134 NX lh",
