@@ -1213,49 +1213,27 @@
   "discovered_by": "Karl Ludwig Harding, before 1824. Conventional credit: Harding"
  },
  {
-  "label": "NGC 7582 Grus Quartet",
-  "blurb": "A group of four interacting spiral galaxies in Grus. NGC 7582 itself has an active nucleus partly hidden behind dust, and the tidal disturbance in the group's discs is evidence of gravitational encounters. Groups like this are the environments in which most galaxies actually live and evolve.",
-  "scope": "ASKAR 91F",
-  "camera": "ASI2600MC",
-  "hours": 9.1,
-  "nights": 3,
-  "filters": "None",
-  "location": "Wheeny Creek",
-  "bortle": 4,
-  "captured": "2026-08-11 to 2026-08-13",
-  "_check": [
-   "superseded by the 2026 reprocess - delete ngc2782 grus.jpg from masters if you agree"
-  ],
-  "distance_ly": "66,500,000",
-  "distance_note": "~20.6 Mpc for NGC 7582 (Grus Quartet flow-model distances span 18.3–22.5 Mpc); redshift-independent ~21 Mpc. Midpoint ~20.4 Mpc",
-  "constellation": "Grus",
-  "discovered_by": "James Dunlop, 1826 (Parramatta, NSW; discovered together with NGC 7552). Conventional credit: Dunlop"
- },
- {
   "label": "The Sun",
-  "blurb": "A composite of the International Space Station crossing the face of the Sun. The ISS travels at roughly 28,000 km/h, so the whole transit lasted under a second — each silhouette is a separate frame from a high-speed burst, laid over one another. The ground track from which a transit is visible is only a few kilometres wide, which meant driving out to Kellyville to sit on the centreline. The faint darker patches on the disc are sunspots, where magnetic fields suppress convection and leave the surface cooler.",
-  "_check": [
-   "ISS transit composite — frame count not recorded"
-  ],
+  "blurb": "A composite of the International Space Station crossing the face of the Sun, built from nine frames of a high-speed burst. The ISS travels at roughly 28,000 km/h, so the whole transit lasted well under a second - each silhouette is a separate frame, laid over the others. The ground track from which a transit is visible is only a few kilometres wide, which meant driving out to Kellyville to sit on the centreline. The faint darker patches on the disc are sunspots, where magnetic fields suppress convection and leave the surface cooler.",
   "scope": "Seestar S50",
   "camera": "IMX462",
   "location": "Kellyville, Sydney",
   "captured": "2025-01-26",
   "distance_ly": "0.0000158",
-  "constellation": null
+  "constellation": null,
+  "nights": 1
  },
  {
   "label": "Jupiter",
   "blurb": "The largest planet in the solar system, massive enough that it and the Sun orbit a point just outside the Sun's surface. The banded appearance comes from alternating jet streams in its atmosphere, dragged into belts and zones by rapid rotation — a Jovian day is under ten hours. It has no solid surface; the atmosphere simply becomes denser with depth.",
-  "_check": [
-   "site assumed Willoughby — confirm"
-  ],
   "scope": "200PDS",
   "camera": "ASI585MC",
   "location": "Willoughby",
   "captured": "2026-03-20",
   "distance_ly": "0.000077",
-  "constellation": null
+  "constellation": null,
+  "bortle": 7,
+  "nights": 1
  },
  {
   "label": "east veil",
@@ -1277,17 +1255,14 @@
   "label": "zeta 134 NX lh",
   "scope": "ASKAR 91F",
   "camera": "ASI2600MC",
-  "filters": "",
-  "location": "",
-  "bortle": null,
-  "hours": null,
-  "nights": null,
-  "captured": "",
+  "filters": "Ha/OIII (OSC dualband, SVBONY SV220)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 11.2,
+  "nights": 5,
+  "captured": "2026-08-31 to 2026-09-04",
   "blurb": "A vast, faint bubble of ionised hydrogen surrounding Zeta Ophiuchi, a runaway star flung out of its birth cluster by a supernova and now ploughing through interstellar gas at around 30 km/s. Its ultraviolet output lights the whole region, while the bow shock piled up ahead of it shows in infrared. The nebula spans several degrees and is extremely faint in visible light.",
   "type": "Emission Nebula",
-  "_check": [
-   "needs filter, site, hours and nights"
-  ],
   "name": "Sh2-27 Zeta Ophiuchi Nebula",
   "constellation": "Ophiuchus",
   "distance_ly": "440"
@@ -1296,17 +1271,14 @@
   "label": "lagoon LH",
   "scope": "ASKAR 91F",
   "camera": "ASI2600MC",
-  "filters": "",
-  "location": "",
-  "bortle": null,
-  "hours": null,
-  "nights": null,
-  "captured": "",
+  "filters": "Ha/OIII/SII (SHO, SV220 + SV227)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 22.6,
+  "nights": 11,
+  "captured": "2026-08-31 to 2026-09-18",
   "blurb": "The Lagoon in the Hubble palette, mapping sulphur, hydrogen and oxygen to red, green and blue. The colours are not what the eye would see - they trace ionisation instead, so the hottest gas nearest the young stars separates cleanly from the cooler outer cloud. The bright core contains the Hourglass, where radiation from Herschel 36 is eroding the gas fastest.",
   "type": "Emission Nebula",
-  "_check": [
-   "needs filter, site, hours and nights"
-  ],
   "name": "M8 Lagoon Nebula (SHO)",
   "constellation": "Sagittarius",
   "distance_ly": "4,100"
@@ -1315,17 +1287,14 @@
   "label": "ngc6618 swan 121",
   "scope": "ASKAR 91F",
   "camera": "ASI585MC",
-  "filters": "",
-  "location": "",
-  "bortle": null,
-  "hours": null,
-  "nights": null,
-  "captured": "",
+  "filters": "Ha/OIII (OSC dualband)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 16.8,
+  "nights": 3,
+  "captured": "2026-08-05 to 2026-08-07",
   "blurb": "One of the brightest and most active star-forming regions in the Galaxy. The bright bar is not the whole nebula but the illuminated face of a much larger molecular cloud, lit from one side by a cluster of young massive stars mostly hidden in the dust behind it. That geometry is why it looks like a swan on the water, and why infrared surveys find far more young stars here than are visible.",
   "type": "Emission Nebula",
-  "_check": [
-   "needs filter, site, hours and nights"
-  ],
   "name": "M17 Omega / Swan Nebula",
   "constellation": "Sagittarius",
   "distance_ly": "5,500"
@@ -1334,17 +1303,14 @@
   "label": "Grus 167 NX LH",
   "scope": "ASKAR 91F",
   "camera": "ASI2600MC",
-  "filters": "",
-  "location": "",
-  "bortle": null,
-  "hours": null,
-  "nights": null,
-  "captured": "",
+  "filters": "None (OSC broadband)",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "hours": 9.1,
+  "nights": 3,
+  "captured": "2026-08-11 to 2026-08-13",
   "blurb": "Four interacting spiral galaxies in Grus. NGC 7582 itself hides an active nucleus behind thick dust, and the warped discs across the group are the signature of repeated gravitational encounters. Groups of this size are where most galaxies actually live, and where most of their evolution happens.",
   "type": "Group of Galaxies",
-  "_check": [
-   "needs filter, site, hours and nights"
-  ],
   "name": "NGC 7582 Grus Quartet",
   "constellation": "Grus",
   "distance_ly": "66,500,000"
