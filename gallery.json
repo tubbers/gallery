@@ -657,18 +657,15 @@
  },
  {
   "label": "LDN 1688 Rho Ophiuchi Complex",
-  "_check": [
-   "captures had no RedCat 61+ASI2600MC row for this target — hours may include other rigs"
-  ],
   "blurb": "One of the nearest star-forming regions to the Sun, and one of the most colourful areas of sky. Three processes are visible at once: blue reflection where dust scatters starlight, red emission where hydrogen is ionised, and gold-brown where thick dust both reflects and reddens what passes through it. The globular cluster M4 sits in the same field, far beyond it.",
   "scope": "RedCat 61",
-  "camera": "ASI2600MC",
-  "hours": 21.9,
-  "nights": 12,
-  "filters": "LRGB + Ha",
+  "camera": "ASI2600MM",
+  "hours": 9.2,
+  "nights": 3,
+  "filters": "RGB (mono)",
   "location": "Wheeny Creek",
   "bortle": 4,
-  "captured": "2026-03-28 to 2026-08-13",
+  "captured": "2026-08-11 to 2026-08-13",
   "downloads": 25,
   "reprocessed": 3,
   "favourites": 1,
@@ -831,7 +828,8 @@
   "filters": "LRGB + Ha",
   "location": "Willoughby",
   "bortle": 7,
-  "captured": "2025-09-06 to 2025-09-16"
+  "captured": "2025-09-06 to 2025-09-16",
+  "distance_ly": 4100
  },
  {
   "label": "M8 Lagoon to NGC 6559 Chinese Dragon (wide)",
@@ -843,7 +841,8 @@
   "captured": "2026-07-11 to 2026-07-13",
   "filters": "None",
   "location": "Willoughby",
-  "bortle": 7
+  "bortle": 7,
+  "distance_ly": 4100
  },
  {
   "label": "NGC 6559 Chinese Dragon",
@@ -1007,7 +1006,8 @@
   "captured": "2026-08-31 to 2026-09-04",
   "blurb": "Sh2-27 is a vast but extremely faint HII region surrounding Zeta Ophiuchi, a hot runaway star ejected from a binary system by its companion's supernova. Now travelling at roughly 30 km/s, it drives a bow shock into the surrounding gas while its ultraviolet radiation ionises the cloud into the faint red glow seen here. At only about 440 light-years away, it is one of the closest emission nebulae to Earth, which is why it spans such an enormous patch of sky despite being intrinsically faint.",
   "type": "Nebula",
-  "name": "Sh2-27 Zeta Ophiuchi Nebula"
+  "name": "Sh2-27 Zeta Ophiuchi Nebula",
+  "distance_ly": 440
  },
  {
   "label": "lagoon LH",
@@ -1021,7 +1021,8 @@
   "captured": "2026-08-31 to 2026-09-18",
   "blurb": "The Lagoon Nebula in the Hubble SHO palette, mapping sulphur, hydrogen and oxygen emission to red, green and blue. M8 is one of the largest star-forming regions visible to the naked eye, its bright Hourglass region carved by radiation and wind from young, massive stars still embedded in the gas that formed them. The false-colour mapping separates emission lines that overlap heavily in true colour, revealing structure a broadband image would blend together.",
   "type": "Nebula",
-  "name": "M8 Lagoon Nebula (SHO)"
+  "name": "M8 Lagoon Nebula (SHO)",
+  "distance_ly": 4100
  },
  {
   "label": "ngc6618 swan 121",
@@ -1035,7 +1036,8 @@
   "captured": "2026-08-05 to 2026-08-07",
   "blurb": "M17, the Omega or Swan Nebula, is a young and massive star-forming region in Sagittarius, among the brightest such regions in the Galaxy. Dense, dark lanes of cold molecular dust thread through the glowing gas, silhouetted against the ionised hydrogen and oxygen behind them. The bright curve at its centre, which gives the nebula its swan-like nickname, is carved by radiation from hot young stars still forming within it.",
   "type": "Nebula",
-  "name": "M17 Omega / Swan Nebula"
+  "name": "M17 Omega / Swan Nebula",
+  "distance_ly": 5500
  },
  {
   "label": "Grus 167 NX LH",
@@ -1049,6 +1051,7 @@
   "captured": "2026-08-11 to 2026-08-13",
   "blurb": "A group of four interacting spiral galaxies in Grus. NGC 7582 itself has an active nucleus partly hidden behind dust, and the tidal disturbance in the group's discs is evidence of gravitational encounters. Groups like this are the environments in which most galaxies actually live and evolve.",
   "type": "Galaxy",
-  "name": "NGC 7582 Grus Quartet"
+  "name": "NGC 7582 Grus Quartet",
+  "distance_ly": 65000000
  }
 ]
