@@ -1314,5 +1314,21 @@
   "name": "NGC 7582 Grus Quartet",
   "constellation": "Grus",
   "distance_ly": "66,500,000"
+ },
+ {
+  "label": "ngc613 291 nx",
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "None (OSC broadband)",
+  "location": "Wheeny Creek",
+  "bortle": 4,
+  "hours": 9.7,
+  "nights": 2,
+  "captured": "2026-10-10 to 2026-10-11",
+  "blurb": "NGC 613 is a barred spiral galaxy in Sculptor, about 67 million light-years away and roughly 150,000 light-years across. The bar acts as a conduit, funnelling gas inward to a nuclear ring of star formation and a low-luminosity active nucleus, which sit just inside the bar's leading dust lanes. The dark lanes along the bar mark where cold gas and dust are being pushed towards the centre, while the loosely wound, tentacle-like arms trace star formation across the disc. Bars like this are thought to be a major way galaxies move gas inward to fuel star formation and their central black holes.",
+  "type": "Barred Spiral Galaxy",
+  "name": "NGC 613 Barred Spiral Galaxy",
+  "distance_ly": "67,000,000",
+  "constellation": "Sculptor"
  }
 ]
