@@ -1190,15 +1190,12 @@
  },
  {
   "label": "NGC 7293 Helix Nebula",
-  "_check": [
-   "image rescaled 0.67x from native, so the rig match is less certain"
-  ],
   "blurb": "One of the closest planetary nebulae to Earth, the shed outer layers of a dying Sun-like star. What remains at the centre is a white dwarf, the exposed core, still hot enough to ionise the gas around it. The thousands of cometary knots pointing inward from the inner ring are dense clumps being eroded by that radiation, each larger than our solar system.",
-  "scope": "200PDS",
+  "scope": "ASKAR 91F",
   "camera": "ASI585MC",
-  "hours": 0.1,
+  "hours": 17.6,
   "nights": 1,
-  "filters": "None",
+  "filters": "Ha/OIII (ALP-T)",
   "location": "Willoughby",
   "bortle": 7,
   "captured": "2025-09-24 to 2025-09-24",
