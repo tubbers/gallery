@@ -1330,5 +1330,22 @@
   "name": "NGC 613 Barred Spiral Galaxy",
   "distance_ly": "67,000,000",
   "constellation": "Sculptor"
+ },
+ {
+  "label": "Henize 70",
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "Ha/OIII (ALP-T)",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 18.2,
+  "nights": 5,
+  "captured": "2026-10-08 to 2026-10-23",
+  "blurb": "Henize 70 is a superbubble in the Large Magellanic Cloud: a near-circular shell of glowing gas about 340 light-years across. Ultraviolet light from the hot, massive stars of the young association LH 114 ionises the gas, with shocks adding to the glow, and the stars' winds have been inflating the shell, which is still expanding at about 60 to 70 kilometres per second. The gas inside is heated to millions of degrees and shines in X-rays, brighter than winds alone should manage, which points to a recent supernova inside as well. It is a close-up look at how clusters of massive stars stir up and shape their host galaxy, though just what energised this one is still debated.",
+  "type": "Emission Nebula",
+  "constellation": "Dorado",
+  "distance_ly": "160,000",
+  "distance_note": "LMC distance, 49.6 kpc (about 162,000 ly), from eclipsing binaries; Pietrzyński et al. 2019. Henize 70 is taken to sit at the LMC's distance",
+  "discovered_by": "Karl Henize (catalogued 1956)"
  }
 ]
