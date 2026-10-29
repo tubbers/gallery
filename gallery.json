@@ -1210,6 +1210,20 @@
   "discovered_by": "Karl Ludwig Harding, before 1824. Conventional credit: Harding"
  },
  {
+  "label": "ISS transit of the Sun",
+  "name": "The Sun",
+  "group": "the-sun",
+  "lead": true,
+  "blurb": "ISS transit of the Sun - The International Space Station crossing the face of the Sun, taken from Roseville at 5:45 pm on Sat 17 October. The moment the ISS transited it was about 1,170 km away and travelling at roughly 27,600 km/h - it took only two seconds for the seven astronauts to cross the Sun's disc. Two sunspot groups were on show for the occasion. Each silhouette is a single frame from a DWARF Mini video (actually every second frame), composited using a custom Python script with a clean Autostakkert stack of the extended video. Processed in PixInsight with BlurXTerminator's new planetary mode, wavelet sharpening and colour curves.",
+  "scope": "DWARF Mini",
+  "camera": "DWARF Mini",
+  "location": "Roseville",
+  "captured": "2026-10-17",
+  "nights": 1,
+  "distance_ly": "0.0000158",
+  "constellation": null
+ },
+ {
   "label": "The Sun",
   "blurb": "A composite of the International Space Station crossing the face of the Sun, built from nine frames of a high-speed burst. The ISS travels at roughly 28,000 km/h, so the whole transit lasted well under a second - each silhouette is a separate frame, laid over the others. The ground track from which a transit is visible is only a few kilometres wide, which meant driving out to Kellyville to sit on the centreline. The faint darker patches on the disc are sunspots, where magnetic fields suppress convection and leave the surface cooler.",
   "scope": "Seestar S50",
@@ -1218,7 +1232,8 @@
   "captured": "2025-01-26",
   "distance_ly": "0.0000158",
   "constellation": null,
-  "nights": 1
+  "nights": 1,
+  "group": "the-sun"
  },
  {
   "label": "Jupiter",

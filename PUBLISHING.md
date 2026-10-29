@@ -78,6 +78,31 @@ Do not crop or rotate at this stage — see the warning under step 3.
 `distance_ly` (string, comma-grouped, e.g. `"2,360"`), `distance_note` (the actual
 citation), `constellation`, `discovered_by`, `discovered_year`, `description`.
 
+**Video (optional):** `video` (repo-relative path to an H.264/yuv420p MP4 with
+faststart, under `web/video/`) and `poster` (a JPEG frame). Source GIFs and
+MPEG-4 Part 2 files don't play everywhere, so re-encode them first:
+
+```bash
+ffmpeg -i in.mp4 -map_metadata -1 -c:v libx264 -profile:v high -pix_fmt yuv420p \
+  -crf 20 -preset slow -movflags +faststart -an web/video/<name>.mp4
+```
+
+**The Sun (no plate solve possible):** add a `hints.json` entry beside the master
+instead of solving. `solve_dso.py` 1.15.0 measures the disc and writes the geometry
+(`engine: "ephemeris"`, `track: "sun"`, an `ephem` block), and the dome then follows
+the live Sun:
+
+```json
+{"my-sun.jpg": {"ephemeris": "sun", "epoch_utc": "2026-10-17T06:45:00Z",
+                "pa_up_deg": 122.5, "orientation": "horizon", "blend": "screen",
+                "label": "ISS transit of the Sun"}}
+```
+
+`pa_up_deg` is the position angle of image-up at capture. Measure it by matching
+the sunspots to an SDO/HMI image from that time, or for an alt-az, zenith-up frame
+use the parallactic angle. Avoid "Solar", "Jup", "Mars", "Saturn" and "Moon" in
+the filename. Those names mean gallery-only, no geometry.
+
 > **Solve the same pixels you publish.** The gallery infers the telescope and camera
 > from `pixscale_arcsec`, and the Moon overlay scales off `fov_w_deg`. If the solve
 > is run on a different crop or resolution than the file in `web/display/`, both
@@ -151,6 +176,8 @@ plate-scale tooling breaks.
 | `blurb` | overrides the manifest `description` |
 | `type` | overrides the coordinate-matched type. Buckets: Nebulae, Galaxies, Dust & dark, Remnants |
 | `featured` | `true` makes it a banner candidate; several flagged rotates between them |
+| `group` | stable key (slug form) shared by several shots of one target, e.g. `the-sun`. They show as one tile with a version strip in the lightbox. Never rename it once published. |
+| `lead` | `true` on the version the grid shows and a click opens first. Default: newest `captured`. |
 | `wallpaper` | URL to a 3840×2160 crop, if one exists |
 | `_check` | free-text notes to yourself. Ignored by the site. |
 

@@ -218,6 +218,35 @@ html[data-theme="light"] #stage{background:#111}
   filter:drop-shadow(0 0 20px rgba(0,0,0,.95));
 }
 #stage #moonlayer.on{display:block}
+#stage #lbvid{display:none; width:100%; height:100%; object-fit:contain; background:#000}
+#lb.video #lbvid{display:block}
+#lb.video #lbimg{display:none}
+
+/* versions of one target: thumbnails along the bottom of the photo */
+#vers{
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:6;
+  display:flex; gap:7px; padding:6px; max-width:calc(100% - 130px); overflow-x:auto;
+  background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.12); border-radius:6px;
+}
+#vers:empty{display:none}
+#vers button{
+  position:relative; flex:0 0 auto; width:88px; height:56px; padding:0;
+  border:2px solid transparent; border-radius:3px; overflow:hidden; background:#000;
+}
+#vers button.on{border-color:var(--hot)}
+#vers button:hover{border-color:rgba(255,207,107,.6)}
+#vers img{display:block; width:100%; height:100%; object-fit:cover}
+#vers .tag{
+  position:absolute; inset:auto 0 0 0; padding:1px 4px; text-align:left;
+  font:9.5px/1.4 var(--mono); color:#fff; background:rgba(0,0,0,.62);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+#vers .play{position:absolute; inset:0 0 12px 0; display:grid; place-items:center;
+  font-size:20px; color:#fff; text-shadow:0 0 8px #000}
+.cap-meta .vers{color:#ffcf6b; opacity:.85}
+#vers:not(:empty) + #zoomhint{bottom:5px}
+@media (max-width:900px){ #vers{bottom:8px; max-width:calc(100% - 16px)} #vers button{width:70px; height:46px}
+  #vers:not(:empty) + #zoomhint{display:none} }
 
 #info{
   padding:26px 26px 60px; overflow-y:auto;
@@ -322,7 +351,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.14 · built with Claude
+    v0.15 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -336,7 +365,7 @@ footer a:hover{text-decoration:underline}
 <div id="lb" role="dialog" aria-modal="true" aria-label="Image detail">
   <div id="stage">
     <div id="viewport">
-      <div id="pan"><img id="lbimg" alt="" draggable="false"></div>
+      <div id="pan"><img id="lbimg" alt="" draggable="false"><video id="lbvid" muted loop playsinline preload="none" disablepictureinpicture></video></div>
       <img id="moonlayer" src="moon.png" alt="The full Moon at the same scale">
     </div>
     <div id="tools">
@@ -344,6 +373,7 @@ footer a:hover{text-decoration:underline}
       <button id="tmoon" type="button" title="Compare with the Moon" aria-label="Compare with the Moon">&#9790;</button>
       <a id="tdome" href="#" target="_blank" rel="noopener" title="See where it is in the sky" aria-label="See where it is in the sky">&#9673;</a>
     </div>
+    <div id="vers" role="group" aria-label="Versions of this target"></div>
     <p id="zoomhint">scroll to zoom</p>
   </div>
   <div id="info">
@@ -363,7 +393,14 @@ footer a:hover{text-decoration:underline}
 /* ==========================================================================
    CONFIG — the only bits you'd ever need to change
    ========================================================================== */
-const SKYDOME   = "https://tubbers.github.io/skydome/";  // where the images live
+// where the images live. A local preview (localhost only) may point this at a
+// scratch copy with ?skydome=/path/ - never honoured on the public site.
+const SKYDOME   = (() => {
+  const live = "https://tubbers.github.io/skydome/";
+  if(!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return live;
+  const o = new URLSearchParams(location.search).get("skydome");
+  return o && /^\/[\w\/.-]*\/$/.test(o) ? o : live;
+})();
 const MOON_DEG  = 0.518;                                  // Moon's apparent diameter
 
 /* ==========================================================================
@@ -373,7 +410,8 @@ const MOON_DEG  = 0.518;                                  // Moon's apparent dia
      2. targets.json           — your planning list, for constellation + type
      3. gallery.json           — per-image blurbs, gear, hours     (optional)
    ========================================================================== */
-let IMAGES = [], VIEW = [], CUR = -1;
+let IMAGES = [], TARGETS = [], VIEW = [], CUR = -1;
+let ITEMS = [], IT = 0;      // what the lightbox can show for the open target, and which one
 
 const url = p => SKYDOME + p.split("/").map(encodeURIComponent).join("/");
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -395,7 +433,8 @@ const OPTICS = {
   "RedCat 61":    "RedCat 61 \u2014 300mm",
   "RedCat 51":    "RedCat 51 \u2014 250mm",
   "Pentax 135mm": "Pentax 135mm \u2014 135mm",
-  "Seestar S50":  "Seestar S50 \u2014 250mm"
+  "Seestar S50":  "Seestar S50 \u2014 250mm",
+  "DWARF Mini":   "DWARF Mini \u2014 150mm"
 };
 const showScope  = s => s ? (OPTICS[s] || s) : null;
 const showCamera = c => c ? (/1600MM|2600MM/.test(c) ? c + " (mono)" : c) : null;
@@ -468,6 +507,12 @@ async function boot(){
       name:      ov.name ?? null,        // overrides a junk label from the manifest
       thumbUrl:  url(im.thumb),
       fullUrl:   url(im.file),
+      videoUrl:  im.video  ? url(im.video)  : null,
+      posterUrl: im.poster ? url(im.poster) : null,
+      // several shots of one target share a gallery.json "group"; "lead" is
+      // the one on the grid and the one a click opens first
+      gkey:      ov.group || null,
+      lead:      ov.lead === true,
       ratio:     (im.width_px && im.height_px) ? im.width_px/im.height_px : 1.5,
       hasSky:    im.ra_deg != null && im.fov_w_deg > 0,
       // overrides win, then the coordinate match, then nothing
@@ -515,6 +560,22 @@ async function boot(){
 
   document.getElementById("status").remove();
 
+  // One grid tile per target. A version keeps its own slug, so an old #link
+  // to any version still opens it - inside its target.
+  const byKey = new Map();
+  for(const im of IMAGES){
+    const k = im.gkey ? "g:" + im.gkey : "s:" + im.slug;
+    if(!byKey.has(k)) byKey.set(k, []);
+    byKey.get(k).push(im);
+  }
+  const when = i => i.capturedAt ?? -8.64e15;
+  TARGETS = [...byKey.values()].map(list => {
+    list.sort((a,b) => (b.lead - a.lead) || (when(b) - when(a)));
+    list.forEach(v => { v.leadOf = list[0]; });
+    list[0].versions = list;
+    return list[0];
+  });
+
   const withHrs = IMAGES.filter(i => i.hours);
   const total   = withHrs.reduce((a,i) => a + i.hours, 0);
   document.getElementById("tally").innerHTML =
@@ -532,7 +593,7 @@ function hero(){
   const picks = IMAGES.filter(i => i.featured);
   // A banner is a wide letterbox, so a portrait frame loses most of itself to
   // the crop. Prefer landscape, then widest field.
-  const pool = picks.length ? picks : IMAGES.filter(i => i.ratio >= 1.3 && i.hasSky);
+  const pool = picks.length ? picks : TARGETS.filter(i => i.ratio >= 1.3 && i.hasSky);
   const im = pool.length
     ? [...pool].sort((a,b) => (b.fov_w_deg*b.fov_h_deg)-(a.fov_w_deg*a.fov_h_deg))[0]
     : IMAGES[0];
@@ -543,12 +604,12 @@ function hero(){
   const cap = document.getElementById("herocap");
   cap.textContent = im.name || im.label;
   cap.href = "#" + im.slug;
-  cap.onclick = e => { e.preventDefault(); const ix = VIEW.findIndex(v => v.slug === im.slug); if(ix >= 0) open(ix); };
+  cap.onclick = e => { e.preventDefault(); openSlug(im.slug); };
 }
 
 function chips(){
   const counts = {};
-  IMAGES.forEach(i => { if(i.group) counts[i.group] = (counts[i.group]||0)+1; });
+  TARGETS.forEach(i => { if(i.group) counts[i.group] = (counts[i.group]||0)+1; });
   const box = document.getElementById("chips");
   box.innerHTML = "";
   Object.keys(BUCKETS).filter(n => counts[n]).forEach(name => {
@@ -575,9 +636,9 @@ function render(){
   const q = document.getElementById("q").value.trim().toLowerCase();
   const s = document.getElementById("sort").value;
 
-  VIEW = IMAGES.filter(i =>
+  VIEW = TARGETS.filter(i =>
     (!PICKED.size || PICKED.has(i.group)) &&
-    (!q || [i.name,i.label,i.catCode,i.constellation,i.objectType]
+    (!q || i.versions.flatMap(v => [v.name,v.label,v.catCode,v.constellation,v.objectType])
       .filter(Boolean).join(" ").toLowerCase().includes(q)));
 
   const D = i => num(i.distLy) ?? Infinity;
@@ -615,6 +676,13 @@ function render(){
     const bits = [shortCon, d ? d.replace(" light-years"," ly").replace(" light-minutes"," lt-min") : null]
                  .filter(Boolean).join("  ·  ");
     meta.append(document.createTextNode(bits));
+    const nv = im.versions.length, vid = im.versions.some(v => v.videoUrl);
+    if(nv > 1 || vid){
+      const k = document.createElement("span");
+      k.className = "vers";
+      k.textContent = [nv > 1 ? nv + " versions" : null, vid ? "\u25b6 video" : null].filter(Boolean).join(" \u00b7 ");
+      meta.appendChild(k);
+    }
     const score = im.favourites + im.downloads;
     if(score){
       const k = document.createElement("span");
@@ -638,13 +706,60 @@ function render(){
 const lb = document.getElementById("lb");
 let moonOn = false;
 
-function open(ix){
+/* Everything the strip offers for one target: each version's photo, and its
+   video straight after it when there is one. */
+function itemsOf(t){
+  return t.versions.flatMap(v => v.videoUrl ? [{v, video:false}, {v, video:true}] : [{v, video:false}]);
+}
+
+function open(ix, it = 0){
   CUR = ix;
-  const im = VIEW[ix];
+  ITEMS = itemsOf(VIEW[ix]);
+  show(Math.max(0, Math.min(it, ITEMS.length - 1)));
+
+  // warm the neighbours so stepping left and right is instant
+  [1,-1].forEach(d => {
+    const n = VIEW[(ix + d + VIEW.length) % VIEW.length];
+    if(n) new Image().src = n.fullUrl;
+  });
+
+  lb.classList.add("on");
+  document.body.style.overflow = "hidden";
+  document.getElementById("close").focus({preventScroll:true});
+}
+
+function strip(){
+  const box = document.getElementById("vers");
+  box.innerHTML = "";
+  if(ITEMS.length < 2) return;
+  ITEMS.forEach((x, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = i === IT ? "on" : "";
+    const yr = (x.v.captured || "").slice(0,4);
+    const what = x.video ? "\u25b6 video" : [yr, x.v.scope].filter(Boolean).join(" \u00b7 ");
+    b.title = x.video ? "Play the video" : (what || "Version " + (i + 1));
+    b.setAttribute("aria-label", b.title);
+    b.setAttribute("aria-pressed", i === IT);
+    const img = document.createElement("img");
+    img.src = x.video ? (x.v.posterUrl || x.v.thumbUrl) : x.v.thumbUrl;
+    img.alt = ""; img.loading = "lazy";
+    const tag = document.createElement("span"); tag.className = "tag"; tag.textContent = what;
+    b.append(img);
+    if(x.video){ const pl = document.createElement("span"); pl.className = "play"; pl.textContent = "\u25b6"; b.append(pl); }
+    b.append(tag);
+    b.onclick = e => { e.stopPropagation(); show(i); };
+    box.appendChild(b);
+  });
+}
+
+function show(it){
+  IT = it;
+  const t = VIEW[CUR], {v:im, video} = ITEMS[it];
 
   document.getElementById("lbimg").src = im.fullUrl;
-  document.getElementById("lbimg").alt = im.name || im.label;
-  document.getElementById("lbname").textContent = im.name || im.label;
+  document.getElementById("lbimg").alt = t.name || t.label;
+  document.getElementById("lbname").textContent = t.name || t.label;
   document.getElementById("codes").textContent =
     [im.catCode, im.objectType, im.constellation].filter(Boolean).join("  ·  ");
 
@@ -717,24 +832,33 @@ function open(ix){
     moonBtn.classList.remove("on");
   }
 
+  // a video has no plate scale on screen to hang the Moon on
+  const vid = document.getElementById("lbvid");
+  lb.classList.toggle("video", video);
+  if(video){
+    moonBtn.style.display = "none";
+    vid.poster = im.posterUrl || im.fullUrl;
+    if(vid.getAttribute("src") !== im.videoUrl){ vid.setAttribute("src", im.videoUrl); vid.load(); }
+    const go = vid.play(); if(go && go.catch) go.catch(() => {});
+  }else stopVideo();
+  const moonNow = moonOn && !video;
+
   // the Moon stays on as you step through targets, and rescales each time
-  document.getElementById("moonlayer").classList.toggle("on", moonOn);
+  document.getElementById("moonlayer").classList.toggle("on", moonNow);
   document.getElementById("tmoon").classList.toggle("on", moonOn);
   resetZoom();
   const shownEl = document.getElementById("lbimg");
-  shownEl.onload = () => { if(moonOn) drawMoon(); };
-  if(moonOn && shownEl.naturalWidth) drawMoon();
+  shownEl.onload = () => { if(moonOn && !lb.classList.contains("video")) drawMoon(); };
+  if(moonNow && shownEl.naturalWidth) drawMoon();
 
-  // warm the neighbours so stepping left and right is instant
-  [1,-1].forEach(d => {
-    const n = VIEW[(ix + d + VIEW.length) % VIEW.length];
-    if(n) new Image().src = n.fullUrl;
-  });
-
-  lb.classList.add("on");
-  document.body.style.overflow = "hidden";
+  strip();
   history.replaceState(null,"","#" + im.slug);
-  document.getElementById("close").focus();
+}
+
+function stopVideo(){
+  const vid = document.getElementById("lbvid");
+  if(!vid.getAttribute("src")) return;
+  vid.pause(); vid.removeAttribute("src"); vid.load();     // stop the download too
 }
 
 /* ---- zoom & pan -------------------------------------------------------
@@ -808,6 +932,7 @@ vp.addEventListener("pointermove", e => {
     return;
   }
   if(!drag) return;
+  drag.lx = e.clientX; drag.ly = e.clientY;
   if(Math.hypot(e.clientX-drag.x, e.clientY-drag.y) > 6) drag.moved = true;
   if(Z <= 1 || !drag.moved) return;
   vp.classList.add("dragging");
@@ -821,6 +946,11 @@ function release(e){
   if(pointers.size < 2) pinch = null;
   if(pointers.size) return;
   if(drag && !drag.moved) Z > 1 ? resetZoom() : toggleSolo();
+  else if(drag && Z <= 1 && e.type === "pointerup"){
+    // a horizontal flick on the un-zoomed photo pages to the next or previous target
+    const dx = (drag.lx ?? drag.x) - drag.x, dy = (drag.ly ?? drag.y) - drag.y;
+    if(Math.abs(dx) > 50 && Math.abs(dx) > 1.5 * Math.abs(dy)) step(dx < 0 ? 1 : -1);
+  }
   drag = null;
   vp.classList.remove("dragging");
 }
@@ -859,7 +989,7 @@ document.getElementById("tfull").onclick = goFullscreen;
 /* object-fit:contain letterboxes the photo inside the element, so the
    drawn width is not the element width — work out the real one first. */
 function drawMoon(){
-  const im    = VIEW[CUR];
+  const im    = ITEMS[IT] && ITEMS[IT].v;
   if(!im || !im.hasSky) return;
   const shown = document.getElementById("lbimg");
   const layer = document.getElementById("moonlayer");
@@ -876,7 +1006,8 @@ function shut(){
   moonOn = false;
   document.getElementById("moonlayer").classList.remove("on");
   document.getElementById("tmoon").classList.remove("on");
-  lb.classList.remove("on","solo");
+  stopVideo();
+  lb.classList.remove("on","solo","video");
   resetZoom();
   document.body.style.overflow = "";
   history.replaceState(null,"",location.pathname);
@@ -897,14 +1028,30 @@ addEventListener("keydown", e => {
   if(e.key === "m") toggleMoon();
   if(e.key === "ArrowLeft")  step(-1);
   if(e.key === "ArrowRight") step(1);
+  // up/down move through the versions of the target on show
+  if((e.key === "ArrowDown" || e.key === "ArrowUp") && ITEMS.length > 1){
+    e.preventDefault();
+    show((IT + (e.key === "ArrowDown" ? 1 : -1) + ITEMS.length) % ITEMS.length);
+  }
 });
 addEventListener("resize", () => { if(moonOn) drawMoon(); });
 
+/* Open any version by its slug: its target, with that version on show. */
+function openSlug(sl){
+  const v = IMAGES.find(i => i.slug === sl);
+  if(!v) return false;
+  let ix = VIEW.indexOf(v.leadOf);
+  if(ix < 0){                     // filtered out of the grid: clear the filters first
+    PICKED.clear(); document.querySelectorAll(".chip.on").forEach(c => c.classList.remove("on"));
+    document.getElementById("q").value = ""; render(); ix = VIEW.indexOf(v.leadOf);
+  }
+  if(ix < 0) return false;
+  open(ix, Math.max(0, itemsOf(v.leadOf).findIndex(x => x.v === v && !x.video)));
+  return true;
+}
 function openFromHash(){
   const h = location.hash.slice(1);
-  if(!h) return;
-  const ix = VIEW.findIndex(i => i.slug === h);
-  if(ix >= 0) open(ix);
+  if(h) openSlug(decodeURIComponent(h));
 }
 
 /* ==========================================================================
