@@ -1389,5 +1389,23 @@
   "distance_ly": "160,000",
   "distance_note": "LMC distance, 49.6 kpc (about 162,000 ly), from eclipsing binaries; Pietrzyński et al. 2019. Henize 70 is taken to sit at the LMC's distance",
   "discovered_by": "Karl Henize (catalogued 1956)"
+ },
+ {
+  "label": "NGC 6888 Crescent Nebula",
+  "name": "Crescent Nebula (NGC 6888) — The Wind-Blown Bubble Around a Wolf-Rayet Star",
+  "blurb": "The Crescent Nebula, NGC 6888, is a shell of glowing gas in the constellation Cygnus, about 4,500 light-years away and roughly 20 to 25 light-years across. A single star blew it: WR 136, a Wolf-Rayet star that began with 25 to 40 times the mass of the Sun and now throws off a wind at around 1,800 kilometres per second. That fast wind is ploughing into the slower wind the star shed earlier as a red supergiant, piling the gas into a shell, while shocks and the star's ultraviolet light make it glow. Chandra X-ray observations show gas inside the bubble heated to millions of degrees, and the nebula's nitrogen and oxygen carry the mark of material processed in the star's core. WR 136 is expected to end its life as a supernova. William Herschel found the nebula in 1792.",
+  "type": "Emission Nebula",
+  "scope": "200PDS",
+  "camera": "ASI1600MM",
+  "filters": "Ha/OIII",
+  "location": "Willoughby",
+  "bortle": 7,
+  "hours": 22.8,
+  "nights": 11,
+  "captured": "2026-07-28 to 2026-08-08",
+  "distance_ly": "4,500",
+  "distance_note": "Commonly quoted value (older estimates 1.26 to 1.45 kpc). Gaia puts WR 136 farther, about 1.9 kpc or 6,200 ly (Bailer-Jones et al. 2018)",
+  "constellation": "Cygnus",
+  "discovered_by": "William Herschel, 1792"
  }
 ]

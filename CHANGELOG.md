@@ -2,6 +2,9 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.17 — 2026-10-29
+- Added the Crescent Nebula (NGC 6888), Cygnus.
+
 ## 0.16 — 2026-10-29
 - Four more targets are grouped into one tile each, with a version strip. Every existing slug still opens its own version.
   - **M8 Lagoon** (`m8-lagoon`): lead `lagoon-lh` (SHO, 2026), plus `m8-lagoon-nebula` (2025). The Lagoon + NGC 6559 wide field stays separate.
