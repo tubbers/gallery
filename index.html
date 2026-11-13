@@ -159,6 +159,25 @@ a.stat:hover{color:var(--pick)}
 .stat .lb{font-family:var(--sans); font-size:11.5px; color:var(--dim)}
 @media (max-width:760px){ figure{height:180px} main{padding:12px} }
 
+
+/* Nebula Nest (and future site) badge on the card and in the detail view */
+.nest-badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#0a0614; border:1px solid rgba(180,120,255,.35);
+  border-radius:8px; padding:3px 7px; line-height:0;
+  text-decoration:none;
+}
+.nest-badge img{display:block; width:auto; height:36px}
+figure .nest-badge{
+  position:absolute; top:8px; right:8px; z-index:3;
+  pointer-events:auto;
+}
+#sitebadge{margin:10px 0 0}
+#sitebadge:empty{display:none}
+#sitebadge .nest-badge img{height:52px}
+#sitebadge .nest-badge{padding:4px 8px}
+
+
 /* ---------- lightbox ---------- */
 #lb{
   position:fixed; inset:0; z-index:100; display:none;
@@ -351,7 +370,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.17 · built with Claude
+    v0.18 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -378,6 +397,7 @@ footer a:hover{text-decoration:underline}
   </div>
   <div id="info">
     <h2 id="lbname"></h2>
+    <div id="sitebadge"></div>
     <p id="codes"></p>
     <p id="blurb"></p>
     <div id="reach"></div>
@@ -554,6 +574,7 @@ async function boot(){
       favourites:    (ov.favourites ?? 0) + (ov.astrobin_likes ?? 0) + (ov.telescopius_likes ?? 0),
       reprocessed:   ov.reprocessed    ?? 0,
       featured:      ov.featured === true,
+      site:          ov.site          ?? null,
       group:         bucket(ov.type ?? cat?.type ?? null)
     };
   });
@@ -627,6 +648,34 @@ function chips(){
   });
 }
 
+
+/* Optional gallery.json "site" field. "nebula-nest" marks images taken at
+   the Nebula Nest (https://nebulanest.com.au). Unknown values are ignored. */
+const SITES = {
+  "nebula-nest": {
+    href: "https://nebulanest.com.au",
+    src: "nest-logo.png",
+    alt: "Captured at the Nebula Nest",
+    title: "Captured at the Nebula Nest"
+  }
+};
+function siteBadge(site){
+  const s = SITES[site];
+  if(!s) return null;
+  const a = document.createElement("a");
+  a.className = "nest-badge";
+  a.href = s.href;
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.title = s.title;
+  const img = document.createElement("img");
+  img.src = s.src;
+  img.alt = s.alt;
+  a.appendChild(img);
+  a.addEventListener("click", e => e.stopPropagation());
+  return a;
+}
+
 /* ==========================================================================
    GRID
    ========================================================================== */
@@ -692,6 +741,8 @@ function render(){
     cap.append(nm, meta);
 
     f.append(img, cap);
+    const badge = siteBadge(im.site);
+    if(badge) f.appendChild(badge);
     f.onclick   = () => open(ix);
     f.onkeydown = e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(ix); } };
     g.appendChild(f);
@@ -760,6 +811,10 @@ function show(it){
   document.getElementById("lbimg").src = im.fullUrl;
   document.getElementById("lbimg").alt = t.name || t.label;
   document.getElementById("lbname").textContent = t.name || t.label;
+  const sitebox = document.getElementById("sitebadge");
+  sitebox.innerHTML = "";
+  const detailBadge = siteBadge(im.site);
+  if(detailBadge) sitebox.appendChild(detailBadge);
   document.getElementById("codes").textContent =
     [im.catCode, im.objectType, im.constellation].filter(Boolean).join("  ·  ");
 

@@ -30,7 +30,8 @@ skydome/
 ├── <original>.jpg                full-size masters, any size
 └── web/
     ├── display/<name>_2400.jpg   long edge 2400px
-    └── thumbs/<name>_1024.jpg    long edge 1024px
+    └── thumbs/<name>_1024.jpg    long edge 1024px (existing images)
+        └── thumbs/<name>_1200.jpg    long edge 1200px (new images, from 13 Nov 2026)
 ```
 
 ---
@@ -48,8 +49,9 @@ URL-encodes each path segment. New files should use hyphens.
 
 ### 2. Generate the two web sizes
 
-Long edge **2400px** into `web/display/`, long edge **1024px** into `web/thumbs/`,
-both suffixed `_2400` / `_1024`. Quality 85–90 is plenty; these are display copies.
+Long edge **2400px** into `web/display/` (suffix `_2400`). Thumbnails go in `web/thumbs/`:
+**1200px** on the long side for new images (suffix `_1200`). Existing thumbnails stay at
+**1024px**. Quality 85–90 is plenty; these are display copies.
 
 Do not crop or rotate at this stage — see the warning under step 3.
 
@@ -63,7 +65,7 @@ Do not crop or rotate at this stage — see the warning under step 3.
 |---|---|
 | `original` | master filename, with extension |
 | `file` | `web/display/<name>_2400.jpg` |
-| `thumb` | `web/thumbs/<name>_1024.jpg` |
+| `thumb` | `web/thumbs/<name>_1024.jpg` or `web/thumbs/<name>_1200.jpg` (new images use 1200) |
 | `label` | display name, e.g. `NGC 6960 Veil Nebula`. **Must be unique.** |
 | `slug` | slugified label. Gallery and dome both key links off this. |
 | `solved` | `true`. Anything `false` is skipped by the gallery. |
@@ -164,7 +166,7 @@ plate-scale tooling breaks.
 | `scope` | `200PDS` · `ASKAR 91F` · `RedCat 61` · `RedCat 51` · `Pentax 135mm`. Focal length is added by the site. |
 | `camera` | `ASI585MC` · `ASI2600MC` · `ASI2600MM` · `ASI1600MM`. The site appends "(mono)" to the MM bodies. |
 | `filters` | Free text. `Broadband` and `OSC broadband` both render as "None". |
-| `location` | `Willoughby` · `Wheeny Creek` · `Wiruna` · `Parkes` |
+| `location` | `Willoughby` · `Wheeny Creek` · `Wiruna` · `Parkes` · `Capertee Valley` · `Nebula Nest, Vic` |
 | `bortle` | integer |
 | `hours` | decimal, total integration for **this image** |
 | `nights` | integer, distinct dates |
@@ -178,6 +180,7 @@ plate-scale tooling breaks.
 | `featured` | `true` makes it a banner candidate; several flagged rotates between them |
 | `group` | stable key (slug form) shared by several shots of one target, e.g. `the-sun`. They show as one tile with a version strip in the lightbox. Never rename it once published. |
 | `lead` | `true` on the version the grid shows and a click opens first. Default: newest `captured`. |
+| `site` | Optional. `nebula-nest` marks the card and the detail view with the Nebula Nest logo (`nest-logo.png`), linking to https://nebulanest.com.au with the title and alt text “Captured at the Nebula Nest”. Reuse this on every future image taken at the Nest. Other values are ignored. |
 | `wallpaper` | URL to a 3840×2160 crop, if one exists |
 | `_check` | free-text notes to yourself. Ignored by the site. |
 
@@ -211,7 +214,7 @@ Validated against 7 known rigs: 6 correct.
 ## Checklist
 
 - [ ] Master JPEG in skydome root, no spaces in the filename
-- [ ] `web/display/<name>_2400.jpg` and `web/thumbs/<name>_1024.jpg` exist
+- [ ] `web/display/<name>_2400.jpg` and `web/thumbs/<name>_1200.jpg` exist (new images; older thumbs may still be `_1024`)
 - [ ] Plate solve run on the same pixels as the display copy
 - [ ] `label` unique across the manifest, `slug` derived from it
 - [ ] `solved: true`

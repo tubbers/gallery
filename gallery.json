@@ -1407,5 +1407,41 @@
   "distance_note": "Commonly quoted value (older estimates 1.26 to 1.45 kpc). Gaia puts WR 136 farther, about 1.9 kpc or 6,200 ly (Bailer-Jones et al. 2018)",
   "constellation": "Cygnus",
   "discovered_by": "William Herschel, 1792"
+ },
+ {
+  "label": "M31 Andromeda Galaxy",
+  "name": "M31 Andromeda Galaxy",
+  "blurb": "The Andromeda Galaxy is the nearest large spiral to the Milky Way, about 2.5 million light-years away, and the biggest member of our Local Group. Its light left before modern humans existed. Two of its satellite galaxies are in the frame: the compact M32 just off the disc, and the elongated M110 further out. NGC 206, a huge cloud of young blue stars, shows as a bright knot inside the outer spiral arm. From the southern hemisphere Andromeda sits low in the north, so it has to be caught in the short window when it clears the horizon murk.\n\nMosaic of 744 × 30 s subs (6.2 hours) on the DWARF Mini, shot from the Wiruna dark site over 5 to 8 November 2026.",
+  "type": "Spiral Galaxy",
+  "scope": "DWARF Mini",
+  "camera": "DWARF Mini",
+  "filters": "None",
+  "location": "Wiruna",
+  "bortle": 2,
+  "hours": 6.2,
+  "nights": 4,
+  "captured": "2026-11-05 to 2026-11-08",
+  "distance_ly": "2,500,000",
+  "distance_note": "About 765 kpc, commonly quoted as 2.5 million light-years.",
+  "constellation": "Andromeda",
+  "discovered_by": "Abd al-Rahman al-Sufi, 964"
+ },
+ {
+  "label": "M78 (NGC 2068)",
+  "name": "M 78 (NGC 2068) — A Reflection Nebula in Orion, Lit by Two Young Stars",
+  "blurb": "M 78 is one of the brightest reflection nebulae in the sky, about 1,350 light-years away in Orion. It makes no light of its own. It is a cloud of fine dust, and it shines because two young, hot B-type stars at its heart, HD 38563 A and B, scatter their blue-white light off the grains. It is about 8 by 6 arcminutes in size, around magnitude 8.3, and part of the Orion B molecular cloud complex, a region where new stars are still forming. Pierre Méchain found it in 1780 and Charles Messier added it to his catalogue the same year. The nearby glows catalogued as NGC 2064, NGC 2067 and NGC 2071 belong to the same group.\n\nThis wide view (about 2.2 × 1.5 degrees) shows the bright blue-white glow of M 78 and its neighbour at the centre, threaded with near-black dust lanes, a dark spiky dust cloud off to the upper right, and a pink glow of hydrogen gas from the wider Orion complex along the left edge. It is my first finished image from the Nebula Nest, my remote rig. Captured remotely from the Nebula Nest, Vic, over four nights between 5 and 8 November 2026.\n\n342 × 180 s subs, 17.1 hours captured over four nights (gain 100). 313 frames used, 15.65 hours final integration (91.5% kept). Background noise 0.76% (green). Multi-channel analyser red σ9.4 / contrast 1.089×. Low contrast is normal for a reflection nebula in faint dust.\n\nProcessed in PixInsight: WBPP integration to an OSC broadband master, GraXpert background extraction, SpectroPhotometric Colour Calibration (SPCC), BlurXTerminator (correct + sharpen), StarNet++ star separation, NoiseXTerminator with masked application, then a masked stretch and Generalized Hyperbolic Stretch to lift the dust without blowing out the bright cores, and star recombination.\n\nThe appeal of this field is how many kinds of dust share one frame: the bright blue-white reflection, the near-black lanes, and the faint pink glow at the edge. Fifteen hours under dark skies is what lets the faint outer dust hold together.\n\nRaw FITS data is up on https://astrophotomarket.com/en/author/wade-tubman — free to download if you would like to process it yourself.",
+  "type": "Reflection Nebula",
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "None (OSC broadband)",
+  "location": "Nebula Nest, Vic",
+  "hours": 15.65,
+  "nights": 4,
+  "captured": "2026-11-05 to 2026-11-08",
+  "distance_ly": "1,350",
+  "distance_note": "Commonly quoted value, about 400–420 pc to the Orion B molecular cloud.",
+  "constellation": "Orion",
+  "discovered_by": "Pierre Méchain, 1780",
+  "site": "nebula-nest"
  }
 ]

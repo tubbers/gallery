@@ -2,6 +2,11 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.18 — 2026-11-13
+- Added M31 Andromeda Galaxy (DWARF Mini, Wiruna, 5–8 November 2026) and M78 (NGC 2068) (Askar 91F, Nebula Nest).
+- Optional `site` field in `gallery.json`. Set `"site": "nebula-nest"` to show the Nebula Nest logo as a badge on the grid card and in the detail view, linking to https://nebulanest.com.au. Reuse it on future Nest images.
+- New thumbnails are 1,200 px on the long side (`web/thumbs/<name>_1200.jpg`). Existing 1,024 px thumbs are unchanged.
+
 ## 0.17 — 2026-10-29
 - Added the Crescent Nebula (NGC 6888), Cygnus.
 
