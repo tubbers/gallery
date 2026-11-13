@@ -1429,7 +1429,7 @@
  {
   "label": "M78 (NGC 2068)",
   "name": "M 78 (NGC 2068) — A Reflection Nebula in Orion, Lit by Two Young Stars",
-  "blurb": "M 78 is one of the brightest reflection nebulae in the sky, about 1,350 light-years away in Orion. It makes no light of its own. It is a cloud of fine dust, and it shines because two young, hot B-type stars at its heart, HD 38563 A and B, scatter their blue-white light off the grains. It is about 8 by 6 arcminutes in size, around magnitude 8.3, and part of the Orion B molecular cloud complex, a region where new stars are still forming. Pierre Méchain found it in 1780 and Charles Messier added it to his catalogue the same year. The nearby glows catalogued as NGC 2064, NGC 2067 and NGC 2071 belong to the same group.\n\nThis wide view (about 2.2 × 1.5 degrees) shows the bright blue-white glow of M 78 and its neighbour at the centre, threaded with near-black dust lanes, a dark spiky dust cloud off to the upper right, and a pink glow of hydrogen gas from the wider Orion complex along the left edge. It is my first finished image from the Nebula Nest, my remote rig. Captured remotely from the Nebula Nest, Vic, over four nights between 5 and 8 November 2026.\n\n342 × 180 s subs, 17.1 hours captured over four nights (gain 100). 313 frames used, 15.65 hours final integration (91.5% kept). Background noise 0.76% (green). Multi-channel analyser red σ9.4 / contrast 1.089×. Low contrast is normal for a reflection nebula in faint dust.\n\nProcessed in PixInsight: WBPP integration to an OSC broadband master, GraXpert background extraction, SpectroPhotometric Colour Calibration (SPCC), BlurXTerminator (correct + sharpen), StarNet++ star separation, NoiseXTerminator with masked application, then a masked stretch and Generalized Hyperbolic Stretch to lift the dust without blowing out the bright cores, and star recombination.\n\nThe appeal of this field is how many kinds of dust share one frame: the bright blue-white reflection, the near-black lanes, and the faint pink glow at the edge. Fifteen hours under dark skies is what lets the faint outer dust hold together.\n\nRaw FITS data is up on https://astrophotomarket.com/en/author/wade-tubman — free to download if you would like to process it yourself.",
+  "blurb": "M 78 is one of the brightest reflection nebulae in the sky, about 1,350 light-years away in Orion. It makes no light of its own. It is a cloud of fine dust, and it shines because two young, hot B-type stars at its heart, HD 38563 A and B, scatter their blue-white light off the grains. This wide view shows the bright blue-white glow of M 78 and its neighbour at the centre, threaded with near-black dust lanes, a dark spiky dust cloud off to the upper right, and a pink glow of hydrogen gas from the wider Orion complex along the left edge. It is my first finished image from the Nebula Nest, my remote rig.\n\nCaptured remotely from the Nebula Nest, Vic, over four nights between 5 and 8 November 2026, 15.65 hours on the Askar 91F and ASI2600MC.\n\nRaw FITS data is up on https://astrophotomarket.com/en/author/wade-tubman — free to download if you would like to process it yourself.",
   "type": "Reflection Nebula",
   "scope": "ASKAR 91F",
   "camera": "ASI2600MC",
@@ -1443,5 +1443,23 @@
   "constellation": "Orion",
   "discovered_by": "Pierre Méchain, 1780",
   "site": "nebula-nest"
+ },
+ {
+  "label": "NGC 1097",
+  "name": "NGC 1097 (Caldwell 67) — A Barred Spiral Galaxy in Fornax",
+  "blurb": "NGC 1097 is a barred spiral galaxy about 45 million light-years away in the southern constellation of Fornax, roughly 9 by 6 arcminutes across and around magnitude 10. William Herschel found it on 9 October 1790. A bright bar of stars cuts across its core and funnels gas inward, feeding a ring of star formation about 5,000 light-years across that circles the centre. At the very heart sits a supermassive black hole about 140 million times the mass of the Sun, which makes NGC 1097 a Seyfert galaxy, although its nucleus is only weakly active at present. A small companion, the dwarf elliptical NGC 1097A, orbits about 42,000 light-years from the centre; it is the small yellow glow at the upper right of the frame.\n\nThose features once called jets are four faint, narrow streams of stars, radiating in an X from the galaxy. They are not jets from the black hole: they are tidal debris, the remains of a dwarf galaxy that NGC 1097 has been tearing apart. The brightest of them, R1, runs northeast and bends at a right angle — the “dog-leg” — about 13 arcminutes out, where a small remnant of the swallowed dwarf still sits. A faint linear glow in the upper left of this frame follows the path of that stream.\n\nCaptured from Wiruna in the NSW outback (Bortle 2) over four nights between 5 and 8 November 2026, 11 hours on the 8-inch 200PDS and ASI585MC.",
+  "type": "Barred Spiral Galaxy",
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "None",
+  "location": "Wiruna",
+  "bortle": 2,
+  "hours": 11.05,
+  "nights": 4,
+  "captured": "2026-11-05 to 2026-11-08",
+  "distance_ly": "45,000,000",
+  "distance_note": "Commonly quoted value (ESO/ALMA). Redshift distances are typically 14–18 Mpc (about 46–59 million ly); Galianni et al. 2010 adopted 17 ± 2 Mpc.",
+  "constellation": "Fornax",
+  "discovered_by": "William Herschel, 1790"
  }
 ]
