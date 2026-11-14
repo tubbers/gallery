@@ -1461,5 +1461,41 @@
   "distance_note": "Commonly quoted value (ESO/ALMA). Redshift distances are typically 14–18 Mpc (about 46–59 million ly); Galianni et al. 2010 adopted 17 ± 2 Mpc.",
   "constellation": "Fornax",
   "discovered_by": "William Herschel, 1790"
+ },
+ {
+  "label": "NGC 1532",
+  "name": "NGC 1532 (+ NGC 1531) — An Edge-On Spiral and Its Dwarf Companion in Eridanus",
+  "blurb": "NGC 1532, also known as Haley's Coronet, is a barred spiral galaxy in the southern constellation of Eridanus, seen edge-on from Earth, about 55 million light-years away. It measures roughly 12.6 by 3.3 arcminutes and shines at around magnitude 10.7. James Dunlop found it on 29 October 1826. It is locked in a slow gravitational dance with a small dwarf galaxy, NGC 1531, which sits right beside its disc — the small yellowish glow just below the core in this frame. Tidal forces from the encounter lift part of NGC 1532's disc above its plane, a bridge of gas and dust links the pair, and the meeting has set off bursts of star formation in both. The two are bound together and are expected to merge eventually, with NGC 1532 absorbing its smaller neighbour. The faint elongated galaxy at the upper right is ESO 359-G29, and a smaller lenticular, IC 2041, sits below the disc to the right.\n\nCaptured from Wheeny Creek, a dark site outside Sydney (Bortle 4), and from Wiruna in the NSW outback (Bortle 2), on 11 October and 5 November 2026, 10 hours on the 8-inch 200PDS and ASI585MC.",
+  "type": "Barred Spiral Galaxy",
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "None",
+  "location": "Wheeny Creek + Wiruna",
+  "bortle": 4,
+  "hours": 10.35,
+  "nights": 2,
+  "captured": "2026-10-11 and 2026-11-05",
+  "distance_ly": "55,000,000",
+  "distance_note": "About 55 million light-years (published estimates typically 55–58 million ly; NED 58.3 ± 1.5 million ly).",
+  "constellation": "Eridanus",
+  "discovered_by": "James Dunlop, 1826"
+ },
+ {
+  "label": "M74 Phantom Galaxy",
+  "name": "M 74 (NGC 628) — The Phantom Galaxy, a Grand Design Spiral in Pisces",
+  "blurb": "M 74, also catalogued as NGC 628 and nicknamed the Phantom Galaxy, is a face-on spiral galaxy in the constellation of Pisces, about 30 million light-years away. It measures about 10.5 by 9.5 arcminutes, around a third of the width of the full Moon, and is roughly 85,000 light-years across. Pierre Méchain discovered it in 1780 and Charles Messier added it to his catalogue as number 74. Its two clean, sweeping spiral arms make it a textbook “grand design” spiral. The blue arms are packed with young, hot stars, and the pink knots strung along them are clouds of glowing hydrogen gas lit by newborn stars. Several supernovae have been seen in it, including ones in 2002, 2003, 2013 and 2019.\n\nThis face-on spiral fills only a quarter of the frame, set in a field full of faint background galaxies.\n\nCaptured from Wiruna in the NSW outback (Bortle 2) over three nights between 6 and 8 November 2026, 12 hours on the 8-inch 200PDS and ASI585MC.",
+  "type": "Spiral Galaxy",
+  "scope": "200PDS",
+  "camera": "ASI585MC",
+  "filters": "None",
+  "location": "Wiruna",
+  "bortle": 2,
+  "hours": 12.25,
+  "nights": 3,
+  "captured": "2026-11-06 to 2026-11-08",
+  "distance_ly": "30,000,000",
+  "distance_note": "About 30 million light-years (published estimates typically 24–32 million ly).",
+  "constellation": "Pisces",
+  "discovered_by": "Pierre Méchain, 1780"
  }
 ]
