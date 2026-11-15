@@ -227,8 +227,8 @@ Everything is in this repo, so nothing is hotlinked at runtime.
 
 **A new image:** add a `labels` entry keyed on its exact label. If it uses a new scope,
 constellation or person, add that too: constellation charts are commons
-`File:<Name>_IAU.svg` rendered to a 1,200 px wide PNG, and portraits must be public
-domain or CC-licensed, 600 px tall, with the credit recorded. Then list the file in
+`File:<Name>_IAU.svg` rendered to a 1,200 px wide PNG, and portraits should be public
+domain or CC-licensed (anything else only with Wade's OK, credited to its source), about 600 px tall, with the credit recorded. Then list the file in
 `credits.md`. Strip EXIF from any phone photo before adding it.
 
 ---

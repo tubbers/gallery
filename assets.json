@@ -2,7 +2,7 @@
  "_about": "Popup assets for the detail view (v0.22). Scope photos key off gallery.json `scope`; constellations and people are keyed by name; `labels` maps each gallery label to its constellation and person. Swap the fallback portrait by replacing the file named in fallback.file.",
  "fallback": {
   "file": "assets/people/default_discovery.jpg",
-  "credit": "Placeholder image (source to be confirmed)",
+  "credit": "Fallback image, Wade Tubman collection, used with permission",
   "alt": "No portrait available"
  },
  "constellations": {
@@ -239,9 +239,10 @@
   "Aage Sandqvist": {
    "name": "Aage Sandqvist",
    "wiki": "https://en.wikipedia.org/wiki/Aage_Sandqvist",
-   "file": null,
-   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
-   "held_portrait_source": "https://www.esero.se/"
+   "file": "assets/people/aage-sandqvist.jpg",
+   "credit": "© ESERO Sweden (esero.se), used with credit",
+   "licence": "© source, used with credit",
+   "source": "https://www.esero.se/"
   },
   "Abd al-Rahman al-Sufi": {
    "name": "Abd al-Rahman al-Sufi",
@@ -290,9 +291,10 @@
   "DeLisle Stewart": {
    "name": "DeLisle Stewart",
    "wiki": "https://en.wikipedia.org/wiki/DeLisle_Stewart",
-   "file": null,
-   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
-   "held_portrait_source": "https://ucengagingscience.org/"
+   "file": "assets/people/delisle-stewart.jpg",
+   "credit": "© University of Cincinnati (ucengagingscience.org), used with credit",
+   "licence": "© source, used with credit",
+   "source": "https://ucengagingscience.org/"
   },
   "Edward Emerson Barnard": {
    "name": "Edward Emerson Barnard",
@@ -353,8 +355,10 @@
   "John Bevis": {
    "name": "John Bevis",
    "wiki": "https://en.wikipedia.org/wiki/John_Bevis",
-   "file": null,
-   "fallback_reason": "override portrait (non-Wikimedia), held for Wade"
+   "file": "assets/people/john-bevis.jpg",
+   "credit": "Frontispiece of Bevis's Uranographia Britannica, c. 1750 (no portrait of Bevis is known) · © Linda Hall Library, used with credit",
+   "licence": "© source, used with credit",
+   "source": "https://www.lindahall.org/about/news/scientist-of-the-day/john-bevis/"
   },
   "John Herschel": {
    "name": "John Herschel",
@@ -423,23 +427,25 @@
   "Robert McNaught": {
    "name": "Robert McNaught",
    "wiki": "https://en.wikipedia.org/wiki/Robert_H._McNaught",
-   "file": null,
-   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
-   "held_portrait_source": "https://www.abc.net.au/"
+   "file": "assets/people/robert-mcnaught.jpg",
+   "credit": "© ABC (abc.net.au), used with credit",
+   "licence": "© source, used with credit",
+   "source": "https://www.abc.net.au/"
   },
   "Royal Frost": {
    "name": "Royal Frost",
    "wiki": "https://en.wikipedia.org/wiki/Royal_Harwood_Frost",
    "file": null,
-   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
+   "fallback_reason": "portrait URL (fillebrown.com) returned HTTP 500 on 15 Nov 2026",
    "held_portrait_source": "http://www.fillebrown.com/"
   },
   "Stewart Sharpless": {
    "name": "Stewart Sharpless",
    "wiki": "https://en.wikipedia.org/wiki/Stewart_Sharpless",
-   "file": null,
-   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
-   "held_portrait_source": "https://www.pubpub.org/"
+   "file": "assets/people/stewart-sharpless.jpg",
+   "credit": "Rochester Review 29, 7 (1966), via his BAAS obituary · © source, used with credit",
+   "licence": "© source, used with credit",
+   "source": "https://baas.aas.org/pub/2020i0326/release/1"
   },
   "William Herschel": {
    "name": "William Herschel",
@@ -487,6 +493,12 @@
    "title": "ZWO Seestar S50",
    "caption": "50 mm smart telescope, 250 mm",
    "file": "assets/scopes/seestar.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "GSO 150": {
+   "title": "GSO 150",
+   "caption": "150 mm Newtonian reflector",
+   "file": "assets/scopes/gso.jpg",
    "credit": "Photo © Wade Tubman"
   },
   "DWARF Mini": {

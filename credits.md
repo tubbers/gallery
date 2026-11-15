@@ -49,7 +49,11 @@ IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), via Wikimedia 
 
 ## Portraits (`assets/people/`)
 
-Lead images from each person's Wikipedia article, resized to 600 px tall. Licence and author are from the Wikimedia Commons file page.
+Resized to about 600 px tall, with metadata removed.
+
+### Public domain or Creative Commons
+
+Lead images from each person's Wikipedia article. Licence and author are from the Wikimedia Commons file page.
 
 - Abd al-Rahman al-Sufi: `abd-al-rahman-al-sufi.jpg`, Albrecht Dürer · CC BY-SA 4.0, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:Al-Sufi_depicted_in_Albrecht_D%C3%BCrers_%27The_Northern_Celestial_Hemisphere%27_(1515).jpg)
 - Annie Jump Cannon: `annie-jump-cannon.jpg`, New York World-Telegram and the Sun Newspaper · Public domain, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:Annie_Jump_Cannon_1922_Portrait.jpg)
@@ -73,22 +77,27 @@ Lead images from each person's Wikipedia article, resized to 600 px tall. Licenc
 - William Herschel: `william-herschel.jpg`, Lemuel Francis Abbott · Public domain, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:William_Herschel01.jpg)
 - Williamina Fleming: `williamina-fleming.jpg`, Unknown author · Public domain, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:Williamina_Paton_Stevens_Fleming_circa_1890s.jpg)
 
-These people have no portrait yet. They show the placeholder image with a link to their Wikipedia page:
+### © source, used with credit
 
-- Aage Sandqvist
+- Aage Sandqvist: `aage-sandqvist.jpg`, © ESERO Sweden (esero.se), used with credit. [Source](https://www.esero.se/)
+- DeLisle Stewart: `delisle-stewart.jpg`, © University of Cincinnati (ucengagingscience.org), used with credit. [Source](https://ucengagingscience.org/)
+- John Bevis: `john-bevis.jpg`, Frontispiece of Bevis's Uranographia Britannica, c. 1750 (no portrait of Bevis is known) · © Linda Hall Library, used with credit. [Source](https://www.lindahall.org/about/news/scientist-of-the-day/john-bevis/)
+- Robert McNaught: `robert-mcnaught.jpg`, © ABC (abc.net.au), used with credit. [Source](https://www.abc.net.au/)
+- Stewart Sharpless: `stewart-sharpless.jpg`, Rochester Review 29, 7 (1966), via his BAAS obituary · © source, used with credit. [Source](https://baas.aas.org/pub/2020i0326/release/1)
+
+### No portrait yet
+
+These show the placeholder image with a link to their Wikipedia page:
+
 - Bernard Mills
 - Beverly Lynds
-- DeLisle Stewart
-- John Bevis
-- Robert McNaught
 - Royal Frost
-- Stewart Sharpless
 
 ## Placeholder portrait
 
-- `assets/people/default_discovery.jpg`: source to be confirmed. To replace it, overwrite the file and keep the same name.
+- `assets/people/default_discovery.jpg`: Fallback image, Wade Tubman collection, used with permission. To replace it, overwrite the file and keep the same name.
 
 ## Telescopes (`assets/scopes/`)
 
-Photos © Wade Tubman. Resized to 1,200 px on the long side, with all EXIF and location data removed.
+Photos © Wade Tubman. Resized to 1,200 px on the long side, with all EXIF and location data removed. `gso.jpg` (GSO 150) is mapped but not used by any gallery image yet.
 

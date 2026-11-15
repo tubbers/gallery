@@ -1197,7 +1197,7 @@ function popFor(im){
     kind:"who", title:p.name,
     sub:L.caption || (L.year ? `Discovered ${L.year}` : ""),
     file:p.file || fb.file, fallback:!p.file,
-    credit:p.file ? p.credit : "No free portrait is available yet.",
+    credit:p.file ? p.credit : "No portrait is available yet." + (fb.credit ? " Placeholder: " + fb.credit + "." : ""),
     source:p.file ? p.source : null, links:[["Wikipedia", p.wiki]]
   };
   const s = (((A.site_scopes || {})[im.site]) || {})[im.scope] || (A.scopes || {})[im.scope];
@@ -1261,9 +1261,10 @@ function showCredits(){
       cons.length + " charts: " + esc(cons.join(", ")) + ".")}</ul>` +
     `<h4>Portraits</h4><ul>` + withPic.map(p => li(`<a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.name)}</a>: ${esc(p.credit)}`)).join("") + `</ul>` +
     (without.length ? `<h4>No portrait yet</h4><ul>${li(esc(without.map(p => p.name).join(", ")))}</ul>` : "") +
+    (A.fallback && A.fallback.credit ? `<h4>Placeholder portrait</h4><ul>${li(esc(A.fallback.credit))}</ul>` : "") +
     `<h4>Telescopes</h4><ul>${li("Photos \u00a9 Wade Tubman")}</ul>` +
     `<h4>Astrophotographs</h4><ul>${li("\u00a9 Wade Tubman. All rights reserved.")}</ul>`;
-  openPop({title:"Credits", sub:"Pictures shown in the detail popups. Portraits and charts are public domain or Creative Commons; follow each link for the full licence.", list});
+  openPop({title:"Credits", sub:"Pictures shown in the detail popups. The charts and most portraits are public domain or Creative Commons; a few portraits are \u00a9 their source and used with credit. Follow each link for the full licence.", list});
 }
 document.getElementById("creditsbtn").onclick = e => showCredits();
 

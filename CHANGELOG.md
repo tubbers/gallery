@@ -5,8 +5,8 @@ Gallery versions are the number in the page footer. Releases before 0.15 were no
 ## 0.22 — 2026-11-15
 - Click a constellation, discoverer or telescope in the detail view and a picture pops up on the page: the IAU constellation chart, the discoverer's portrait (with the year, a credit and a link to Wikipedia) or Wade's own photo of the telescope. It closes with ✕, Esc or a click outside, and works on phones.
 - New "Constellation" row in the facts list. Six images that had no discoverer listed now show one.
-- All the popup pictures live in this repo under `assets/` (38 constellation charts, 21 portraits, 7 telescope photos, about 5.5 MB). `assets.json` maps them to the gallery: telescope photos by the `scope` field, with the Nebula Nest photo for `"site": "nebula-nest"` images.
-- Discoverers without a free portrait show a placeholder image (`assets/people/default_discovery.jpg`) for now.
+- All the popup pictures live in this repo under `assets/` (38 constellation charts, 26 portraits, 8 telescope photos, about 6 MB). `assets.json` maps them to the gallery: telescope photos by the `scope` field, with the Nebula Nest photo for `"site": "nebula-nest"` images. The GSO 150 photo is in place for future images.
+- Most portraits are public domain or Creative Commons. Five (DeLisle Stewart, John Bevis, Robert McNaught, Stewart Sharpless, Aage Sandqvist) are © their source and used with credit. The three people still without one (Royal Frost, Bernard Mills, Beverly Lynds) show a placeholder image (`assets/people/default_discovery.jpg`).
 - Credits for the charts and portraits are in `credits.md` and behind a new link in the footer.
 
 ## 0.21 — 2026-11-15
