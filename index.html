@@ -370,6 +370,47 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
   background:rgba(0,0,0,.55); color:#fff; border:1px solid rgba(255,255,255,.18);
 }
 #popx:hover{background:var(--hot); color:#000; border-color:var(--hot)}
+/* docked asset card (v0.23): small, non-modal, bottom-right of the photo */
+#acard{
+  position:absolute; right:14px; bottom:14px; z-index:7; display:none;
+  width:250px; max-width:calc(100% - 28px); max-height:calc(100% - 90px); overflow:hidden auto;
+  background:var(--panel); color:var(--ink); border:1px solid var(--edge); border-radius:5px;
+  box-shadow:0 8px 24px var(--shadow); font-size:12px; line-height:1.4;
+}
+#acard.on{display:block}
+#stage:has(#vers:not(:empty)) #acard{bottom:96px}
+#acfig{background:#000; display:grid; place-items:center}
+#acfig.chart{background:#fff}
+#acfig[hidden]{display:none}
+#acimg{display:block; max-width:100%; max-height:min(26vh,220px); object-fit:contain}
+/* keep the card's top below the prev/next arrows, which sit at mid-height */
+#stage:has(#vers:not(:empty)) #acimg{max-height:min(18vh,160px)}
+@media (min-width:901px) and (max-height:760px){ #acimg{max-height:20vh} #stage:has(#vers:not(:empty)) #acimg{max-height:13vh} }
+#actext{padding:8px 10px 9px}
+#actitle{margin:0 26px 0 0; font-size:13.5px; line-height:1.25; font-weight:600}
+#acsub{margin:3px 0 0}
+#accredit{margin:5px 0 0; font-size:10.5px; color:var(--dim)}
+#accredit a{color:var(--hot); text-decoration:none}
+#accredit a:hover{text-decoration:underline}
+#acsub:empty,#accredit:empty{display:none}
+#acx{
+  position:absolute; top:6px; right:6px; z-index:2; width:26px; height:26px;
+  display:grid; place-items:center; font-size:12px; line-height:1; border-radius:50%;
+  background:rgba(0,0,0,.55); color:#fff; border:1px solid rgba(255,255,255,.18);
+}
+#acx:hover{background:var(--hot); color:#000; border-color:var(--hot)}
+@media (max-width:900px){
+  /* phone: a compact strip, image on the left, below the prev/next arrows */
+  #acard{right:8px; bottom:8px; width:min(300px, calc(100% - 16px)); max-height:42%;
+    display:none; grid-template-columns:auto 1fr}
+  #acard.on{display:grid}
+  #stage:has(#vers:not(:empty)) #acard{bottom:66px}
+  #acimg{max-height:min(16vh,110px); max-width:110px}
+  #actext{padding:7px 9px}
+  #actitle{font-size:12.5px}
+  #acsub,#accredit{font-size:10.5px}
+}
+
 #creditsbtn{color:var(--hot); font-size:13px; padding:0}
 #creditsbtn:hover{text-decoration:underline}
 @media (max-width:600px){ #popimg{max-height:52vh} #poptext{padding:14px 16px 16px} }
@@ -414,7 +455,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p><button id="creditsbtn" type="button">Portrait and chart credits</button></p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.22 · built with Claude
+    v0.23 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -438,6 +479,15 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
     </div>
     <div id="vers" role="group" aria-label="Versions of this target"></div>
     <p id="zoomhint">scroll to zoom</p>
+    <aside id="acard" aria-live="polite" aria-label="About this detail">
+      <button id="acx" type="button" aria-label="Close">✕</button>
+      <div id="acfig"><img id="acimg" alt=""></div>
+      <div id="actext">
+        <h3 id="actitle"></h3>
+        <p id="acsub"></p>
+        <p id="accredit"></p>
+      </div>
+    </aside>
   </div>
   <div id="info">
     <h2 id="lbname"></h2>
@@ -901,9 +951,10 @@ function show(it){
 
   document.getElementById("facts").innerHTML =
     rows.map(([k,v,kind]) => `<dt>${k}</dt><dd>` +
-      (kind && pa[kind] ? `<button type="button" class="pl" data-pop="${kind}" aria-haspopup="dialog">${esc(v)}</button>` : esc(v)) +
+      (kind && pa[kind] ? `<button type="button" class="pl" data-pop="${kind}" aria-controls="acard">${esc(v)}</button>` : esc(v)) +
       `</dd>`).join("");
-  document.querySelectorAll("#facts .pl").forEach(b => b.onclick = () => openPop(pa[b.dataset.pop], b));
+  document.querySelectorAll("#facts .pl").forEach(b => b.onclick = () => openCard(pa[b.dataset.pop]));
+  hideAsset();             // a new photo starts without a card
 
   const stat = (ic,n,label,tip,href) => !n ? "" :
     `<${href?"a":"span"} class="stat"${href?` href="${href}" target="_blank" rel="noopener"`:""} title="${tip}">`+
@@ -1131,6 +1182,7 @@ function shut(){
   document.getElementById("tmoon").classList.remove("on");
   stopVideo();
   lb.classList.remove("on","solo","video");
+  hideAsset();
   resetZoom();
   document.body.style.overflow = "";
   history.replaceState(null,"",location.pathname);
@@ -1181,30 +1233,104 @@ function openFromHash(){
    INFO POPUPS — discoverer portrait, IAU constellation chart, telescope photo.
    Everything comes from assets.json and is hosted in this repo (assets/).
    ========================================================================== */
+// One card each for a constellation, a person and a telescope. `L` is the
+// image's entry in assets.json "labels" (year, caption, "that day" note).
+function conCard(name, L = {}){
+  const con = ((ASSETS || {}).constellations || {})[name];
+  if(!con) return null;
+  const day = L.constellation === name && L.constellation_text
+    ? " \u00b7 " + L.constellation_text.replace(/^\S+\s*/, "").replace(/[()]/g, "") : "";
+  return {kind:"con", title:name, file:con.file, chart:true, sub:"IAU constellation chart" + day,
+          credit:con.credit, source:con.source, wiki:con.wiki};
+}
+function personCard(name, L = {}){
+  const A = ASSETS || {}, p = (A.people || {})[name], fb = A.fallback || {};
+  if(!p) return null;
+  const mine = L.person === name;
+  return {kind:"who", title:p.name,
+    sub:mine ? (L.caption || (L.year ? `Discovered ${L.year}` : "")) : "",
+    file:p.file || fb.file, fallback:!p.file,
+    credit:p.file ? p.credit : "No portrait is hosted here yet." + (fb.credit ? " Placeholder: " + fb.credit + "." : ""),
+    source:p.file ? p.source : (p.portrait_elsewhere || null), wiki:p.wiki};
+}
+function scopeCard(key, site){
+  const A = ASSETS || {}, s = (((A.site_scopes || {})[site]) || {})[key] || (A.scopes || {})[key];
+  return s ? {kind:"scope", title:s.title, sub:s.caption, file:s.file, credit:s.credit} : null;
+}
 function popFor(im){
-  const A = ASSETS || {}, L = (A.labels || {})[im.label] || {};
+  const L = ((ASSETS || {}).labels || {})[im.label] || {};
   const out = {};
   out.conText = im.constellation || L.constellation_text || L.constellation || null;
-  const con = (A.constellations || {})[L.constellation];
-  if(con && out.conText) out.con = {
-    kind:"con", title:L.constellation, file:con.file, chart:true,
-    sub:"IAU constellation chart" + (L.constellation_text ? " \u00b7 " + L.constellation_text.replace(/^\S+\s*/, "").replace(/[()]/g, "") : ""),
-    credit:con.credit, source:con.source, links:[["Wikipedia", con.wiki]]
-  };
+  if(out.conText) out.con = conCard(L.constellation, L);
   out.whoText = im.foundBy || (L.show_person === false ? null : L.discovered_text) || null;
-  const p = (A.people || {})[L.person], fb = A.fallback || {};
-  if(p && out.whoText) out.who = {
-    kind:"who", title:p.name,
-    sub:L.caption || (L.year ? `Discovered ${L.year}` : ""),
-    file:p.file || fb.file, fallback:!p.file,
-    credit:p.file ? p.credit : "No portrait is available yet." + (fb.credit ? " Placeholder: " + fb.credit + "." : ""),
-    source:p.file ? p.source : null, links:[["Wikipedia", p.wiki]]
-  };
-  const s = (((A.site_scopes || {})[im.site]) || {})[im.scope] || (A.scopes || {})[im.scope];
-  if(s) out.scope = {kind:"scope", title:s.title, sub:s.caption, file:s.file, credit:s.credit, links:[]};
+  if(out.whoText) out.who = personCard(L.person, L);
+  out.scope = scopeCard(im.scope, im.site);
   return out;
 }
 
+/* The docked card: small, non-modal, bottom-right of the photo. The photo,
+   arrows and details panel stay usable underneath and around it. */
+const acard = document.getElementById("acard");
+function openCard(d){
+  if(!d) return false;
+  const fig = document.getElementById("acfig"), img = document.getElementById("acimg");
+  fig.hidden = !d.file; fig.classList.toggle("chart", !!d.chart);
+  img.onerror = null;
+  if(d.file){
+    img.src = d.file; img.alt = d.title;
+    const fb = ASSETS && ASSETS.fallback && ASSETS.fallback.file;
+    img.onerror = () => { if(fb && !img.src.endsWith(fb)){ img.onerror = null; img.src = fb; } };
+  }else img.removeAttribute("src");
+  document.getElementById("actitle").textContent = d.title;
+  document.getElementById("acsub").textContent = d.sub || "";
+  const ln = [d.source && `<a href="${esc(d.source)}" target="_blank" rel="noopener">source</a>`,
+              d.wiki && `<a href="${esc(d.wiki)}" target="_blank" rel="noopener">Wikipedia</a>`].filter(Boolean);
+  document.getElementById("accredit").innerHTML =
+    [d.credit ? esc(d.credit) : "", ln.join(" \u00b7 ")].filter(Boolean).join(" \u00b7 ");
+  acard.dataset.kind = d.kind;
+  acard.classList.add("on");
+  return true;
+}
+function hideAsset(){ acard.classList.remove("on"); }
+document.getElementById("acx").onclick = hideAsset;
+
+/* For automation (the narration cues show_constellation, show_discoverer_image,
+   show_scope):  showAsset(kind, key)  /  hideAsset().
+   kind: "constellation" | "discoverer" | "scope" (or "con", "who", "person").
+   key:  a name ("Sculptor", "James Dunlop", "200PDS"), a longer narration
+         string that contains one ("61 mm refractor (RedCat 61)"), or omitted
+         to use the image on show. Returns true if a card opened. */
+function showAsset(kind, key){
+  const A = ASSETS || {}, im = ITEMS[IT] && ITEMS[IT].v;
+  const L = im ? ((A.labels || {})[im.label] || {}) : {};
+  const k = String(kind || "").toLowerCase();
+  const find = (obj, nameOf) => {
+    if(key == null) return null;
+    const q = String(key).toLowerCase();
+    const keys = Object.keys(obj || {});
+    return keys.find(n => n.toLowerCase() === q)
+        || keys.find(n => nameOf(n).some(a => a && a.toLowerCase() === q))
+        || keys.find(n => nameOf(n).some(a => a && q.includes(a.toLowerCase())))
+        || null;
+  };
+  if(/^con/.test(k)){
+    const n = key == null ? L.constellation : find(A.constellations, n => [n]);
+    return openCard(conCard(n, L));
+  }
+  if(/^(who|person|disc)/.test(k)){
+    const n = key == null ? L.person : find(A.people, n => [n, A.people[n].name, ...(A.people[n].aliases || [])]);
+    return openCard(personCard(n, L));
+  }
+  if(/^scope|^tel/.test(k)){
+    const n = key == null ? (im && im.scope) : find(A.scopes, n => [n, A.scopes[n].title, ...(A.scopes[n].aliases || [])]);
+    return openCard(scopeCard(n, im && im.scope === n ? im.site : null));
+  }
+  return false;
+}
+window.showAsset = showAsset;
+window.hideAsset = hideAsset;
+
+/* The credits list still uses the centred dialog below (opened from the footer). */
 const pop = document.getElementById("pop");
 let popReturn = null;
 function fillPop({title, sub = "", file = null, chart = false, credit = "", source = null, links = [], list = ""}){
@@ -1243,6 +1369,9 @@ pop.addEventListener("click", e => { if(e.target === pop) closePop(); });
 // Runs before the lightbox's own keys, so Esc closes only the popup and the
 // arrow keys don't change the image underneath it.
 addEventListener("keydown", e => {
+  if(e.key === "Escape" && !pop.classList.contains("on") && acard.classList.contains("on")){
+    e.preventDefault(); e.stopImmediatePropagation(); hideAsset(); return;
+  }
   if(!pop.classList.contains("on")) return;
   if(e.key === "Escape"){ e.preventDefault(); closePop(); }
   if(e.key !== "Tab") e.stopImmediatePropagation();

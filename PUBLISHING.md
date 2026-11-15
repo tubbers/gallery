@@ -213,15 +213,19 @@ Validated against 7 known rigs: 6 correct.
 
 ## Popup pictures (`assets.json`, from v0.22)
 
-The detail view's Constellation, Discovered and Telescope values open a picture popup.
+The detail view's Constellation, Discovered and Telescope values open a small picture card
+docked in the bottom-right corner of the photo (v0.23). Script can drive the same card:
+`showAsset("constellation" | "discoverer" | "scope", key)` and `hideAsset()`. `key` is
+matched against the names and `aliases` in `assets.json` (a phrase that contains a name also
+matches, so narration cue strings work as they are); leave it out to use the image on show.
 Everything is in this repo, so nothing is hotlinked at runtime.
 
 | Key in `assets.json` | Holds |
 |---|---|
-| `scopes` | one entry per `gallery.json` `scope` string → `assets/scopes/<file>.jpg` |
+| `scopes` | one entry per `gallery.json` `scope` string → `assets/scopes/<file>.jpg`, plus `aliases` |
 | `site_scopes` | per-`site` override, e.g. `nebula-nest` + `ASKAR 91F` → `nebula.jpg` |
 | `constellations` | IAU chart PNG, credit, Commons source, Wikipedia link |
-| `people` | portrait file (or `null` for the placeholder), credit, licence, Wikipedia link |
+| `people` | portrait file (or `null` for the placeholder), credit, licence, source, Wikipedia link, optional `aliases` |
 | `labels` | per gallery `label`: `constellation`, `person`, `year`, optional `caption`, `discovered_text`, `constellation_text`, `show_person` |
 | `fallback` | the placeholder portrait, `assets/people/default_discovery.jpg` |
 

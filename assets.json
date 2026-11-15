@@ -263,14 +263,24 @@
   "Bernard Mills": {
    "name": "Bernard Mills",
    "wiki": "https://en.wikipedia.org/wiki/Bernard_Mills",
-   "file": null,
-   "fallback_reason": "licence not free/unclear: 'Attribution' commons=True"
+   "aliases": [
+    "Bernard Yarnton Mills"
+   ],
+   "file": "assets/people/bernard-mills.jpg",
+   "credit": "AIP Emilio Segrè Visual Archives, John Irwin Slide Collection · Attribution licence, via Wikimedia Commons",
+   "licence": "Attribution (Commons)",
+   "source": "https://commons.wikimedia.org/wiki/File:Bernard_Y._Mills.jpg"
   },
   "Beverly Lynds": {
    "name": "Beverly Lynds",
    "wiki": "https://en.wikipedia.org/wiki/Beverly_Turner_Lynds",
-   "file": null,
-   "fallback_reason": "licence not free/unclear: 'Attribution' commons=True"
+   "aliases": [
+    "Beverly Turner Lynds"
+   ],
+   "file": "assets/people/beverly-lynds.jpg",
+   "credit": "AIP Emilio Segrè Visual Archives, John Irwin Slide Collection · Attribution licence, via Wikimedia Commons",
+   "licence": "Attribution (Commons)",
+   "source": "https://commons.wikimedia.org/wiki/File:Beverly_Lynds_at_the_American_Astronomical_Society_(AAS)_meeting.jpg"
   },
   "Caroline Herschel": {
    "name": "Caroline Herschel",
@@ -323,6 +333,9 @@
   "Giovanni Battista Hodierna": {
    "name": "Giovanni Battista Hodierna",
    "wiki": "https://en.wikipedia.org/wiki/Giovanni_Battista_Hodierna",
+   "aliases": [
+    "Giovanni Hodierna"
+   ],
    "file": "assets/people/giovanni-battista-hodierna.jpg",
    "credit": "Unknown author · Public domain, via Wikimedia Commons",
    "licence": "Public domain",
@@ -371,6 +384,9 @@
   "Julius Schmidt": {
    "name": "Julius Schmidt",
    "wiki": "https://en.wikipedia.org/wiki/Johann_Friedrich_Julius_Schmidt",
+   "aliases": [
+    "Johann Friedrich Julius Schmidt"
+   ],
    "file": "assets/people/julius-schmidt.jpg",
    "credit": "Ioannes A. Arsenēs, Michael A. Raphaelobits · Public domain, via Wikimedia Commons",
    "licence": "Public domain",
@@ -387,6 +403,9 @@
   "Karl Henize": {
    "name": "Karl Henize",
    "wiki": "https://en.wikipedia.org/wiki/Karl_Gordon_Henize",
+   "aliases": [
+    "Karl Gordon Henize"
+   ],
    "file": "assets/people/karl-henize.jpg",
    "credit": "NASA · Public domain, via Wikimedia Commons",
    "licence": "Public domain",
@@ -427,6 +446,9 @@
   "Robert McNaught": {
    "name": "Robert McNaught",
    "wiki": "https://en.wikipedia.org/wiki/Robert_H._McNaught",
+   "aliases": [
+    "Robert H. McNaught"
+   ],
    "file": "assets/people/robert-mcnaught.jpg",
    "credit": "© ABC (abc.net.au), used with credit",
    "licence": "© source, used with credit",
@@ -435,8 +457,13 @@
   "Royal Frost": {
    "name": "Royal Frost",
    "wiki": "https://en.wikipedia.org/wiki/Royal_Harwood_Frost",
+   "aliases": [
+    "Royal Harwood Frost",
+    "Royal H. Frost"
+   ],
    "file": null,
-   "fallback_reason": "portrait URL (fillebrown.com) returned HTTP 500 on 15 Nov 2026",
+   "fallback_reason": "the only portrait found is on fillebrown.com, an HTTP-only site this build machine cannot reach (also archived on the Wayback Machine, also unreachable from here)",
+   "portrait_elsewhere": "https://www.fillebrown.com/d2/i0008582.htm",
    "held_portrait_source": "http://www.fillebrown.com/"
   },
   "Stewart Sharpless": {
@@ -469,49 +496,74 @@
    "title": "Sky-Watcher 200PDS",
    "caption": "200 mm Newtonian reflector, 950 mm",
    "file": "assets/scopes/200pds.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "200 mm Newtonian (Sky-Watcher 200PDS)"
+   ]
   },
   "ASKAR 91F": {
    "title": "Askar 91F",
    "caption": "91 mm f/6.7 refractor, 610 mm",
    "file": "assets/scopes/91f.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "91 mm refractor (Askar 91F)"
+   ]
   },
   "RedCat 61": {
    "title": "William Optics RedCat 61",
    "caption": "61 mm f/4.9 refractor, 300 mm",
    "file": "assets/scopes/redcat.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "61 mm refractor (RedCat 61)"
+   ]
   },
   "RedCat 51": {
    "title": "William Optics RedCat 51",
    "caption": "51 mm f/4.9 refractor, 250 mm",
    "file": "assets/scopes/redcat.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "51 mm refractor (RedCat 51)"
+   ]
   },
   "Seestar S50": {
    "title": "ZWO Seestar S50",
    "caption": "50 mm smart telescope, 250 mm",
    "file": "assets/scopes/seestar.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "Seestar S50 smart telescope"
+   ]
   },
   "GSO 150": {
    "title": "GSO 150",
    "caption": "150 mm Newtonian reflector",
    "file": "assets/scopes/gso.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "150 mm Newtonian (GSO 150)"
+   ]
   },
   "DWARF Mini": {
    "title": "DWARF Mini",
    "caption": "smart telescope, 150 mm",
    "file": "assets/scopes/dwarf.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "DWARF Mini smart telescope"
+   ]
   },
   "Pentax 135mm": {
    "title": "Pentax 135 mm",
    "caption": "vintage camera lens, 135 mm",
    "file": "assets/scopes/pentax.jpg",
-   "credit": "Photo © Wade Tubman"
+   "credit": "Photo © Wade Tubman",
+   "aliases": [
+    "vintage 135 mm Pentax camera lens",
+    "Pentax"
+   ]
   }
  },
  "site_scopes": {

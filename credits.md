@@ -2,7 +2,7 @@
 
 The astrophotographs on this site are © Wade Tubman. All rights reserved.
 
-Click a constellation, discoverer or telescope in the detail view and a small picture pops up. Those pictures are hosted in this repo under `assets/`, and `assets.json` maps each one to the gallery. Their sources and licences are below.
+Click a constellation, discoverer or telescope in the detail view and a small picture card appears in the corner of the photo. Those pictures are hosted in this repo under `assets/`, and `assets.json` maps each one to the gallery. Their sources and licences are below.
 
 ## Constellation charts (`assets/constellations/`)
 
@@ -77,6 +77,11 @@ Lead images from each person's Wikipedia article. Licence and author are from th
 - William Herschel: `william-herschel.jpg`, Lemuel Francis Abbott · Public domain, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:William_Herschel01.jpg)
 - Williamina Fleming: `williamina-fleming.jpg`, Unknown author · Public domain, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:Williamina_Paton_Stevens_Fleming_circa_1890s.jpg)
 
+### Attribution licence (Wikimedia Commons)
+
+- Bernard Mills: `bernard-mills.jpg`, AIP Emilio Segrè Visual Archives, John Irwin Slide Collection · Attribution licence, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:Bernard_Y._Mills.jpg)
+- Beverly Lynds: `beverly-lynds.jpg`, AIP Emilio Segrè Visual Archives, John Irwin Slide Collection · Attribution licence, via Wikimedia Commons. [File page](https://commons.wikimedia.org/wiki/File:Beverly_Lynds_at_the_American_Astronomical_Society_(AAS)_meeting.jpg)
+
 ### © source, used with credit
 
 - Aage Sandqvist: `aage-sandqvist.jpg`, © ESERO Sweden (esero.se), used with credit. [Source](https://www.esero.se/)
@@ -89,9 +94,7 @@ Lead images from each person's Wikipedia article. Licence and author are from th
 
 These show the placeholder image with a link to their Wikipedia page:
 
-- Bernard Mills
-- Beverly Lynds
-- Royal Frost
+- Royal Frost (a portrait exists at [https://www.fillebrown.com/d2/i0008582.htm](https://www.fillebrown.com/d2/i0008582.htm))
 
 ## Placeholder portrait
 

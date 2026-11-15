@@ -2,6 +2,12 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.23 — 2026-11-15
+- The constellation, discoverer and telescope pictures now open as a small card in the bottom-right corner of the photo, about half the old size, instead of a dialog over the image. There's no dimmed backdrop, so the photo, the arrows and the details panel all stay visible and usable. Clicking another fact swaps the card; ✕ or Esc closes it, and it closes by itself when you move to another image. On phones it is a compact strip below the arrows.
+- Added portraits for Bernard Mills and Beverly Lynds (AIP Emilio Segrè Visual Archives, John Irwin Slide Collection, Attribution licence via Wikimedia Commons). Every portrait card has a source link.
+- Royal Frost still shows the placeholder: the only known portrait is on a site that could not be reached when this was built.
+- For future automation: `showAsset(kind, key)` and `hideAsset()` open and close the card from script. `kind` is `constellation`, `discoverer` or `scope`; `key` is a name (or a longer phrase containing one, as in the narration cues), or can be left out to use the image on show.
+
 ## 0.22 — 2026-11-15
 - Click a constellation, discoverer or telescope in the detail view and a picture pops up on the page: the IAU constellation chart, the discoverer's portrait (with the year, a credit and a link to Wikipedia) or Wade's own photo of the telescope. It closes with ✕, Esc or a click outside, and works on phones.
 - New "Constellation" row in the facts list. Six images that had no discoverer listed now show one.
