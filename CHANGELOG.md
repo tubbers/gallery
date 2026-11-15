@@ -2,6 +2,13 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.22 — 2026-11-15
+- Click a constellation, discoverer or telescope in the detail view and a picture pops up on the page: the IAU constellation chart, the discoverer's portrait (with the year, a credit and a link to Wikipedia) or Wade's own photo of the telescope. It closes with ✕, Esc or a click outside, and works on phones.
+- New "Constellation" row in the facts list. Six images that had no discoverer listed now show one.
+- All the popup pictures live in this repo under `assets/` (38 constellation charts, 21 portraits, 7 telescope photos, about 5.5 MB). `assets.json` maps them to the gallery: telescope photos by the `scope` field, with the Nebula Nest photo for `"site": "nebula-nest"` images.
+- Discoverers without a free portrait show a placeholder image (`assets/people/default_discovery.jpg`) for now.
+- Credits for the charts and portraits are in `credits.md` and behind a new link in the footer.
+
 ## 0.21 — 2026-11-15
 - Corrected capture details for NGC 1365 (one night at Parkes, 18 October 2025, 5.3 hours, unfiltered one-shot colour), the wider NGC 3572 / Gum 37 version (200PDS, not ASKAR 91F; same 14–16 April 2026 data as the Southern Tadpoles) and LDN 1688 Rho Ophiuchi (two-panel RedCat 61 + ASI2600MM RGB mosaic, Wheeny Creek, 11–13 August 2026, 9.2 hours).
 - Added an approximate capture date (December 2024) to the Seestar Horsehead, Wade's first deep-sky image.

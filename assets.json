@@ -1,0 +1,948 @@
+{
+ "_about": "Popup assets for the detail view (v0.22). Scope photos key off gallery.json `scope`; constellations and people are keyed by name; `labels` maps each gallery label to its constellation and person. Swap the fallback portrait by replacing the file named in fallback.file.",
+ "fallback": {
+  "file": "assets/people/default_discovery.jpg",
+  "credit": "Placeholder image (source to be confirmed)",
+  "alt": "No portrait available"
+ },
+ "constellations": {
+  "Andromeda": {
+   "file": "assets/constellations/andromeda.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Andromeda_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Andromeda_(constellation)"
+  },
+  "Apus": {
+   "file": "assets/constellations/apus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Apus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Apus"
+  },
+  "Aquarius": {
+   "file": "assets/constellations/aquarius.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Aquarius_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+  },
+  "Ara": {
+   "file": "assets/constellations/ara.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Ara_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Ara_(constellation)"
+  },
+  "Aries": {
+   "file": "assets/constellations/aries.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Aries_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Aries_(constellation)"
+  },
+  "Canis Major": {
+   "file": "assets/constellations/canis-major.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Canis_Major_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Canis_Major"
+  },
+  "Capricornus": {
+   "file": "assets/constellations/capricornus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Capricornus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Capricornus"
+  },
+  "Carina": {
+   "file": "assets/constellations/carina.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Carina_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Carina_(constellation)"
+  },
+  "Centaurus": {
+   "file": "assets/constellations/centaurus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Centaurus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Centaurus"
+  },
+  "Chamaeleon": {
+   "file": "assets/constellations/chamaeleon.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Chamaeleon_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Chamaeleon"
+  },
+  "Corona Australis": {
+   "file": "assets/constellations/corona-australis.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Corona_Australis_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Corona_Australis"
+  },
+  "Corvus": {
+   "file": "assets/constellations/corvus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Corvus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Corvus_(constellation)"
+  },
+  "Cygnus": {
+   "file": "assets/constellations/cygnus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Cygnus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Cygnus_(constellation)"
+  },
+  "Dorado": {
+   "file": "assets/constellations/dorado.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dorado_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Dorado"
+  },
+  "Eridanus": {
+   "file": "assets/constellations/eridanus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Eridanus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Eridanus_(constellation)"
+  },
+  "Fornax": {
+   "file": "assets/constellations/fornax.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Fornax_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Fornax"
+  },
+  "Gemini": {
+   "file": "assets/constellations/gemini.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Gemini_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+  },
+  "Grus": {
+   "file": "assets/constellations/grus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Grus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Grus_(constellation)"
+  },
+  "Hydra": {
+   "file": "assets/constellations/hydra.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Hydra_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Hydra_(constellation)"
+  },
+  "Leo": {
+   "file": "assets/constellations/leo.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Leo_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Leo_(constellation)"
+  },
+  "Lupus": {
+   "file": "assets/constellations/lupus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Lupus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Lupus_(constellation)"
+  },
+  "Monoceros": {
+   "file": "assets/constellations/monoceros.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Monoceros_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Monoceros"
+  },
+  "Musca": {
+   "file": "assets/constellations/musca.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Musca_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Musca"
+  },
+  "Norma": {
+   "file": "assets/constellations/norma.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Norma_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Norma_(constellation)"
+  },
+  "Ophiuchus": {
+   "file": "assets/constellations/ophiuchus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Ophiuchus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Ophiuchus"
+  },
+  "Orion": {
+   "file": "assets/constellations/orion.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Orion_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Orion_(constellation)"
+  },
+  "Pavo": {
+   "file": "assets/constellations/pavo.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Pavo_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Pavo_(constellation)"
+  },
+  "Phoenix": {
+   "file": "assets/constellations/phoenix.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Phoenix_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Phoenix_(constellation)"
+  },
+  "Pisces": {
+   "file": "assets/constellations/pisces.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Pisces_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Pisces_(constellation)"
+  },
+  "Puppis": {
+   "file": "assets/constellations/puppis.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Puppis_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Puppis"
+  },
+  "Sagittarius": {
+   "file": "assets/constellations/sagittarius.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sagittarius_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Sagittarius_(constellation)"
+  },
+  "Scorpius": {
+   "file": "assets/constellations/scorpius.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Scorpius_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Scorpius"
+  },
+  "Sculptor": {
+   "file": "assets/constellations/sculptor.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sculptor_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Sculptor_(constellation)"
+  },
+  "Serpens": {
+   "file": "assets/constellations/serpens.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Serpens_Caput_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Serpens"
+  },
+  "Taurus": {
+   "file": "assets/constellations/taurus.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Taurus_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Taurus_(constellation)"
+  },
+  "Tucana": {
+   "file": "assets/constellations/tucana.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Tucana_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Tucana"
+  },
+  "Vela": {
+   "file": "assets/constellations/vela.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Vela_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Vela_(constellation)"
+  },
+  "Virgo": {
+   "file": "assets/constellations/virgo.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Virgo_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Virgo_(constellation)"
+  }
+ },
+ "people": {
+  "Aage Sandqvist": {
+   "name": "Aage Sandqvist",
+   "wiki": "https://en.wikipedia.org/wiki/Aage_Sandqvist",
+   "file": null,
+   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
+   "held_portrait_source": "https://www.esero.se/"
+  },
+  "Abd al-Rahman al-Sufi": {
+   "name": "Abd al-Rahman al-Sufi",
+   "wiki": "https://en.wikipedia.org/wiki/Abd_al-Rahman_al-Sufi",
+   "file": "assets/people/abd-al-rahman-al-sufi.jpg",
+   "credit": "Albrecht Dürer · CC BY-SA 4.0, via Wikimedia Commons",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Al-Sufi_depicted_in_Albrecht_D%C3%BCrers_%27The_Northern_Celestial_Hemisphere%27_(1515).jpg"
+  },
+  "Annie Jump Cannon": {
+   "name": "Annie Jump Cannon",
+   "wiki": "https://en.wikipedia.org/wiki/Annie_Jump_Cannon",
+   "file": "assets/people/annie-jump-cannon.jpg",
+   "credit": "New York World-Telegram and the Sun Newspaper · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Annie_Jump_Cannon_1922_Portrait.jpg"
+  },
+  "Bernard Mills": {
+   "name": "Bernard Mills",
+   "wiki": "https://en.wikipedia.org/wiki/Bernard_Mills",
+   "file": null,
+   "fallback_reason": "licence not free/unclear: 'Attribution' commons=True"
+  },
+  "Beverly Lynds": {
+   "name": "Beverly Lynds",
+   "wiki": "https://en.wikipedia.org/wiki/Beverly_Turner_Lynds",
+   "file": null,
+   "fallback_reason": "licence not free/unclear: 'Attribution' commons=True"
+  },
+  "Caroline Herschel": {
+   "name": "Caroline Herschel",
+   "wiki": "https://en.wikipedia.org/wiki/Caroline_Herschel",
+   "file": "assets/people/caroline-herschel.jpg",
+   "credit": "Melchior Gommar Tieleman (painting, 1829) · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:1829_Melchior_Gommar_Tieleman,_%C3%96lgem%C3%A4lde_Caroline_Herschel_Hannover.tif"
+  },
+  "Charles Messier": {
+   "name": "Charles Messier",
+   "wiki": "https://en.wikipedia.org/wiki/Charles_Messier",
+   "file": "assets/people/charles-messier.jpg",
+   "credit": "Attributed to Ansiaux · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Charles_Messier.jpg"
+  },
+  "DeLisle Stewart": {
+   "name": "DeLisle Stewart",
+   "wiki": "https://en.wikipedia.org/wiki/DeLisle_Stewart",
+   "file": null,
+   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
+   "held_portrait_source": "https://ucengagingscience.org/"
+  },
+  "Edward Emerson Barnard": {
+   "name": "Edward Emerson Barnard",
+   "wiki": "https://en.wikipedia.org/wiki/Edward_Emerson_Barnard",
+   "file": "assets/people/edward-emerson-barnard.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:EdwardEmersonBarnard.jpg"
+  },
+  "Ferdinand Magellan": {
+   "name": "Ferdinand Magellan",
+   "wiki": "https://en.wikipedia.org/wiki/Ferdinand_Magellan",
+   "file": "assets/people/ferdinand-magellan.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Ferdinand_Magellan.jpg"
+  },
+  "Galileo Galilei": {
+   "name": "Galileo Galilei",
+   "wiki": "https://en.wikipedia.org/wiki/Galileo_Galilei",
+   "file": "assets/people/galileo-galilei.jpg",
+   "credit": "Justus Sustermans · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Galileo_Galilei_(1564-1642)_RMG_BHC2700.tiff"
+  },
+  "Giovanni Battista Hodierna": {
+   "name": "Giovanni Battista Hodierna",
+   "wiki": "https://en.wikipedia.org/wiki/Giovanni_Battista_Hodierna",
+   "file": "assets/people/giovanni-battista-hodierna.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:GB-Odierna.jpg"
+  },
+  "Isaac Roberts": {
+   "name": "Isaac Roberts",
+   "wiki": "https://en.wikipedia.org/wiki/Isaac_Roberts",
+   "file": "assets/people/isaac-roberts.jpg",
+   "credit": "Unknown · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Isaac_Roberts.png"
+  },
+  "James Dunlop": {
+   "name": "James Dunlop",
+   "wiki": "https://en.wikipedia.org/wiki/James_Dunlop",
+   "file": "assets/people/james-dunlop.jpg",
+   "credit": "Joseph Backler · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:James_Dunlop,_ca._1843_oil_portrait_by_Joseph_Backler_a2448001h.jpg"
+  },
+  "Jean-Philippe Loys de Chéseaux": {
+   "name": "Jean-Philippe Loys de Chéseaux",
+   "wiki": "https://en.wikipedia.org/wiki/Jean-Philippe_Loys_de_Cheseaux",
+   "file": "assets/people/jean-philippe-loys-de-cheseaux.jpg",
+   "credit": "Jean-Pierre Henchoz · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Jean_Phillippe_Loys_de_Cheseaux.jpg"
+  },
+  "John Bevis": {
+   "name": "John Bevis",
+   "wiki": "https://en.wikipedia.org/wiki/John_Bevis",
+   "file": null,
+   "fallback_reason": "override portrait (non-Wikimedia), held for Wade"
+  },
+  "John Herschel": {
+   "name": "John Herschel",
+   "wiki": "https://en.wikipedia.org/wiki/John_Herschel",
+   "file": "assets/people/john-herschel.jpg",
+   "credit": "W. Ward · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Sir_John_Frederick_William_Herschel._Mezzotint_by_W._Ward,_1_Wellcome_V0002717_(cropped)-34-(brightness).jpg"
+  },
+  "Julius Schmidt": {
+   "name": "Julius Schmidt",
+   "wiki": "https://en.wikipedia.org/wiki/Johann_Friedrich_Julius_Schmidt",
+   "file": "assets/people/julius-schmidt.jpg",
+   "credit": "Ioannes A. Arsenēs, Michael A. Raphaelobits · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Johann_Friedrich_Julius_Schmidt.JPG"
+  },
+  "Karl Christian Bruhns": {
+   "name": "Karl Christian Bruhns",
+   "wiki": "https://en.wikipedia.org/wiki/Karl_Christian_Bruhns",
+   "file": "assets/people/karl-christian-bruhns.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Karl_Christian_Bruhns.jpg"
+  },
+  "Karl Henize": {
+   "name": "Karl Henize",
+   "wiki": "https://en.wikipedia.org/wiki/Karl_Gordon_Henize",
+   "file": "assets/people/karl-henize.jpg",
+   "credit": "NASA · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Henize.jpg"
+  },
+  "Karl Ludwig Harding": {
+   "name": "Karl Ludwig Harding",
+   "wiki": "https://en.wikipedia.org/wiki/Karl_Ludwig_Harding",
+   "file": "assets/people/karl-ludwig-harding.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Karl_Ludwig_Harding.jpg"
+  },
+  "Lewis Swift": {
+   "name": "Lewis Swift",
+   "wiki": "https://en.wikipedia.org/wiki/Lewis_A._Swift",
+   "file": "assets/people/lewis-swift.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Lewis_Swift.jpg"
+  },
+  "Nicolas-Louis de Lacaille": {
+   "name": "Nicolas-Louis de Lacaille",
+   "wiki": "https://en.wikipedia.org/wiki/Nicolas-Louis_de_Lacaille",
+   "file": "assets/people/nicolas-louis-de-lacaille.jpg",
+   "credit": "Melle Le Jeuneux · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Lacaille.jpg"
+  },
+  "Pierre Méchain": {
+   "name": "Pierre Méchain",
+   "wiki": "https://en.wikipedia.org/wiki/Pierre_M%C3%A9chain",
+   "file": "assets/people/pierre-mechain.jpg",
+   "credit": "Hurle · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Pierre_mechain.jpg"
+  },
+  "Robert McNaught": {
+   "name": "Robert McNaught",
+   "wiki": "https://en.wikipedia.org/wiki/Robert_H._McNaught",
+   "file": null,
+   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
+   "held_portrait_source": "https://www.abc.net.au/"
+  },
+  "Royal Frost": {
+   "name": "Royal Frost",
+   "wiki": "https://en.wikipedia.org/wiki/Royal_Harwood_Frost",
+   "file": null,
+   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
+   "held_portrait_source": "http://www.fillebrown.com/"
+  },
+  "Stewart Sharpless": {
+   "name": "Stewart Sharpless",
+   "wiki": "https://en.wikipedia.org/wiki/Stewart_Sharpless",
+   "file": null,
+   "fallback_reason": "override portrait (non-Wikimedia), held for Wade",
+   "held_portrait_source": "https://www.pubpub.org/"
+  },
+  "William Herschel": {
+   "name": "William Herschel",
+   "wiki": "https://en.wikipedia.org/wiki/William_Herschel",
+   "file": "assets/people/william-herschel.jpg",
+   "credit": "Lemuel Francis Abbott · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:William_Herschel01.jpg"
+  },
+  "Williamina Fleming": {
+   "name": "Williamina Fleming",
+   "wiki": "https://en.wikipedia.org/wiki/Williamina_Fleming",
+   "file": "assets/people/williamina-fleming.jpg",
+   "credit": "Unknown author · Public domain, via Wikimedia Commons",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Williamina_Paton_Stevens_Fleming_circa_1890s.jpg"
+  }
+ },
+ "scopes": {
+  "200PDS": {
+   "title": "Sky-Watcher 200PDS",
+   "caption": "200 mm Newtonian reflector, 950 mm",
+   "file": "assets/scopes/200pds.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "ASKAR 91F": {
+   "title": "Askar 91F",
+   "caption": "91 mm f/6.7 refractor, 610 mm",
+   "file": "assets/scopes/91f.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "RedCat 61": {
+   "title": "William Optics RedCat 61",
+   "caption": "61 mm f/4.9 refractor, 300 mm",
+   "file": "assets/scopes/redcat.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "RedCat 51": {
+   "title": "William Optics RedCat 51",
+   "caption": "51 mm f/4.9 refractor, 250 mm",
+   "file": "assets/scopes/redcat.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "Seestar S50": {
+   "title": "ZWO Seestar S50",
+   "caption": "50 mm smart telescope, 250 mm",
+   "file": "assets/scopes/seestar.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "DWARF Mini": {
+   "title": "DWARF Mini",
+   "caption": "smart telescope, 150 mm",
+   "file": "assets/scopes/dwarf.jpg",
+   "credit": "Photo © Wade Tubman"
+  },
+  "Pentax 135mm": {
+   "title": "Pentax 135 mm",
+   "caption": "vintage camera lens, 135 mm",
+   "file": "assets/scopes/pentax.jpg",
+   "credit": "Photo © Wade Tubman"
+  }
+ },
+ "site_scopes": {
+  "nebula-nest": {
+   "ASKAR 91F": {
+    "title": "Askar 91F at the Nebula Nest",
+    "caption": "91 mm f/6.7 refractor, 610 mm, in the Nebula Nest observatory",
+    "file": "assets/scopes/nebula.jpg",
+    "credit": "Photo © Wade Tubman"
+   }
+  }
+ },
+ "labels": {
+  "NGC 55 Whale / Pearls": {
+   "constellation": "Sculptor",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "HD 3680": {
+   "constellation": "Phoenix",
+   "person": "Annie Jump Cannon",
+   "year": 1918,
+   "show_person": false
+  },
+  "NGC 253 Sculptor Galaxy": {
+   "constellation": "Sculptor",
+   "person": "Caroline Herschel",
+   "year": 1783
+  },
+  "NGC 253 Sculptor (wide field)": {
+   "constellation": "Sculptor",
+   "person": "Caroline Herschel",
+   "year": 1783
+  },
+  "NGC 292 Small Magellanic Cloud": {
+   "constellation": "Tucana",
+   "person": "Ferdinand Magellan",
+   "year": 1519,
+   "caption": "Known since antiquity; recorded for Europe by Magellan's expedition, 1519"
+  },
+  "NGC 346 (SMC)": {
+   "constellation": "Tucana",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "NGC 460 (N84)": {
+   "constellation": "Tucana",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "SMC core, NGC 346 region (HOO)": {
+   "constellation": "Tucana",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "NGC 474 Shell Galaxy": {
+   "constellation": "Pisces",
+   "person": "William Herschel",
+   "year": 1784
+  },
+  "Comet 220P McNaught": {
+   "constellation": "Aries",
+   "person": "Robert McNaught",
+   "year": 2004
+  },
+  "NGC 1365 Great Barred Spiral": {
+   "constellation": "Fornax",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "M45 Pleiades": {
+   "constellation": "Taurus",
+   "person": "Charles Messier",
+   "year": 1769,
+   "caption": "Known since antiquity; catalogued as M45 by Charles Messier, 1769"
+  },
+  "IC 2118 Witch Head": {
+   "constellation": "Eridanus",
+   "person": "William Herschel",
+   "year": 1786
+  },
+  "NGC 2018 (LMC)": {
+   "constellation": "Dorado",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "M1 Crab Nebula": {
+   "constellation": "Taurus",
+   "person": "John Bevis",
+   "year": 1731
+  },
+  "NGC 2070 Tarantula Nebula": {
+   "constellation": "Dorado",
+   "person": "Nicolas-Louis de Lacaille",
+   "year": 1751
+  },
+  "IC 434 Horsehead Nebula": {
+   "constellation": "Orion",
+   "person": "Williamina Fleming",
+   "year": 1888
+  },
+  "NGC 2174 Monkey Head Nebula": {
+   "constellation": "Orion",
+   "person": "Karl Christian Bruhns",
+   "year": 1857
+  },
+  "NGC 2237 Rosette Nebula": {
+   "constellation": "Monoceros",
+   "person": "Lewis Swift",
+   "year": 1865
+  },
+  "NGC 2264 Cone Nebula": {
+   "constellation": "Monoceros",
+   "person": "William Herschel",
+   "year": 1785
+  },
+  "Sh2-308 Dolphin Head": {
+   "constellation": "Canis Major",
+   "person": "Stewart Sharpless",
+   "year": 1959,
+   "caption": "Catalogued by Stewart Sharpless, 1959"
+  },
+  "IC 2177 Seagull Nebula": {
+   "constellation": "Canis Major",
+   "person": "Isaac Roberts",
+   "year": 1898
+  },
+  "NGC 2359 Thor's Helmet": {
+   "constellation": "Canis Major",
+   "person": "William Herschel",
+   "year": 1785
+  },
+  "NGC 2467 Skull and Crossbones": {
+   "constellation": "Puppis",
+   "person": "William Herschel",
+   "year": 1784
+  },
+  "Vela Supernova Remnant": {
+   "constellation": "Vela",
+   "person": "Bernard Mills",
+   "year": 1968,
+   "caption": "The Vela pulsar was found in 1968 by Michael Large, Alan Vaughan and Bernard Mills"
+  },
+  "NGC 2736 Pencil Nebula": {
+   "constellation": "Vela",
+   "person": "John Herschel",
+   "year": 1835
+  },
+  "NGC 3293 Gem Cluster": {
+   "constellation": "Carina",
+   "person": "Nicolas-Louis de Lacaille",
+   "year": 1751
+  },
+  "NGC 3324 Gabriela Mistral": {
+   "constellation": "Carina",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "NGC 3372 Carina Nebula": {
+   "constellation": "Carina",
+   "person": "Nicolas-Louis de Lacaille",
+   "year": 1751
+  },
+  "IC 2631 Chamaeleon Complex": {
+   "constellation": "Chamaeleon",
+   "person": "DeLisle Stewart",
+   "year": 1900
+  },
+  "Gum 37 Tadpoles and Statue of Liberty (wide)": {
+   "constellation": "Carina",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "NGC 3572 Gum 37 Southern Tadpoles": {
+   "constellation": "Carina",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "NGC 3572 / Gum 37": {
+   "constellation": "Carina",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "NGC 3576 Statue of Liberty": {
+   "constellation": "Carina",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "NGC 3628 Hamburger Galaxy": {
+   "constellation": "Leo",
+   "person": "William Herschel",
+   "year": 1784
+  },
+  "IC 2944 Running Chicken": {
+   "constellation": "Centaurus",
+   "person": "Royal Frost",
+   "year": 1904,
+   "caption": "Discovered by Royal H. Frost, 1904"
+  },
+  "NGC 4038 Antennae Galaxies": {
+   "constellation": "Corvus",
+   "person": "William Herschel",
+   "year": 1785
+  },
+  "Sandqvist 149 Dark Doodad": {
+   "constellation": "Musca",
+   "person": "Aage Sandqvist",
+   "year": 1977,
+   "caption": "Catalogued by Aage Sandqvist, 1977"
+  },
+  "M104 Sombrero Galaxy": {
+   "constellation": "Virgo",
+   "person": "Pierre Méchain",
+   "year": 1781
+  },
+  "NGC 5128 Centaurus A": {
+   "constellation": "Centaurus",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "M83 Southern Pinwheel": {
+   "constellation": "Hydra",
+   "person": "Nicolas-Louis de Lacaille",
+   "year": 1752
+  },
+  "NGC 5367 / CG 12": {
+   "constellation": "Centaurus",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "Barnard 228 Dark Wolf": {
+   "constellation": "Lupus",
+   "person": "Edward Emerson Barnard",
+   "year": 1927
+  },
+  "IC 4601 Blue Reflection": {
+   "constellation": "Scorpius",
+   "person": "Edward Emerson Barnard",
+   "year": 1895
+  },
+  "LDN 1688 Rho Ophiuchi Complex": {
+   "constellation": "Ophiuchus",
+   "person": "Beverly Lynds",
+   "year": 1962,
+   "caption": "Catalogued by Beverly Lynds, 1962"
+  },
+  "NGC 6164 Dragon's Egg": {
+   "constellation": "Norma",
+   "person": "John Herschel",
+   "year": 1834
+  },
+  "LDN 43 Cosmic Bat": {
+   "constellation": "Ophiuchus",
+   "person": "Beverly Lynds",
+   "year": 1962,
+   "caption": "Catalogued by Beverly Lynds, 1962"
+  },
+  "NGC 6188 Fighting Dragons (SHO)": {
+   "constellation": "Ara",
+   "person": "John Herschel",
+   "year": 1836
+  },
+  "NGC 6188 Fighting Dragons (HOO)": {
+   "constellation": "Ara",
+   "person": "John Herschel",
+   "year": 1836
+  },
+  "SL 17 Fenrir (Sandqvist 17)": {
+   "constellation": "Scorpius",
+   "person": "Aage Sandqvist",
+   "year": 1976,
+   "caption": "Catalogued by Aage Sandqvist and Kjell Lindroos, 1976"
+  },
+  "IC 4628 Prawn Nebula": {
+   "constellation": "Scorpius",
+   "person": "Edward Emerson Barnard",
+   "year": 1900
+  },
+  "IC 4633 and the Apus IFN": {
+   "constellation": "Apus",
+   "person": "DeLisle Stewart",
+   "year": 1900
+  },
+  "NGC 6334 Cat's Paw Nebula": {
+   "constellation": "Scorpius",
+   "person": "John Herschel",
+   "year": 1837
+  },
+  "NGC 6357 Lobster Nebula": {
+   "constellation": "Scorpius",
+   "person": "John Herschel",
+   "year": 1837
+  },
+  "M20 Trifid Nebula": {
+   "constellation": "Sagittarius",
+   "person": "Charles Messier",
+   "year": 1764
+  },
+  "M8 Lagoon Nebula": {
+   "constellation": "Sagittarius",
+   "person": "Giovanni Battista Hodierna",
+   "year": 1654
+  },
+  "M8 Lagoon to NGC 6559 Chinese Dragon (wide)": {
+   "constellation": "Sagittarius",
+   "person": "Giovanni Battista Hodierna",
+   "year": 1654
+  },
+  "NGC 6559 Chinese Dragon": {
+   "constellation": "Sagittarius",
+   "person": "John Herschel",
+   "year": 1837
+  },
+  "Sh2-68 Flaming Skull": {
+   "constellation": "Serpens",
+   "person": "Stewart Sharpless",
+   "year": 1959,
+   "caption": "Catalogued by Stewart Sharpless, 1959"
+  },
+  "NGC 6726 Anteater / R CrA": {
+   "constellation": "Corona Australis",
+   "person": "Julius Schmidt",
+   "year": 1861
+  },
+  "NGC 6729 Corona Australis": {
+   "constellation": "Corona Australis",
+   "person": "Julius Schmidt",
+   "year": 1861
+  },
+  "NGC 6744 Pavo Galaxy": {
+   "constellation": "Pavo",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "Eagle Ray Nebula": {
+   "constellation": "Sagittarius",
+   "person": "Stewart Sharpless",
+   "year": 1959,
+   "caption": "Catalogued by Stewart Sharpless, 1959"
+  },
+  "NGC 6960 Veil Nebula": {
+   "constellation": "Cygnus",
+   "person": "William Herschel",
+   "year": 1784
+  },
+  "NGC 7293 Helix Nebula": {
+   "constellation": "Aquarius",
+   "person": "Karl Ludwig Harding",
+   "year": 1824
+  },
+  "ISS transit of the Sun": {
+   "constellation": "Virgo",
+   "person": "Galileo Galilei",
+   "year": 1612,
+   "constellation_text": "Virgo (where it was that day)",
+   "show_person": false
+  },
+  "The Sun": {
+   "constellation": "Capricornus",
+   "person": "Galileo Galilei",
+   "year": 1612,
+   "constellation_text": "Capricornus (where it was that day)",
+   "show_person": false
+  },
+  "Jupiter": {
+   "constellation": "Gemini",
+   "person": "Galileo Galilei",
+   "year": 1610,
+   "constellation_text": "Gemini (where it was that day)",
+   "show_person": false
+  },
+  "east veil": {
+   "constellation": "Cygnus",
+   "person": "William Herschel",
+   "year": 1784,
+   "discovered_text": "William Herschel, 1784"
+  },
+  "zeta 134 NX lh": {
+   "constellation": "Ophiuchus",
+   "person": "Stewart Sharpless",
+   "year": 1959,
+   "discovered_text": "Stewart Sharpless, 1959",
+   "caption": "Catalogued by Stewart Sharpless, 1959"
+  },
+  "lagoon LH": {
+   "constellation": "Sagittarius",
+   "person": "Giovanni Battista Hodierna",
+   "year": 1654,
+   "discovered_text": "Giovanni Battista Hodierna, 1654"
+  },
+  "ngc6618 swan 121": {
+   "constellation": "Sagittarius",
+   "person": "Jean-Philippe Loys de Chéseaux",
+   "year": 1745,
+   "discovered_text": "Jean-Philippe Loys de Chéseaux, 1745"
+  },
+  "Grus 167 NX LH": {
+   "constellation": "Grus",
+   "person": "James Dunlop",
+   "year": 1826,
+   "discovered_text": "James Dunlop, 1826"
+  },
+  "ngc613 291 nx": {
+   "constellation": "Sculptor",
+   "person": "William Herschel",
+   "year": 1798,
+   "discovered_text": "William Herschel, 1798"
+  },
+  "Henize 70": {
+   "constellation": "Dorado",
+   "person": "Karl Henize",
+   "year": 1956,
+   "caption": "Catalogued by Karl Henize, 1956"
+  },
+  "NGC 6888 Crescent Nebula": {
+   "constellation": "Cygnus",
+   "person": "William Herschel",
+   "year": 1792
+  },
+  "M31 Andromeda Galaxy": {
+   "constellation": "Andromeda",
+   "person": "Abd al-Rahman al-Sufi",
+   "year": 964
+  },
+  "M78 (NGC 2068)": {
+   "constellation": "Orion",
+   "person": "Pierre Méchain",
+   "year": 1780
+  },
+  "NGC 1097": {
+   "constellation": "Fornax",
+   "person": "William Herschel",
+   "year": 1790
+  },
+  "NGC 1532": {
+   "constellation": "Eridanus",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "M74 Phantom Galaxy": {
+   "constellation": "Pisces",
+   "person": "Pierre Méchain",
+   "year": 1780
+  }
+ }
+}

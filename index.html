@@ -331,6 +331,49 @@ footer{
 }
 footer a{color:var(--hot); text-decoration:none}
 footer a:hover{text-decoration:underline}
+/* ---------- info popups: discoverer, constellation, telescope (v0.22) ---------- */
+dd .pl{
+  font:inherit; color:inherit; text-align:left; padding:0; cursor:pointer;
+  text-decoration:underline dotted; text-decoration-color:var(--dim); text-underline-offset:3px;
+}
+dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
+#pop{
+  position:fixed; inset:0; z-index:200; display:none; place-items:center;
+  padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));
+  background:rgba(0,0,0,.66);
+}
+#pop.on{display:grid}
+#popcard{
+  position:relative; width:min(560px,100%); max-height:100%; overflow-y:auto;
+  background:var(--panel); color:var(--ink); border:1px solid var(--edge); border-radius:6px;
+  box-shadow:0 18px 50px var(--shadow); overscroll-behavior:contain;
+}
+#popfig{margin:0; background:#000; display:grid; place-items:center}
+#popfig.chart{background:#fff}
+#popfig[hidden]{display:none}
+#popimg{display:block; max-width:100%; max-height:min(64vh,640px); object-fit:contain}
+#poptext{padding:16px 20px 18px}
+#poptitle{margin:0 34px 0 0; font-size:19px; line-height:1.25; font-weight:600}
+#popsub{margin:6px 0 0; font-size:14px; line-height:1.5}
+#popcredit{margin:12px 0 0; font-size:11.5px; line-height:1.5; color:var(--dim)}
+#popcredit a,#poplinks a,#poplist a{color:var(--hot); text-decoration:none}
+#popcredit a:hover,#poplinks a:hover,#poplist a:hover{text-decoration:underline}
+#poplinks{margin:12px 0 0; font-size:13px}
+#poplinks:empty,#popcredit:empty,#popsub:empty{display:none}
+#poplist{font-size:12.5px; line-height:1.5; margin-top:10px}
+#poplist h4{margin:16px 0 6px; font-size:13px; color:var(--ink)}
+#poplist ul{margin:0; padding-left:18px; color:var(--dim)}
+#poplist:empty{display:none}
+#popx{
+  position:absolute; top:10px; right:10px; z-index:2; width:36px; height:36px;
+  display:grid; place-items:center; font-size:17px; line-height:1; border-radius:50%;
+  background:rgba(0,0,0,.55); color:#fff; border:1px solid rgba(255,255,255,.18);
+}
+#popx:hover{background:var(--hot); color:#000; border-color:var(--hot)}
+#creditsbtn{color:var(--hot); font-size:13px; padding:0}
+#creditsbtn:hover{text-decoration:underline}
+@media (max-width:600px){ #popimg{max-height:52vh} #poptext{padding:14px 16px 16px} }
+
 #status{padding:60px 24px; text-align:center; color:var(--dim); font-family:var(--mono); font-size:13px}
 </style>
 </head>
@@ -369,8 +412,9 @@ footer a:hover{text-decoration:underline}
 
 <footer>
   <p>Images © Wade Tubman. All rights reserved.</p>
+  <p><button id="creditsbtn" type="button">Portrait and chart credits</button></p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.21 · built with Claude
+    v0.22 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -409,6 +453,20 @@ footer a:hover{text-decoration:underline}
   <button id="next" type="button" aria-label="Next image">›</button>
 </div>
 
+<div id="pop" role="dialog" aria-modal="true" aria-labelledby="poptitle">
+  <div id="popcard">
+    <button id="popx" type="button" aria-label="Close">✕</button>
+    <div id="popfig"><img id="popimg" alt=""></div>
+    <div id="poptext">
+      <h3 id="poptitle"></h3>
+      <p id="popsub"></p>
+      <p id="popcredit"></p>
+      <p id="poplinks"></p>
+      <div id="poplist"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ==========================================================================
    CONFIG — the only bits you'd ever need to change
@@ -432,6 +490,7 @@ const MOON_DEG  = 0.518;                                  // Moon's apparent dia
    ========================================================================== */
 let IMAGES = [], TARGETS = [], VIEW = [], CUR = -1;
 let ITEMS = [], IT = 0;      // what the lightbox can show for the open target, and which one
+let ASSETS = null;           // assets.json: popup pictures for discoverers, constellations, telescopes
 
 const url = p => SKYDOME + p.split("/").map(encodeURIComponent).join("/");
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -488,11 +547,13 @@ async function grab(u){
 }
 
 async function boot(){
-  const [man,targets,extra] = await Promise.all([
+  const [man,targets,extra,assets] = await Promise.all([
     grab(SKYDOME+"manifest.json"),
     grab("targets.json"),
-    grab("gallery.json")
+    grab("gallery.json"),
+    grab("assets.json")
   ]);
+  ASSETS = assets;
 
   if(!man || !man.images){
     document.getElementById("status").textContent =
@@ -822,11 +883,15 @@ function show(it){
   b.textContent = im.blurb || "A description of this object is still to be written.";
   b.classList.toggle("placeholder", !im.blurb);
 
+  // Constellation, Discovered and Telescope open a picture popup when
+  // assets.json has one for them (see popFor below).
+  const pa = popFor(im);
   const rows = [
     ["Distance",    fmtDist(im.distLy)],
-    ["Discovered",  im.foundBy],
+    ["Constellation", pa.conText,  "con"],
+    ["Discovered",  pa.whoText,    "who"],
     ["Framing",     im.hasSky ? `${fmtDeg(im.fov_w_deg)} × ${fmtDeg(im.fov_h_deg)}` : null],
-    ["Telescope",   showScope(im.scope)],
+    ["Telescope",   showScope(im.scope), "scope"],
     ["Camera",      showCamera(im.camera)],
     ["Filters",     showFilter(im.filters)],
     ["From",        im.location ? im.location + (im.bortle ? ` (Bortle ${im.bortle})` : "") : null],
@@ -835,7 +900,10 @@ function show(it){
   ].filter(r => r[1]);
 
   document.getElementById("facts").innerHTML =
-    rows.map(([k,v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+    rows.map(([k,v,kind]) => `<dt>${k}</dt><dd>` +
+      (kind && pa[kind] ? `<button type="button" class="pl" data-pop="${kind}" aria-haspopup="dialog">${esc(v)}</button>` : esc(v)) +
+      `</dd>`).join("");
+  document.querySelectorAll("#facts .pl").forEach(b => b.onclick = () => openPop(pa[b.dataset.pop], b));
 
   const stat = (ic,n,label,tip,href) => !n ? "" :
     `<${href?"a":"span"} class="stat"${href?` href="${href}" target="_blank" rel="noopener"`:""} title="${tip}">`+
@@ -1108,6 +1176,96 @@ function openFromHash(){
   const h = location.hash.slice(1);
   if(h) openSlug(decodeURIComponent(h));
 }
+
+/* ==========================================================================
+   INFO POPUPS — discoverer portrait, IAU constellation chart, telescope photo.
+   Everything comes from assets.json and is hosted in this repo (assets/).
+   ========================================================================== */
+function popFor(im){
+  const A = ASSETS || {}, L = (A.labels || {})[im.label] || {};
+  const out = {};
+  out.conText = im.constellation || L.constellation_text || L.constellation || null;
+  const con = (A.constellations || {})[L.constellation];
+  if(con && out.conText) out.con = {
+    kind:"con", title:L.constellation, file:con.file, chart:true,
+    sub:"IAU constellation chart" + (L.constellation_text ? " \u00b7 " + L.constellation_text.replace(/^\S+\s*/, "").replace(/[()]/g, "") : ""),
+    credit:con.credit, source:con.source, links:[["Wikipedia", con.wiki]]
+  };
+  out.whoText = im.foundBy || (L.show_person === false ? null : L.discovered_text) || null;
+  const p = (A.people || {})[L.person], fb = A.fallback || {};
+  if(p && out.whoText) out.who = {
+    kind:"who", title:p.name,
+    sub:L.caption || (L.year ? `Discovered ${L.year}` : ""),
+    file:p.file || fb.file, fallback:!p.file,
+    credit:p.file ? p.credit : "No free portrait is available yet.",
+    source:p.file ? p.source : null, links:[["Wikipedia", p.wiki]]
+  };
+  const s = (((A.site_scopes || {})[im.site]) || {})[im.scope] || (A.scopes || {})[im.scope];
+  if(s) out.scope = {kind:"scope", title:s.title, sub:s.caption, file:s.file, credit:s.credit, links:[]};
+  return out;
+}
+
+const pop = document.getElementById("pop");
+let popReturn = null;
+function fillPop({title, sub = "", file = null, chart = false, credit = "", source = null, links = [], list = ""}){
+  const fig = document.getElementById("popfig"), img = document.getElementById("popimg");
+  fig.hidden = !file; fig.classList.toggle("chart", chart);
+  img.onerror = null;
+  if(file){
+    img.src = file; img.alt = title;
+    // a missing portrait falls back to the placeholder rather than a broken icon
+    const fb = ASSETS && ASSETS.fallback && ASSETS.fallback.file;
+    img.onerror = () => { if(fb && !img.src.endsWith(fb)){ img.onerror = null; img.src = fb; } };
+  }else img.removeAttribute("src");
+  document.getElementById("poptitle").textContent = title;
+  document.getElementById("popsub").textContent = sub || "";
+  document.getElementById("popcredit").innerHTML = credit
+    ? esc(credit) + (source ? ` \u00b7 <a href="${esc(source)}" target="_blank" rel="noopener">source</a>` : "") : "";
+  document.getElementById("poplinks").innerHTML = links.filter(l => l[1])
+    .map(([t,u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} &#8599;</a>`).join(" \u00b7 ");
+  document.getElementById("poplist").innerHTML = list;
+}
+function openPop(data, from){
+  if(!data) return;
+  fillPop(data);
+  popReturn = from || document.activeElement;
+  pop.classList.add("on");
+  document.getElementById("popcard").scrollTop = 0;
+  document.getElementById("popx").focus();
+}
+function closePop(){
+  pop.classList.remove("on");
+  if(popReturn && popReturn.focus) popReturn.focus();
+  popReturn = null;
+}
+document.getElementById("popx").onclick = closePop;
+pop.addEventListener("click", e => { if(e.target === pop) closePop(); });
+// Runs before the lightbox's own keys, so Esc closes only the popup and the
+// arrow keys don't change the image underneath it.
+addEventListener("keydown", e => {
+  if(!pop.classList.contains("on")) return;
+  if(e.key === "Escape"){ e.preventDefault(); closePop(); }
+  if(e.key !== "Tab") e.stopImmediatePropagation();
+}, true);
+
+function showCredits(){
+  const A = ASSETS || {};
+  const li = a => `<li>${a}</li>`;
+  const cons = Object.keys(A.constellations || {});
+  const people = Object.values(A.people || {});
+  const withPic = people.filter(p => p.file), without = people.filter(p => !p.file);
+  const conCredit = cons.length ? A.constellations[cons[0]].credit.replace(/, CC BY [\d.]+$/, "") : "";
+  const lic = [...new Set(cons.map(c => A.constellations[c].credit.match(/CC BY [\d.]+$/)?.[0]).filter(Boolean))];
+  const list =
+    `<h4>Constellation charts</h4><ul>${li(esc(conCredit) + ", " + lic.join(" / ") + ", via Wikimedia Commons. " +
+      cons.length + " charts: " + esc(cons.join(", ")) + ".")}</ul>` +
+    `<h4>Portraits</h4><ul>` + withPic.map(p => li(`<a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.name)}</a>: ${esc(p.credit)}`)).join("") + `</ul>` +
+    (without.length ? `<h4>No portrait yet</h4><ul>${li(esc(without.map(p => p.name).join(", ")))}</ul>` : "") +
+    `<h4>Telescopes</h4><ul>${li("Photos \u00a9 Wade Tubman")}</ul>` +
+    `<h4>Astrophotographs</h4><ul>${li("\u00a9 Wade Tubman. All rights reserved.")}</ul>`;
+  openPop({title:"Credits", sub:"Pictures shown in the detail popups. Portraits and charts are public domain or Creative Commons; follow each link for the full licence.", list});
+}
+document.getElementById("creditsbtn").onclick = e => showCredits();
 
 /* ==========================================================================
    THEME — follow the operating system first, remember a manual choice after
