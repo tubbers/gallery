@@ -227,6 +227,9 @@ figure .nest-badge{
 /* narration (v0.24): speaker button, subtle pulse while playing */
 #tvoice[hidden]{display:none}
 #tvoice.playing{background:var(--hot); color:#000; border-color:var(--hot); animation:vpulse 1.6s ease-in-out infinite}
+#thear[hidden]{display:none}
+#thear.playing{border-color:var(--hot); color:var(--hot)}
+#listen{display:flex; flex-wrap:wrap; gap:8px}
 @keyframes vpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,207,107,.55)}50%{box-shadow:0 0 0 7px rgba(255,207,107,0)}}
 html[data-theme="light"] #stage{background:#111}
 #stage #lbimg{
@@ -460,7 +463,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p><button id="creditsbtn" type="button">Portrait and chart credits</button></p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.25 · built with Claude
+    v0.26 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -962,7 +965,6 @@ function show(it){
   document.querySelectorAll("#facts .pl").forEach(b => b.onclick = () => openCard(pa[b.dataset.pop]));
   hideAsset();             // a new photo starts without a card
   stopNarration();
-  document.getElementById("tvoice").hidden = video || !narrationFor(im);
 
   const stat = (ic,n,label,tip,href) => !n ? "" :
     `<${href?"a":"span"} class="stat"${href?` href="${href}" target="_blank" rel="noopener"`:""} title="${tip}">`+
@@ -980,8 +982,7 @@ function show(it){
 
   const links = [
     ["AstroBin",    im.astrobin],
-    ["Telescopius", im.telescopius],
-    ["See where it is", im.hasSky ? SKYDOME + "?target=" + im.slug : null]
+    ["Telescopius", im.telescopius]
   ].filter(l => l[1]);
 
   const AUTHOR = "https://astrophotomarket.com/en/author/wade-tubman";
@@ -992,12 +993,25 @@ function show(it){
     [im.wallpaper || im.fullUrl, "Wallpaper", "3840 \u00d7 2160 JPEG for your desktop"]
   ].filter(m => m[0]);
 
+  const canHear = !video && !!narrationFor(im);
+  const where = im.hasSky ? SKYDOME + "?target=" + im.slug : null;
+  const listen = `<span id="listen">` +
+    (where ? `<a href="${where}" target="_blank" rel="noopener">See where it is<span class="ext">&#8599;</span></a>` : "") +
+    `<button type="button" id="thear" aria-pressed="false"` + (canHear ? "" : " hidden") + `>Hear about it</button>` +
+    `</span>`;
   document.getElementById("acts").innerHTML =
     `<span id="grab"><button type="button" id="grabbtn">Download &#9662;</button>` +
     `<div id="grabmenu">` + menu.map(([u,t,s]) =>
       `<a href="${u}" target="_blank" rel="noopener" ${u===im.fullUrl?'download':''}>${t}<span class="sub">${s}</span></a>`
     ).join("") + `</div></span>` +
-    links.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${t}<span class="ext">&#8599;</span></a>`).join("");
+    links.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${t}<span class="ext">&#8599;</span></a>`).join("") +
+    listen;
+  document.getElementById("tvoice").hidden = !canHear;
+  const hearBtn = document.getElementById("thear");
+  hearBtn.onclick = e => {
+    e.stopPropagation();
+    NAR.playing ? stopNarration() : startNarration();
+  };
 
   const gb = document.getElementById("grabbtn"), gm = document.getElementById("grabmenu");
   gb.onclick = e => { e.stopPropagation(); gm.classList.toggle("on"); };
@@ -1407,11 +1421,13 @@ function showCredits(){
 document.getElementById("creditsbtn").onclick = e => showCredits();
 
 /* ==========================================================================
-   NARRATION (v0.24) — plays an image's parts in order and drives the docked
+   NARRATION (v0.26) — plays an image's parts in order and drives the docked
    card and the Moon overlay. Data: assets.json labels[label].narration =
      {parts:[{file, show:"constellation"|"discoverer"|"moon"|"scope"|null, hold_s?}]}
-   Starts only from a tap (iOS needs that), skips a part whose file fails,
-   preloads the next part, and clears everything when it ends or is stopped.
+   Five parts: intro, discoverer, science (Moon for hold_s), scope, closing
+   (show null, photo clear). The speaker icon and "Hear about it" start and
+   stop the same sequence. Starts only from a tap (iOS needs that), skips a
+   part whose file fails, preloads the next part, and clears at the end.
    ========================================================================== */
 const NAR = {audio:null, next:null, parts:[], i:-1, shown:-1, timer:null, moonMine:false, playing:false};
 function narrationFor(im){
@@ -1461,6 +1477,22 @@ function narSkip(i, why){
   narEvent("skip", {why});
   narPlay(i + 1);
 }
+function setNarrationPlaying(on){
+  const voice = document.getElementById("tvoice");
+  const hear = document.getElementById("thear");
+  if(voice){
+    voice.classList.toggle("playing", on);
+    voice.setAttribute("aria-pressed", on ? "true" : "false");
+    voice.title = on ? "Stop the narration" : "Play the narration";
+    voice.setAttribute("aria-label", voice.title);
+  }
+  if(hear){
+    hear.classList.toggle("playing", on);
+    hear.setAttribute("aria-pressed", on ? "true" : "false");
+    hear.textContent = on ? "Stop narration" : "Hear about it";
+    hear.setAttribute("aria-label", hear.textContent);
+  }
+}
 function startNarration(){
   const im = ITEMS[IT] && ITEMS[IT].v, n = narrationFor(im);
   if(!n) return;
@@ -1474,9 +1506,7 @@ function startNarration(){
     NAR.audio.addEventListener("error",   () => { if(NAR.playing && NAR.audio.getAttribute("src")) narSkip(NAR.i, "load error"); });
   }
   NAR.parts = n.parts; NAR.playing = true;
-  const b = document.getElementById("tvoice");
-  b.classList.add("playing"); b.setAttribute("aria-pressed", "true");
-  b.title = "Stop the narration"; b.setAttribute("aria-label", b.title);
+  setNarrationPlaying(true);
   narEvent("start", {label:im.label});
   narPlay(0);
 }
@@ -1487,9 +1517,7 @@ function stopNarration(){
   if(NAR.audio){ NAR.audio.pause(); NAR.audio.removeAttribute("src"); NAR.audio.load(); }
   if(NAR.next){ NAR.next.removeAttribute("src"); }
   narClearOverlays();
-  const b = document.getElementById("tvoice");
-  b.classList.remove("playing"); b.setAttribute("aria-pressed", "false");
-  b.title = "Play the narration"; b.setAttribute("aria-label", b.title);
+  setNarrationPlaying(false);
   if(was) narEvent("stop");
 }
 document.getElementById("tvoice").onclick = e => {

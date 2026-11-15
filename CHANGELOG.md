@@ -2,6 +2,10 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.26 — 2026-11-15
+- Every image now has a five-part narration: the intro, the discoverer, the science (with the to-scale Moon for the first four seconds), the telescope, and a closing line that leaves the photo clear. The speaker icon on the photo still starts and stops it.
+- A new "Hear about it" button sits in the details, next to "See where it is", in the same style, so the narration is easier to find. It plays and stops the same recording, and only shows when there is one to hear. It works on phones as well as on a desktop.
+
 ## 0.25 — 2026-11-15
 - Integration times on the page now use the hours that went into the final stack, wherever the capture tracker has that figure. Captured-but-not-stacked totals and times that only lived in the gallery are unchanged. Nights were brought into line with the same records, so the page and the narration scripts agree. Forty-three images changed; nine already matched.
 

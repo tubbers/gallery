@@ -580,428 +580,2588 @@
   "NGC 55 Whale / Pearls": {
    "constellation": "Sculptor",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "ngc55",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc55_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc55_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc55_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc55_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc55_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "HD 3680": {
    "constellation": "Phoenix",
    "person": "Annie Jump Cannon",
    "year": 1918,
-   "show_person": false
+   "show_person": false,
+   "narration": {
+    "image_id": "gal_hd3680",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_hd3680_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_hd3680_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_hd3680_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_hd3680_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_hd3680_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 253 Sculptor Galaxy": {
    "constellation": "Sculptor",
    "person": "Caroline Herschel",
-   "year": 1783
+   "year": 1783,
+   "narration": {
+    "image_id": "ngc253",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc253_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc253_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc253_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc253_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc253_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 253 Sculptor (wide field)": {
    "constellation": "Sculptor",
    "person": "Caroline Herschel",
-   "year": 1783
+   "year": 1783,
+   "narration": {
+    "image_id": "gal_ngc253_wide",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc253_wide_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc253_wide_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc253_wide_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc253_wide_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc253_wide_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 292 Small Magellanic Cloud": {
    "constellation": "Tucana",
    "person": "Ferdinand Magellan",
    "year": 1519,
-   "caption": "Known since antiquity; recorded for Europe by Magellan's expedition, 1519"
+   "caption": "Known since antiquity; recorded for Europe by Magellan's expedition, 1519",
+   "narration": {
+    "image_id": "gal_ngc292_smc",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc292_smc_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc292_smc_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc292_smc_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc292_smc_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc292_smc_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 346 (SMC)": {
    "constellation": "Tucana",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "gal_ngc346_200pds",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc346_200pds_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc346_200pds_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc346_200pds_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc346_200pds_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc346_200pds_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 460 (N84)": {
    "constellation": "Tucana",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "ngc460_smc",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc460_smc_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc460_smc_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc460_smc_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc460_smc_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc460_smc_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "SMC core, NGC 346 region (HOO)": {
    "constellation": "Tucana",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "gal_smc_core_91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_smc_core_91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_smc_core_91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_smc_core_91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_smc_core_91f_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_smc_core_91f_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 474 Shell Galaxy": {
    "constellation": "Pisces",
    "person": "William Herschel",
-   "year": 1784
+   "year": 1784,
+   "narration": {
+    "image_id": "ngc474",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc474_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc474_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc474_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc474_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc474_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Comet 220P McNaught": {
    "constellation": "Aries",
    "person": "Robert McNaught",
-   "year": 2004
+   "year": 2004,
+   "narration": {
+    "image_id": "gal_comet_220p",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_comet_220p_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_comet_220p_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_comet_220p_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_comet_220p_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_comet_220p_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 1365 Great Barred Spiral": {
    "constellation": "Fornax",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "ngc1365_parkes",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc1365_parkes_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc1365_parkes_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc1365_parkes_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc1365_parkes_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc1365_parkes_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M45 Pleiades": {
    "constellation": "Taurus",
    "person": "Charles Messier",
    "year": 1769,
-   "caption": "Known since antiquity; catalogued as M45 by Charles Messier, 1769"
+   "caption": "Known since antiquity; catalogued as M45 by Charles Messier, 1769",
+   "narration": {
+    "image_id": "m45_pleiades",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/m45_pleiades_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/m45_pleiades_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/m45_pleiades_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/m45_pleiades_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/m45_pleiades_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 2118 Witch Head": {
    "constellation": "Eridanus",
    "person": "William Herschel",
-   "year": 1786
+   "year": 1786,
+   "narration": {
+    "image_id": "gal_ic2118_witchhead",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ic2118_witchhead_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ic2118_witchhead_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ic2118_witchhead_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ic2118_witchhead_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ic2118_witchhead_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2018 (LMC)": {
    "constellation": "Dorado",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "ngc2018_lmc",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc2018_lmc_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc2018_lmc_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc2018_lmc_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc2018_lmc_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc2018_lmc_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M1 Crab Nebula": {
    "constellation": "Taurus",
    "person": "John Bevis",
-   "year": 1731
+   "year": 1731,
+   "narration": {
+    "image_id": "gal_m1_crab",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_m1_crab_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_m1_crab_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_m1_crab_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_m1_crab_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_m1_crab_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2070 Tarantula Nebula": {
    "constellation": "Dorado",
    "person": "Nicolas-Louis de Lacaille",
-   "year": 1751
+   "year": 1751,
+   "narration": {
+    "image_id": "gal_ngc2070_tarantula",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc2070_tarantula_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc2070_tarantula_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc2070_tarantula_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc2070_tarantula_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc2070_tarantula_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 434 Horsehead Nebula": {
    "constellation": "Orion",
    "person": "Williamina Fleming",
-   "year": 1888
+   "year": 1888,
+   "narration": {
+    "image_id": "gal_ic434_horsehead",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ic434_horsehead_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ic434_horsehead_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ic434_horsehead_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ic434_horsehead_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ic434_horsehead_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2174 Monkey Head Nebula": {
    "constellation": "Orion",
    "person": "Karl Christian Bruhns",
-   "year": 1857
+   "year": 1857,
+   "narration": {
+    "image_id": "gal_ngc2174_monkeyhead",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc2174_monkeyhead_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc2174_monkeyhead_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc2174_monkeyhead_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc2174_monkeyhead_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc2174_monkeyhead_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2237 Rosette Nebula": {
    "constellation": "Monoceros",
    "person": "Lewis Swift",
-   "year": 1865
+   "year": 1865,
+   "narration": {
+    "image_id": "gal_ngc2237_rosette",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc2237_rosette_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc2237_rosette_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc2237_rosette_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc2237_rosette_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc2237_rosette_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2264 Cone Nebula": {
    "constellation": "Monoceros",
    "person": "William Herschel",
-   "year": 1785
+   "year": 1785,
+   "narration": {
+    "image_id": "gal_ngc2264_cone",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc2264_cone_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc2264_cone_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc2264_cone_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc2264_cone_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc2264_cone_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Sh2-308 Dolphin Head": {
    "constellation": "Canis Major",
    "person": "Stewart Sharpless",
    "year": 1959,
-   "caption": "Catalogued by Stewart Sharpless, 1959"
+   "caption": "Catalogued by Stewart Sharpless, 1959",
+   "narration": {
+    "image_id": "gal_sh2_308_dolphin",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_sh2_308_dolphin_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_sh2_308_dolphin_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_sh2_308_dolphin_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_sh2_308_dolphin_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_sh2_308_dolphin_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 2177 Seagull Nebula": {
    "constellation": "Canis Major",
    "person": "Isaac Roberts",
-   "year": 1898
+   "year": 1898,
+   "narration": {
+    "image_id": "seagull",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/seagull_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/seagull_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/seagull_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/seagull_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/seagull_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2359 Thor's Helmet": {
    "constellation": "Canis Major",
    "person": "William Herschel",
-   "year": 1785
+   "year": 1785,
+   "narration": {
+    "image_id": "gal_ngc2359_thor",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc2359_thor_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc2359_thor_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc2359_thor_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc2359_thor_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc2359_thor_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2467 Skull and Crossbones": {
    "constellation": "Puppis",
    "person": "William Herschel",
-   "year": 1784
+   "year": 1784,
+   "narration": {
+    "image_id": "skull",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/skull_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/skull_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/skull_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/skull_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/skull_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Vela Supernova Remnant": {
    "constellation": "Vela",
    "person": "Bernard Mills",
    "year": 1968,
-   "caption": "The Vela pulsar was found in 1968 by Michael Large, Alan Vaughan and Bernard Mills"
+   "caption": "The Vela pulsar was found in 1968 by Michael Large, Alan Vaughan and Bernard Mills",
+   "narration": {
+    "image_id": "vela_pentax",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/vela_pentax_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/vela_pentax_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/vela_pentax_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/vela_pentax_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/vela_pentax_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 2736 Pencil Nebula": {
    "constellation": "Vela",
    "person": "John Herschel",
-   "year": 1835
+   "year": 1835,
+   "narration": {
+    "image_id": "pencil_91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/pencil_91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/pencil_91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/pencil_91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/pencil_91f_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/pencil_91f_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3293 Gem Cluster": {
    "constellation": "Carina",
    "person": "Nicolas-Louis de Lacaille",
-   "year": 1751
+   "year": 1751,
+   "narration": {
+    "image_id": "gem_cluster",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gem_cluster_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gem_cluster_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gem_cluster_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gem_cluster_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gem_cluster_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3324 Gabriela Mistral": {
    "constellation": "Carina",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "gabriela",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gabriela_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gabriela_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gabriela_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gabriela_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gabriela_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3372 Carina Nebula": {
    "constellation": "Carina",
    "person": "Nicolas-Louis de Lacaille",
-   "year": 1751
+   "year": 1751,
+   "narration": {
+    "image_id": "gal_ngc3372_carina",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc3372_carina_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc3372_carina_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc3372_carina_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc3372_carina_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc3372_carina_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 2631 Chamaeleon Complex": {
    "constellation": "Chamaeleon",
    "person": "DeLisle Stewart",
-   "year": 1900
+   "year": 1900,
+   "narration": {
+    "image_id": "ic2631",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ic2631_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ic2631_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ic2631_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ic2631_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ic2631_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Gum 37 Tadpoles and Statue of Liberty (wide)": {
    "constellation": "Carina",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "gal_gum37_wide",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_gum37_wide_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_gum37_wide_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_gum37_wide_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_gum37_wide_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_gum37_wide_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3572 Gum 37 Southern Tadpoles": {
    "constellation": "Carina",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "tadpoles",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/tadpoles_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/tadpoles_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/tadpoles_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/tadpoles_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/tadpoles_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3572 / Gum 37": {
    "constellation": "Carina",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "gal_ngc3572_wide200",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc3572_wide200_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc3572_wide200_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc3572_wide200_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc3572_wide200_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc3572_wide200_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3576 Statue of Liberty": {
    "constellation": "Carina",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "gal_ngc3576_statue",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc3576_statue_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc3576_statue_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc3576_statue_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc3576_statue_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc3576_statue_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 3628 Hamburger Galaxy": {
    "constellation": "Leo",
    "person": "William Herschel",
-   "year": 1784
+   "year": 1784,
+   "narration": {
+    "image_id": "gal_ngc3628_hamburger",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc3628_hamburger_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc3628_hamburger_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc3628_hamburger_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc3628_hamburger_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc3628_hamburger_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 2944 Running Chicken": {
    "constellation": "Centaurus",
    "person": "Royal Frost",
    "year": 1904,
-   "caption": "Discovered by Royal H. Frost, 1904"
+   "caption": "Discovered by Royal H. Frost, 1904",
+   "narration": {
+    "image_id": "running_chicken",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/running_chicken_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/running_chicken_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/running_chicken_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/running_chicken_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/running_chicken_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 4038 Antennae Galaxies": {
    "constellation": "Corvus",
    "person": "William Herschel",
-   "year": 1785
+   "year": 1785,
+   "narration": {
+    "image_id": "antennae",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/antennae_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/antennae_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/antennae_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/antennae_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/antennae_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Sandqvist 149 Dark Doodad": {
    "constellation": "Musca",
    "person": "Aage Sandqvist",
    "year": 1977,
-   "caption": "Catalogued by Aage Sandqvist, 1977"
+   "caption": "Catalogued by Aage Sandqvist, 1977",
+   "narration": {
+    "image_id": "doodad",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/doodad_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/doodad_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/doodad_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/doodad_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/doodad_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M104 Sombrero Galaxy": {
    "constellation": "Virgo",
    "person": "Pierre Méchain",
-   "year": 1781
+   "year": 1781,
+   "narration": {
+    "image_id": "sombrero",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/sombrero_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/sombrero_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/sombrero_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/sombrero_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/sombrero_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 5128 Centaurus A": {
    "constellation": "Centaurus",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "cena_bb",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/cena_bb_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/cena_bb_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/cena_bb_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/cena_bb_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/cena_bb_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M83 Southern Pinwheel": {
    "constellation": "Hydra",
    "person": "Nicolas-Louis de Lacaille",
-   "year": 1752
+   "year": 1752,
+   "narration": {
+    "image_id": "m83",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/m83_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/m83_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/m83_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/m83_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/m83_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 5367 / CG 12": {
    "constellation": "Centaurus",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "ngc5367",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc5367_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc5367_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc5367_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc5367_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc5367_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Barnard 228 Dark Wolf": {
    "constellation": "Lupus",
    "person": "Edward Emerson Barnard",
-   "year": 1927
+   "year": 1927,
+   "narration": {
+    "image_id": "dwolf",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/dwolf_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/dwolf_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/dwolf_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/dwolf_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/dwolf_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 4601 Blue Reflection": {
    "constellation": "Scorpius",
    "person": "Edward Emerson Barnard",
-   "year": 1895
+   "year": 1895,
+   "narration": {
+    "image_id": "ic4601",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ic4601_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ic4601_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ic4601_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ic4601_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ic4601_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "LDN 1688 Rho Ophiuchi Complex": {
    "constellation": "Ophiuchus",
    "person": "Beverly Lynds",
    "year": 1962,
-   "caption": "Catalogued by Beverly Lynds, 1962"
+   "caption": "Catalogued by Beverly Lynds, 1962",
+   "narration": {
+    "image_id": "rho_mosaic_redcat",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/rho_mosaic_redcat_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/rho_mosaic_redcat_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/rho_mosaic_redcat_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/rho_mosaic_redcat_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/rho_mosaic_redcat_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6164 Dragon's Egg": {
    "constellation": "Norma",
    "person": "John Herschel",
-   "year": 1834
+   "year": 1834,
+   "narration": {
+    "image_id": "dragons_egg",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/dragons_egg_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/dragons_egg_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/dragons_egg_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/dragons_egg_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/dragons_egg_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "LDN 43 Cosmic Bat": {
    "constellation": "Ophiuchus",
    "person": "Beverly Lynds",
    "year": 1962,
-   "caption": "Catalogued by Beverly Lynds, 1962"
+   "caption": "Catalogued by Beverly Lynds, 1962",
+   "narration": {
+    "image_id": "ldn43",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ldn43_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ldn43_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ldn43_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ldn43_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ldn43_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6188 Fighting Dragons (SHO)": {
    "constellation": "Ara",
    "person": "John Herschel",
-   "year": 1836
+   "year": 1836,
+   "narration": {
+    "image_id": "fighting_dragons_sho",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/fighting_dragons_sho_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/fighting_dragons_sho_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/fighting_dragons_sho_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/fighting_dragons_sho_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/fighting_dragons_sho_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6188 Fighting Dragons (HOO)": {
    "constellation": "Ara",
    "person": "John Herschel",
-   "year": 1836
+   "year": 1836,
+   "narration": {
+    "image_id": "fighting_dragons",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/fighting_dragons_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/fighting_dragons_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/fighting_dragons_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/fighting_dragons_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/fighting_dragons_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "SL 17 Fenrir (Sandqvist 17)": {
    "constellation": "Scorpius",
    "person": "Aage Sandqvist",
    "year": 1976,
-   "caption": "Catalogued by Aage Sandqvist and Kjell Lindroos, 1976"
+   "caption": "Catalogued by Aage Sandqvist and Kjell Lindroos, 1976",
+   "narration": {
+    "image_id": "sl17",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/sl17_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/sl17_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/sl17_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/sl17_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/sl17_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 4628 Prawn Nebula": {
    "constellation": "Scorpius",
    "person": "Edward Emerson Barnard",
-   "year": 1900
+   "year": 1900,
+   "narration": {
+    "image_id": "prawn",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/prawn_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/prawn_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/prawn_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/prawn_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/prawn_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "IC 4633 and the Apus IFN": {
    "constellation": "Apus",
    "person": "DeLisle Stewart",
-   "year": 1900
+   "year": 1900,
+   "narration": {
+    "image_id": "apus_2600_91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/apus_2600_91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/apus_2600_91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/apus_2600_91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/apus_2600_91f_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/apus_2600_91f_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6334 Cat's Paw Nebula": {
    "constellation": "Scorpius",
    "person": "John Herschel",
-   "year": 1837
+   "year": 1837,
+   "narration": {
+    "image_id": "catspaw",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/catspaw_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/catspaw_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/catspaw_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/catspaw_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/catspaw_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6357 Lobster Nebula": {
    "constellation": "Scorpius",
    "person": "John Herschel",
-   "year": 1837
+   "year": 1837,
+   "narration": {
+    "image_id": "lobster",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/lobster_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/lobster_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/lobster_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/lobster_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/lobster_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M20 Trifid Nebula": {
    "constellation": "Sagittarius",
    "person": "Charles Messier",
-   "year": 1764
+   "year": 1764,
+   "narration": {
+    "image_id": "trifid_hargb",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/trifid_hargb_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/trifid_hargb_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/trifid_hargb_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/trifid_hargb_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/trifid_hargb_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M8 Lagoon Nebula": {
    "constellation": "Sagittarius",
    "person": "Giovanni Battista Hodierna",
-   "year": 1654
+   "year": 1654,
+   "narration": {
+    "image_id": "gal_m8_lagoon_2025",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_m8_lagoon_2025_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_m8_lagoon_2025_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_m8_lagoon_2025_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_m8_lagoon_2025_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_m8_lagoon_2025_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M8 Lagoon to NGC 6559 Chinese Dragon (wide)": {
    "constellation": "Sagittarius",
    "person": "Giovanni Battista Hodierna",
-   "year": 1654
+   "year": 1654,
+   "narration": {
+    "image_id": "ngc6559_m8_wide",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc6559_m8_wide_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc6559_m8_wide_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc6559_m8_wide_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc6559_m8_wide_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc6559_m8_wide_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6559 Chinese Dragon": {
    "constellation": "Sagittarius",
    "person": "John Herschel",
-   "year": 1837
+   "year": 1837,
+   "narration": {
+    "image_id": "chinese_dragon_wide",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/chinese_dragon_wide_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/chinese_dragon_wide_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/chinese_dragon_wide_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/chinese_dragon_wide_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/chinese_dragon_wide_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Sh2-68 Flaming Skull": {
    "constellation": "Serpens",
    "person": "Stewart Sharpless",
    "year": 1959,
-   "caption": "Catalogued by Stewart Sharpless, 1959"
+   "caption": "Catalogued by Stewart Sharpless, 1959",
+   "narration": {
+    "image_id": "sh2_68",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/sh2_68_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/sh2_68_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/sh2_68_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/sh2_68_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/sh2_68_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6726 Anteater / R CrA": {
    "constellation": "Corona Australis",
    "person": "Julius Schmidt",
-   "year": 1861
+   "year": 1861,
+   "narration": {
+    "image_id": "cra_refl",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/cra_refl_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/cra_refl_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/cra_refl_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/cra_refl_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/cra_refl_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6729 Corona Australis": {
    "constellation": "Corona Australis",
    "person": "Julius Schmidt",
-   "year": 1861
+   "year": 1861,
+   "narration": {
+    "image_id": "gal_ngc6729_cra",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc6729_cra_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc6729_cra_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc6729_cra_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc6729_cra_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc6729_cra_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6744 Pavo Galaxy": {
    "constellation": "Pavo",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "pavo",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/pavo_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/pavo_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/pavo_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/pavo_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/pavo_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Eagle Ray Nebula": {
    "constellation": "Sagittarius",
    "person": "Stewart Sharpless",
    "year": 1959,
-   "caption": "Catalogued by Stewart Sharpless, 1959"
+   "caption": "Catalogued by Stewart Sharpless, 1959",
+   "narration": {
+    "image_id": "sh2_63",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/sh2_63_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/sh2_63_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/sh2_63_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/sh2_63_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/sh2_63_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6960 Veil Nebula": {
    "constellation": "Cygnus",
    "person": "William Herschel",
-   "year": 1784
+   "year": 1784,
+   "narration": {
+    "image_id": "veil_2600mc",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/veil_2600mc_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/veil_2600mc_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/veil_2600mc_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/veil_2600mc_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/veil_2600mc_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 7293 Helix Nebula": {
    "constellation": "Aquarius",
    "person": "Karl Ludwig Harding",
-   "year": 1824
+   "year": 1824,
+   "narration": {
+    "image_id": "gal_ngc7293_helix",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_ngc7293_helix_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_ngc7293_helix_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_ngc7293_helix_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_ngc7293_helix_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_ngc7293_helix_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "ISS transit of the Sun": {
    "constellation": "Virgo",
    "person": "Galileo Galilei",
    "year": 1612,
    "constellation_text": "Virgo (where it was that day)",
-   "show_person": false
+   "show_person": false,
+   "narration": {
+    "image_id": "gal_iss_transit_2026",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_iss_transit_2026_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_iss_transit_2026_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_iss_transit_2026_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_iss_transit_2026_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_iss_transit_2026_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "The Sun": {
    "constellation": "Capricornus",
    "person": "Galileo Galilei",
    "year": 1612,
    "constellation_text": "Capricornus (where it was that day)",
-   "show_person": false
+   "show_person": false,
+   "narration": {
+    "image_id": "gal_iss_transit_2025",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_iss_transit_2025_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_iss_transit_2025_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_iss_transit_2025_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_iss_transit_2025_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_iss_transit_2025_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Jupiter": {
    "constellation": "Gemini",
    "person": "Galileo Galilei",
    "year": 1610,
    "constellation_text": "Gemini (where it was that day)",
-   "show_person": false
+   "show_person": false,
+   "narration": {
+    "image_id": "gal_jupiter",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_jupiter_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_jupiter_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_jupiter_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_jupiter_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_jupiter_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "east veil": {
    "constellation": "Cygnus",
    "person": "William Herschel",
    "year": 1784,
-   "discovered_text": "William Herschel, 1784"
+   "discovered_text": "William Herschel, 1784",
+   "narration": {
+    "image_id": "ngc6992_veil_91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc6992_veil_91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc6992_veil_91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc6992_veil_91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc6992_veil_91f_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc6992_veil_91f_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "zeta 134 NX lh": {
    "constellation": "Ophiuchus",
    "person": "Stewart Sharpless",
    "year": 1959,
    "discovered_text": "Stewart Sharpless, 1959",
-   "caption": "Catalogued by Stewart Sharpless, 1959"
+   "caption": "Catalogued by Stewart Sharpless, 1959",
+   "narration": {
+    "image_id": "sh2_27",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/sh2_27_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/sh2_27_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/sh2_27_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/sh2_27_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/sh2_27_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "lagoon LH": {
    "constellation": "Sagittarius",
    "person": "Giovanni Battista Hodierna",
    "year": 1654,
-   "discovered_text": "Giovanni Battista Hodierna, 1654"
+   "discovered_text": "Giovanni Battista Hodierna, 1654",
+   "narration": {
+    "image_id": "m8_lagoon_91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/m8_lagoon_91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/m8_lagoon_91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/m8_lagoon_91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/m8_lagoon_91f_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/m8_lagoon_91f_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "ngc6618 swan 121": {
    "constellation": "Sagittarius",
    "person": "Jean-Philippe Loys de Chéseaux",
    "year": 1745,
-   "discovered_text": "Jean-Philippe Loys de Chéseaux, 1745"
+   "discovered_text": "Jean-Philippe Loys de Chéseaux, 1745",
+   "narration": {
+    "image_id": "omega_91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/omega_91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/omega_91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/omega_91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/omega_91f_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/omega_91f_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Grus 167 NX LH": {
    "constellation": "Grus",
    "person": "James Dunlop",
    "year": 1826,
-   "discovered_text": "James Dunlop, 1826"
+   "discovered_text": "James Dunlop, 1826",
+   "narration": {
+    "image_id": "grus_quartet",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/grus_quartet_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/grus_quartet_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/grus_quartet_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/grus_quartet_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/grus_quartet_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "ngc613 291 nx": {
    "constellation": "Sculptor",
    "person": "William Herschel",
    "year": 1798,
-   "discovered_text": "William Herschel, 1798"
+   "discovered_text": "William Herschel, 1798",
+   "narration": {
+    "image_id": "ngc613_wheeny",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc613_wheeny_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc613_wheeny_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc613_wheeny_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc613_wheeny_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc613_wheeny_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "Henize 70": {
    "constellation": "Dorado",
    "person": "Karl Henize",
    "year": 1956,
-   "caption": "Catalogued by Karl Henize, 1956"
+   "caption": "Catalogued by Karl Henize, 1956",
+   "narration": {
+    "image_id": "henize70_lmc",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/henize70_lmc_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/henize70_lmc_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/henize70_lmc_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/henize70_lmc_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/henize70_lmc_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 6888 Crescent Nebula": {
    "constellation": "Cygnus",
    "person": "William Herschel",
-   "year": 1792
+   "year": 1792,
+   "narration": {
+    "image_id": "crescent",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/crescent_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/crescent_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/crescent_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/crescent_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/crescent_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M31 Andromeda Galaxy": {
    "constellation": "Andromeda",
    "person": "Abd al-Rahman al-Sufi",
-   "year": 964
+   "year": 964,
+   "narration": {
+    "image_id": "gal_m31_dwarf",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/gal_m31_dwarf_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/gal_m31_dwarf_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/gal_m31_dwarf_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/gal_m31_dwarf_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/gal_m31_dwarf_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M78 (NGC 2068)": {
    "constellation": "Orion",
    "person": "Pierre Méchain",
-   "year": 1780
+   "year": 1780,
+   "narration": {
+    "image_id": "m78_nest",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/m78_nest_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/m78_nest_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/m78_nest_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/m78_nest_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/m78_nest_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 1097": {
    "constellation": "Fornax",
    "person": "William Herschel",
-   "year": 1790
+   "year": 1790,
+   "narration": {
+    "image_id": "ngc1097_200pds",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc1097_200pds_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc1097_200pds_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc1097_200pds_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc1097_200pds_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc1097_200pds_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "NGC 1532": {
    "constellation": "Eridanus",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "ngc1532_wheeny",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc1532_wheeny_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc1532_wheeny_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc1532_wheeny_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc1532_wheeny_04_scope.mp3",
+      "show": "scope"
+     },
+     {
+      "file": "audio/ngc1532_wheeny_05_closing.mp3",
+      "show": null
+     }
+    ]
+   }
   },
   "M74 Phantom Galaxy": {
    "constellation": "Pisces",
@@ -1027,6 +3187,10 @@
      {
       "file": "audio/m74_200pds_04_scope.mp3",
       "show": "scope"
+     },
+     {
+      "file": "audio/m74_200pds_05_closing.mp3",
+      "show": null
      }
     ]
    }
