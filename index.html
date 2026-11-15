@@ -224,6 +224,10 @@ figure .nest-badge{
 #tools a{text-decoration:none}
 #tools button:hover, #tools a:hover{background:var(--hot); color:#000; border-color:var(--hot)}
 #tools button.on{background:var(--hot); color:#000; border-color:var(--hot)}
+/* narration (v0.24): speaker button, subtle pulse while playing */
+#tvoice[hidden]{display:none}
+#tvoice.playing{background:var(--hot); color:#000; border-color:var(--hot); animation:vpulse 1.6s ease-in-out infinite}
+@keyframes vpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,207,107,.55)}50%{box-shadow:0 0 0 7px rgba(255,207,107,0)}}
 html[data-theme="light"] #stage{background:#111}
 #stage #lbimg{
   display:block; width:100%; height:100%;
@@ -373,7 +377,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
 /* docked asset card (v0.23): small, non-modal, bottom-right of the photo */
 #acard{
   position:absolute; right:14px; bottom:14px; z-index:7; display:none;
-  width:250px; max-width:calc(100% - 28px); max-height:calc(100% - 90px); overflow:hidden auto;
+  width:375px; max-width:calc(100% - 28px); max-height:calc(100% - 90px); overflow:hidden auto;
   background:var(--panel); color:var(--ink); border:1px solid var(--edge); border-radius:5px;
   box-shadow:0 8px 24px var(--shadow); font-size:12px; line-height:1.4;
 }
@@ -382,14 +386,14 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
 #acfig{background:#000; display:grid; place-items:center}
 #acfig.chart{background:#fff}
 #acfig[hidden]{display:none}
-#acimg{display:block; max-width:100%; max-height:min(26vh,220px); object-fit:contain}
+#acimg{display:block; max-width:100%; max-height:min(30vh,300px); object-fit:contain}
 /* keep the card's top below the prev/next arrows, which sit at mid-height */
-#stage:has(#vers:not(:empty)) #acimg{max-height:min(18vh,160px)}
-@media (min-width:901px) and (max-height:760px){ #acimg{max-height:20vh} #stage:has(#vers:not(:empty)) #acimg{max-height:13vh} }
-#actext{padding:8px 10px 9px}
-#actitle{margin:0 26px 0 0; font-size:13.5px; line-height:1.25; font-weight:600}
-#acsub{margin:3px 0 0}
-#accredit{margin:5px 0 0; font-size:10.5px; color:var(--dim)}
+#stage:has(#vers:not(:empty)) #acimg{max-height:min(19vh,190px)}
+@media (min-width:901px) and (max-height:760px){ #acimg{max-height:22vh} #stage:has(#vers:not(:empty)) #acimg{max-height:12vh} }
+#actext{padding:10px 13px 11px}
+#actitle{margin:0 26px 0 0; font-size:15px; line-height:1.25; font-weight:600}
+#acsub{margin:4px 0 0; font-size:13px}
+#accredit{margin:6px 0 0; font-size:11.5px; color:var(--dim)}
 #accredit a{color:var(--hot); text-decoration:none}
 #accredit a:hover{text-decoration:underline}
 #acsub:empty,#accredit:empty{display:none}
@@ -409,6 +413,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
   #actext{padding:7px 9px}
   #actitle{font-size:12.5px}
   #acsub,#accredit{font-size:10.5px}
+  #acsub{margin:3px 0 0} #accredit{margin:5px 0 0}
 }
 
 #creditsbtn{color:var(--hot); font-size:13px; padding:0}
@@ -455,7 +460,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p><button id="creditsbtn" type="button">Portrait and chart credits</button></p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.23 · built with Claude
+    v0.24 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -475,6 +480,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
     <div id="tools">
       <button id="tfull" type="button" title="Full screen" aria-label="Full screen">&#9974;</button>
       <button id="tmoon" type="button" title="Compare with the Moon" aria-label="Compare with the Moon">&#9790;</button>
+      <button id="tvoice" type="button" title="Play the narration" aria-label="Play the narration" aria-pressed="false" hidden>&#128264;</button>
       <a id="tdome" href="#" target="_blank" rel="noopener" title="See where it is in the sky" aria-label="See where it is in the sky">&#9673;</a>
     </div>
     <div id="vers" role="group" aria-label="Versions of this target"></div>
@@ -955,6 +961,8 @@ function show(it){
       `</dd>`).join("");
   document.querySelectorAll("#facts .pl").forEach(b => b.onclick = () => openCard(pa[b.dataset.pop]));
   hideAsset();             // a new photo starts without a card
+  stopNarration();
+  document.getElementById("tvoice").hidden = video || !narrationFor(im);
 
   const stat = (ic,n,label,tip,href) => !n ? "" :
     `<${href?"a":"span"} class="stat"${href?` href="${href}" target="_blank" rel="noopener"`:""} title="${tip}">`+
@@ -1182,6 +1190,7 @@ function shut(){
   document.getElementById("tmoon").classList.remove("on");
   stopVideo();
   lb.classList.remove("on","solo","video");
+  stopNarration();
   hideAsset();
   resetZoom();
   document.body.style.overflow = "";
@@ -1396,6 +1405,98 @@ function showCredits(){
   openPop({title:"Credits", sub:"Pictures shown in the detail popups. The charts and most portraits are public domain or Creative Commons; a few portraits are \u00a9 their source and used with credit. Follow each link for the full licence.", list});
 }
 document.getElementById("creditsbtn").onclick = e => showCredits();
+
+/* ==========================================================================
+   NARRATION (v0.24) — plays an image's parts in order and drives the docked
+   card and the Moon overlay. Data: assets.json labels[label].narration =
+     {parts:[{file, show:"constellation"|"discoverer"|"moon"|"scope"|null, hold_s?}]}
+   Starts only from a tap (iOS needs that), skips a part whose file fails,
+   preloads the next part, and clears everything when it ends or is stopped.
+   ========================================================================== */
+const NAR = {audio:null, next:null, parts:[], i:-1, shown:-1, timer:null, moonMine:false, playing:false};
+function narrationFor(im){
+  const n = im && (((ASSETS || {}).labels || {})[im.label] || {}).narration;
+  return n && Array.isArray(n.parts) && n.parts.length ? n : null;
+}
+function narEvent(type, detail = {}){
+  window.dispatchEvent(new CustomEvent("narration", {detail:{type, part:NAR.i, t:Date.now(), ...detail}}));
+}
+function narMoon(on){
+  if(on && !moonOn){ toggleMoon(); NAR.moonMine = true; }
+  else if(!on && NAR.moonMine){ if(moonOn) toggleMoon(); NAR.moonMine = false; }
+}
+function narClearOverlays(){
+  clearTimeout(NAR.timer); NAR.timer = null;
+  hideAsset(); narMoon(false);
+}
+function narShow(part){
+  narClearOverlays();
+  const what = part.show || null;
+  if(what === "moon") narMoon(true);
+  else if(what) showAsset(what);
+  narEvent("show", {show:what});
+  if(what && part.hold_s > 0) NAR.timer = setTimeout(() => {
+    narClearOverlays(); narEvent("hide", {show:what});
+  }, part.hold_s * 1000);
+}
+function narPlay(i){
+  if(!NAR.playing) return;
+  if(i >= NAR.parts.length){ narEvent("end"); stopNarration(); return; }
+  NAR.i = i; NAR.shown = -1;
+  const part = NAR.parts[i], a = NAR.audio;
+  a.src = part.file;
+  narEvent("part", {file:part.file, show:part.show || null});
+  const go = a.play();
+  if(go && go.catch) go.catch(err => {
+    if(!NAR.playing || NAR.i !== i) return;
+    if(err && err.name === "NotAllowedError"){ stopNarration(); narEvent("blocked"); }
+    else narSkip(i, "play failed");
+  });
+  // warm the cache for the next part
+  const nx = NAR.parts[i + 1];
+  if(nx){ NAR.next.src = nx.file; NAR.next.load(); }
+}
+function narSkip(i, why){
+  if(!NAR.playing || NAR.i !== i) return;
+  narEvent("skip", {why});
+  narPlay(i + 1);
+}
+function startNarration(){
+  const im = ITEMS[IT] && ITEMS[IT].v, n = narrationFor(im);
+  if(!n) return;
+  if(!NAR.audio){
+    // one element for the whole sequence: unlocked by this tap, reused for every part
+    NAR.audio = new Audio(); NAR.audio.preload = "auto"; NAR.audio.setAttribute("playsinline", "");
+    NAR.next = new Audio(); NAR.next.preload = "auto"; NAR.next.muted = true;
+    // "playing" fires again after a stall, so each part's overlay is set only once
+    NAR.audio.addEventListener("playing", () => { if(NAR.playing && NAR.shown !== NAR.i){ NAR.shown = NAR.i; narShow(NAR.parts[NAR.i]); } });
+    NAR.audio.addEventListener("ended",   () => { if(NAR.playing) narPlay(NAR.i + 1); });
+    NAR.audio.addEventListener("error",   () => { if(NAR.playing && NAR.audio.getAttribute("src")) narSkip(NAR.i, "load error"); });
+  }
+  NAR.parts = n.parts; NAR.playing = true;
+  const b = document.getElementById("tvoice");
+  b.classList.add("playing"); b.setAttribute("aria-pressed", "true");
+  b.title = "Stop the narration"; b.setAttribute("aria-label", b.title);
+  narEvent("start", {label:im.label});
+  narPlay(0);
+}
+function stopNarration(){
+  if(!NAR.playing && NAR.i < 0) return;
+  const was = NAR.playing;
+  NAR.playing = false; NAR.i = -1;
+  if(NAR.audio){ NAR.audio.pause(); NAR.audio.removeAttribute("src"); NAR.audio.load(); }
+  if(NAR.next){ NAR.next.removeAttribute("src"); }
+  narClearOverlays();
+  const b = document.getElementById("tvoice");
+  b.classList.remove("playing"); b.setAttribute("aria-pressed", "false");
+  b.title = "Play the narration"; b.setAttribute("aria-label", b.title);
+  if(was) narEvent("stop");
+}
+document.getElementById("tvoice").onclick = e => {
+  e.stopPropagation();
+  NAR.playing ? stopNarration() : startNarration();
+};
+window.narration = {play:startNarration, stop:stopNarration, state:() => ({playing:NAR.playing, part:NAR.i})};
 
 /* ==========================================================================
    THEME — follow the operating system first, remember a manual choice after

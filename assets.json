@@ -1006,7 +1006,30 @@
   "M74 Phantom Galaxy": {
    "constellation": "Pisces",
    "person": "Pierre Méchain",
-   "year": 1780
+   "year": 1780,
+   "narration": {
+    "image_id": "m74_200pds",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/m74_200pds_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/m74_200pds_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/m74_200pds_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/m74_200pds_04_scope.mp3",
+      "show": "scope"
+     }
+    ]
+   }
   }
  }
 }

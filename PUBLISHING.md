@@ -237,6 +237,38 @@ domain or CC-licensed (anything else only with Wade's OK, credited to its source
 
 ---
 
+## Narration (from v0.24)
+
+An image gets a speaker button when its `labels` entry in `assets.json` has a `narration` block:
+
+```json
+"M74 Phantom Galaxy": {
+  "constellation": "Pisces", "person": "Pierre Méchain", "year": 1780,
+  "narration": {
+    "image_id": "m74_200pds",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+      {"file": "audio/m74_200pds_01_intro.mp3",      "show": "constellation"},
+      {"file": "audio/m74_200pds_02_discoverer.mp3", "show": "discoverer"},
+      {"file": "audio/m74_200pds_03_science.mp3",    "show": "moon", "hold_s": 4},
+      {"file": "audio/m74_200pds_04_scope.mp3",      "show": "scope"}
+    ]
+  }
+}
+```
+
+- Clips live in `audio/`, named `{image_id}_{nn}_{label}.mp3`, where `image_id` is the target plus rig
+  (e.g. `m74_200pds`) and `nn` is the play order.
+- Parts play in order. `show` is what appears for that part: `constellation`, `discoverer` or `scope`
+  (the docked picture card for this image), `moon` (the to-scale Moon over the photo, the same as the
+  ☾ button) or `null` (just the photo). `hold_s` hides it again after that many seconds; without it,
+  it stays for the whole part.
+- A missing clip is skipped. Everything clears at the end, on stop, on moving to another image or on close.
+- Script hooks: `narration.play()`, `narration.stop()`, `narration.state()`, and a `narration` event on
+  `window` (`detail.type` is start, part, show, hide, skip, end, stop or blocked).
+
+---
+
 ## Checklist
 
 - [ ] Master JPEG in skydome root, no spaces in the filename

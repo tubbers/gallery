@@ -2,6 +2,13 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.24 — 2026-11-15
+- Narration test on M 74 (the Phantom Galaxy). A speaker button sits with the other photo tools: tap it to hear the four-part narration (intro, discoverer, the science, the telescope), tap again to stop. It glows softly while playing. Voice: Google TTS en-AU-Chirp3-HD-Callirrhoe.
+- While it plays, the picture card follows along: the Pisces chart during the intro, Pierre Méchain during the discoverer part, the to-scale full Moon over the photo for the first four seconds of the science part, then the 200PDS during the telescope part. Everything clears when it finishes, when you stop it, move to another image or close the photo.
+- It only starts from a tap (phones need that), skips any part whose file is missing, and loads the next part while the current one plays.
+- Narration is data only: a `narration` entry for an image's label in `assets.json`, with the clips in `audio/`. The speaker shows only on images that have one, so just M 74 for now.
+- The picture card is 50% bigger on desktop (375 px wide). Phones are unchanged.
+
 ## 0.23 — 2026-11-15
 - The constellation, discoverer and telescope pictures now open as a small card in the bottom-right corner of the photo, about half the old size, instead of a dialog over the image. There's no dimmed backdrop, so the photo, the arrows and the details panel all stay visible and usable. Clicking another fact swaps the card; ✕ or Esc closes it, and it closes by itself when you move to another image. On phones it is a compact strip below the arrows.
 - Added portraits for Bernard Mills and Beverly Lynds (AIP Emilio Segrè Visual Archives, John Irwin Slide Collection, Attribution licence via Wikimedia Commons). Every portrait card has a source link.
