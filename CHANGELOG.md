@@ -2,6 +2,10 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.21 — 2026-11-15
+- Corrected capture details for NGC 1365 (one night at Parkes, 18 October 2025, 5.3 hours, unfiltered one-shot colour), the wider NGC 3572 / Gum 37 version (200PDS, not ASKAR 91F; same 14–16 April 2026 data as the Southern Tadpoles) and LDN 1688 Rho Ophiuchi (two-panel RedCat 61 + ASI2600MM RGB mosaic, Wheeny Creek, 11–13 August 2026, 9.2 hours).
+- Added an approximate capture date (December 2024) to the Seestar Horsehead, Wade's first deep-sky image.
+
 ## 0.20 — 2026-11-14
 - Added NGC 1532 (Haley's Coronet), an edge-on barred spiral in Eridanus with its dwarf companion NGC 1531, captured from Wheeny Creek and Wiruna (200PDS + ASI585MC, 10 hours, 11 October and 5 November 2026).
 - Added M 74 (NGC 628, the Phantom Galaxy), a face-on grand design spiral in Pisces, captured from Wiruna (200PDS + ASI585MC, 12 hours, 6–8 November 2026).
