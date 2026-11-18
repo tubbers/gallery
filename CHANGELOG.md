@@ -2,6 +2,12 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.27 — 2026-11-18
+- Added NGC 6752 (the Great Peacock), a globular cluster in Pavo, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 1.46 hours over 6–7 November 2026). The GSO 150 telescope photo now appears on this image.
+- Added NGC 1433, a barred spiral in Horologium with Type Ia supernova SN 2026ahvu just above and to the right of the core, captured remotely from the Nebula Nest on 17 November 2026 (Askar 91F + ASI2600MC, 1.15 hours). It has the Nebula Nest badge and the observatory photo, like M 78.
+- Added the IAU chart for Horologium (CC BY 3.0, the 39th constellation chart).
+- The Galaxies filter now includes barred spirals, and a new Clusters filter covers globular and open clusters. Neither image has narration yet, so the speaker and “Hear about it” button stay hidden on them.
+
 ## 0.26 — 2026-11-15
 - Every image now has a five-part narration: the intro, the discoverer, the science (with the to-scale Moon for the first four seconds), the telescope, and a closing line that leaves the photo clear. The speaker icon on the photo still starts and stops it.
 - A new "Hear about it" button sits in the details, next to "See where it is", in the same style, so the narration is easier to find. It plays and stops the same recording, and only shows when there is one to hear. It works on phones as well as on a desktop.

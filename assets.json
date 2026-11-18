@@ -120,6 +120,12 @@
    "source": "https://commons.wikimedia.org/wiki/File:Hydra_IAU.svg",
    "wiki": "https://en.wikipedia.org/wiki/Hydra_(constellation)"
   },
+  "Horologium": {
+   "file": "assets/constellations/horologium.png",
+   "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Horologium_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Horologium_(constellation)"
+  },
   "Leo": {
    "file": "assets/constellations/leo.png",
    "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",
@@ -3194,6 +3200,16 @@
      }
     ]
    }
+  },
+  "NGC 6752": {
+   "constellation": "Pavo",
+   "person": "James Dunlop",
+   "year": 1826
+  },
+  "NGC 1433": {
+   "constellation": "Horologium",
+   "person": "James Dunlop",
+   "year": 1826
   }
  }
 }

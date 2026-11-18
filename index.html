@@ -463,7 +463,7 @@ dd .pl:hover{color:var(--hot); text-decoration-color:var(--hot)}
   <p>Images © Wade Tubman. All rights reserved.</p>
   <p><button id="creditsbtn" type="button">Portrait and chart credits</button></p>
   <p style="font-family:var(--mono);font-size:11px;opacity:.6;margin-top:26px">
-    v0.26 · built with Claude
+    v0.27 · built with Claude
   </p>
   <p style="color:var(--dim);margin-bottom:6px">Also find my work at</p>
   <p>
@@ -572,7 +572,8 @@ const OPTICS = {
   "RedCat 51":    "RedCat 51 \u2014 250mm",
   "Pentax 135mm": "Pentax 135mm \u2014 135mm",
   "Seestar S50":  "Seestar S50 \u2014 250mm",
-  "DWARF Mini":   "DWARF Mini \u2014 150mm"
+  "DWARF Mini":   "DWARF Mini \u2014 150mm",
+  "GSO 150":      "GSO 150 Newtonian \u2014 750mm"
 };
 const showScope  = s => s ? (OPTICS[s] || s) : null;
 const showCamera = c => c ? (/1600MM|2600MM/.test(c) ? c + " (mono)" : c) : null;
@@ -582,7 +583,8 @@ const showFilter = f => !f ? null
 // Roll the catalogue's granular types up into something a visitor can use.
 const BUCKETS = {
   "Nebulae":     ["Emission Nebula","HII Region"],
-  "Galaxies":    ["Spiral Galaxy","Peculiar Galaxy","Galaxy","Group of Galaxies"],
+  "Galaxies":    ["Spiral Galaxy","Barred Spiral Galaxy","Peculiar Galaxy","Galaxy","Group of Galaxies"],
+  "Clusters":    ["Globular Cluster","Open Cluster"],
   "Dust & dark": ["Reflection Nebula","Dark Nebula","Dense Core","Star Forming Region"],
   "Remnants":    ["Supernova Remnant","Planetary Nebula"]
 };

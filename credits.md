@@ -27,6 +27,7 @@ IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), via Wikimedia 
 - Gemini: [File:Gemini_IAU.svg](https://commons.wikimedia.org/wiki/File:Gemini_IAU.svg), CC BY 3.0
 - Grus: [File:Grus_IAU.svg](https://commons.wikimedia.org/wiki/File:Grus_IAU.svg), CC BY 3.0
 - Hydra: [File:Hydra_IAU.svg](https://commons.wikimedia.org/wiki/File:Hydra_IAU.svg), CC BY 3.0
+- Horologium: [File:Horologium_IAU.svg](https://commons.wikimedia.org/wiki/File:Horologium_IAU.svg), CC BY 3.0
 - Leo: [File:Leo_IAU.svg](https://commons.wikimedia.org/wiki/File:Leo_IAU.svg), CC BY 3.0
 - Lupus: [File:Lupus_IAU.svg](https://commons.wikimedia.org/wiki/File:Lupus_IAU.svg), CC BY 3.0
 - Monoceros: [File:Monoceros_IAU.svg](https://commons.wikimedia.org/wiki/File:Monoceros_IAU.svg), CC BY 3.0
@@ -102,5 +103,5 @@ These show the placeholder image with a link to their Wikipedia page:
 
 ## Telescopes (`assets/scopes/`)
 
-Photos © Wade Tubman. Resized to 1,200 px on the long side, with all EXIF and location data removed. `gso.jpg` (GSO 150) is mapped but not used by any gallery image yet.
+Photos © Wade Tubman. Resized to 1,200 px on the long side, with all EXIF and location data removed. `gso.jpg` (GSO 150) is used for NGC 6752. `nebula.jpg` (Askar 91F at the Nebula Nest) is used for images with `"site": "nebula-nest"` (M 78 and NGC 1433).
 

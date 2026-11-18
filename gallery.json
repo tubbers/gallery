@@ -1492,5 +1492,41 @@
   "distance_note": "About 30 million light-years (published estimates typically 24–32 million ly).",
   "constellation": "Pisces",
   "discovered_by": "Pierre Méchain, 1780"
+ },
+ {
+  "label": "NGC 6752",
+  "name": "NGC 6752 (Caldwell 93) — The Great Peacock Globular Cluster in Pavo",
+  "blurb": "NGC 6752, also known as the Great Peacock and Caldwell 93, is a globular cluster in the southern constellation of Pavo, the Peacock, about 13,000 light-years away. It is the fourth-brightest globular cluster in the sky, after Omega Centauri, 47 Tucanae and Messier 22, and at magnitude 5.4 it can be seen with the unaided eye from a dark site. James Dunlop found it on 30 June 1826 from Parramatta, New South Wales. More than 100,000 stars, nearly 12 billion years old, are bound together in a ball about 100 light-years across. The core is tightly compressed — a sign that the cluster has undergone core collapse — and in this frame it blazes almost like a single light, then resolves into a rich swarm of individual stars that thin toward the edge of the field. A few faint background galaxies peek through the star field.\n\nCaptured from Wiruna in the NSW outback (Bortle 2) over two nights on 6 and 7 November 2026, 1.46 hours on the GSO 150 and ASI2600MM.",
+  "type": "Globular Cluster",
+  "scope": "GSO 150",
+  "camera": "ASI2600MM",
+  "filters": "LRGB",
+  "location": "Wiruna",
+  "bortle": 2,
+  "hours": 1.46,
+  "nights": 2,
+  "captured": "2026-11-06 to 2026-11-07",
+  "distance_ly": "13,000",
+  "distance_note": "About 13,000 light-years (commonly quoted; Boyles et al. 2011 give 4.0 kpc. Baumgardt & Vasiliev 2021 give about 13,500 ly).",
+  "constellation": "Pavo",
+  "discovered_by": "James Dunlop, 1826"
+ },
+ {
+  "label": "NGC 1433",
+  "name": "NGC 1433 — A Barred Spiral Galaxy in Horologium, with Supernova SN 2026ahvu",
+  "blurb": "NGC 1433 is a barred spiral galaxy in the southern constellation of Horologium, the Clock, about 50 million light-years away. James Dunlop found it on 28 September 1826 from Parramatta, New South Wales. A bright bar of stars runs through its core, and the galaxy is a classic double-ring spiral: an inner ring of star formation around the bar, and a fainter outer ring. It is also a Seyfert galaxy, with an active nucleus.\n\nThe bluish star just above and to the right of the core, on the inner ring, is supernova SN 2026ahvu. It was discovered on 2 November 2026 by ATLAS, the Asteroid Terrestrial-impact Last Alert System, and brightened from magnitude 17 to 13.5 within a few days. It is a Type Ia supernova: in a binary system, a white dwarf draws in material until it passes the Chandrasekhar limit of about 1.44 times the mass of the Sun, or two white dwarfs merge, and the star is destroyed in the explosion. Type Ia supernovae are used as standard candles for the cosmic distance ladder, the scale by which astronomers measure the universe. This one is close enough, and was caught early enough, for detailed study, and it will fade over the months ahead.\n\nCaptured remotely from the Nebula Nest, Vic, on 17 November 2026, 1.15 hours on the Askar 91F and ASI2600MC.",
+  "type": "Barred Spiral Galaxy",
+  "scope": "ASKAR 91F",
+  "camera": "ASI2600MC",
+  "filters": "None (OSC broadband)",
+  "location": "Nebula Nest, Vic",
+  "hours": 1.15,
+  "nights": 1,
+  "captured": "2026-11-17",
+  "distance_ly": "50,000,000",
+  "distance_note": "About 50 million light-years, the figure used in coverage of SN 2026ahvu. Published distance estimates are typically around 46 million ly (14.15 ± 1.15 Mpc).",
+  "constellation": "Horologium",
+  "discovered_by": "James Dunlop, 1826",
+  "site": "nebula-nest"
  }
 ]
