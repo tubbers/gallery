@@ -100,6 +100,7 @@ the live Sun:
                 "label": "ISS transit of the Sun"}}
 ```
 
+Keep the working ephemeris timestamp private and do not publish it in the manifest.
 `pa_up_deg` is the position angle of image-up at capture. Measure it by matching
 the sunspots to an SDO/HMI image from that time, or for an alt-az, zenith-up frame
 use the parallactic angle. Avoid "Solar", "Jup", "Mars", "Saturn" and "Moon" in
@@ -138,7 +139,7 @@ One object, keyed on the exact `label` from the manifest. Every field optional.
   "bortle": 7,
   "hours": 49.2,
   "nights": 14,
-  "captured": "2026-05-30 to 2026-08-08",
+  "captured": "2026-05 to 2026-08",
   "amp_id": 165,
   "amp_slug": "c63-ngc-7293-helix-eye-of-god-planetary-nebula",
   "favourites": 3,
@@ -151,6 +152,15 @@ One object, keyed on the exact `label` from the manifest. Every field optional.
   "featured": true
 }
 ```
+
+For capture dates, publish only `YYYY-MM`, `YYYY-MM to YYYY-MM` for a span, or
+`YYYY-MM and YYYY-MM` for separate sessions. Never put capture days or times in
+public captions, file names or embedded metadata. Use `capture_approximate: true`
+when only an approximate month is known. For deep-sky observations, set
+`near_new_moon: true` only after checking that all logged nights were within
+four local calendar days of a new moon against the [USNO phases table](https://aa.usno.navy.mil/data/MoonPhases).
+This is a historical phase note, not a claim about sky conditions.
+Keep captions friendly and put gear, filters and exposure details in the facts table.
 
 Then commit the gallery repo the same way.
 

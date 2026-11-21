@@ -2,12 +2,15 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.29 — 2026-11-21
+- Use month-level capture dates; keep photography details in the Gallery facts table.
+
 ## 0.28 — 2026-11-21
-- Added M33, the Triangulum Galaxy, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 7.17 hours of integration over 5–8 November 2026).
+- Added M33, the Triangulum Galaxy, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 7.17 hours of integration over November 2026).
 
 ## 0.27 — 2026-11-18
-- Added NGC 6752 (the Great Peacock), a globular cluster in Pavo, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 1.46 hours over 6–7 November 2026). The GSO 150 telescope photo now appears on this image.
-- Added NGC 1433, a barred spiral in Horologium with Type Ia supernova SN 2026ahvu just above and to the right of the core, captured remotely from the Nebula Nest on 17 November 2026 (Askar 91F + ASI2600MC, 1.15 hours). It has the Nebula Nest badge and the observatory photo, like M 78.
+- Added NGC 6752 (the Great Peacock), a globular cluster in Pavo, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 1.46 hours over November 2026). The GSO 150 telescope photo now appears on this image.
+- Added NGC 1433, a barred spiral in Horologium with Type Ia supernova SN 2026ahvu just above and to the right of the core, captured remotely from the Nebula Nest on November 2026 (Askar 91F + ASI2600MC, 1.15 hours). It has the Nebula Nest badge and the observatory photo, like M 78.
 - Added the IAU chart for Horologium (CC BY 3.0, the 39th constellation chart).
 - The Galaxies filter now includes barred spirals, and a new Clusters filter covers globular and open clusters. Neither image has narration yet, so the speaker and “Hear about it” button stay hidden on them.
 
@@ -39,20 +42,20 @@ Gallery versions are the number in the page footer. Releases before 0.15 were no
 - Credits for the charts and portraits are in `credits.md` and behind a new link in the footer.
 
 ## 0.21 — 2026-11-15
-- Corrected capture details for NGC 1365 (one night at Parkes, 18 October 2025, 5.3 hours, unfiltered one-shot colour), the wider NGC 3572 / Gum 37 version (200PDS, not ASKAR 91F; same 14–16 April 2026 data as the Southern Tadpoles) and LDN 1688 Rho Ophiuchi (two-panel RedCat 61 + ASI2600MM RGB mosaic, Wheeny Creek, 11–13 August 2026, 9.2 hours).
+- Corrected capture details for NGC 1365 (one night at Parkes, October 2025, 5.3 hours, unfiltered one-shot colour), the wider NGC 3572 / Gum 37 version (200PDS, not ASKAR 91F; same April 2026 data as the Southern Tadpoles) and LDN 1688 Rho Ophiuchi (two-panel RedCat 61 + ASI2600MM RGB mosaic, Wheeny Creek, August 2026, 9.2 hours).
 - Added an approximate capture date (December 2024) to the Seestar Horsehead, Wade's first deep-sky image.
 
 ## 0.20 — 2026-11-14
-- Added NGC 1532 (Haley's Coronet), an edge-on barred spiral in Eridanus with its dwarf companion NGC 1531, captured from Wheeny Creek and Wiruna (200PDS + ASI585MC, 10 hours, 11 October and 5 November 2026).
-- Added M 74 (NGC 628, the Phantom Galaxy), a face-on grand design spiral in Pisces, captured from Wiruna (200PDS + ASI585MC, 12 hours, 6–8 November 2026).
+- Added NGC 1532 (Haley's Coronet), an edge-on barred spiral in Eridanus with its dwarf companion NGC 1531, captured from Wheeny Creek and Wiruna (200PDS + ASI585MC, 10 hours, October and November 2026).
+- Added M 74 (NGC 628, the Phantom Galaxy), a face-on grand design spiral in Pisces, captured from Wiruna (200PDS + ASI585MC, 12 hours, November 2026).
 
 ## 0.19 — 2026-11-13
-- Added NGC 1097 (Caldwell 67), a barred spiral in Fornax, captured from Wiruna (200PDS + ASI585MC, 11 hours, 5–8 November 2026).
+- Added NGC 1097 (Caldwell 67), a barred spiral in Fornax, captured from Wiruna (200PDS + ASI585MC, 11 hours, November 2026).
 - Rewrote the M31 and M78 gallery blurbs in the older educational style: the science and what to look for, with a short capture line, and without processing step lists.
 
 
 ## 0.18 — 2026-11-13
-- Added M31 Andromeda Galaxy (DWARF Mini, Wiruna, 5–8 November 2026) and M78 (NGC 2068) (Askar 91F, Nebula Nest).
+- Added M31 Andromeda Galaxy (DWARF Mini, Wiruna, November 2026) and M78 (NGC 2068) (Askar 91F, Nebula Nest).
 - Optional `site` field in `gallery.json`. Set `"site": "nebula-nest"` to show the Nebula Nest logo as a badge on the grid card and in the detail view, linking to https://nebulanest.com.au. Reuse it on future Nest images.
 - New thumbnails are 1,200 px on the long side (`web/thumbs/<name>_1200.jpg`). Existing 1,024 px thumbs are unchanged.
 
