@@ -2,6 +2,9 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.32 — 2026-11-21
+- Add four-part spoken narration to the Triangulum Galaxy.
+
 ## 0.31 — 2026-11-21
 - Add the credited Triangulum constellation chart and the four-part narration production tools. Existing recordings are unchanged.
 

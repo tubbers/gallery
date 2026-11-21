@@ -593,7 +593,30 @@
    "constellation": "Triangulum",
    "person": "Charles Messier",
    "year": 1764,
-   "caption": "Catalogued by Charles Messier, August 1764"
+   "caption": "Catalogued by Charles Messier, August 1764",
+   "narration": {
+    "image_id": "m33_gso150",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/m33_gso150_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/m33_gso150_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/m33_gso150_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/m33_gso150_04_scope.mp3",
+      "show": "scope"
+     }
+    ]
+   }
   },
   "NGC 55 Whale / Pearls": {
    "constellation": "Sculptor",
