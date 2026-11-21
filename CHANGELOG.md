@@ -2,6 +2,10 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.30 — 2026-11-21
+- Bring the shorter object descriptions in line with Andromeda: readable science, visual cues and no capture settings in the prose.
+- Correct the classification of the Gem Cluster, the Dragon’s Egg, Thor’s Helmet and the Dolphin Head.
+
 ## 0.29 — 2026-11-21
 - Use month-level capture dates; keep photography details in the Gallery facts table.
 
