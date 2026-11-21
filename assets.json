@@ -3239,12 +3239,58 @@
   "NGC 6752": {
    "constellation": "Pavo",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "ngc6752_gso150",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc6752_gso150_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc6752_gso150_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc6752_gso150_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc6752_gso150_04_scope.mp3",
+      "show": "scope"
+     }
+    ]
+   }
   },
   "NGC 1433": {
    "constellation": "Horologium",
    "person": "James Dunlop",
-   "year": 1826
+   "year": 1826,
+   "narration": {
+    "image_id": "ngc1433_askar91f",
+    "voice": "Google TTS en-AU-Chirp3-HD-Callirrhoe",
+    "parts": [
+     {
+      "file": "audio/ngc1433_askar91f_01_intro.mp3",
+      "show": "constellation"
+     },
+     {
+      "file": "audio/ngc1433_askar91f_02_discoverer.mp3",
+      "show": "discoverer"
+     },
+     {
+      "file": "audio/ngc1433_askar91f_03_science.mp3",
+      "show": "moon",
+      "hold_s": 4
+     },
+     {
+      "file": "audio/ngc1433_askar91f_04_scope.mp3",
+      "show": "scope"
+     }
+    ]
+   }
   }
  }
 }
