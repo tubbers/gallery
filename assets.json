@@ -583,6 +583,12 @@
   }
  },
  "labels": {
+  "M33 Triangulum Galaxy": {
+   "constellation": "Triangulum",
+   "person": "Charles Messier",
+   "year": 1764,
+   "caption": "Catalogued by Charles Messier, August 1764"
+  },
   "NGC 55 Whale / Pearls": {
    "constellation": "Sculptor",
    "person": "James Dunlop",

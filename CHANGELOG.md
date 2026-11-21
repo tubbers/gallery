@@ -2,6 +2,9 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.28 — 2026-11-21
+- Added M33, the Triangulum Galaxy, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 7.17 hours of integration over 5–8 November 2026).
+
 ## 0.27 — 2026-11-18
 - Added NGC 6752 (the Great Peacock), a globular cluster in Pavo, captured from Wiruna (GSO 150 + ASI2600MM, LRGB, 1.46 hours over 6–7 November 2026). The GSO 150 telescope photo now appears on this image.
 - Added NGC 1433, a barred spiral in Horologium with Type Ia supernova SN 2026ahvu just above and to the right of the core, captured remotely from the Nebula Nest on 17 November 2026 (Askar 91F + ASI2600MC, 1.15 hours). It has the Nebula Nest badge and the observatory photo, like M 78.

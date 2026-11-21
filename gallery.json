@@ -1528,5 +1528,23 @@
   "constellation": "Horologium",
   "discovered_by": "James Dunlop, 1826",
   "site": "nebula-nest"
- }
+ },
+  {
+    "label": "M33 Triangulum Galaxy",
+    "name": "M 33 (NGC 598) — The Triangulum Galaxy",
+    "blurb": "The Triangulum Galaxy is a spiral in the constellation Triangulum, roughly three million light-years away and the third-largest galaxy in the Local Group. Blue clusters of young stars trace the arms alongside pink clouds of glowing hydrogen. The bright pink region just above and right of the core is NGC 604, a stellar nursery nearly 1,500 light-years across. Charles Messier observed it in August 1764 and added it to his catalogue.\n\nCaptured from Wiruna, NSW (Bortle 2), over four nights from 5 to 8 November 2026 with a GSO 150 Newtonian, a 0.95× coma corrector (about 712 mm at f/4.75) and the ASI2600MM. The final LRGB image combines 167 of 179 exposures for 7.17 hours of integration. The capture total was 7.62 hours: 80 × 120 s in luminance and 33 × 180 s in each of red, green and blue.\n\nProcessed in PixInsight: WBPP integration, StarNet++ separation, Statistical Stretch, LRGB combination, Multiscale Adaptive Stretch and star recombination.",
+    "type": "Spiral Galaxy",
+    "scope": "GSO 150",
+    "camera": "ASI2600MM",
+    "filters": "LRGB",
+    "location": "Wiruna",
+    "bortle": 2,
+    "hours": 7.17,
+    "nights": 4,
+    "captured": "2026-11-05 to 2026-11-08",
+    "distance_ly": "3,000,000",
+    "distance_note": "About 3 million light-years (NASA Hubble Messier Catalog).",
+    "constellation": "Triangulum",
+    "discovered_by": "Charles Messier, 1764"
+  }
 ]
