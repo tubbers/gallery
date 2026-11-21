@@ -222,6 +222,12 @@
    "source": "https://commons.wikimedia.org/wiki/File:Taurus_IAU.svg",
    "wiki": "https://en.wikipedia.org/wiki/Taurus_(constellation)"
   },
+  "Triangulum": {
+   "file": "assets/constellations/triangulum.png",
+   "credit": "IAU and Sky & Telescope (Roger Sinnott & Rick Fienberg), CC BY 3.0; converted to PNG",
+   "source": "https://commons.wikimedia.org/wiki/File:Triangulum_IAU.svg",
+   "wiki": "https://en.wikipedia.org/wiki/Triangulum"
+  },
   "Tucana": {
    "file": "assets/constellations/tucana.png",
    "credit": "IAU and Sky & Telescope magazine (Roger Sinnott & Rick Fienberg), CC BY 3.0",

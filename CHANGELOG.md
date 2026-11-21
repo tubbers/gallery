@@ -2,6 +2,9 @@
 
 Gallery versions are the number in the page footer. Releases before 0.15 were not logged here.
 
+## 0.31 — 2026-11-21
+- Add the credited Triangulum constellation chart and the four-part narration production tools. Existing recordings are unchanged.
+
 ## 0.30 — 2026-11-21
 - Bring the shorter object descriptions in line with Andromeda: readable science, visual cues and no capture settings in the prose.
 - Correct the classification of the Gem Cluster, the Dragon’s Egg, Thor’s Helmet and the Dolphin Head.
